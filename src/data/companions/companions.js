@@ -1,7 +1,10 @@
+import ImageSausage from "../../assets/sprites/companions/uncommon/aGV_pet_2star_sausage_0000.png"
+
 export const companions = [
   {
     name: "Sausage",
     tier: "Uncommon",
+    image: ImageSausage,
     manaCost: 1,
     baseAttack: 0.1,
     baseASPD: 0.4,
