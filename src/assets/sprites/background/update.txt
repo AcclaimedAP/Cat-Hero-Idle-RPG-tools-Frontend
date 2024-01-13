@@ -1,0 +1,50 @@
+## **New Features:**
+- **Researches:**
+  - Fish level +10 (Unlocked at Fish level 100)
+
+- **Skills:**
+    - **Cat Heroes :150CatHeroes:  :**
+      - Active for 10s.
+      - Every time a Cat type skills is casted, uses an enhanced skill that deals 20K% damage of the original skill
+
+    - **Oceans Punishment :151OceansPunishment:  :**
+      - Marks enemies for 2s and store all the damage dealt to them.
+      - Shark emerges after the 2 seconds, dealing 5000%  of stored damage + 30000% of ATK.
+
+- **Companions:**
+    - **Lulu :248Lulu:  :**
+      - Cooldown reduction for :150CatHeroes: , enhanced cat skills, reduced own MP requirement.
+    - **Jack Striker :249JackStiker:  :**
+      - Enhance pirate type skills, cooldown reduction for :151OceansPunishment:, reduced own MP requirement.
+
+- **Runes:**
+  - 72 New Runes (8 Mythic, mostly subrunes).
+
+- **Events:**
+  - *Black Friday:* Summon and Combine Runes to get rewards (paywall).
+  - *Thanksgiving:* Details in `<#1174117114173477015>`.
+
+- **Family:**
+  - Size: 4 Members
+  - Tickets Per Week:
+    - 510 :WeaponTicket:  (170 Per Member)
+    - 240 :SkillTicket: (80 Per Member)
+    - 105 :CompanionTicket: / :RuneTicket:  (35 Per Member)
+    - Low Paywall - Check Info tab in-game.
+
+- **Currencies:**
+  - :BlackDiamond:  : used to reroll runes
+  - :ShinyAcorn: : Premium Event Currency
+  - :SquirrelCandy: : Event Currency
+  - :SkillBook: : used to purchase Legendary and Mythic Skills in the Variety Store.
+
+- **Skins:**
+  - Turkey (cat skin): 15000 :SquirrelCandy: 
+  - Fork (cannon skin): 1 :ShinyAcorn: 
+  - Acorn Log (cannon skin): 10 Day Login Event
+  - Squirrel (cat skin): 15 Day Login Event
+  - Flex, VIP (cat skin) : 100 :SkinHanger: 
+  - Gift, 3xGift (cannon ski ): 300 :SkinHanger: 
+
+**New Worlds:**
+- 10 new worlds with fresh enemies and bosses.
