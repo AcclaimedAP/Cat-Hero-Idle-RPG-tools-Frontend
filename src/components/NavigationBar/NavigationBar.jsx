@@ -17,8 +17,9 @@ const NavigationLink = ({ link }) => {
 			>
 				{link.displayText}
 			</Link>
+			<span className='h-[2px] bg-accent absolute bottom-0 w-full'></span>
 			{link.children && showSubmenu && (
-				<ul className='absolute top-full bg-secondary w-full'>
+				<ul className='absolute left-full bg-secondary w-full z-10 contrast-125'>
 					{link.children.map((child) => (
 						<NavigationLink
 							key={child.url}
