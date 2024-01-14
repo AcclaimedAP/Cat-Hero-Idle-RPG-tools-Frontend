@@ -22,8 +22,9 @@ export const GameData = () => {
 	});
 	return (
 		<div className='h-[600px] bg-secondary'>
-			<div className='flex h-16 justify-center items-center bg-gray-700'>
-				<h1 className='text-2xl'>Game Data</h1>
+			<div className='flex flex-col justify-center items-center bg-gray-700'>
+				<h1 className='text-2xl m-2'>Game Data</h1>
+				<p className='text-sm m-2'>Shows all added game data in form of icons. The main purpose of this page will be to gain quick access to information about specific skills, companions, runes, or other parts.</p>
 			</div>
 			<div className='bg-primary px-4 py-2 m-4 border-2 border-solid border-accent'>
 				<div className='bg-secondary py-2 my-2 w-full'>
