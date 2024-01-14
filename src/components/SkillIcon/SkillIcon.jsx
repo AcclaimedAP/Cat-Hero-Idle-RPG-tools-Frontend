@@ -6,7 +6,7 @@ export const SkillIcon = ({ skill, label = true, level = 1 }) => {
 			<div className='relative w-10 h-10'>
 				{label && (
 					<span
-						className='absolute z-20 text-[0.6rem] left-[4px] top-[2px] '
+						className='absolute z-20 text-[0.6rem] left-[4px] top-[2px] game-text'
 						style={{ textShadow: '1px 1px 0 #000, -1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000', fontSmooth: 'never', fontWeight: 'bolder' }}
 					>
 						Lv. {level}
