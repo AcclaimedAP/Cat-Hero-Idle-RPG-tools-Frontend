@@ -1,25 +1,19 @@
-import ImageBackground from '../../assets/sprites/background/GV_ui_main19_0.png';
+import { getIconBackground } from '../../utility/imageHandling/getIconBackground';
 
 export const SkillIcon = ({ skill, label = true, level = 1 }) => {
+	const background = getIconBackground(skill.rarity);
 	return (
 		<>
-			<div className='relative w-10 h-10'>
-				{label && (
-					<span
-						className='absolute z-20 text-[0.6rem] left-[4px] top-[2px] game-text'
-						style={{ textShadow: '1px 1px 0 #000, -1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000', fontSmooth: 'never', fontWeight: 'bolder' }}
-					>
-						Lv. {level}
-					</span>
-				)}
+			<div className='relative w-12 h-12'>
+				{label && <span className='absolute z-20 text-[0.6rem] left-[4px] top-[2px] game-text text-outline'>Lv. {level}</span>}
 				<img
-					className='absolute z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2/5 h-2/5'
+					className='absolute z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[45%] h-[45%]'
 					src={skill.image}
 					alt=''
 				/>
 				<img
 					className='absolute left-0 top-0 z-1'
-					src={ImageBackground}
+					src={background}
 					alt=''
 				/>
 			</div>
