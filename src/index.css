@@ -37,3 +37,89 @@
     -1px -1px 0 #000,
     1px 1px 0 #000;
 }
+
+.container-light {
+  border: 20px solid transparent;
+  padding: 20px;
+  border-image-source: url("./assets/sprites/ui/GV_mainmenu_back0513.png");
+  border-image-outset: 20px;
+  border-image-slice: 30;
+  border-image-repeat: round;
+  margin: 20px;
+  background-color: #e1d4b7;
+}
+
+.menu-button {
+  background-image: url("./assets/sprites/ui/GV_ui_main0.png");
+  background-size: 100% 100%;
+  padding: 15px;
+  width: 100%;
+  min-width: 120px;
+}
+
+.menu-button:hover {
+  background-image: url("./assets/sprites/ui/GV_ui_main1.png");
+}
+
+.background-image {
+  background-image: url("./assets/sprites/background/GV_Dungeon3_background.png");
+  background-size: 100%;
+
+  background-position: center calc(100px + 50%);
+  height: 100vh;
+  position: fixed;
+  width: 100vw;
+  z-index: -1;
+}
+
+.background-image-front {
+  background-image: url("./assets/sprites/background/GV_Dungeon3_b.png");
+  background-size: 900px;
+  aspect-ratio: 5 / 2;
+  background-repeat: repeat-x;
+  background-position: center bottom;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  bottom: 40px;
+  width: calc(100vw + 900px);
+  z-index: 1;
+  animation: slide-left-900-px 150s linear infinite;
+}
+
+.background-image-front-two {
+  background-image: url("./assets/sprites/background/GV_Dungeon3_a.png");
+  background-size: 700px;
+  aspect-ratio: 5 / 2;
+  background-repeat: repeat-x;
+  background-position: center bottom;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: calc(100vw + 800px);
+  z-index: 2;
+  animation: slide-left-800-px 110s linear infinite;
+}
+
+@keyframes slide-left-900-px {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-900px);
+  }
+  
+}
+
+@keyframes slide-left-800-px {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-800px);
+  }
+  
+}

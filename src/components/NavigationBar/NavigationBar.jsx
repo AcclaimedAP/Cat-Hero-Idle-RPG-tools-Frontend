@@ -12,14 +12,13 @@ const NavigationLink = ({ link }) => {
 			onMouseLeave={() => setShowSubmenu(false)}
 		>
 			<Link
-				className='p-2 hover:bg-primary w-32 text-center'
+				className='text-center menu-button'
 				to={link.url}
 			>
 				{link.displayText}
 			</Link>
-			<span className='h-[2px] bg-accent absolute bottom-0 w-full'></span>
 			{link.children && showSubmenu && (
-				<ul className='absolute left-full bg-secondary w-full z-10 contrast-125'>
+				<ul className='absolute left-0 bottom-full w-full z-10'>
 					{link.children.map((child) => (
 						<NavigationLink
 							key={child.url}
@@ -42,8 +41,8 @@ export const NavigationBar = () => {
 
 	return (
 		<>
-			<nav className='flex bg-secondary'>
-				<ul className='flex gap-2'>{links}</ul>
+			<nav className='flex fixed bottom-0 left-0'>
+				<ul className='flex'>{links}</ul>
 			</nav>
 		</>
 	);

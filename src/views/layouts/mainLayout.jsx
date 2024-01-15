@@ -7,10 +7,14 @@ export const Layout = () => {
 			<header>
 				<NavigationBar />
 			</header>
-			<main>
+			<main className=''>
 				<Outlet></Outlet>
 			</main>
 			<footer></footer>
+			<div className='background-image'>
+				<div className='background-image-front'></div>
+				<div className='background-image-front-two'></div>
+			</div>
 		</>
 	);
 };
