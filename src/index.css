@@ -99,7 +99,7 @@
   bottom: 0;
   width: calc(100vw + 800px);
   z-index: 2;
-  animation: slide-left-800-px 110s linear infinite;
+  animation: slide-left-700-px 110s linear infinite;
 }
 
 @keyframes slide-left-900-px {
@@ -113,13 +113,13 @@
   
 }
 
-@keyframes slide-left-800-px {
+@keyframes slide-left-700-px {
   0% {
     transform: translateX(0);
   }
 
   100% {
-    transform: translateX(-800px);
+    transform: translateX(-700px);
   }
   
 }
