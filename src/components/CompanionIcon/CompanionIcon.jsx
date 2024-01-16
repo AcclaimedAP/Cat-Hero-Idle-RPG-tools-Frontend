@@ -5,7 +5,7 @@ export const CompanionIcon = ({ companion, label = true, level = 1 }) => {
 	const background = getIconBackground(companion.rarity);
 	return (
 		<>
-			<div className='relative container-light w-16 h-20 z-0'>
+			<div className='relative container-light w-20 h-20 z-0'>
 				<div className='absolute z-20 left-0 top-0 w-[45%] h-[45%] -translate-x-1/3 -translate-y-1/3'>
 					<div className='relative left-0 top-0'>
 						<img
