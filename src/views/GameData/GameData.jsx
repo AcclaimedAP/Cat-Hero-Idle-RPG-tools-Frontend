@@ -23,8 +23,8 @@ export const GameData = () => {
 	return (
 		<div className='container-dark'>
 			<div className='flex flex-col items-center container-light'>
-				<h1 className='text-2xl m-2'>Game Data</h1>
-				<p className='text-sm m-2'>Shows all added game data in form of icons. The main purpose of this page will be to gain quick access to information about specific skills, companions, runes, or other parts.</p>
+				<h1 className='text-2xl m-8'>Game Data</h1>
+				<p className='text-sm m-8'>Shows all added game data in form of icons. The main purpose of this page will be to gain quick access to information about specific skills, companions, runes, or other parts.</p>
 			</div>
 			<div className='container-dark'>
 				<div className='container-light'>

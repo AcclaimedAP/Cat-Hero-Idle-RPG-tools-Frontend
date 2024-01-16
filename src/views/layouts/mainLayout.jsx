@@ -7,7 +7,7 @@ export const Layout = () => {
 			<header>
 				<NavigationBar />
 			</header>
-			<main className='p-12'>
+			<main className='p-12 mb-[60px]'>
 				<Outlet></Outlet>
 			</main>
 			<footer></footer>
