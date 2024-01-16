@@ -5,14 +5,16 @@ const NavigationLink = ({ link }) => {
 	return (
 		<li className='relative flex mx-[-2px]'>
 			<Link
-				className='text-center menu-button text-sm flex flex-col items-center  w-20 h-20'
+				className='text-center menu-button text-sm flex flex-col items-center  w-20 h-20 text-outline'
 				to={link.url}
 			>
-				<img
-					src={link.icon}
-					alt=''
-					className='w-10 h-10 m-[-4px]'
-				/>
+				{link.icon && (
+					<img
+						src={link.icon}
+						alt=''
+						className='w-10 h-10 m-[-4px]'
+					/>
+				)}
 				{link.displayText}
 			</Link>
 		</li>
