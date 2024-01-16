@@ -6,7 +6,6 @@ import ImageBackgroundLegendary from '../../assets/sprites/background/GV_ui_main
 import ImageBackgroundMythic from '../../assets/sprites/background/GV_ui_main19_5.png';
 
 export const getIconBackground = (rarity) => {
-  console.log(rarity);
   switch (rarity) {
     case 'Common':
       return ImageBackgroundCommon;

@@ -18,17 +18,17 @@ export const companions = [
           {
             level: 1,
             requiredLevel: 1,
-            value1: 1.5
+            sausageDmgMultiplier: 1.5
           },
           {
             level: 2,
             requiredLevel: 21,
-            value1: 2.5
+            sausageDmgMultiplier: 2.5
           },
           {
             level: 3,
             requiredLevel: 41,
-            value1: 5.5
+            sausageDmgMultiplier: 5.5
           }
         ]
       },
@@ -39,20 +39,44 @@ export const companions = [
           {
             level: 1,
             requiredLevel: 11,
-            value1: 0.2
+            coolDownSpeed: 0.2
           },
           {
             level: 2,
             requiredLevel: 31,
-            value1: 0.4
+            coolDownSpeed: 0.4
           },
           {
             level: 3,
             requiredLevel: 51,
-            value1: 0.6
+            coolDownSpeed: 0.6
           }
         ]
       }
     ]
   }
 ]
+function getDescription(level = 21) {
+  const effects = []
+  this.specialEffect.map(effect => {
+    let description = effect.description;
+    let templateVars = effect.tiers.filter(tier => tier.requiredLevel <= level);
+    templateVars.map(tier => {
+      const desc = description.replace(/\$\{(\w+)\}(%?)/g, (_, variable, isPercent) => {
+        let value = tier[variable];
+        if (isPercent) {
+          value *= 100;
+          value += "%";
+        }
+        return value;
+      });
+      effects.push(desc);
+    });
+  }
+  );
+  return effects;
+}
+
+companions.forEach(companion => {
+  companion.getDescription = getDescription;
+});
