@@ -64,7 +64,8 @@
 .background-image {
   background-image: url("./assets/sprites/background/GV_Dungeon3_background.png");
   background-size: 100%;
-
+  left: 0;
+  top: 0;
   background-position: center calc(100px + 50%);
   height: 100vh;
   position: fixed;
