@@ -12,12 +12,12 @@
 }
 
 :root {
-	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: pantonextrabold, sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
 
 	color-scheme: light dark;
-	color: rgb(255 255 255 / 87%);
+  color: #000;
 	background-color: #242424;
 
 	font-synthesis: none;
@@ -26,14 +26,106 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.game-text {
-  font-family: pantonextrabold, sans-serif;
+h1, h2, h3, span {
+  color: rgb(255 255 255 / 87%);
+  text-shadow:
+  1px 1px 0 #000,
+  -1px 1px 0 #000,  
+  -1px -1px 0 #000,
+  1px 1px 0 #000,
+  1px 0 0 #000,
+  0 1px 0 #000,
+  -1px 0 0 #000,
+  0 -1px 0 #000;
 }
 
 .text-outline {
+  color: rgb(255 255 255 / 87%);
   text-shadow:
-    1px 1px 0 #000,
-    -1px 1px 0 #000,  
-    -1px -1px 0 #000,
-    1px 1px 0 #000;
+  1px 1px 0 #000,
+  -1px 1px 0 #000,  
+  -1px -1px 0 #000,
+  1px 1px 0 #000,
+  1px 0 0 #000,
+  0 1px 0 #000,
+  -1px 0 0 #000,
+  0 -1px 0 #000;
+}
+
+
+.background-image {
+  background-image: url("./assets/sprites/background/GV_Dungeon3_background.png");
+  background-size: cover;
+  left: 0;
+  top: 0;
+  background-position: 100% 20%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  
+  position: fixed;
+  width: 100vw;
+  z-index: -1;
+}
+
+
+.background-image-front {
+  background-image: url("./assets/sprites/background/GV_Dungeon3_b.png");
+  background-size: 900px;
+  aspect-ratio: 5 / 2;
+  background-repeat: repeat-x;
+  background-position: center bottom;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  bottom: 40px;
+  width: calc(100vw + 900px);
+  z-index: 1;
+  animation: slide-left-900-px 150s linear infinite;
+}
+
+.background-image-front-two {
+  border-image-source: url("./assets/sprites/background/GV_Dungeon3_a.png");
+  background-size: 700px;
+  aspect-ratio: 5 / 2;
+  background-repeat: repeat-x;
+  background-position: center bottom;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: calc(100vw + 800px);
+  z-index: 2;
+  animation: slide-left-700-px 110s linear infinite;
+}
+
+.navigation-background {
+  border-top: 20px solid transparent;
+  border-image: url("./assets/sprites/ui/GV_ui_main16.png");
+  border-image-outset: -20px;
+  border-image-slice: 30;
+  border-image-repeat: round;
+  width: 100%;
+  background-color: #81684f;
+}
+
+@keyframes slide-left-900-px {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-900px);
+  }
+  
+}
+
+@keyframes slide-left-700-px {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-700px);
+  }
+  
 }

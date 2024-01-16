@@ -1,33 +1,22 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import * as navigationData from './navigationData.json';
+import { navigationData } from './navigationData';
 
 const NavigationLink = ({ link }) => {
-	const [showSubmenu, setShowSubmenu] = useState(false);
-
 	return (
-		<li
-			className='relative flex'
-			onMouseEnter={() => setShowSubmenu(true)}
-			onMouseLeave={() => setShowSubmenu(false)}
-		>
+		<li className='relative flex mx-[-2px]'>
 			<Link
-				className='p-2 hover:bg-primary w-32 text-center'
+				className='text-center menu-button text-sm flex flex-col items-center  w-20 h-20 text-outline'
 				to={link.url}
 			>
+				{link.icon && (
+					<img
+						src={link.icon}
+						alt=''
+						className='w-10 h-10 m-[-4px]'
+					/>
+				)}
 				{link.displayText}
 			</Link>
-			<span className='h-[2px] bg-accent absolute bottom-0 w-full'></span>
-			{link.children && showSubmenu && (
-				<ul className='absolute left-full bg-secondary w-full z-10 contrast-125'>
-					{link.children.map((child) => (
-						<NavigationLink
-							key={child.url}
-							link={child}
-						/>
-					))}
-				</ul>
-			)}
 		</li>
 	);
 };
@@ -42,8 +31,8 @@ export const NavigationBar = () => {
 
 	return (
 		<>
-			<nav className='flex bg-secondary'>
-				<ul className='flex gap-2'>{links}</ul>
+			<nav className='flex fixed bottom-0 left-0 navigation-background z-50'>
+				<ul className='flex mt-[-20px]'>{links}</ul>
 			</nav>
 		</>
 	);

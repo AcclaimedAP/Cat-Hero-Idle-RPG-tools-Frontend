@@ -1,0 +1,85 @@
+.container-light {
+  border: 16px solid transparent;
+  padding: 10px;
+  margin: 20px 10px;
+  background-color: #e1d4b7;
+  border-image-source: url("../assets/sprites/ui/GV_mainmenu_back0513.png");
+  border-image-outset: 5px;
+  border-image-slice: 30;
+  border-image-repeat: round;
+  color: rgb(0 0 0 / 87%);
+
+}
+
+
+
+.container-dark {
+  border: 16px solid transparent;
+  padding: 10px;
+  margin: 20px 10px;
+  color: rgb(255 255 255 / 87%);
+  border-image-source: url("../assets/sprites/ui/GV_ui_main6.png");
+  border-image-outset: 5px;
+  border-image-slice: 30;
+  border-image-repeat: round;
+
+  background-color: #695138;
+}
+
+.container-dark-inner {
+  border: 16px solid transparent;
+  padding: 10px;
+  margin: 20px 10px;
+  color: rgb(255 255 255 / 87%);
+  border-image-source: url("../assets/sprites/ui/GV_ui_main16_1.png");
+  border-image-outset: 5px;
+  border-image-slice: 30;
+  border-image-repeat: round;
+
+  background-color: #392d20;
+}
+
+.container-dark-striped {
+  border: 5px solid transparent;
+  padding: 15px;
+  margin: 20px 10px;
+  color: rgb(255 255 255 / 87%);
+  border-image-source: url("../assets/sprites/ui/GV_ui_main12_1.png");
+  border-image-outset: 5px;
+  border-image-slice: 20;
+  border-image-repeat: round;
+
+  background-repeat: repeat;
+  background-image: url("../assets/sprites/ui/GV_ui_main12_1_background.png");
+}
+
+.menu-button {
+  background-image: url("../assets/sprites/ui/GV_ui_main0.png");
+  background-size: 100% 100%;
+  padding: 15px;
+  width: 100%;
+  min-width: 125px;
+}
+
+.menu-button:hover {
+  background-image: url("../assets/sprites/ui/GV_ui_main1.png");
+}
+
+.sub-menu-button {
+  background-image: url("../assets/sprites/ui/GV_ui_main0.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 15px;
+  width: 100%;
+  min-width: 125px;
+  z-index: 0;
+}
+
+.sub-menu-button-active {
+  z-index: 5;
+  background-image: url("../assets/sprites/ui/GV_ui_main16_3.png");
+}
+
+.sub-menu-button:hover {
+  filter: brightness(1.2);
+}
