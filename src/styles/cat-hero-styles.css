@@ -1,22 +1,49 @@
-
 .container-light {
   border: 10px solid transparent;
   padding: 10px;
   margin: 20px 10px;
-
+  background-color: #e1d4b7;
   border-image-source: url("../assets/sprites/ui/GV_mainmenu_back0513.png");
   border-image-outset: 5px;
   border-image-slice: 30;
   border-image-repeat: round;
+  color: rgb(0 0 0 / 87%);
 
-  background-color: #e1d4b7;
 }
 
+
+
 .container-dark {
+  border: 10px solid transparent;
+  padding: 10px;
+  margin: 20px 10px;
+  color: rgb(255 255 255 / 87%);
+  border-image-source: url("../assets/sprites/ui/GV_ui_main6.png");
+  border-image-outset: 5px;
+  border-image-slice: 30;
+  border-image-repeat: round;
+
+  background-color: #695138;
+}
+
+.container-dark-inner {
+  border: 10px solid transparent;
+  padding: 10px;
+  margin: 20px 10px;
+  color: rgb(255 255 255 / 87%);
+  border-image-source: url("../assets/sprites/ui/GV_ui_main16_1.png");
+  border-image-outset: 5px;
+  border-image-slice: 30;
+  border-image-repeat: round;
+
+  background-color: #392d20;
+}
+
+.container-dark-striped {
   border: 5px solid transparent;
   padding: 15px;
   margin: 20px 10px;
-
+  color: rgb(255 255 255 / 87%);
   border-image-source: url("../assets/sprites/ui/GV_ui_main12_1.png");
   border-image-outset: 5px;
   border-image-slice: 20;

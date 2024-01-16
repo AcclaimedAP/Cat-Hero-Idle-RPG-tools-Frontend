@@ -26,8 +26,8 @@ export const GameData = () => {
 				<h1 className='text-2xl m-8'>Game Data</h1>
 				<p className='text-sm m-8'>Shows all added game data in form of icons. The main purpose of this page will be to gain quick access to information about specific skills, companions, runes, or other parts.</p>
 			</div>
-			<div className='container-dark'>
-				<div className='container-light'>
+			<div className='container-dark-striped'>
+				<div className='container-dark-inner'>
 					<h2 className='text-xl text-center'>Skills</h2>
 				</div>
 				<div className='container-light'>{skillIcons}</div>

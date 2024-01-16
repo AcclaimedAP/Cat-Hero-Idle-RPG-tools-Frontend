@@ -15,13 +15,9 @@
   font-family: pantonextrabold, sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
-  text-shadow:
-    1px 1px 0 #000,
-    -1px 1px 0 #000,  
-    -1px -1px 0 #000,
-    1px 1px 0 #000;
+
 	color-scheme: light dark;
-	color: rgb(255 255 255 / 87%);
+  color: #000;
 	background-color: #242424;
 
 	font-synthesis: none;
@@ -30,12 +26,29 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+h1, h2, h3, span {
+  color: rgb(255 255 255 / 87%);
+  text-shadow:
+  1px 1px 0 #000,
+  -1px 1px 0 #000,  
+  -1px -1px 0 #000,
+  1px 1px 0 #000,
+  1px 0 0 #000,
+  0 1px 0 #000,
+  -1px 0 0 #000,
+  0 -1px 0 #000;
+}
+
 .text-outline {
   text-shadow:
-    1px 1px 0 #000,
-    -1px 1px 0 #000,  
-    -1px -1px 0 #000,
-    1px 1px 0 #000;
+  1px 1px 0 #000,
+  -1px 1px 0 #000,  
+  -1px -1px 0 #000,
+  1px 1px 0 #000,
+  1px 0 0 #000,
+  0 1px 0 #000,
+  -1px 0 0 #000,
+  0 -1px 0 #000;
 }
 
 
