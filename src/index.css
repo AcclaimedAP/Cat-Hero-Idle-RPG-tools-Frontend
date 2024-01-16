@@ -39,14 +39,30 @@
 }
 
 .container-light {
-  border: 20px solid transparent;
-  padding: 20px;
+  border: 10px solid transparent;
+  padding: 10px;
+  margin: 20px 10px;
+
   border-image-source: url("./assets/sprites/ui/GV_mainmenu_back0513.png");
-  border-image-outset: 20px;
+  border-image-outset: 5px;
   border-image-slice: 30;
   border-image-repeat: round;
-  margin: 20px;
+
   background-color: #e1d4b7;
+}
+
+.container-dark {
+  border: 5px solid transparent;
+  padding: 15px;
+  margin: 20px 10px;
+
+  border-image-source: url("./assets/sprites/ui/GV_ui_main12_1.png");
+  border-image-outset: 5px;
+  border-image-slice: 20;
+  border-image-repeat: round;
+
+  background-repeat: repeat;
+  background-image: url("./assets/sprites/ui/GV_ui_main12_1_background.png");
 }
 
 .menu-button {
