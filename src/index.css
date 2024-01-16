@@ -38,44 +38,6 @@
     1px 1px 0 #000;
 }
 
-.container-light {
-  border: 10px solid transparent;
-  padding: 10px;
-  margin: 20px 10px;
-
-  border-image-source: url("./assets/sprites/ui/GV_mainmenu_back0513.png");
-  border-image-outset: 5px;
-  border-image-slice: 30;
-  border-image-repeat: round;
-
-  background-color: #e1d4b7;
-}
-
-.container-dark {
-  border: 5px solid transparent;
-  padding: 15px;
-  margin: 20px 10px;
-
-  border-image-source: url("./assets/sprites/ui/GV_ui_main12_1.png");
-  border-image-outset: 5px;
-  border-image-slice: 20;
-  border-image-repeat: round;
-
-  background-repeat: repeat;
-  background-image: url("./assets/sprites/ui/GV_ui_main12_1_background.png");
-}
-
-.menu-button {
-  background-image: url("./assets/sprites/ui/GV_ui_main0.png");
-  background-size: 100% 100%;
-  padding: 15px;
-  width: 100%;
-  min-width: 120px;
-}
-
-.menu-button:hover {
-  background-image: url("./assets/sprites/ui/GV_ui_main1.png");
-}
 
 .background-image {
   background-image: url("./assets/sprites/background/GV_Dungeon3_background.png");
