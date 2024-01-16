@@ -1,5 +1,4 @@
 import ImageDinnerTime from "../../assets/sprites/skills/common/GV_skillicon_dinnertime.png"
-// import ImageSausage from "../../assets/sprites/companions/uncommon/aGV_pet_2star_sausage_0000.png"
 
 export const skills = [
   {
@@ -8,6 +7,7 @@ export const skills = [
     rarity: "Common",
     description: "Summons ${count} food missiles that deal ${dmgMultiplier} DMG of ATK.",
     cooldown: 20,
+    tags: ["Food"],
     basePossesBonus: {
       ATKBoost: 0.01,
     },
