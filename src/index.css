@@ -12,10 +12,14 @@
 }
 
 :root {
-	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: pantonextrabold, sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
-
+  text-shadow:
+    1px 1px 0 #000,
+    -1px 1px 0 #000,  
+    -1px -1px 0 #000,
+    1px 1px 0 #000;
 	color-scheme: light dark;
 	color: rgb(255 255 255 / 87%);
 	background-color: #242424;
@@ -24,10 +28,6 @@
 	text-rendering: optimizelegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-}
-
-.game-text {
-  font-family: pantonextrabold, sans-serif;
 }
 
 .text-outline {
@@ -88,7 +88,7 @@
 }
 
 .background-image-front-two {
-  background-image: url("./assets/sprites/background/GV_Dungeon3_a.png");
+  border-image-source: url("./assets/sprites/background/GV_Dungeon3_a.png");
   background-size: 700px;
   aspect-ratio: 5 / 2;
   background-repeat: repeat-x;
@@ -100,6 +100,16 @@
   width: calc(100vw + 800px);
   z-index: 2;
   animation: slide-left-700-px 110s linear infinite;
+}
+
+.navigation-background {
+  border-top: 20px solid transparent;
+  border-image: url("./assets/sprites/ui/GV_ui_main16.png");
+  border-image-outset: -20px;
+  border-image-slice: 30;
+  border-image-repeat: round;
+  width: 100%;
+  background-color: #81684f;
 }
 
 @keyframes slide-left-900-px {
