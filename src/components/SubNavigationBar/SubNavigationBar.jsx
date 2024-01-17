@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 const NavigationLink = ({ link }) => {
 	const location = useLocation();
 	const isActive = location.pathname === link.url;
-	console.log(location.pathname, link.url, isActive);
 	const activeClass = isActive ? 'h-14 sub-menu-button-active' : 'h-12 relative -bottom-2';
 	return (
 		<li className='relative flex mx-[-4px]'>
