@@ -3,7 +3,10 @@ import { CompanionIcon } from '../../../components/CompanionIcon/CompanionIcon';
 import { SubNavigationBar } from '../../../components/SubNavigationBar/SubNavigationBar';
 import { navigationDataGameData } from '../SubMenuData';
 export const CompanionsOverview = () => {
-	const companionIcons = companions.map((companion) => {
+  const companionIcons = companions.map((companion) => {
+		if (companion.manaCost <= 6) {
+			return <></>;
+		}
 		return (
 			<CompanionIcon
 				key={companion.name}
