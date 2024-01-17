@@ -5,7 +5,7 @@ export const skills = [
     name: "Dinner Time",
     image: ImageDinnerTime,
     rarity: "Common",
-    description: "Summons ${count} food missiles that deal ${dmgMultiplier} DMG of ATK.",
+    description: "Summons ${count} food missiles that deal ${dmgMultiplier}% DMG of ATK.",
     cooldown: 20,
     tags: ["Food"],
     basePossesBonus: {
@@ -43,3 +43,21 @@ export const skills = [
     ]
   }
 ]
+
+
+function getDescription(level = 1) {
+  let description = this.description;
+  let templateVars = this.levelModifiers[level - 1]
+  return description.replace(/\$\{(\w+)\}(%?)/g, (a, variable, isPercent) => {
+    let value = templateVars[variable];
+    if (isPercent) {
+      value = Math.round(value * 100);
+      value += "%";
+    }
+    return value;
+  });
+}
+
+skills.forEach(skill => {
+  skill.getDescription = getDescription;
+});
