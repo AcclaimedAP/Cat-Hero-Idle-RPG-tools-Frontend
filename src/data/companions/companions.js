@@ -1,4 +1,52 @@
 import ImageSausage from "../../assets/sprites/companions/uncommon/aGV_pet_2star_sausage_0000.png"
+import ImageSunny from "../../assets/sprites/companions/uncommon/aGV_pet_1star_eggfried_0000.png"
+import ImageBread from "../../assets/sprites/companions/uncommon/aGV_pet_1star_bread_0000.png"
+import ImageCracker from "../../assets/sprites/companions/uncommon/aGV_pet_1star_cracker_0000.png"
+import ImagePudding from "../../assets/sprites/companions/uncommon/aGV_pet_2star_pudding_0000.png"
+import ImageCake from "../../assets/sprites/companions/uncommon/aGV_pet_2star_cake_0000.png"
+import ImageTamago from "../../assets/sprites/companions/rare/bGV_pet_2star_eggsushi_0000.png"
+import ImageCarrot from "../../assets/sprites/companions/rare/bGV_pet_1star_carrot_0000.png"
+import ImageClover from "../../assets/sprites/companions/rare/bGV_pet_1star_clover_0000.png"
+import ImageTrunk from "../../assets/sprites/companions/rare/bGV_pet_1star_log_0000.png"
+import ImageTacoyaki from "../../assets/sprites/companions/rare/bGV_pet_3star_takoya_0000.png"
+import ImageChick from "../../assets/sprites/companions/rare/bGV_pet_2star_chick_0000.png"
+import ImageBurger from "../../assets/sprites/companions/rare/bGV_pet_2star_burger_0000.png"
+import ImageJackdolf from "../../assets/sprites/companions/epic/cGV_pet_ jackdolf_0000.png"
+import ImageMouse from "../../assets/sprites/companions/epic/cGV_pet_moustache_0000.png"
+
+import ImagePingu from "../../assets/sprites/companions/epic/cGV_pet_3star_pengpeng_0000.png"
+import ImageGhostCat from "../../assets/sprites/companions/epic/cGV_pet_cathood_0000.png"
+import ImageBunny from "../../assets/sprites/companions/epic/cGV_pet_5star_clockrabbit_0000.png"
+import ImageFireChick from "../../assets/sprites/companions/epic/cGV_pet_firebird_0000.png"
+import ImageTulip from "../../assets/sprites/companions/epic/cGV_pet_flower_0000.png"
+import ImagePhoenix from "../../assets/sprites/companions/epic/cGV_pet_bluebirdphoenix_0000.png"
+import ImageLightree from "../../assets/sprites/companions/epic/cGV_pet_bigtree_0000.png"
+import ImageWhopper from "../../assets/sprites/companions/epic/cGV_pet_kingburger_0000.png"
+import ImageDrake from "../../assets/sprites/companions/epic/cGV_pet_dragon_0000.png"
+import ImageSpark from "../../assets/sprites/companions/epic/cGV_pet_babydragon_0000.png"
+import ImageCookieKnight from "../../assets/sprites/companions/epic/cGV_pet_cookie_0000.png"
+import ImagePumpky from "../../assets/sprites/companions/epic/cGV_pet_pumpking_0000.png"
+import ImageSteelFin from "../../assets/sprites/companions/epic/cGV_pet_steelphin_0001.png"
+import ImageAngryBomb from "../../assets/sprites/companions/epic/cGV_pet_angrybot_0000.png"
+import ImageDevilCat from "../../assets/sprites/companions/epic/cGV_pet_kong_0000.png"
+import ImageBro from "../../assets/sprites/companions/epic/cGV_pet_bro_0000.png"
+import ImageSparrow from "../../assets/sprites/companions/epic/cGV_pet_shortbird_0000.png"
+import ImageCatBlack from "../../assets/sprites/companions/legendary/dGV_pet_catblack_0000.png"
+import ImageJackStriker from "../../assets/sprites/companions/legendary/GV_pet_jackwave_0001.png"
+import ImageWerewolf from "../../assets/sprites/companions/legendary/GV_pet_redwolf_icon.png"
+import ImageGrom from "../../assets/sprites/companions/legendary/GV_pet_babyredwolf_0000.png"
+import ImageLuLu from "../../assets/sprites/companions/legendary/GV_pet_Lulu_0003.png"
+import ImageRoRo from "../../assets/sprites/companions/legendary/dGV_pet_roro_0000.png"
+import ImageJackTiger from "../../assets/sprites/companions/legendary/dGV_pet_jacktiger_0000.png"
+import ImageJackJaws from "../../assets/sprites/companions/legendary/dGV_pet_jackjaws_0000.png"
+import ImageJackFly from "../../assets/sprites/companions/legendary/dGV_pet_jackfly_0000.png"
+import ImageWarWolf from "../../assets/sprites/companions/legendary/dGV_pet_warwolf_0000.png"
+import ImageJackdaw from "../../assets/sprites/companions/legendary/dGV_pet_jackdaw_0000.png"
+import ImageTanker from "../../assets/sprites/companions/legendary/dGV_pet_catmachine_0000.png"
+
+
+
+
 
 export const companions = [
   {
@@ -58,7 +106,7 @@ export const companions = [
   {
     name: "Sunny",
     rarity: "Uncommon",
-    image: null,
+    image: ImageSunny,
     manaCost: 1,
     baseAttack: 0.1,
     baseASPD: 0.4,
@@ -80,7 +128,7 @@ export const companions = [
   {
     name: "Bread",
     rarity: "Uncommon",
-    image: null,
+    image: ImageBread,
     manaCost: 1,
     baseAttack: 0.1,
     baseASPD: 0.4,
@@ -102,7 +150,7 @@ export const companions = [
   {
     name: "Cracker",
     rarity: "Uncommon",
-    image: null,
+    image: ImageCracker,
     manaCost: 2,
     baseAttack: 0.1,
     baseASPD: 0.4,
@@ -124,7 +172,7 @@ export const companions = [
   {
     name: "Pudding",
     rarity: "Uncommon",
-    image: null,
+    image: ImagePudding,
     manaCost: 2,
     baseAttack: 0.1,
     baseASPD: 0.4,
@@ -146,7 +194,7 @@ export const companions = [
   {
     name: "Cake",
     rarity: "Uncommon",
-    image: null,
+    image: ImageCake,
     manaCost: 2,
     baseAttack: 0.1,
     baseASPD: 0.4,
@@ -168,7 +216,7 @@ export const companions = [
   {
     name: "Tamago",
     rarity: "Rare",
-    image: null,
+    image: ImageTamago,
     manaCost: 3,
     baseAttack: 0.1,
     baseASPD: 0.4,
@@ -190,7 +238,7 @@ export const companions = [
   {
     name: "Carrot",
     rarity: "Rare",
-    image: null,
+    image: ImageCarrot,
     manaCost: 3,
     baseAttack: 0.1,
     baseASPD: 0.4,
@@ -212,7 +260,7 @@ export const companions = [
   {
     name: "Clover",
     rarity: "Rare",
-    image: null,
+    image: ImageClover,
     manaCost: 3,
     baseAttack: 0.1,
     baseASPD: 0.4,
@@ -234,7 +282,7 @@ export const companions = [
   {
     name: "Trunk",
     rarity: "Rare",
-    image: null,
+    image: ImageTrunk,
     manaCost: 3,
     baseAttack: 0.1,
     baseASPD: 0.4,
@@ -256,7 +304,7 @@ export const companions = [
   {
     name: "Tacoyaki",
     rarity: "Rare",
-    image: null,
+    image: ImageTacoyaki,
     manaCost: 3,
     baseAttack: 0.1,
     baseASPD: 0.4,
@@ -278,7 +326,7 @@ export const companions = [
   {
     name: "Chick",
     rarity: "Rare",
-    image: null,
+    image: ImageChick,
     manaCost: 3,
     baseAttack: 0.1,
     baseASPD: 0.4,
@@ -300,7 +348,7 @@ export const companions = [
   {
     name: "Burger",
     rarity: "Rare",
-    image: null,
+    image: ImageBurger,
     manaCost: 3,
     baseAttack: 0.1,
     baseASPD: 0.4,
@@ -322,7 +370,7 @@ export const companions = [
   {
     name: "Jackdolf",
     rarity: "Epic",
-    image: null,
+    image: ImageJackdolf,
     manaCost: 4,
     baseAttack: 0.8,
     baseASPD: 0.8,
@@ -344,7 +392,7 @@ export const companions = [
   {
     name: "Mouse",
     rarity: "Epic",
-    image: null,
+    image: ImageMouse,
     manaCost: 4,
     baseAttack: 0.8,
     baseASPD: 0.8,
@@ -366,7 +414,7 @@ export const companions = [
   {
     name: "Pingu",
     rarity: "Epic",
-    image: null,
+    image: ImagePingu,
     manaCost: 4,
     baseAttack: 0.8,
     baseASPD: 0.8,
@@ -388,7 +436,7 @@ export const companions = [
   {
     name: "Ghost Cat",
     rarity: "Epic",
-    image: null,
+    image: ImageGhostCat,
     manaCost: 4,
     baseAttack: 0.8,
     baseASPD: 0.8,
@@ -410,7 +458,7 @@ export const companions = [
   {
     name: "Bunny",
     rarity: "Epic",
-    image: null,
+    image: ImageBunny,
     manaCost: 4,
     baseAttack: 0.8,
     baseASPD: 0.8,
@@ -432,7 +480,7 @@ export const companions = [
   {
     name: "Fire Chick",
     rarity: "Epic",
-    image: null,
+    image: ImageFireChick,
     manaCost: 4,
     baseAttack: 0.8,
     baseASPD: 0.8,
@@ -454,7 +502,7 @@ export const companions = [
   {
     name: "Tulip",
     rarity: "Epic",
-    image: null,
+    image: ImageTulip,
     manaCost: 4,
     baseAttack: 0.8,
     baseASPD: 0.8,
@@ -476,7 +524,7 @@ export const companions = [
   {
     name: "Phoenix",
     rarity: "Epic",
-    image: null,
+    image: ImagePhoenix,
     manaCost: 4,
     baseAttack: 0.8,
     baseASPD: 0.8,
@@ -498,7 +546,7 @@ export const companions = [
   {
     name: "Lightree",
     rarity: "Epic",
-    image: null,
+    image: ImageLightree,
     manaCost: 4,
     baseAttack: 0.8,
     baseASPD: 0.8,
@@ -520,7 +568,7 @@ export const companions = [
   {
     name: "Whopper",
     rarity: "Epic",
-    image: null,
+    image: ImageWhopper,
     manaCost: 4,
     baseAttack: 0.8,
     baseASPD: 0.8,
@@ -542,7 +590,7 @@ export const companions = [
   {
     name: "Drake",
     rarity: "Epic",
-    image: null,
+    image: ImageDrake,
     manaCost: 4,
     baseAttack: 0.8,
     baseASPD: 0.8,
@@ -564,7 +612,7 @@ export const companions = [
   {
     name: "Spark",
     rarity: "Epic",
-    image: null,
+    image: ImageSpark,
     manaCost: 4,
     baseAttack: 0.8,
     baseASPD: 0.8,
@@ -586,7 +634,7 @@ export const companions = [
   {
     name: "Cookie Knight",
     rarity: "Epic",
-    image: null,
+    image: ImageCookieKnight,
     manaCost: 4,
     baseAttack: 0.8,
     baseASPD: 0.8,
@@ -608,7 +656,7 @@ export const companions = [
   {
     name: "Pumpky",
     rarity: "Epic",
-    image: null,
+    image: ImagePumpky,
     manaCost: 4,
     baseAttack: 0.8,
     baseASPD: 0.8,
@@ -630,7 +678,7 @@ export const companions = [
   {
     name: "Steel Fin",
     rarity: "Epic",
-    image: null,
+    image: ImageSteelFin,
     manaCost: 4,
     baseAttack: 0.8,
     baseASPD: 0.8,
@@ -652,7 +700,7 @@ export const companions = [
   {
     name: "Angry Bomb",
     rarity: "Epic",
-    image: null,
+    image: ImageAngryBomb,
     manaCost: 4,
     baseAttack: 0.8,
     baseASPD: 0.8,
@@ -674,7 +722,7 @@ export const companions = [
   {
     name: "Devil Cat",
     rarity: "Epic",
-    image: null,
+    image: ImageDevilCat,
     manaCost: 4,
     baseAttack: 0.8,
     baseASPD: 0.8,
@@ -696,7 +744,7 @@ export const companions = [
   {
     name: "Bro",
     rarity: "Epic",
-    image: null,
+    image: ImageBro,
     manaCost: 4,
     baseAttack: 0.8,
     baseASPD: 0.8,
@@ -718,7 +766,7 @@ export const companions = [
   {
     name: "Sparrow",
     rarity: "Epic",
-    image: null,
+    image: ImageSparrow,
     manaCost: 4,
     baseAttack: 0.8,
     baseASPD: 0.8,
@@ -740,7 +788,7 @@ export const companions = [
   {
     name: "Cat Black",
     rarity: "Legendary",
-    image: null,
+    image: ImageCatBlack,
     manaCost: 6,
     baseAttack: 3.2,
     baseASPD: 1,
@@ -762,7 +810,7 @@ export const companions = [
   {
     name: "Jack Striker",
     rarity: "Legendary",
-    image: null,
+    image: ImageJackStriker,
     manaCost: 8,
     baseAttack: 3.2,
     baseASPD: 1,
@@ -784,7 +832,7 @@ export const companions = [
   {
     name: "Werewolf",
     rarity: "Legendary",
-    image: null,
+    image: ImageWerewolf,
     manaCost: 8,
     baseAttack: 3.2,
     baseASPD: 1,
@@ -806,7 +854,7 @@ export const companions = [
   {
     name: "Grom",
     rarity: "Legendary",
-    image: null,
+    image: ImageGrom,
     manaCost: 8,
     baseAttack: 3.2,
     baseASPD: 1,
@@ -828,7 +876,7 @@ export const companions = [
   {
     name: "LuLu",
     rarity: "Legendary",
-    image: null,
+    image: ImageLuLu,
     manaCost: 8,
     baseAttack: 3.2,
     baseASPD: 1,
@@ -850,7 +898,7 @@ export const companions = [
   {
     name: "RoRo",
     rarity: "Legendary",
-    image: null,
+    image: ImageRoRo,
     manaCost: 6,
     baseAttack: 3.2,
     baseASPD: 1,
@@ -872,7 +920,7 @@ export const companions = [
   {
     name: "Jack Tiger",
     rarity: "Legendary",
-    image: null,
+    image: ImageJackTiger,
     manaCost: 6,
     baseAttack: 3.2,
     baseASPD: 1,
@@ -894,7 +942,7 @@ export const companions = [
   {
     name: "Jack Jaws",
     rarity: "Legendary",
-    image: null,
+    image: ImageJackJaws,
     manaCost: 6,
     baseAttack: 3.2,
     baseASPD: 1,
@@ -916,7 +964,7 @@ export const companions = [
   {
     name: "Jack Fly",
     rarity: "Legendary",
-    image: null,
+    image: ImageJackFly,
     manaCost: 6,
     baseAttack: 3.2,
     baseASPD: 1,
@@ -938,7 +986,7 @@ export const companions = [
   {
     name: "War Wolf",
     rarity: "Legendary",
-    image: null,
+    image: ImageWarWolf,
     manaCost: 6,
     baseAttack: 3.2,
     baseASPD: 1,
@@ -960,7 +1008,7 @@ export const companions = [
   {
     name: "Jackdaw",
     rarity: "Legendary",
-    image: null,
+    image: ImageJackdaw,
     manaCost: 8,
     baseAttack: 3.2,
     baseASPD: 1,
@@ -982,7 +1030,7 @@ export const companions = [
   {
     name: "Tanker",
     rarity: "Legendary",
-    image: null,
+    image: ImageTanker,
     manaCost: 8,
     baseAttack: 3.2,
     baseASPD: 1,
