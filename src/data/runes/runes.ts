@@ -1,13 +1,30 @@
+import ImageDessert from '../../assets/sprites/rune/mega-runes/runeImage/GV_petskill_0_0003.png';
+import ImageTripleShot from '../../assets/sprites/rune/mega-runes/runeImage/GV_spef_studyicon_0019.png';
+import ImageDoubleShot from '../../assets/sprites/rune/mega-runes/runeImage/GV_rune_0004.png';
+import ImageChicken from '../../assets/sprites/rune/mega-runes/runeImage/GV_specialrune_0027 1.png';
+import ImageMedium from '../../assets/sprites/rune/mega-runes/runeImage/GV_specialrune_0031.png';
+import ImageAnimal from '../../assets/sprites/rune/mega-runes/runeImage/GV_petskill_0_0002.png';
+import ImageGreenTriangle from '../../assets/sprites/rune/mega-runes/runeImage/GV_runeiconeff_0.png';
+import ImageSword from '../../assets/sprites/rune/mega-runes/runeImage/GV_runeiconeff_2.png';
+// import ImageLarge from '../../assets/sprites/rune/mega-runes/runeImage/....png';
+import ImageCat from '../../assets/sprites/rune/mega-runes/runeImage/GV_petskill_0_0001.png';
+import ImageMachine from '../../assets/sprites/rune/mega-runes/runeImage/GV_runeicon_0000_1.png';
+import ImageWolf from '../../assets/sprites/rune/mega-runes/runeImage/GV_specialrune_0029.png';
+import ImageDragon from '../../assets/sprites/rune/mega-runes/runeImage/GV_runeicon_0006.png';
+import ImageShark from '../../assets/sprites/rune/mega-runes/runeImage/GV_specialrune_0020.png';
+import ImageFood from '../../assets/sprites/rune/mega-runes/runeImage/GV_petskill_0_0005.png';
+import ImageMagic from '../../assets/sprites/rune/mega-runes/runeImage/GV_specialrune_0028 1.png';
+
 import { IBaseRune, IRune } from '../../types/IRune';
 
 const baseRunes: IBaseRune[] = [
 	{
 		name: 'Dessert Enhanced',
 		type: 'Sub',
-		label: 'DE%*DE',
+		label: 'DeSk%De',
 		rarity: 'Uncommon',
 		description: 'Increases the Skill DMG of Dessert type skills by ${dessertBonusDamage}% per one Dessert companion equipped.',
-		image: null,
+		image: [ImageDessert],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.1,
@@ -19,10 +36,10 @@ const baseRunes: IBaseRune[] = [
 	{
 		name: 'Triple Shot',
 		type: 'Sub',
-		label: '3xShoot',
+		label: '3xShot',
 		rarity: 'Uncommon',
 		description: '',
-		image: null,
+		image: [ImageTripleShot, ImageGreenTriangle],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.1,
@@ -32,10 +49,10 @@ const baseRunes: IBaseRune[] = [
 	{
 		name: 'Chicken Enhanced',
 		type: 'Sub',
-		label: 'CH%*CH',
+		label: 'Skill%Ch',
 		rarity: 'Uncommon',
 		description: '',
-		image: null,
+		image: [ImageChicken, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.1,
@@ -45,9 +62,10 @@ const baseRunes: IBaseRune[] = [
 	{
 		name: 'Medium Enhanced',
 		type: 'Sub',
+		label: 'Skill%M',
 		rarity: 'Uncommon',
 		description: '',
-		image: null,
+		image: [ImageMedium, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.1,
@@ -57,9 +75,10 @@ const baseRunes: IBaseRune[] = [
 	{
 		name: 'Animal Enhanced',
 		type: 'Sub',
+		label: 'Dmg%An',
 		rarity: 'Uncommon',
 		description: '',
-		image: null,
+		image: [ImageAnimal, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.1,
@@ -69,6 +88,7 @@ const baseRunes: IBaseRune[] = [
 	{
 		name: 'Large Enhanced',
 		type: 'Sub',
+		label: 'Skill%L',
 		rarity: 'Uncommon',
 		description: '',
 		image: null,
@@ -81,9 +101,10 @@ const baseRunes: IBaseRune[] = [
 	{
 		name: 'Cat Enhanced',
 		type: 'Sub',
+		label: 'CaSk%Ca',
 		rarity: 'Uncommon',
 		description: '',
-		image: null,
+		image: [ImageCat, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.1,
@@ -94,8 +115,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Machine Enhanced',
 		type: 'Sub',
 		rarity: 'Uncommon',
+		label: 'MaSk%Ma',
 		description: '',
-		image: null,
+		image: [ImageMachine, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.1,
@@ -106,8 +128,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Wolf Enhanced',
 		type: 'Sub',
 		rarity: 'Uncommon',
+		label: 'WoAtk%Wo',
 		description: '',
-		image: null,
+		image: [ImageWolf, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.1,
@@ -118,8 +141,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Double Shot',
 		type: 'Sub',
 		rarity: 'Uncommon',
+		label: '2xShot',
 		description: '',
-		image: null,
+		image: [ImageDoubleShot, ImageGreenTriangle],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.1,
@@ -130,8 +154,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Dragon Enhanced',
 		type: 'Sub',
 		rarity: 'Uncommon',
+		label: 'Skill%Dr',
 		description: '',
-		image: null,
+		image: [ImageDragon, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.1,
@@ -142,8 +167,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Shark Enhanced',
 		type: 'Sub',
 		rarity: 'Uncommon',
+		label: 'ShSk%Sh',
 		description: '',
-		image: null,
+		image: [ImageShark, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.1,
@@ -154,8 +180,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Food Enhanced',
 		type: 'Sub',
 		rarity: 'Uncommon',
+		label: 'FoSk%Fo',
 		description: '',
-		image: null,
+		image: [ImageFood],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.1,
@@ -166,8 +193,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Magic Enhanced',
 		type: 'Sub',
 		rarity: 'Uncommon',
+		label: 'MaSk%Ma',
 		description: '',
-		image: null,
+		image: [ImageMagic, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.1,
