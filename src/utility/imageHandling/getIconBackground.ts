@@ -5,21 +5,21 @@ import ImageBackgroundEpic from '../../assets/sprites/background/GV_ui_main19_3.
 import ImageBackgroundLegendary from '../../assets/sprites/background/GV_ui_main19_4.png';
 import ImageBackgroundMythic from '../../assets/sprites/background/GV_ui_main19_5.png';
 
-export const getIconBackground = (rarity) => {
-  switch (rarity) {
-    case 'Common':
-      return ImageBackgroundCommon;
-    case 'Uncommon':
-      return ImageBackgroundUncommon;
-    case 'Rare':
-      return ImageBackgroundRare;
-    case 'Epic':
-      return ImageBackgroundEpic;
-    case 'Legendary':
-      return ImageBackgroundLegendary;
-    case 'Mythic':
-      return ImageBackgroundMythic;
-    default:
-      return ImageBackgroundCommon;
-  }
-}
+export const getIconBackground = (rarity: string) => {
+	switch (rarity) {
+		case 'Common':
+			return ImageBackgroundCommon;
+		case 'Uncommon':
+			return ImageBackgroundUncommon;
+		case 'Rare':
+			return ImageBackgroundRare;
+		case 'Epic':
+			return ImageBackgroundEpic;
+		case 'Legendary':
+			return ImageBackgroundLegendary;
+		case 'Mythic':
+			return ImageBackgroundMythic;
+		default:
+			return ImageBackgroundCommon;
+	}
+};
