@@ -2,6 +2,8 @@ import { companions } from '../../data/companions/companions';
 import { skills } from '../../data/skills/skills';
 import { SkillIcon } from '../../components/SkillIcon/SkillIcon';
 import { CompanionIcon } from '../../components/CompanionIcon/CompanionIcon';
+import { runes } from '../../data/runes/runes';
+import { RuneIcon } from '../../components/RuneIcon/RuneIcon';
 import { SubNavigationBar } from '../../components/SubNavigationBar/SubNavigationBar';
 import { navigationDataGameData } from './subMenuData';
 
@@ -19,6 +21,28 @@ export const GameData = () => {
       <CompanionIcon
         key={companion.name}
         companion={companion}
+      />
+    );
+  });
+  const mainRunes = runes.map((rune, index) => {
+    if (rune.type != "Main") {
+      return null;
+    }
+    return (
+      <RuneIcon
+        key={`${rune.name}-${rune.type}-${rune.rarity}-${index}`}
+        rune={rune}
+      />
+    );
+  });
+  const subRunes = runes.map((rune, index) => {
+    if (rune.type != "Sub") {
+      return null;
+    }
+    return (
+      <RuneIcon
+        key={`${rune.name}-${rune.type}-${rune.rarity}-${index}`}
+        rune={rune}
       />
     );
   });
@@ -41,6 +65,17 @@ export const GameData = () => {
             <h2 className='text-xl text-center'>Companions</h2>
           </div>
           <div className='container-dark'>{companionIcons}</div>
+        </div>
+        <div className='container-dark'>
+          <div className='container-dark-inner'>
+            <h2 className='text-xl text-center'>Main Runes</h2>
+          </div>
+          <div className='container-dark-inner'>{mainRunes}</div>
+
+          <div className='container-dark-inner'>
+            <h2 className='text-xl text-center'>Sub Runes</h2>
+          </div>
+          <div className='container-dark-inner'>{subRunes}</div>
         </div>
       </div>
     </>

@@ -1,20 +1,10 @@
-interface IBaseRune {
-	name: string;
-	type: string;
-	rarity: string;
-	description: string;
-	image: string | null;
-	possessBonus: {
-		tankFishLevel: number;
-		ATKBoost: number;
-	};
-	modifiers: { [key: string]: number };
-}
+import { IBaseRune, IRune } from '../../types/IRune';
 
 const baseRunes: IBaseRune[] = [
 	{
 		name: 'Dessert Enhanced',
 		type: 'Sub',
+		label: 'DE%*DE',
 		rarity: 'Uncommon',
 		description: 'Increases the Skill DMG of Dessert type skills by ${dessertBonusDamage}% per one Dessert companion equipped.',
 		image: null,
@@ -29,6 +19,7 @@ const baseRunes: IBaseRune[] = [
 	{
 		name: 'Triple Shot',
 		type: 'Sub',
+		label: '3xShoot',
 		rarity: 'Uncommon',
 		description: '',
 		image: null,
@@ -41,6 +32,7 @@ const baseRunes: IBaseRune[] = [
 	{
 		name: 'Chicken Enhanced',
 		type: 'Sub',
+		label: 'CH%*CH',
 		rarity: 'Uncommon',
 		description: '',
 		image: null,
@@ -1323,4 +1315,450 @@ const baseRunes: IBaseRune[] = [
 		},
 		modifiers: {},
 	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Uncommon',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 1,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Uncommon',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 1,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Uncommon',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 1,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Uncommon',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 1,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Uncommon',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 1,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Uncommon',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 1,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Uncommon',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 1,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Uncommon',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 1,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Uncommon',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 1,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Uncommon',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 1,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Uncommon',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 1,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Rare',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 2,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Rare',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 2,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Rare',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 2,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Rare',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 2,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Rare',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 2,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Rare',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 2,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Rare',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 2,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Rare',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 2,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Rare',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 2,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Epic',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 4,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Epic',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 4,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Epic',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 4,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Epic',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 4,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Epic',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 4,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Epic',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 4,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Epic',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 4,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Legendary',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 10,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Legendary',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 10,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Legendary',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 10,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Legendary',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 10,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Legendary',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 10,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Legendary',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 10,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Legendary',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 10,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Mythic',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 40,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Mythic',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 40,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: '',
+		type: 'Main',
+		rarity: 'Mythic',
+		description: '',
+		image: null,
+		possessBonus: {
+			tankFishLevel: 40,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
 ];
+
+export const runes: IRune[] = baseRunes as IRune[];
