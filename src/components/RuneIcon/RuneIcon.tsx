@@ -11,7 +11,7 @@ export const RuneIcon = ({ rune, label = true }: { rune: IRune, label?: boolean 
     const imageCount = rune.image.length;
     return rune.image.map((image, index) => {
       const imageLocation = imageCount > 1 ? ['max-w-[40%] max-h-[50%] left-[40%] top-[45%]', 'self-end max-w-[30%] max-h-[30%] left-2/3 top-[65%]'] : ['left-1/2 top-1/2'];
-      const imageSize = imageCount > 1 ? '' : ' max-w-[55%] max-h-[55%]';
+      const imageSize = imageCount > 1 ? '' : ' max-w-[50%] max-h-[50%]';
       return <img
         className={`${imageSize} ${imageLocation[index]} -translate-y-1/2 -translate-x-1/2 object-cover absolute`}
         src={image}
