@@ -6,7 +6,8 @@ import ImageMedium from '../../assets/sprites/rune/mega-runes/runeImage/GV_speci
 import ImageAnimal from '../../assets/sprites/rune/mega-runes/runeImage/GV_petskill_0_0002.png';
 import ImageGreenTriangle from '../../assets/sprites/rune/mega-runes/runeImage/GV_runeiconeff_0.png';
 import ImageSword from '../../assets/sprites/rune/mega-runes/runeImage/GV_runeiconeff_2.png';
-// import ImageLarge from '../../assets/sprites/rune/mega-runes/runeImage/....png';
+import ImageGreenSword from '../../assets/sprites/rune/mega-runes/runeImage/GV_petskilleff_0000.png';
+import ImageLarge from '../../assets/sprites/rune/mega-runes/runeImage/GV_specialrune_large.png';
 import ImageCat from '../../assets/sprites/rune/mega-runes/runeImage/GV_petskill_0_0001.png';
 import ImageMachine from '../../assets/sprites/rune/mega-runes/runeImage/GV_runeicon_0000_1.png';
 import ImageWolf from '../../assets/sprites/rune/mega-runes/runeImage/GV_specialrune_0029.png';
@@ -14,6 +15,23 @@ import ImageDragon from '../../assets/sprites/rune/mega-runes/runeImage/GV_runei
 import ImageShark from '../../assets/sprites/rune/mega-runes/runeImage/GV_specialrune_0020.png';
 import ImageFood from '../../assets/sprites/rune/mega-runes/runeImage/GV_petskill_0_0005.png';
 import ImageMagic from '../../assets/sprites/rune/mega-runes/runeImage/GV_specialrune_0028 1.png';
+import ImageCloud from '../../assets/sprites/rune/mega-runes/runeImage/GV_specialrune_0033.png';
+import ImageSmall from '../../assets/sprites/rune/mega-runes/runeImage/GV_specialrune_0032.png';
+import ImageHamburger from '../../assets/sprites/rune/mega-runes/runeImage/GV_skill_bugerparty_0001.png';
+import ImageBoss from '../../assets/sprites/rune/mega-runes/runeImage/GV_icon_main_boss.png';
+import ImagePlant from '../../assets/sprites/rune/mega-runes/runeImage/GV_petskill_0.png';
+import ImageCritSword from '../../assets/sprites/rune/mega-runes/runeImage/GV_rune_0006.png';
+import ImageFishBoost from '../../assets/sprites/rune/mega-runes/runeImage/GV_specialrune_0034.png';
+import ImageCritChance from '../../assets/sprites/rune/mega-runes/runeImage/GV_spef_studyicon_0007.png';
+import ImagePlantBlue from '../../assets/sprites/rune/mega-runes/runeImage/GV_runeicon_0003.png';
+import ImagePlantPurple from '../../assets/sprites/rune/mega-runes/runeImage/GV_runeicon_0004.png';
+import ImageMana from '../../assets/sprites/rune/mega-runes/runeImage/GV_runeiconeff_1.png';
+import ImageGreenTriangleDouble from '../../assets/sprites/rune/mega-runes/runeImage/GV_petskilleff_0011.png';
+import ImageMachinePurple from '../../assets/sprites/rune/mega-runes/runeImage/GV_runeicon_0000.png';
+import ImageMachineRed from '../../assets/sprites/rune/mega-runes/runeImage/GV_runeicon_0001.png';
+import ImageLegendary from '../../assets/sprites/rune/mega-runes/runeImage/GV_specialrune_0001.png';
+import ImagePirate from '../../assets/sprites/rune/mega-runes/runeImage/GV_skill_pirate_c.png'; // Placeholder
+import ImageStar from '../../assets/sprites/rune/mega-runes/runeImage/GV_petskill_0_0006.png';
 
 import { IBaseRune, IRune } from '../../types/IRune';
 
@@ -91,7 +109,7 @@ const baseRunes: IBaseRune[] = [
 		label: 'Skill%L',
 		rarity: 'Uncommon',
 		description: '',
-		image: null,
+		image: [ImageLarge, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.1,
@@ -206,8 +224,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Cloud Enhanced',
 		type: 'Sub',
 		rarity: 'Uncommon',
+		label: 'Sk%Cl',
 		description: '',
-		image: null,
+		image: [ImageCloud, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.1,
@@ -218,8 +237,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Small Enhanced',
 		type: 'Sub',
 		rarity: 'Uncommon',
+		label: 'Sk%Sm',
 		description: '',
-		image: null,
+		image: [ImageSmall, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.1,
@@ -230,8 +250,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Hamburger Enhanced',
 		type: 'Sub',
 		rarity: 'Uncommon',
+		label: 'Sk%Ha',
 		description: '',
-		image: null,
+		image: [ImageHamburger, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.1,
@@ -242,8 +263,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'ATK',
 		type: 'Sub',
 		rarity: 'Uncommon',
+		label: 'Atk',
 		description: '',
-		image: null,
+		image: [ImageGreenSword, ImageGreenTriangle],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.1,
@@ -254,8 +276,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Boss Attack',
 		type: 'Sub',
 		rarity: 'Uncommon',
+		label: 'BoDmg',
 		description: '',
-		image: null,
+		image: [ImageBoss, ImageGreenTriangle],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.1,
@@ -266,8 +289,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Plant Enhanced',
 		type: 'Sub',
 		rarity: 'Uncommon',
+		label: 'PlSk%Pl',
 		description: '',
-		image: null,
+		image: [ImagePlant, ImageGreenSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.1,
@@ -278,8 +302,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'CRIT DMG',
 		type: 'Sub',
 		rarity: 'Uncommon',
+		label: 'CritDmg',
 		description: '',
-		image: null,
+		image: [ImageCritSword, ImageGreenTriangle],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.1,
@@ -290,8 +315,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Fish Boost',
 		type: 'Sub',
 		rarity: 'Uncommon',
+		label: 'FishBoost',
 		description: '',
-		image: null,
+		image: [ImageFishBoost, ImageGreenTriangle],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.1,
@@ -302,8 +328,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'CRIT Chance',
 		type: 'Sub',
 		rarity: 'Uncommon',
+		label: 'CritChance',
 		description: '',
-		image: null,
+		image: [ImageCritChance, ImageGreenTriangle],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.1,
@@ -314,8 +341,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'CRIT DMG',
 		type: 'Sub',
 		rarity: 'Rare',
+		label: 'CritDmg',
 		description: '',
-		image: null,
+		image: [ImageCritSword, ImageGreenTriangle],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.2,
@@ -326,8 +354,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'CRIT Chance',
 		type: 'Sub',
 		rarity: 'Rare',
+		label: 'CritChance',
 		description: '',
-		image: null,
+		image: [ImageCritChance, ImageGreenTriangle],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.2,
@@ -338,8 +367,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Dessert Enhanced',
 		type: 'Sub',
 		rarity: 'Rare',
+		label: 'DeSk%De',
 		description: '',
-		image: null,
+		image: [ImageDessert, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.2,
@@ -350,8 +380,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Chicken Enhanced',
 		type: 'Sub',
 		rarity: 'Rare',
+		label: 'Skill%Ch',
 		description: '',
-		image: null,
+		image: [ImageChicken, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.2,
@@ -362,8 +393,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'ATK',
 		type: 'Sub',
 		rarity: 'Rare',
+		label: 'Atk',
 		description: '',
-		image: null,
+		image: [ImageGreenSword, ImageGreenTriangle],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.2,
@@ -374,8 +406,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Animal Enhanced',
 		type: 'Sub',
 		rarity: 'Rare',
+		label: 'Dmg%An',
 		description: '',
-		image: null,
+		image: [ImageAnimal, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.2,
@@ -386,8 +419,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Machine Enhanced',
 		type: 'Sub',
 		rarity: 'Rare',
+		label: 'MaSk%Ma',
 		description: '',
-		image: null,
+		image: [ImageMachine, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.2,
@@ -398,8 +432,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Cat Enhanced',
 		type: 'Sub',
 		rarity: 'Rare',
+		label: 'CaSk%Ca',
 		description: '',
-		image: null,
+		image: [ImageCat, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.2,
@@ -410,8 +445,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Fish Boost',
 		type: 'Sub',
 		rarity: 'Rare',
+		label: 'FishBoost',
 		description: '',
-		image: null,
+		image: [ImageFishBoost, ImageGreenTriangle],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.2,
@@ -422,8 +458,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Dragon Enhanced',
 		type: 'Sub',
 		rarity: 'Rare',
+		label: 'Skill%Dr',
 		description: '',
-		image: null,
+		image: [ImageDragon, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.2,
@@ -434,8 +471,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Boss Attack',
 		type: 'Sub',
 		rarity: 'Rare',
+		label: 'BoDmg',
 		description: '',
-		image: null,
+		image: [ImageBoss, ImageGreenTriangle],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.2,
@@ -446,8 +484,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Triple Shot',
 		type: 'Sub',
 		rarity: 'Rare',
+		label: '3xShot',
 		description: '',
-		image: null,
+		image: [ImageTripleShot, ImageGreenTriangle],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.2,
@@ -458,8 +497,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Double Shot',
 		type: 'Sub',
 		rarity: 'Rare',
+		label: '2xShot',
 		description: '',
-		image: null,
+		image: [ImageDoubleShot, ImageGreenTriangle],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.2,
@@ -470,8 +510,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Small Enhanced',
 		type: 'Sub',
 		rarity: 'Rare',
+		label: 'Sk%Sm',
 		description: '',
-		image: null,
+		image: [ImageSmall, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.2,
@@ -482,8 +523,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Shark Enhanced',
 		type: 'Sub',
 		rarity: 'Rare',
+		label: 'ShSk%Sh',
 		description: '',
-		image: null,
+		image: [ImageShark, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.2,
@@ -494,8 +536,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Hamburger Enhanced',
 		type: 'Sub',
 		rarity: 'Rare',
+		label: 'Sk%Ha',
 		description: '',
-		image: null,
+		image: [ImageHamburger, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.2,
@@ -506,8 +549,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Wolf Enhanced',
 		type: 'Sub',
 		rarity: 'Rare',
+		label: 'WoAtk%Wo',
 		description: '',
-		image: null,
+		image: [ImageWolf, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.2,
@@ -518,8 +562,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Plant Enhanced',
 		type: 'Sub',
 		rarity: 'Rare',
+		label: 'PlSk%Pl',
 		description: '',
-		image: null,
+		image: [ImagePlant, ImageGreenSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.2,
@@ -530,8 +575,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Large Enhanced',
 		type: 'Sub',
 		rarity: 'Rare',
+		label: 'Skill%L',
 		description: '',
-		image: null,
+		image: [ImageLarge, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.2,
@@ -542,8 +588,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Plant MP Improved',
 		type: 'Sub',
 		rarity: 'Rare',
+		label: 'PlMp',
 		description: '',
-		image: null,
+		image: [ImagePlantBlue, ImageMana],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.2,
@@ -554,8 +601,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Magic Enhanced',
 		type: 'Sub',
 		rarity: 'Rare',
+		label: 'MaSk%Ma',
 		description: '',
-		image: null,
+		image: [ImageMagic, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.2,
@@ -566,8 +614,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Food Enhanced',
 		type: 'Sub',
 		rarity: 'Rare',
+		label: 'FoSk%Fo',
 		description: '',
-		image: null,
+		image: [ImageFood, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.2,
@@ -578,8 +627,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Cloud Enhanced',
 		type: 'Sub',
 		rarity: 'Rare',
+		label: 'Sk%Cl',
 		description: '',
-		image: null,
+		image: [ImageCloud, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.2,
@@ -590,8 +640,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Persistent Cloud',
 		type: 'Sub',
 		rarity: 'Epic',
+		label: 'ClDur',
 		description: '',
-		image: null,
+		image: [ImageCloud, ImageGreenTriangleDouble],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.4,
@@ -602,8 +653,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Fish Boost',
 		type: 'Sub',
 		rarity: 'Epic',
+		label: 'FishBoost',
 		description: '',
-		image: null,
+		image: [ImageFishBoost, ImageGreenTriangle],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.4,
@@ -614,8 +666,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Triple Shot',
 		type: 'Sub',
 		rarity: 'Epic',
+		label: '3xShot',
 		description: '',
-		image: null,
+		image: [ImageTripleShot, ImageGreenTriangle],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.4,
@@ -626,8 +679,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'CRIT DMG',
 		type: 'Sub',
 		rarity: 'Epic',
+		label: 'CritDmg',
 		description: '',
-		image: null,
+		image: [ImageCritSword, ImageGreenTriangle],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.4,
@@ -638,8 +692,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Plant MP Improved',
 		type: 'Sub',
 		rarity: 'Epic',
+		label: 'PlMp',
 		description: '',
-		image: null,
+		image: [ImagePlantPurple, ImageMana],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.4,
@@ -650,8 +705,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Hamburger Enhanced',
 		type: 'Sub',
 		rarity: 'Epic',
+		label: 'Sk%Ha',
 		description: '',
-		image: null,
+		image: [ImageHamburger, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.4,
@@ -662,8 +718,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Boss Attack',
 		type: 'Sub',
 		rarity: 'Epic',
+		label: 'BoDmg',
 		description: '',
-		image: null,
+		image: [ImageBoss, ImageGreenTriangle],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.4,
@@ -674,8 +731,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Animal MP Improved',
 		type: 'Sub',
 		rarity: 'Epic',
+		label: 'AnMp',
 		description: '',
-		image: null,
+		image: [ImageAnimal, ImageMana],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.4,
@@ -686,8 +744,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'ATK',
 		type: 'Sub',
 		rarity: 'Epic',
+		label: 'Atk',
 		description: '',
-		image: null,
+		image: [ImageGreenSword, ImageGreenTriangle],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.4,
@@ -698,8 +757,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Dragon Enhanced',
 		type: 'Sub',
 		rarity: 'Epic',
+		label: 'Skill%Dr',
 		description: '',
-		image: null,
+		image: [ImageDragon, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.4,
@@ -710,8 +770,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Cloud Enhanced',
 		type: 'Sub',
 		rarity: 'Epic',
+		label: 'Sk%Cl',
 		description: '',
-		image: null,
+		image: [ImageCloud, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.4,
@@ -722,8 +783,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Cat Enhanced',
 		type: 'Sub',
 		rarity: 'Epic',
+		label: 'CaSk%Ca',
 		description: '',
-		image: null,
+		image: [ImageCat, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.4,
@@ -734,8 +796,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Food Enhanced',
 		type: 'Sub',
 		rarity: 'Epic',
+		label: 'FoSk%Fo',
 		description: '',
-		image: null,
+		image: [ImageFood, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.4,
@@ -746,8 +809,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Machine Enhanced',
 		type: 'Sub',
 		rarity: 'Epic',
+		label: 'MaSk%Ma',
 		description: '',
-		image: null,
+		image: [ImageMachine, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.4,
@@ -758,8 +822,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Shark Enhanced',
 		type: 'Sub',
 		rarity: 'Epic',
+		label: 'ShSk%Sh',
 		description: '',
-		image: null,
+		image: [ImageShark, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.4,
@@ -770,8 +835,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Medium Enhanced',
 		type: 'Sub',
 		rarity: 'Epic',
+		label: 'Skill%M',
 		description: '',
-		image: null,
+		image: [ImageMedium, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.4,
@@ -782,8 +848,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Dessert Enhanced',
 		type: 'Sub',
 		rarity: 'Epic',
+		label: 'DeSk%De',
 		description: '',
-		image: null,
+		image: [ImageDessert, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.4,
@@ -794,8 +861,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Plant Enhanced',
 		type: 'Sub',
 		rarity: 'Epic',
+		label: 'PlSk%Pl',
 		description: '',
-		image: null,
+		image: [ImagePlant, ImageGreenSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.4,
@@ -806,8 +874,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Chicken Enhanced',
 		type: 'Sub',
 		rarity: 'Epic',
+		label: 'Skill%Ch',
 		description: '',
-		image: null,
+		image: [ImageChicken, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.4,
@@ -818,8 +887,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Small Enhanced',
 		type: 'Sub',
 		rarity: 'Epic',
+		label: 'Sk%Sm',
 		description: '',
-		image: null,
+		image: [ImageSmall, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.4,
@@ -830,8 +900,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Magic Enhanced',
 		type: 'Sub',
 		rarity: 'Epic',
+		label: 'MaSk%Ma',
 		description: '',
-		image: null,
+		image: [ImageMagic, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.4,
@@ -842,8 +913,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Machine MP Improved',
 		type: 'Sub',
 		rarity: 'Epic',
+		label: 'MaMp',
 		description: '',
-		image: null,
+		image: [ImageMachinePurple, ImageMana],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.4,
@@ -854,8 +926,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Large Enhanced',
 		type: 'Sub',
 		rarity: 'Epic',
+		label: 'Skill%L',
 		description: '',
-		image: null,
+		image: [ImageLarge, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.4,
@@ -866,21 +939,22 @@ const baseRunes: IBaseRune[] = [
 		name: 'Animal Enhanced',
 		type: 'Sub',
 		rarity: 'Epic',
+		label: 'Dmg%An',
 		description: '',
-		image: null,
+		image: [ImageAnimal, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.4,
 		},
 		modifiers: {},
 	},
-
 	{
 		name: 'Wolf Enhanced',
 		type: 'Sub',
 		rarity: 'Epic',
+		label: 'WoAtk%Wo',
 		description: '',
-		image: null,
+		image: [ImageWolf, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.4,
@@ -891,8 +965,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Chicken Enhanced',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'Skill%Ch',
 		description: '',
-		image: null,
+		image: [ImageChicken, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -903,8 +978,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Animal Enhanced',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'Dmg%An',
 		description: '',
-		image: null,
+		image: [ImageAnimal, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -915,8 +991,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Machine MP Improved',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'MaMp',
 		description: '',
-		image: null,
+		image: [ImageMachineRed, ImageMana],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -927,8 +1004,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Hamburger MP Improved',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'HaMp',
 		description: '',
-		image: null,
+		image: [ImageHamburger, ImageMana],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -939,8 +1017,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Machine Enhanced',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'MaSk%Ma',
 		description: '',
-		image: null,
+		image: [ImageMachine, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -951,8 +1030,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Cat Enhanced',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'CaSk%Ca',
 		description: '',
-		image: null,
+		image: [ImageCat, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -963,8 +1043,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Legendary Enchantment',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'LegSk%Leg',
 		description: '',
-		image: null,
+		image: [ImageLegendary, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -975,8 +1056,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Magic Enhanced',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'MaSk%Ma',
 		description: '',
-		image: null,
+		image: [ImageMagic, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -987,8 +1069,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Animal MP Improved',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'AnMp',
 		description: '',
-		image: null,
+		image: [ImageAnimal, ImageMana],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -999,8 +1082,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Plant Enhanced',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'PlSk%Pl',
 		description: '',
-		image: null,
+		image: [ImagePlant, ImageGreenSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -1011,8 +1095,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Wolf MP Improved',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'WoMp',
 		description: '',
-		image: null,
+		image: [ImageWolf, ImageMana],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -1023,8 +1108,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Hamburger Enhanced',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'Sk%Ha',
 		description: '',
-		image: null,
+		image: [ImageHamburger, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -1035,8 +1121,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Cloud Enhanced',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'Sk%Cl',
 		description: '',
-		image: null,
+		image: [ImageCloud, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -1047,8 +1134,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Shark Enhanced',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'ShSk%Sh',
 		description: '',
-		image: null,
+		image: [ImageShark, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -1059,8 +1147,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Wolf Enhanced',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'WoAtk%Wo',
 		description: '',
-		image: null,
+		image: [ImageWolf, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -1071,8 +1160,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Large Enhanced',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'Skill%L',
 		description: '',
-		image: null,
+		image: [ImageLarge, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -1083,8 +1173,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Medium Enhanced',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'Skill%M',
 		description: '',
-		image: null,
+		image: [ImageMedium, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -1095,8 +1186,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Small Enhanced',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'Sk%Sm',
 		description: '',
-		image: null,
+		image: [ImageSmall, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -1107,8 +1199,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Pirate CRIT Enhanced',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'CritDmg%Pi',
 		description: '',
-		image: null,
+		image: [ImagePirate, ImageCritSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -1119,8 +1212,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Dessert Enhanced',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'DeSk%De',
 		description: '',
-		image: null,
+		image: [ImageDessert, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -1131,8 +1225,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Food Enhanced',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'FoSk%Fo',
 		description: '',
-		image: null,
+		image: [ImageFood, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -1143,8 +1238,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Dragon Enhanced',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'Skill%Dr',
 		description: '',
-		image: null,
+		image: [ImageDragon, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -1155,8 +1251,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Cat Skill Boost',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'CaSk%Ca',
 		description: '',
-		image: null,
+		image: [ImageCat, ImageGreenSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -1167,8 +1264,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Pirate CRIT Boost',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'CritBoost%Pi',
 		description: '',
-		image: null,
+		image: [ImagePirate, ImageCritSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -1179,8 +1277,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Pirate Skill Boost',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'PiSk%Pi',
 		description: '',
-		image: null,
+		image: [ImagePirate, ImageGreenSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -1191,8 +1290,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Wolf Enhanced',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'Sk%Wo',
 		description: '',
-		image: null,
+		image: [ImageWolf, ImageStar],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -1203,8 +1303,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Cat CRIT Boost',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'CritBoost%Ca',
 		description: '',
-		image: null,
+		image: [ImageCat, ImageCritSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -1215,8 +1316,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Pirate Boost',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'FiPiSk%',
 		description: '',
-		image: null,
+		image: [ImagePirate, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -1227,8 +1329,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Cat Boost',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'FiCaSk%',
 		description: '',
-		image: null,
+		image: [ImageCat, ImageSword],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -1239,8 +1342,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Fish Boost',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'FishBoost',
 		description: '',
-		image: null,
+		image: [ImageFishBoost, ImageGreenTriangle],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -1251,8 +1355,9 @@ const baseRunes: IBaseRune[] = [
 		name: 'Boss Attack',
 		type: 'Sub',
 		rarity: 'Legendary',
+		label: 'BoDmg',
 		description: '',
-		image: null,
+		image: [ImageBoss, ImageGreenTriangle],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -1262,9 +1367,10 @@ const baseRunes: IBaseRune[] = [
 	{
 		name: 'CRIT DMG',
 		type: 'Sub',
-		rarity: 'Legendary',
+    rarity: 'Legendary',
+    label: 'CritDmg',
 		description: '',
-		image: null,
+		image: [ImageCritSword, ImageGreenTriangle],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -1274,9 +1380,10 @@ const baseRunes: IBaseRune[] = [
 	{
 		name: 'Pirate CRIT Enhanced',
 		type: 'Sub',
-		rarity: 'Mythic',
+    rarity: 'Mythic',
+    label: 'CritDmg%Pi',
 		description: '',
-		image: null,
+		image: [ImagePirate, ImageCritSword],
 		possessBonus: {
 			tankFishLevel: 40,
 			ATKBoost: 0,
@@ -1286,9 +1393,10 @@ const baseRunes: IBaseRune[] = [
 	{
 		name: 'Pirate CRIT Boost',
 		type: 'Sub',
-		rarity: 'Mythic',
+    rarity: 'Mythic',
+    label: 'CritBoost%Pi',
 		description: '',
-		image: null,
+		image: [ImagePirate, ImageCritSword],
 		possessBonus: {
 			tankFishLevel: 40,
 			ATKBoost: 0,
@@ -1298,9 +1406,10 @@ const baseRunes: IBaseRune[] = [
 	{
 		name: 'Pirate Boost',
 		type: 'Sub',
-		rarity: 'Mythic',
+    rarity: 'Mythic',
+    label: 'FiPiSk%',
 		description: '',
-		image: null,
+		image: [ImagePirate, ImageSword],
 		possessBonus: {
 			tankFishLevel: 40,
 			ATKBoost: 0,
@@ -1310,9 +1419,10 @@ const baseRunes: IBaseRune[] = [
 	{
 		name: 'Cat CRIT Boost',
 		type: 'Sub',
-		rarity: 'Mythic',
+    rarity: 'Mythic',
+    label: 'CritBoost%Ca',
 		description: '',
-		image: null,
+		image: [ImageCat, ImageCritSword],
 		possessBonus: {
 			tankFishLevel: 40,
 			ATKBoost: 0,
@@ -1322,9 +1432,10 @@ const baseRunes: IBaseRune[] = [
 	{
 		name: 'Cat Boost',
 		type: 'Sub',
-		rarity: 'Mythic',
+    rarity: 'Mythic',
+    label: 'FiCaSk%',
 		description: '',
-		image: null,
+		image: [ImageCat, ImageSword],
 		possessBonus: {
 			tankFishLevel: 40,
 			ATKBoost: 0,
@@ -1334,9 +1445,10 @@ const baseRunes: IBaseRune[] = [
 	{
 		name: 'Wolf CRIT Enhanced',
 		type: 'Sub',
-		rarity: 'Mythic',
+    rarity: 'Mythic',
+    label: 'CritDmg%Wo',
 		description: '',
-		image: null,
+		image: [ImageWolf, ImageCritSword],
 		possessBonus: {
 			tankFishLevel: 40,
 			ATKBoost: 0,
