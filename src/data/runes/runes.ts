@@ -1939,4 +1939,6 @@ const baseRunes: IBaseRune[] = [
 	},
 ];
 
-export const runes: IRune[] = baseRunes as IRune[];
+export const runes: IRune[] = baseRunes.map((rune, index) => {
+	return { id: index, ...rune };
+});

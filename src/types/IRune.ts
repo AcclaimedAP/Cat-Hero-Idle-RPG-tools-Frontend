@@ -4,7 +4,7 @@ export interface IBaseRune {
 	type: string;
 	rarity: string;
 	description: string;
-	image: string | null;
+	image: string[] | null;
 	possessBonus: {
 		tankFishLevel: number;
 		ATKBoost: number;
@@ -12,4 +12,6 @@ export interface IBaseRune {
 	modifiers: { [key: string]: number };
 }
 
-export interface IRune extends IBaseRune {}
+export interface IRune extends IBaseRune {
+	id: number;
+}
