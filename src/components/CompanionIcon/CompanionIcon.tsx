@@ -1,7 +1,7 @@
 import { getIconBackground } from '../../utility/imageHandling/getIconBackground';
 import manaIcon from '../../assets/sprites/companions/GV_runeiconeff_1.png';
 
-export const CompanionIcon = ({ companion, label = true, level = 1 }) => {
+export const CompanionIcon = ({ companion, label = true, level = 1 }: { companion: any, label?: boolean, level?: number }) => {
   const background = getIconBackground(companion.rarity);
 	const iconSize = () => {
 		switch (companion.manaCost) {

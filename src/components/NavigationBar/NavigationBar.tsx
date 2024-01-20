@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { navigationData } from './navigationData';
+import { ILinkRoute } from '../../types/INavigationRoute';
 
-const NavigationLink = ({ link }) => {
+const NavigationLink = ({ link }: { link: ILinkRoute }) => {
 	return (
 		<li className='relative flex mx-[-2px]'>
 			<Link

@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
+import { ILinkRoute, INavigationRoute } from '../../types/INavigationRoute';
 
-const NavigationLink = ({ link }) => {
+const NavigationLink = ({ link }: { link: ILinkRoute }) => {
 	const location = useLocation();
 	const isActive = location.pathname === link.url;
 	const activeClass = isActive ? 'h-14 sub-menu-button-active' : 'h-12 relative -bottom-2';
@@ -23,7 +24,7 @@ const NavigationLink = ({ link }) => {
 	);
 };
 
-export const SubNavigationBar = ({ navigationData }) => {
+export const SubNavigationBar = ({ navigationData }: { navigationData: INavigationRoute }) => {
 	const links =
 		navigationData &&
 		navigationData.links.map((link) => (
