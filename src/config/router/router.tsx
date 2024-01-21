@@ -7,6 +7,8 @@ import { GameData } from 'views/GameData/GameData';
 import { SkillsOverview } from 'views/GameData/Skills/SkillsOverview';
 import { CompanionsOverview } from 'views/GameData/Companions/CompanionsOverview';
 import { RunesOverview } from 'views/GameData/Runes/RunesOverview';
+import { CollectionDisplay } from 'src/views/Tools/CollectionDisplay/CollectionDisplay';
+
 
 export const router = createBrowserRouter([
 	{
@@ -28,7 +30,17 @@ export const router = createBrowserRouter([
 				path: 'tools',
 				element: <Tools></Tools>,
 				children: [],
-			},
+      },
+      {
+        path: 'tools',
+        children: [
+          {
+            path: 'collection-display',
+            element: <CollectionDisplay></CollectionDisplay>,
+            children: [],
+          }
+        ]
+      },
 			{
 				path: 'game-data',
 				element: <GameData></GameData>,
