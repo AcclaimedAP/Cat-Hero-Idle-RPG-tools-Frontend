@@ -12,6 +12,12 @@ export default defineConfig({
 			assets: '/src/assets',
 			utility: '/src/utility',
 			types: '/src/types',
+			data: '/src/data',
 		},
+	},
+	test: {
+		globals: true,
+		environment: 'jsdom',
+		setupFiles: ['./src/__test__/setupTest.ts'],
 	},
 });

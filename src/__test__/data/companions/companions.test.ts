@@ -16,7 +16,6 @@ describe('companions', () => {
 	test('companions getDescription should return array of strings based on level', () => {
 		const companion = companions[0];
 		const description = companion.getDescription(1);
-		console.log(description);
 		expect(Array.isArray(description)).toBe(true);
 		expect(typeof description[0]).toBe('string');
 	});
