@@ -13,6 +13,7 @@ export default defineConfig({
 			utility: '/src/utility',
 			types: '/src/types',
 			data: '/src/data',
+			views: '/src/views',
 		},
 	},
 	test: {

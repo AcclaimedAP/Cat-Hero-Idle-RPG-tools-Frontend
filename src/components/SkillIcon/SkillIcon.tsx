@@ -1,5 +1,5 @@
-import { getIconBackground } from '../../utility/imageHandling/getIconBackground';
-import { ISkill } from '../../types/ISkill';
+import { getIconBackground } from 'utility/imageHandling/getIconBackground';
+import { ISkill } from 'types/ISkill';
 
 export const SkillIcon = ({ skill, label = true, level = 1 }: { skill: ISkill, label?: boolean, level?: number }) => {
 

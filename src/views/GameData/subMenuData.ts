@@ -1,4 +1,4 @@
-import { INavigationRoute } from '../../types/INavigationRoute';
+import { INavigationRoute } from 'types/INavigationRoute';
 
 export const navigationDataGameData: INavigationRoute = {
 	links: [

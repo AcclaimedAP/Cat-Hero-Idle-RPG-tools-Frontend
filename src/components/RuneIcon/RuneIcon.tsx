@@ -1,5 +1,5 @@
-import { getRuneBackground } from "../../utility/imageHandling/getRuneBackground";
-import { IRune } from "../../types/IRune";
+import { getRuneBackground } from "utility/imageHandling/getRuneBackground";
+import { IRune } from "types/IRune";
 
 export const RuneIcon = ({ rune, label = true }: { rune: IRune, label?: boolean }) => {
 

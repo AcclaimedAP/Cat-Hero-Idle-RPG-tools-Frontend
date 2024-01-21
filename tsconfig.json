@@ -22,7 +22,8 @@
 			"assets": ["./src/assets/*"],
 			"utility/*": ["./src/utility/*"],
 			"types/*": ["./src/types/*"],
-			"data/*": ["./src/data/*"]
+			"data/*": ["./src/data/*"],
+			"views/*": ["./src/views/*"]
 		}
 	},
 	"include": ["src"],

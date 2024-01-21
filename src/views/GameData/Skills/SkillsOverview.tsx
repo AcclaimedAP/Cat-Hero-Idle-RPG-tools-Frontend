@@ -1,7 +1,7 @@
-import { skills } from '../../../data/skills/skills';
-import { SkillIcon } from '../../../components/SkillIcon/SkillIcon';
-import { SubNavigationBar } from '../../../components/SubNavigationBar/SubNavigationBar';
-import { navigationDataGameData } from '../subMenuData';
+import { skills } from 'data/skills/skills';
+import { SkillIcon } from 'components/SkillIcon/SkillIcon';
+import { SubNavigationBar } from 'components/SubNavigationBar/SubNavigationBar';
+import { navigationDataGameData } from 'views/GameData/subMenuData';
 export const SkillsOverview = () => {
   const skillIcons = skills.map((skill) => {
     return (
