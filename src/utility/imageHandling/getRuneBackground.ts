@@ -1,13 +1,13 @@
-import BgMainUncommon from '../../assets/sprites/rune/mega-runes/backgrounds/bg_main_uncommon.png';
-import BgMainRare from '../../assets/sprites/rune/mega-runes/backgrounds/bg_main_rare.png';
-import BgMainEpic from '../../assets/sprites/rune/mega-runes/backgrounds/bg_main_epic.png';
-import BgMainLegendary from '../../assets/sprites/rune/mega-runes/backgrounds/bg_main_legendary.png';
-import BgMainMythic from '../../assets/sprites/rune/mega-runes/backgrounds/bg_main_mythic.png';
-import BgSubUncommon from '../../assets/sprites/rune/mega-runes/backgrounds/bg_sub_uncommon.png';
-import BgSubRare from '../../assets/sprites/rune/mega-runes/backgrounds/bg_sub_rare.png';
-import BgSubEpic from '../../assets/sprites/rune/mega-runes/backgrounds/bg_sub_epic.png';
-import BgSubLegendary from '../../assets/sprites/rune/mega-runes/backgrounds/bg_sub_legendary.png';
-import BgSubMythic from '../../assets/sprites/rune/mega-runes/backgrounds/bg_sub_mythic.png';
+import BgMainUncommon from 'assets/sprites/rune/mega-runes/backgrounds/bg_main_uncommon.png';
+import BgMainRare from 'assets/sprites/rune/mega-runes/backgrounds/bg_main_rare.png';
+import BgMainEpic from 'assets/sprites/rune/mega-runes/backgrounds/bg_main_epic.png';
+import BgMainLegendary from 'assets/sprites/rune/mega-runes/backgrounds/bg_main_legendary.png';
+import BgMainMythic from 'assets/sprites/rune/mega-runes/backgrounds/bg_main_mythic.png';
+import BgSubUncommon from 'assets/sprites/rune/mega-runes/backgrounds/bg_sub_uncommon.png';
+import BgSubRare from 'assets/sprites/rune/mega-runes/backgrounds/bg_sub_rare.png';
+import BgSubEpic from 'assets/sprites/rune/mega-runes/backgrounds/bg_sub_epic.png';
+import BgSubLegendary from 'assets/sprites/rune/mega-runes/backgrounds/bg_sub_legendary.png';
+import BgSubMythic from 'assets/sprites/rune/mega-runes/backgrounds/bg_sub_mythic.png';
 
 export const getRuneBackground = (type: string, rarity: string) => {
 	switch (type) {
