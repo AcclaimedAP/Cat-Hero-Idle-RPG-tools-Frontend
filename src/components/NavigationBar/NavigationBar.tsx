@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { navigationData } from './navigationData';
-import { ILinkRoute } from '../../types/INavigationRoute';
+import { ILinkRoute } from 'types/INavigationRoute';
 
 const NavigationLink = ({ link }: { link: ILinkRoute }) => {
 	return (

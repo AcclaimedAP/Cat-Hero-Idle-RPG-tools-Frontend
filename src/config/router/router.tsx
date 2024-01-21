@@ -1,12 +1,12 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { Layout } from '../../views/layouts/mainLayout';
-import { NotFound } from '../../views/NotFound/NotFound';
-import { Home } from '../../views/Home/Home';
-import { Tools } from '../../views/Tools/Tools';
-import { GameData } from '../../views/GameData/GameData';
-import { SkillsOverview } from '../../views/GameData/Skills/SkillsOverview';
-import { CompanionsOverview } from '../../views/GameData/Companions/CompanionsOverview';
-import { RunesOverview } from '../../views/GameData/Runes/RunesOverview';
+import { Layout } from 'views/layouts/mainLayout';
+import { NotFound } from 'views/NotFound/NotFound';
+import { Home } from 'views/Home/Home';
+import { Tools } from 'views/Tools/Tools';
+import { GameData } from 'views/GameData/GameData';
+import { SkillsOverview } from 'views/GameData/Skills/SkillsOverview';
+import { CompanionsOverview } from 'views/GameData/Companions/CompanionsOverview';
+import { RunesOverview } from 'views/GameData/Runes/RunesOverview';
 
 export const router = createBrowserRouter([
 	{

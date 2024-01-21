@@ -1,7 +1,7 @@
-import { runes } from '../../../data/runes/runes';
-import { RuneIcon } from '../../../components/RuneIcon/RuneIcon';
-import { SubNavigationBar } from '../../../components/SubNavigationBar/SubNavigationBar';
-import { navigationDataGameData } from '../subMenuData';
+import { runes } from 'data/runes/runes';
+import { RuneIcon } from 'components/RuneIcon/RuneIcon';
+import { SubNavigationBar } from 'components/SubNavigationBar/SubNavigationBar';
+import { navigationDataGameData } from 'views/GameData/subMenuData';
 export const RunesOverview = () => {
   const mainRunes = runes.map((rune, index) => {
     if (rune.type != "Main") {

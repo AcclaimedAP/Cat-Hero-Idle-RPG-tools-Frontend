@@ -1,10 +1,10 @@
-import { companions } from '../../data/companions/companions';
-import { skills } from '../../data/skills/skills';
-import { SkillIcon } from '../../components/SkillIcon/SkillIcon';
-import { CompanionIcon } from '../../components/CompanionIcon/CompanionIcon';
-import { runes } from '../../data/runes/runes';
-import { RuneIcon } from '../../components/RuneIcon/RuneIcon';
-import { SubNavigationBar } from '../../components/SubNavigationBar/SubNavigationBar';
+import { companions } from 'data/companions/companions';
+import { skills } from 'data/skills/skills';
+import { SkillIcon } from 'components/SkillIcon/SkillIcon';
+import { CompanionIcon } from 'components/CompanionIcon/CompanionIcon';
+import { runes } from 'data/runes/runes';
+import { RuneIcon } from 'components/RuneIcon/RuneIcon';
+import { SubNavigationBar } from 'components/SubNavigationBar/SubNavigationBar';
 import { navigationDataGameData } from './subMenuData';
 
 export const GameData = () => {

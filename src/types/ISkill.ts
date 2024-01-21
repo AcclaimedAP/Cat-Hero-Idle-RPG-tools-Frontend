@@ -20,5 +20,6 @@ export interface IBaseSkill {
 }
 
 export interface ISkill extends IBaseSkill {
+	id: number;
 	getDescription: (level?: number) => string;
 }

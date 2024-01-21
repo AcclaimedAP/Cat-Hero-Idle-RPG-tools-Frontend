@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { ILinkRoute, INavigationRoute } from '../../types/INavigationRoute';
+import { ILinkRoute, INavigationRoute } from 'types/INavigationRoute';
 
 const NavigationLink = ({ link }: { link: ILinkRoute }) => {
 	const location = useLocation();
