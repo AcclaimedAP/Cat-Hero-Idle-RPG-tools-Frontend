@@ -1,37 +1,37 @@
-import ImageDinnerTime from '../../assets/sprites/skills/common/GV_skillicon_dinnertime.png';
-import ImageRatBomb from '../../assets/sprites/skills/common/GV_skillicon_boommouse_single.png';
-import ImageSuperCat from '../../assets/sprites/skills/common/GV_skillicon_supercat.png';
-import ImageMagicCircus from '../../assets/sprites/skills/common/GV_skillicon_magiccircus.png';
-import ImageDessertComa from '../../assets/sprites/skills/uncommon/GV_skillicon_dessertmeteor.png';
-import ImageLeafSlash from '../../assets/sprites/skills/uncommon/GV_skillicon_leaf.png';
-import ImageIcyThorns from '../../assets/sprites/skills/uncommon/GV_skillicon_ice_single.png';
-import ImageScraaatch from '../../assets/sprites/skills/uncommon/GV_skill_hunting.png';
-import ImageGrrrrrrr from '../../assets/sprites/skills/uncommon/GV_skillicon_angry.png';
-import ImageClusterBomb from '../../assets/sprites/skills/uncommon/GV_skillicon_bomb_single.png';
-import ImageFishRain from '../../assets/sprites/skills/rare/GV_skillicon_fishbomb.png';
-import ImageScarecrow from '../../assets/sprites/skills/rare/GV_skillicon_CatScarecrow.png';
-import ImageTornado from '../../assets/sprites/skills/rare/GV_skillicon_tornado.png';
-import ImageMagicShield from '../../assets/sprites/skills/rare/GV_skillicon_shield.png';
-import ImageChickenRun from '../../assets/sprites/skills/rare/GV_skillicon_boomchicken.png';
-import ImageChakra from '../../assets/sprites/skills/rare/GV_skillicon_magiccompress.png';
-import ImageHowl from '../../assets/sprites/skills/epic/GV_skill_howling.png';
-import ImageBlackCloud from '../../assets/sprites/skills/epic/GV_skillicon_blackcloud.png';
-import ImageSprayInk from '../../assets/sprites/skills/epic/GV_skillicon_26.png';
-import ImageBurgerParty from '../../assets/sprites/skills/epic/GV_skillicon_bugerparty.png';
-import ImageMagicCrossbow from '../../assets/sprites/skills/epic/GV_skillicon_arrow.png';
-import ImageFullMoon from '../../assets/sprites/skills/epic/GV_skillicon_fullmoon.png';
-import ImageCatteor from '../../assets/sprites/skills/epic/GV_skillicon_meteor.png';
-import ImageCatLaser from '../../assets/sprites/skills/epic/GV_skillicon_laser_single.png';
-import ImageClawPunch from '../../assets/sprites/skills/legendary/GV_skill_wolfclaw.png';
-import ImagePirateSign from '../../assets/sprites/skills/legendary/GV_skillicon_25.png';
-import ImageNocturneSummon from '../../assets/sprites/skills/legendary/GV_skillicon_24.png';
-import ImageBlackHole from '../../assets/sprites/skills/legendary/GV_skillicon_blackh.png';
-import ImageDreadnoughWhale from '../../assets/sprites/skills/legendary/GV_skillicon_gogorae_single.png';
-import ImageCatHeroes from '../../assets/sprites/skills/mythic/GV_skillicon_catheroes.png';
-import ImageOceansPunishment from '../../assets/sprites/skills/mythic/GV_skillicon_seaexecution.png';
-import { IBaseSkill, ISkill } from '../../types/ISkill';
+import ImageDinnerTime from 'assets/sprites/skills/common/GV_skillicon_dinnertime.png';
+import ImageRatBomb from 'assets/sprites/skills/common/GV_skillicon_boommouse_single.png';
+import ImageSuperCat from 'assets/sprites/skills/common/GV_skillicon_supercat.png';
+import ImageMagicCircus from 'assets/sprites/skills/common/GV_skillicon_magiccircus.png';
+import ImageDessertComa from 'assets/sprites/skills/uncommon/GV_skillicon_dessertmeteor.png';
+import ImageLeafSlash from 'assets/sprites/skills/uncommon/GV_skillicon_leaf.png';
+import ImageIcyThorns from 'assets/sprites/skills/uncommon/GV_skillicon_ice_single.png';
+import ImageScraaatch from 'assets/sprites/skills/uncommon/GV_skill_hunting.png';
+import ImageGrrrrrrr from 'assets/sprites/skills/uncommon/GV_skillicon_angry.png';
+import ImageClusterBomb from 'assets/sprites/skills/uncommon/GV_skillicon_bomb_single.png';
+import ImageFishRain from 'assets/sprites/skills/rare/GV_skillicon_fishbomb.png';
+import ImageScarecrow from 'assets/sprites/skills/rare/GV_skillicon_CatScarecrow.png';
+import ImageTornado from 'assets/sprites/skills/rare/GV_skillicon_tornado.png';
+import ImageMagicShield from 'assets/sprites/skills/rare/GV_skillicon_shield.png';
+import ImageChickenRun from 'assets/sprites/skills/rare/GV_skillicon_boomchicken.png';
+import ImageChakra from 'assets/sprites/skills/rare/GV_skillicon_magiccompress.png';
+import ImageHowl from 'assets/sprites/skills/epic/GV_skill_howling.png';
+import ImageBlackCloud from 'assets/sprites/skills/epic/GV_skillicon_blackcloud.png';
+import ImageSprayInk from 'assets/sprites/skills/epic/GV_skillicon_26.png';
+import ImageBurgerParty from 'assets/sprites/skills/epic/GV_skillicon_bugerparty.png';
+import ImageMagicCrossbow from 'assets/sprites/skills/epic/GV_skillicon_arrow.png';
+import ImageFullMoon from 'assets/sprites/skills/epic/GV_skillicon_fullmoon.png';
+import ImageCatteor from 'assets/sprites/skills/epic/GV_skillicon_meteor.png';
+import ImageCatLaser from 'assets/sprites/skills/epic/GV_skillicon_laser_single.png';
+import ImageClawPunch from 'assets/sprites/skills/legendary/GV_skill_wolfclaw.png';
+import ImagePirateSign from 'assets/sprites/skills/legendary/GV_skillicon_25.png';
+import ImageNocturneSummon from 'assets/sprites/skills/legendary/GV_skillicon_24.png';
+import ImageBlackHole from 'assets/sprites/skills/legendary/GV_skillicon_blackh.png';
+import ImageDreadnoughWhale from 'assets/sprites/skills/legendary/GV_skillicon_gogorae_single.png';
+import ImageCatHeroes from 'assets/sprites/skills/mythic/GV_skillicon_catheroes.png';
+import ImageOceansPunishment from 'assets/sprites/skills/mythic/GV_skillicon_seaexecution.png';
+import { IBaseSkill, ISkill } from 'types/ISkill';
 
-const skillsData: IBaseSkill[] = [
+const baseSkills: IBaseSkill[] = [
 	{
 		name: 'Dinner Time',
 		image: ImageDinnerTime,
@@ -687,10 +687,6 @@ function getDescription(this: ISkill, level = 1) {
 		return String(value); // Convert the value to a string
 	});
 }
-function skillsWithDescriptions(): ISkill[] {
-	return skillsData.map((skill) => {
-		skill.getDescription = getDescription;
-		return skill as ISkill;
-	});
-}
-export const skills = skillsWithDescriptions();
+export const skills: ISkill[] = baseSkills.map((skill, index) => {
+	return (skill = { id: index, getDescription, ...skill } as ISkill);
+});

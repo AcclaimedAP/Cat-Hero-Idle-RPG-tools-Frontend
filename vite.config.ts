@@ -11,6 +11,7 @@ export default defineConfig({
 			components: '/src/components',
 			assets: '/src/assets',
 			utility: '/src/utility',
+			types: '/src/types',
 		},
 	},
 });

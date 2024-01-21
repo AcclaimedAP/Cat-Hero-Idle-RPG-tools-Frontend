@@ -19,5 +19,6 @@ export interface IBaseCompanion {
 	getDescription?: (level?: number) => string[];
 }
 export interface ICompanion extends IBaseCompanion {
+	id: number;
 	getDescription: (level?: number) => string[];
 }
