@@ -48,7 +48,7 @@ export const MainRuneCollection = ({ runesList, updateEquipped }: { runesList: I
 
   const addToList = (rune: ISelectedMainRune) => {
     const equippedRuneList = [...equippedRunes, rune]
-    if (equippedRuneList.length > 6) {
+    if (equippedRuneList.length > 3) {
       equippedRuneList.shift()
     }
     setEquippedRunes(equippedRuneList)
