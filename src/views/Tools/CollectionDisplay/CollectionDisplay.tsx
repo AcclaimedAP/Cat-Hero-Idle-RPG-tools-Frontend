@@ -24,11 +24,23 @@ export const CollectionDisplay = () => {
     subRuneList: []
   })
 
+  const resetLocalStorage = () => {
+    localStorage.removeItem("equipped")
+    localStorage.removeItem("companionsList")
+    localStorage.removeItem("skillsList")
+    localStorage.removeItem("mainRunesList")
+    localStorage.removeItem("subRunesList")
+    location.reload()
+  }
+
   return (
     <>
       <SubNavigationBar navigationData={navigationDataTools} />
       <div className="container-dark flex flex-col gap-2">
-        <h1 className='text-2xl p-2'>Collection Display</h1>
+        <div className='flex flex-row justify-between'>
+          <h1 className='text-2xl p-2'>Collection Display</h1>
+          <button className='container-light hover:brightness-110' onClick={resetLocalStorage}>Reset</button>
+        </div>
         <SelectionContainer setCollection={setCollection} />
         <CollectionContainer collection={collection} />
       </div>
