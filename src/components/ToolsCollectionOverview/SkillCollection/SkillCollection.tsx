@@ -1,27 +1,77 @@
 import { ISelectedSkill } from "../SkillSelection/SkillSelection";
 import { skills } from "src/data/skills/skills";
 import { SkillIcon } from "src/components/SkillIcon/SkillIcon";
+import { useEffect, useState } from "react";
 
 
-export const SkillCollection = ({ skillsList }: { skillsList: ISelectedSkill[] }) => {
+const SkillBox = ({ skill, add, remove, isEquipped }: { skill: ISelectedSkill, add: (skill: ISelectedSkill) => void, remove: (skill: ISelectedSkill) => void, isEquipped: boolean }) => {
+  const [selected, setSelected] = useState(isEquipped)
+  const selectedClass = selected ? "brightness-125 selected-shadow" : ""
+  const handleSelect = () => {
+    setSelected(!selected)
+  }
+  useEffect(() => {
+    if (selected) {
+      add({ id: skill.id, level: skill.level })
+    } else {
+      remove({ id: skill.id, level: skill.level })
+    }
+  }, [selected])
 
   const getSkill = (id: number) => {
     return skills.find((skill) => skill.id === id)
   }
+  useEffect(() => {
+    setSelected(isEquipped)
+  }, [isEquipped])
+
+
+  return (
+    <div className={`flex flex-col ${selectedClass} justify-center items-center w-14`} onClick={handleSelect}>
+      {selected && <span className="absolute z-10 right-0 -top-1 text-2xl">🗸</span>}
+      <SkillIcon skill={getSkill(skill.id)} level={skill.level} label={true} />
+    </div>
+  )
+}
+
+export const SkillCollection = ({ skillsList, updateEquipped }: { skillsList: ISelectedSkill[], updateEquipped: (type: string, list: ISelectedSkill[]) => void }) => {
+  const [equippedSkills, setEquippedSkills] = useState<ISelectedSkill[]>([])
+
   const sortById = (a: ISelectedSkill, b: ISelectedSkill) => {
     return a.id - b.id
   }
   skillsList.sort(sortById);
 
+  const addToList = (skill: ISelectedSkill) => {
+    const equippedSkillList = [...equippedSkills, skill]
+    if (equippedSkillList.length > 6) {
+      equippedSkillList.shift()
+    }
+    setEquippedSkills(equippedSkillList)
+  }
+
+  const removeFromList = (skill: ISelectedSkill) => {
+    setEquippedSkills(equippedSkills.filter((obj) => obj.id !== skill.id))
+  }
+
+  const isEquipped = (id: number) => {
+    return equippedSkills.some((skill) => skill.id === id)
+  }
+
+  useEffect(() => {
+    updateEquipped("skill", equippedSkills)
+  }, [equippedSkills])
+
+
+
   return (
     <div className="container-dark-inner">
       <h3 className="text-center min-w-48">Skills</h3>
-      <div className="flex flex-col lg:flex-row gap-1 flex-wrap justify-end">
+      <div className="flex flex-col lg:flex-row gap-2 flex-wrap justify-end">
         {skillsList.map((skill) => {
+          const isEquippedBool = isEquipped(skill.id)
           return (
-            <div className="flex flex-col justify-center items-center w-12" key={skill.id}>
-              <SkillIcon skill={getSkill(skill.id)} level={skill.level} label={true} />
-            </div>
+            <SkillBox add={addToList} remove={removeFromList} skill={skill} key={skill.id} isEquipped={isEquippedBool} />
           )
         })}
       </div>

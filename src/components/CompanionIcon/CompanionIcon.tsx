@@ -22,7 +22,7 @@ export const CompanionIcon = ({ companion, label = true, level = 1 }: { companio
 
 	return (
 		<>
-      <div className='relative w-14 h-14 m-1 z-0 inline-block'>
+      <div className='relative w-14 h-14 z-0 inline-block'>
 				<div className='absolute z-20 left-0 top-0 w-[45%] h-[45%] -translate-x-1/3 -translate-y-1/3'>
 					<div className='relative left-0 top-0'>
 						<img

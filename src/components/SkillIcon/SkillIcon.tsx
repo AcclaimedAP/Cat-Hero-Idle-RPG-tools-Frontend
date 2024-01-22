@@ -7,7 +7,7 @@ export const SkillIcon = ({ skill, label = true, level = 1 }: { skill: ISkill | 
 
   return (
     <>
-      <div className='relative w-12 h-12 inline-block m-1' onClick={() => {
+      <div className='relative w-14 h-14 inline-block' onClick={() => {
         console.log(skill.getDescription());
       }}>
         {label && <span className='absolute z-20 text-[0.6rem] left-[4px] top-[2px]'>Lv. {level}</span>}
