@@ -15,11 +15,11 @@ export const SkillCollection = ({ skillsList }: { skillsList: ISelectedSkill[] }
 
   return (
     <div className="container-dark-inner">
-
-      <div className="flex flex-col lg:flex-row gap-1">
+      <h3 className="text-center min-w-48">Skills</h3>
+      <div className="flex flex-col lg:flex-row gap-1 flex-wrap justify-end">
         {skillsList.map((skill) => {
           return (
-            <div className="flex flex-col justify-center items-center w-12 m-auto" key={skill.id}>
+            <div className="flex flex-col justify-center items-center w-12" key={skill.id}>
               <SkillIcon skill={getSkill(skill.id)} level={skill.level} label={true} />
             </div>
           )

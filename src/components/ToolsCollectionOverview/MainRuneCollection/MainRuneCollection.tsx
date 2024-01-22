@@ -14,7 +14,8 @@ export const MainRuneCollection = ({ runesList }: { runesList: ISelectedMainRune
 
   return (
     <div className="container-dark-inner">
-      <div className="flex flex-col lg:flex-row gap-1">
+      <h3 className="text-center min-w-48">Main Runes</h3>
+      <div className="flex flex-col lg:flex-row gap-1 flex-wrap">
         {runesList.map((rune) => {
           return (
             <div className="flex flex-col justify-center items-center w-14 m-auto" key={rune.id}>

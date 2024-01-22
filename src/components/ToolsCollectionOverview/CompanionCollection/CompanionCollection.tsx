@@ -14,10 +14,11 @@ export const CompanionCollection = ({ companionsList }: { companionsList: ISelec
 
   return (
     <div className="container-dark-inner">
-      <div className="flex flex-col lg:flex-row gap-1">
+      <h3 className="text-center min-w-48">Companions</h3>
+      <div className="flex flex-col lg:flex-row gap-1 flex-wrap justify-end">
         {companionsList.map((companion) => {
           return (
-            <div className="flex flex-col justify-center items-center w-14 m-auto" key={companion.id}>
+            <div className="flex flex-col justify-center items-center w-14" key={companion.id}>
               <CompanionIcon companion={getCompanion(companion.id)} level={companion.level} label={true} />
             </div>
           )
