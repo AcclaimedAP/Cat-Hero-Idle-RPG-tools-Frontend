@@ -27,8 +27,8 @@ export const CollectionDisplay = () => {
   return (
     <>
       <SubNavigationBar navigationData={navigationDataTools} />
-      <div className="container-dark">
-        <h1>Collection Display</h1>
+      <div className="container-dark flex flex-col gap-2">
+        <h1 className='text-2xl p-2'>Collection Display</h1>
         <SelectionContainer setCollection={setCollection} />
         <CollectionContainer collection={collection} />
       </div>

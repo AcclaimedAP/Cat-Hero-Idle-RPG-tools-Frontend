@@ -1,11 +1,11 @@
 .container-light {
-  border: 16px solid transparent;
+  border: 10px solid transparent;
   padding: 0;
-  margin: 20px 10px;
+  margin: 15px 5px;
   background-color: #e1d4b7;
   border-image-source: url("../assets/sprites/ui/GV_mainmenu_back0513.png");
   border-image-outset: 5px;
-  border-image-slice: 30;
+  border-image-slice: 20;
   border-image-repeat: round;
   color: rgb(0 0 0 / 87%);
 
@@ -14,26 +14,26 @@
 
 
 .container-dark {
-  border: 16px solid transparent;
+  border: 5px solid transparent;
   padding: 0;
-  margin: 20px 10px;
+  margin: 15px 10px;
   color: rgb(255 255 255 / 87%);
   border-image-source: url("../assets/sprites/ui/GV_ui_main6.png");
   border-image-outset: 5px;
-  border-image-slice: 30;
+  border-image-slice: 10;
   border-image-repeat: round;
 
   background-color: #695138;
 }
 
 .container-dark-inner {
-  border: 16px solid transparent;
+  border: 5px solid transparent;
   padding: 0;
-  margin: 5px 10px;
+  margin: 5px;
   color: rgb(255 255 255 / 87%);
   border-image-source: url("../assets/sprites/ui/GV_ui_main16_1.png");
   border-image-outset: 5px;
-  border-image-slice: 30;
+  border-image-slice: 15;
   border-image-repeat: round;
 
   background-color: #392d20;

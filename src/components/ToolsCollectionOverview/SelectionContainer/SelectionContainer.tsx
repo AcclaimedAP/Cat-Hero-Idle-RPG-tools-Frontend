@@ -28,11 +28,11 @@ export const SelectionContainer = ({ setCollection }: { setCollection: (collecti
 
   return (
     <>
-      <div className="flex flex-col lg:flex-row">
+      <div className="flex flex-col lg:flex-row gap-2">
         <CompanionSelection setCompanionList={setCompanionList} />
         <SkillSelection setSkillList={setSkillList} />
       </div>
-      <div className="flex flex-col lg:flex-row">
+      <div className="flex flex-col lg:flex-row gap-2">
         <MainRuneSelection setMainRuneList={setMainRuneList} />
         <SubRuneSelection setSubRuneList={setSubRuneList} />
       </div>
