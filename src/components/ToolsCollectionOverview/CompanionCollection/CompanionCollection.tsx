@@ -63,9 +63,9 @@ export const CompanionCollection = ({ companionsList, updateEquipped }: { compan
   }, [equippedCompanions])
 
   return (
-    <div className="container-dark-inner">
+    <div className="container-dark-inner flex flex-col gap-3">
       <h3 className="text-center min-w-48">Companions</h3>
-      <div className="flex flex-col lg:flex-row gap-2 flex-wrap justify-end">
+      <div className="flex flex-col lg:flex-row gap-2 flex-wrap justify-center">
         {companionsList.map((companion) => {
           const isEquippedBool = isEquipped(companion.id)
           return (

@@ -29,7 +29,7 @@ const SubRuneBox = ({ rune, add, remove, isEquipped }: { rune: ISelectedSubRune,
     <div className={`flex flex-col ${selectedClass} justify-center items-center w-14`} onClick={handleSelect}>
       {selected && <>
         <span className="absolute z-10 right-0 -top-1 text-2xl">🗸</span>
-        <div className=" rounded-[50%] selected-shadow-circle border-2 border-red-400 w-14 h-14 top-2 absolute"></div>
+        <div className=" rounded-[50%] selected-shadow-circle border-2 border-red-400 w-14 h-14 top-1 absolute"></div>
       </>
       }
       <RuneIcon rune={getRune(rune.id)} label={true} />
@@ -65,9 +65,9 @@ export const SubRuneCollection = ({ runesList, updateEquipped }: { runesList: IS
   }, [equippedRunes])
 
   return (
-    <div className="container-dark-inner">
+    <div className="container-dark-inner flex flex-col gap-3">
       <h3 className="text-center min-w-48">Sub Runes</h3>
-      <div className="flex flex-col lg:flex-row gap-1 flex-wrap">
+      <div className="flex flex-col lg:flex-row gap-1 flex-wrap justify-center">
         {runesList.map((rune) => {
           const isEquippedBool = isEquipped(rune.id)
           return (

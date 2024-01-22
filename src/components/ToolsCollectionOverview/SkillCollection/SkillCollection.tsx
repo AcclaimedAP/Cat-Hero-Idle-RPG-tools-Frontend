@@ -65,9 +65,9 @@ export const SkillCollection = ({ skillsList, updateEquipped }: { skillsList: IS
 
 
   return (
-    <div className="container-dark-inner">
+    <div className="container-dark-inner flex flex-col gap-3">
       <h3 className="text-center min-w-48">Skills</h3>
-      <div className="flex flex-col lg:flex-row gap-2 flex-wrap justify-end">
+      <div className="flex flex-col lg:flex-row gap-2 flex-wrap justify-center">
         {skillsList.map((skill) => {
           const isEquippedBool = isEquipped(skill.id)
           return (
