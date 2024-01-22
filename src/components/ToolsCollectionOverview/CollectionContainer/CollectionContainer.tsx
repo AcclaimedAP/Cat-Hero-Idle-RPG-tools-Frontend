@@ -58,9 +58,9 @@ export const CollectionContainer = ({ collection }: { collection: ICollection })
     <>
       <div className="container-light flex flex-row">
         <div className="w-full">
-          <div className="flex flex-col lg:flex-rowgap-2 justify-around">
-            <div className="container-dark flex flex-row gap-4">
-              <div className=" flex flex-col gap-2">
+          <div className="flex flex-row justify-around">
+            <div className="container-dark flex flex-row gap-4 w-full">
+              <div className=" flex flex-col gap-2 w-full">
                 <CompanionCollection companionsList={collection.companionsList} updateEquipped={updateEquipped} />
 
                 <div className="flex flex-col lg:flex-col gap-2 justify-around">
