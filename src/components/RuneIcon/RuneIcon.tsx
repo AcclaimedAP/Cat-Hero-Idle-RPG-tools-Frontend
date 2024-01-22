@@ -1,7 +1,8 @@
 import { getRuneBackground } from "utility/imageHandling/getRuneBackground";
 import { IRune } from "types/IRune";
 
-export const RuneIcon = ({ rune, label = true }: { rune: IRune, label?: boolean }) => {
+export const RuneIcon = ({ rune, label = true }: { rune: IRune | undefined, label?: boolean }) => {
+  if (!rune) return null;
 
   const background: string = getRuneBackground(rune.type, rune.rarity);
   const setImages = () => {

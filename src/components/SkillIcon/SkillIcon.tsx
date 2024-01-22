@@ -1,8 +1,8 @@
 import { getIconBackground } from 'utility/imageHandling/getIconBackground';
 import { ISkill } from 'types/ISkill';
 
-export const SkillIcon = ({ skill, label = true, level = 1 }: { skill: ISkill, label?: boolean, level?: number }) => {
-
+export const SkillIcon = ({ skill, label = true, level = 1 }: { skill: ISkill | undefined, label?: boolean, level?: number }) => {
+  if (!skill) return null;
   const background: string = getIconBackground(skill.rarity);
 
   return (

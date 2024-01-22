@@ -1,6 +1,6 @@
 .container-light {
   border: 16px solid transparent;
-  padding: 10px;
+  padding: 0;
   margin: 20px 10px;
   background-color: #e1d4b7;
   border-image-source: url("../assets/sprites/ui/GV_mainmenu_back0513.png");
@@ -15,7 +15,7 @@
 
 .container-dark {
   border: 16px solid transparent;
-  padding: 10px;
+  padding: 0;
   margin: 20px 10px;
   color: rgb(255 255 255 / 87%);
   border-image-source: url("../assets/sprites/ui/GV_ui_main6.png");
@@ -28,8 +28,8 @@
 
 .container-dark-inner {
   border: 16px solid transparent;
-  padding: 10px;
-  margin: 20px 10px;
+  padding: 0;
+  margin: 5px 10px;
   color: rgb(255 255 255 / 87%);
   border-image-source: url("../assets/sprites/ui/GV_ui_main16_1.png");
   border-image-outset: 5px;
@@ -41,7 +41,7 @@
 
 .container-dark-striped {
   border: 5px solid transparent;
-  padding: 15px;
+  padding: 0;
   margin: 20px 10px;
   color: rgb(255 255 255 / 87%);
   border-image-source: url("../assets/sprites/ui/GV_ui_main12_1.png");

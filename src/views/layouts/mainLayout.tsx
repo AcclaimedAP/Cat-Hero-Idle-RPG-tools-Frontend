@@ -7,10 +7,10 @@ export const Layout = () => {
 			<header>
 				<NavigationBar />
 			</header>
-			<main className='p-12'>
+      <main className='py-6 md:p-12'>
 				<Outlet></Outlet>
 			</main>
-			<footer className='px-12 mb-[120px]'></footer>
+      <footer className='md:px-12 mb-[120px]'></footer>
 			<div className='background-image'>
 				<div className='background-image-front'></div>
 				<div className='background-image-front-two'></div>
