@@ -7,9 +7,9 @@ export interface ISelectedSkill {
   id: number,
   level: number
 }
-const SkillBox = ({ skill, add, remove, update }: { skill: ISkill, add: (skill: ISelectedSkill) => void, remove: (skill: ISelectedSkill) => void, update: (skill: ISelectedSkill) => void }) => {
-  const [level, setLevel] = useState(1)
-  const [selected, setSelected] = useState(false)
+const SkillBox = ({ skill, isSelected, add, remove, update }: { skill: ISkill, isSelected: { selected: boolean, level: number }, add: (skill: ISelectedSkill) => void, remove: (skill: ISelectedSkill) => void, update: (skill: ISelectedSkill) => void }) => {
+  const [level, setLevel] = useState(isSelected.level)
+  const [selected, setSelected] = useState(isSelected.selected)
   const handleLevelChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLevel(parseInt(event.target.value))
     update({ id: skill.id, level: parseInt(event.target.value) })
@@ -39,14 +39,23 @@ const SkillBox = ({ skill, add, remove, update }: { skill: ISkill, add: (skill: 
 
 
 export const SkillSelection = ({ setSkillList }: { setSkillList: (skillList: ISelectedSkill[]) => void }) => {
-  const [selectedSkills, setSelectedSkills] = useState<ISelectedSkill[]>([])
+  const getLocalStorage = () => {
+    const local = localStorage.getItem("skillsList")
+    if (local) {
+      return JSON.parse(local).skillsList
+    }
+    return []
+  }
+  const [selectedSkills, setSelectedSkills] = useState<ISelectedSkill[]>(getLocalStorage())
 
   const addToList = (skill: ISelectedSkill) => {
     setSelectedSkills([...selectedSkills, skill])
+    localStorage.setItem("skillsList", JSON.stringify({ skillsList: [...selectedSkills, skill] }))
   }
 
   const removeFromList = (skill: ISelectedSkill) => {
     setSelectedSkills(selectedSkills.filter((obj) => obj.id !== skill.id))
+    localStorage.setItem("skillsList", JSON.stringify({ skillsList: selectedSkills.filter((obj) => obj.id !== skill.id) }))
   }
 
   const updateList = (skill: ISelectedSkill) => {
@@ -56,11 +65,19 @@ export const SkillSelection = ({ setSkillList }: { setSkillList: (skillList: ISe
       }
       return obj
     }))
+    localStorage.setItem("skillsList", JSON.stringify({ skillsList: selectedSkills.map((obj) => { if (obj.id === skill.id) { return skill } return obj }) }))
+  }
+
+  const isSelected = (id: number) => {
+    const skill = selectedSkills.find((skill) => skill.id === id)
+    if (!skill) return { selected: false, level: 1 };
+    return { selected: true, level: skill.level }
   }
 
   const skillBoxes = skills.map((skill) => {
+    const isSelectedBool = isSelected(skill.id)
     return (
-      <SkillBox add={addToList} remove={removeFromList} update={updateList} skill={skill} key={skill.id} />
+      <SkillBox add={addToList} isSelected={isSelectedBool} remove={removeFromList} update={updateList} skill={skill} key={skill.id} />
     )
   })
   useEffect(() => {

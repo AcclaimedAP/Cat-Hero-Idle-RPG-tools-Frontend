@@ -3,7 +3,7 @@ import { ICollection } from "src/views/Tools/CollectionDisplay/CollectionDisplay
 import { SkillCollection } from "../SkillCollection/SkillCollection";
 import { MainRuneCollection } from "../MainRuneCollection/MainRuneCollection";
 import { SubRuneCollection } from "../SubRuneCollection/SubRuneCollection";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ISelectedSkill } from "../SkillSelection/SkillSelection";
 import { ISelectedCompanion } from "../CompanionSelection/CompanionSelection";
 import { ISelectedMainRune } from "../MainRuneSelection/MainRuneSelection";
@@ -35,13 +35,22 @@ export const CollectionContainer = ({ collection }: { collection: ICollection })
         setEquipped({ ...equipped, subRuneList: list as ISelectedSubRune[] })
         break;
     }
-
   }
+  useEffect(() => {
+    localStorage.setItem("equipped", JSON.stringify(equipped))
+
+  }, [equipped])
+  useEffect(() => {
+    if (localStorage.getItem("equipped")) {
+      const equipped = JSON.parse(localStorage.getItem("equipped") || "")
+      setEquipped(equipped)
+    }
+  }, [])
 
   return (
     <>
       <div className="container-light flex flex-row">
-        <div className="min-w-[30vw]">
+        <div className="w-full">
           <div className="flex flex-col lg:flex-rowgap-2 justify-around">
             <div className="container-dark flex flex-row gap-4">
               <div className=" flex flex-col gap-2">

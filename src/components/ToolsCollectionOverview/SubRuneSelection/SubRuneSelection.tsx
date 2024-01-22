@@ -6,8 +6,8 @@ import { IRune } from "src/types/IRune"
 export interface ISelectedSubRune {
   id: number
 }
-const RuneBox = ({ rune, add, remove }: { rune: IRune, add: (rune: ISelectedSubRune) => void, remove: (rune: ISelectedSubRune) => void }) => {
-  const [selected, setSelected] = useState(false)
+const RuneBox = ({ rune, isSelected, add, remove }: { rune: IRune, isSelected: { selected: boolean }, add: (rune: ISelectedSubRune) => void, remove: (rune: ISelectedSubRune) => void }) => {
+  const [selected, setSelected] = useState(isSelected.selected)
   const handleSelect = () => {
     setSelected(!selected)
   }
@@ -32,20 +32,36 @@ const RuneBox = ({ rune, add, remove }: { rune: IRune, add: (rune: ISelectedSubR
 
 
 export const SubRuneSelection = ({ setSubRuneList }: { setSubRuneList: (subRuneList: ISelectedSubRune[]) => void }) => {
-  const [selectedRunes, setSelectedRunes] = useState<ISelectedSubRune[]>([])
+  const getLocalStorage = () => {
+    const local = localStorage.getItem("subRunesList")
+    if (local) {
+      return JSON.parse(local).subRunesList
+    }
+    return []
+  }
+  const [selectedRunes, setSelectedRunes] = useState<ISelectedSubRune[]>(getLocalStorage())
 
   const addToList = (rune: ISelectedSubRune) => {
     setSelectedRunes([...selectedRunes, rune])
+    localStorage.setItem("subRunesList", JSON.stringify({ subRunesList: [...selectedRunes, rune] }))
   }
 
   const removeFromList = (rune: ISelectedSubRune) => {
     setSelectedRunes(selectedRunes.filter((obj) => obj.id !== rune.id))
+    localStorage.setItem("subRunesList", JSON.stringify({ subRunesList: selectedRunes.filter((obj) => obj.id !== rune.id) }))
+  }
+
+  const isSelected = (id: number) => {
+    const rune = selectedRunes.find((rune) => rune.id === id)
+    if (!rune) return { selected: false };
+    return { selected: true }
   }
 
   const runeBoxes = runes.map((rune) => {
     if (rune.type !== "Sub") return null;
+    const isSelectedBool = isSelected(rune.id)
     return (
-      <RuneBox add={addToList} remove={removeFromList} rune={rune} key={rune.id} />
+      <RuneBox add={addToList} isSelected={isSelectedBool} remove={removeFromList} rune={rune} key={rune.id} />
     )
   })
   useEffect(() => {
