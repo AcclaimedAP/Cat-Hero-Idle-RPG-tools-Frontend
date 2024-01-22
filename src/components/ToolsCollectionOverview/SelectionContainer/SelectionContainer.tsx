@@ -16,12 +16,6 @@ export const SelectionContainer = ({ setCollection }: { setCollection: (collecti
   const [subRuneList, setSubRuneList] = useState<ISelectedSubRune[]>([])
 
   useEffect(() => {
-
-
-    // localStorage.setItem("skillList", JSON.stringify({ skillList: skillList }))
-    // localStorage.setItem("mainRuneList", JSON.stringify({ mainRuneList: mainRuneList }))
-    // localStorage.setItem("subRuneList", JSON.stringify({ subRuneList: subRuneList }))
-
     setCollection({
       companionsList: companionList,
       skillList: skillList,

@@ -40,7 +40,14 @@ const SubRuneBox = ({ rune, add, remove, isEquipped }: { rune: ISelectedSubRune,
 
 
 export const SubRuneCollection = ({ runesList, updateEquipped }: { runesList: ISelectedSubRune[], updateEquipped: (type: string, list: ISelectedSubRune[]) => void }) => {
-  const [equippedRunes, setEquippedRunes] = useState<ISelectedSubRune[]>([])
+  const getLocalStorage = () => {
+    const local = localStorage.getItem("equipped")
+    if (local) {
+      return JSON.parse(local).subRuneList
+    }
+    return []
+  }
+  const [equippedRunes, setEquippedRunes] = useState<ISelectedSubRune[]>(getLocalStorage())
 
   const sortById = (a: ISelectedSubRune, b: ISelectedSubRune) => {
     return a.id - b.id

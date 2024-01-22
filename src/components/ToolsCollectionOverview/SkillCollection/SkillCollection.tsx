@@ -35,7 +35,14 @@ const SkillBox = ({ skill, add, remove, isEquipped }: { skill: ISelectedSkill, a
 }
 
 export const SkillCollection = ({ skillsList, updateEquipped }: { skillsList: ISelectedSkill[], updateEquipped: (type: string, list: ISelectedSkill[]) => void }) => {
-  const [equippedSkills, setEquippedSkills] = useState<ISelectedSkill[]>([])
+  const getLocalStorage = () => {
+    const local = localStorage.getItem("equipped")
+    if (local) {
+      return JSON.parse(local).skillList
+    }
+    return []
+  }
+  const [equippedSkills, setEquippedSkills] = useState<ISelectedSkill[]>(getLocalStorage())
 
   const sortById = (a: ISelectedSkill, b: ISelectedSkill) => {
     return a.id - b.id

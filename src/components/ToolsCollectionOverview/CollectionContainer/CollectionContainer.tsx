@@ -14,12 +14,20 @@ import { EquippedContainer } from "../EquippedContainer/EquippedContainer";
 
 export const CollectionContainer = ({ collection }: { collection: ICollection }) => {
 
-  const [equipped, setEquipped] = useState<ICollection>({
-    companionsList: [],
-    skillList: [],
-    mainRuneList: [],
-    subRuneList: []
-  })
+
+  const getLocalStorage = () => {
+    const local = localStorage.getItem("equipped")
+    if (local) {
+      return JSON.parse(local)
+    }
+    return {
+      companionsList: [],
+      skillList: [],
+      mainRuneList: [],
+      subRuneList: []
+    }
+  }
+  const [equipped, setEquipped] = useState<ICollection>(getLocalStorage())
   const updateEquipped = (type: string, list: ISelectedSkill[] | ISelectedCompanion[] | ISelectedMainRune[] | ISelectedSubRune[]) => {
     switch (type) {
       case "companion":
@@ -38,7 +46,6 @@ export const CollectionContainer = ({ collection }: { collection: ICollection })
   }
   useEffect(() => {
     localStorage.setItem("equipped", JSON.stringify(equipped))
-
   }, [equipped])
   useEffect(() => {
     if (localStorage.getItem("equipped")) {

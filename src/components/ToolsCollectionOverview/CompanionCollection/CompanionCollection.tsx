@@ -4,6 +4,7 @@ import { CompanionIcon } from "src/components/CompanionIcon/CompanionIcon";
 import { useEffect, useState } from "react";
 
 const CompanionBox = ({ companion, add, remove, isEquipped }: { companion: ISelectedCompanion, add: (companion: ISelectedCompanion) => void, remove: (companion: ISelectedCompanion) => void, isEquipped: boolean }) => {
+
   const [selected, setSelected] = useState(isEquipped)
   const selectedClass = selected ? "brightness-125 selected-shadow" : ""
   const handleSelect = () => {
@@ -35,7 +36,14 @@ const CompanionBox = ({ companion, add, remove, isEquipped }: { companion: ISele
 }
 
 export const CompanionCollection = ({ companionsList, updateEquipped }: { companionsList: ISelectedCompanion[], updateEquipped: (type: string, list: ISelectedCompanion[]) => void }) => {
-  const [equippedCompanions, setEquippedCompanions] = useState<ISelectedCompanion[]>([])
+  const getLocalStorage = () => {
+    const local = localStorage.getItem("equipped")
+    if (local) {
+      return JSON.parse(local).companionsList
+    }
+    return []
+  }
+  const [equippedCompanions, setEquippedCompanions] = useState<ISelectedCompanion[]>(getLocalStorage())
 
   const sortById = (a: ISelectedCompanion, b: ISelectedCompanion) => {
     return a.id - b.id
