@@ -57,7 +57,7 @@ export const CompanionSelection = () => {
   const isSelected = (id: number) => {
     const companion = selectedCompanions.find((companion) => companion.id === id)
     if (!companion) return { selected: false, level: 1 };
-    return { selected: true, level: companion.level }
+    return { selected: true, level: companion.level || 1 }
   }
 
   const companionBoxes = companions.map((companion) => {

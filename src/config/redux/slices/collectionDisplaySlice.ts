@@ -13,6 +13,12 @@ export const collectionDisplaySlice = createSlice({
 	name: 'collectionDisplay',
 	initialState,
 	reducers: {
+		setCollection: (state, action: PayloadAction<ICollection>) => {
+			state.companionsList = action.payload.companionsList;
+			state.skillList = action.payload.skillList;
+			state.mainRuneList = action.payload.mainRuneList;
+			state.subRuneList = action.payload.subRuneList;
+		},
 		setCompanionsList: (state, action: PayloadAction<ICollection['companionsList']>) => {
 			state.companionsList = action.payload;
 		},
@@ -28,5 +34,5 @@ export const collectionDisplaySlice = createSlice({
 	},
 });
 
-export const { setCompanionsList, setSkillList, setMainRuneList, setSubRuneList } = collectionDisplaySlice.actions;
+export const { setCollection, setCompanionsList, setSkillList, setMainRuneList, setSubRuneList } = collectionDisplaySlice.actions;
 export default collectionDisplaySlice.reducer;

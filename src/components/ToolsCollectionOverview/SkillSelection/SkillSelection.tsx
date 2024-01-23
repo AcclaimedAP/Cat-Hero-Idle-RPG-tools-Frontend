@@ -40,8 +40,8 @@ const SkillBox = ({ skill, isSelected, add, remove, update }: { skill: ISkill, i
 
 
 export const SkillSelection = () => {
-  const selectedSkills = useSelector((state: RootState) => state.collectionDisplay.skillList)
   const dispatch = useDispatch();
+  const selectedSkills = useSelector((state: RootState) => state.collectionDisplay.skillList)
 
   const addToList = (skill: ISelectedSkill) => {
     dispatch(setSkillList([...selectedSkills, skill]));
@@ -58,7 +58,7 @@ export const SkillSelection = () => {
   const isSelected = (id: number) => {
     const skill = selectedSkills.find((skill) => skill.id === id)
     if (!skill) return { selected: false, level: 1 };
-    return { selected: true, level: skill.level }
+    return { selected: true, level: skill.level || 1 }
   }
 
   const skillBoxes = skills.map((skill) => {

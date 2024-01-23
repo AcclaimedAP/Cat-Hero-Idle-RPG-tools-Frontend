@@ -13,6 +13,12 @@ export const equipmentDisplaySlice = createSlice({
 	name: 'equipmentDisplay',
 	initialState,
 	reducers: {
+		setEquipment: (state, action: PayloadAction<ICollection>) => {
+			state.companionsList = action.payload.companionsList;
+			state.skillList = action.payload.skillList;
+			state.mainRuneList = action.payload.mainRuneList;
+			state.subRuneList = action.payload.subRuneList;
+		},
 		setCompanionsList: (state, action: PayloadAction<ICollection['companionsList']>) => {
 			state.companionsList = action.payload;
 		},
@@ -28,5 +34,5 @@ export const equipmentDisplaySlice = createSlice({
 	},
 });
 
-export const { setCompanionsList, setSkillList, setMainRuneList, setSubRuneList } = equipmentDisplaySlice.actions;
+export const { setEquipment, setCompanionsList, setSkillList, setMainRuneList, setSubRuneList } = equipmentDisplaySlice.actions;
 export default equipmentDisplaySlice.reducer;
