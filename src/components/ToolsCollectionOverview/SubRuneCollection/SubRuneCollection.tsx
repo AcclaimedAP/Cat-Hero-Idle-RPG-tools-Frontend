@@ -74,7 +74,7 @@ export const SubRuneCollection = ({ runesList, updateEquipped }: { runesList: IS
   return (
     <div className="container-dark-inner flex flex-col gap-3">
       <h3 className="text-center min-w-48">Sub Runes</h3>
-      <div className="flex flex-col lg:flex-row gap-1 flex-wrap justify-center">
+      <div className="flex flex-row gap-1 flex-wrap justify-center">
         {runesList.map((rune) => {
           const isEquippedBool = isEquipped(rune.id)
           return (
