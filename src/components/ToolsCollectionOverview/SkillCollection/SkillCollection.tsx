@@ -28,7 +28,7 @@ const SkillBox = ({ skill, add, remove, isEquipped }: { skill: ISelectedSkill, a
     setSelected(isEquipped)
   }, [isEquipped])
 
-
+  if (!skill.id) return null
   return (
     <div className={`flex flex-col ${selectedClass} justify-center items-center w-14`} onClick={handleSelect}>
       {selected && <span className="absolute z-10 right-0 -top-1 text-2xl">🗸</span>}
@@ -43,14 +43,19 @@ export const SkillCollection = () => {
   const equippedSkills = useSelector((state: RootState) => state.equipmentDisplay.skillList)
 
   const sortById = (a: ISelectedSkill, b: ISelectedSkill) => {
+    if (!a.id || !b.id) return 0
     return a.id - b.id
   }
 
   const addToList = (skill: ISelectedSkill) => {
     if (equippedSkills.some((obj) => obj.id === skill.id)) return
-    const equippedSkillList = [...equippedSkills, skill]
-    if (equippedSkillList.length > 6) {
+    const equippedSkillList = [...equippedSkills]
+    const indexOfEmpty = equippedSkillList.findIndex((obj) => !obj.id)
+    if (indexOfEmpty === -1) {
       equippedSkillList.shift()
+      equippedSkillList.push(skill)
+    } else {
+      equippedSkillList[indexOfEmpty] = skill
     }
     dispatch(setSkillList(equippedSkillList));
   }
@@ -69,6 +74,7 @@ export const SkillCollection = () => {
       <h3 className="text-center min-w-48">Skills</h3>
       <div className="flex flex-row gap-2 flex-wrap justify-center">
         {skillsList.toSorted(sortById).map((skill, index) => {
+          if (!skill.id) return null
           const isEquippedBool = isEquipped(skill.id)
           return (
             <SkillBox add={addToList} remove={removeFromList} skill={skill} key={index} isEquipped={isEquippedBool} />

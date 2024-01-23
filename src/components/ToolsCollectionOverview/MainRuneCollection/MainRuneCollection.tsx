@@ -27,7 +27,7 @@ const MainRuneBox = ({ rune, add, remove, isEquipped }: { rune: ISelectedMainRun
   useEffect(() => {
     setSelected(isEquipped)
   }, [isEquipped])
-
+  if (!rune.id) return null
   return (
     <div className={`flex flex-col ${selectedClass} justify-center items-center w-14`} onClick={handleSelect}>
       {selected && <>
@@ -47,14 +47,19 @@ export const MainRuneCollection = () => {
   const equippedRunes = useSelector((state: RootState) => state.equipmentDisplay.mainRuneList)
 
   const sortById = (a: ISelectedMainRune, b: ISelectedMainRune) => {
+    if (!a.id || !b.id) return 0
     return a.id - b.id
   }
 
   const addToList = (rune: ISelectedMainRune) => {
     if (equippedRunes.some((obj) => obj.id === rune.id)) return
-    const equippedRuneList = [...equippedRunes, rune]
-    if (equippedRuneList.length > 3) {
+    const equippedRuneList = [...equippedRunes]
+    const indexOfEmpty = equippedRuneList.findIndex((obj) => !obj.id)
+    if (indexOfEmpty === -1) {
       equippedRuneList.shift()
+      equippedRuneList.push(rune)
+    } else {
+      equippedRuneList[indexOfEmpty] = rune
     }
     dispatch(setMainRuneList(equippedRuneList));
   }
@@ -70,6 +75,7 @@ export const MainRuneCollection = () => {
       <h3 className="text-center min-w-48">Main Runes</h3>
       <div className="flex flex-row gap-1 flex-wrap justify-center">
         {runesList.toSorted(sortById).map((rune, index) => {
+          if (!rune.id) return null
           const isEquippedBool = isEquipped(rune.id)
           return (
             <MainRuneBox add={addToList} remove={removeFromList} isEquipped={isEquippedBool} rune={rune} key={index} />

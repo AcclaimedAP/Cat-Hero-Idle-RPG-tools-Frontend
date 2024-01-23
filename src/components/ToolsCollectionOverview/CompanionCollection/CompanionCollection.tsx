@@ -29,7 +29,7 @@ const CompanionBox = ({ companion, add, remove, isEquipped }: { companion: ISele
     setSelected(isEquipped)
   }, [isEquipped])
 
-
+  if (!companion.id) return null
   return (
     <div className={`${selectedClass} flex flex-col justify-center items-center w-14`} key={companion.id} onClick={handleSelect}>
       {selected && <span className="absolute z-10 right-0 top-0 text-2xl">🗸</span>}
@@ -44,15 +44,21 @@ export const CompanionCollection = () => {
   const equippedCompanions = useSelector((state: RootState) => state.equipmentDisplay.companionsList)
 
   const sortById = (a: ISelectedCompanion, b: ISelectedCompanion) => {
+    if (!a.id || !b.id) return 0
     return a.id - b.id
   }
 
   const addToList = (companion: ISelectedCompanion) => {
     if (equippedCompanions.some((obj) => obj.id === companion.id)) return
-    const equippedCompanionList = [...equippedCompanions, companion]
-    if (equippedCompanionList.length > 6) {
+    const equippedCompanionList = [...equippedCompanions]
+    const indexOfEmpty = equippedCompanionList.findIndex((obj) => !obj.id)
+    if (indexOfEmpty === -1) {
       equippedCompanionList.shift()
+      equippedCompanionList.push(companion)
+    } else {
+      equippedCompanionList[indexOfEmpty] = companion
     }
+
     dispatch(setCompanionsList(equippedCompanionList));
   }
 
@@ -69,6 +75,7 @@ export const CompanionCollection = () => {
       <h3 className="text-center min-w-48">Companions</h3>
       <div className="flex flex-row gap-2 flex-wrap justify-center">
         {companionsList.toSorted(sortById).map((companion, index) => {
+          if (!companion.id) return null
           const isEquippedBool = isEquipped(companion.id)
           return (
             <CompanionBox companion={companion} add={addToList} remove={removeFromList} key={index} isEquipped={isEquippedBool} />

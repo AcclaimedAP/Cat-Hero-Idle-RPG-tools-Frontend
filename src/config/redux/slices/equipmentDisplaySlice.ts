@@ -3,10 +3,10 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { ICollection } from 'src/types/ICollection';
 
 const initialState: ICollection = {
-	companionsList: [],
-	skillList: [],
-	mainRuneList: [],
-	subRuneList: [],
+	companionsList: [{}, {}, {}, {}, {}, {}],
+	skillList: [{}, {}, {}, {}, {}, {}],
+	mainRuneList: [{}, {}, {}],
+	subRuneList: [{}, {}, {}, {}],
 };
 
 export const equipmentDisplaySlice = createSlice({

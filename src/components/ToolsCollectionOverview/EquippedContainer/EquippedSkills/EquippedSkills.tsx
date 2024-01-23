@@ -1,15 +1,31 @@
 import { SkillIcon } from "src/components/SkillIcon/SkillIcon";
 import { ISelectedSkill } from "types/ICollection";
 import { skills } from "data/skills/skills";
+import type { RootState } from 'src/config/redux/store'
+import { useSelector, useDispatch } from 'react-redux'
+import { setSkillList } from 'src/config/redux/slices/equipmentDisplaySlice'
 
 const SkillBox = ({ skill }: { skill: ISelectedSkill }) => {
+  const dispatch = useDispatch();
+  const equippedSkills = useSelector((state: RootState) => state.equipmentDisplay.skillList)
+
 
   const getSkill = (id: number) => {
     return skills.find((skill) => skill.id === id)
   }
+  const removeSkillFromList = () => {
+    const equippedSkillList = [...equippedSkills]
+    const index = equippedSkillList.findIndex((equippedSkill) => equippedSkill.id === skill.id)
+    equippedSkillList[index] = {}
+    dispatch(setSkillList(equippedSkillList));
+  }
+
+  if (!skill.id) return null
   return (
     <>
-      <SkillIcon skill={getSkill(skill.id)} level={skill.level} />
+      <div onClick={removeSkillFromList}>
+        <SkillIcon skill={getSkill(skill.id)} level={skill.level} />
+      </div>
     </>
   )
 }
@@ -22,26 +38,18 @@ const EmptySlot = () => {
   )
 }
 
-export const EquippedSkills = ({ equipped }: { equipped: ISelectedSkill[] }) => {
-
-
-
+export const EquippedSkills = () => {
+  const equipped = useSelector((state: RootState) => state.equipmentDisplay.skillList)
 
   return (
     <>
       <div className="grid grid-cols-6">
         {equipped.map((skill, index) => {
+          if (!skill.id) return <EmptySlot key={index} />
           return (
             <SkillBox key={index} skill={skill} />
           )
         })
-        }
-        {
-          Array(6 - equipped.length).fill(0).map((_, index) => {
-            return (
-              <EmptySlot key={index} />
-            )
-          })
         }
       </div>
     </>
