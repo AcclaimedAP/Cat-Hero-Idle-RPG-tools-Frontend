@@ -1,7 +1,10 @@
-import { ISelectedMainRune } from "../MainRuneSelection/MainRuneSelection";
+import { ISelectedMainRune } from "types/ICollection";
 import { runes } from "data/runes/runes";
 import { RuneIcon } from "components/RuneIcon/RuneIcon";
 import { useEffect, useState } from "react";
+import type { RootState } from 'src/config/redux/store'
+import { useSelector, useDispatch } from 'react-redux'
+import { setMainRuneList } from 'src/config/redux/slices/equipmentDisplaySlice'
 
 
 const MainRuneBox = ({ rune, add, remove, isEquipped }: { rune: ISelectedMainRune, add: (rune: ISelectedMainRune) => void, remove: (rune: ISelectedMainRune) => void, isEquipped: boolean }) => {
@@ -38,47 +41,38 @@ const MainRuneBox = ({ rune, add, remove, isEquipped }: { rune: ISelectedMainRun
 }
 
 
-export const MainRuneCollection = ({ runesList, updateEquipped }: { runesList: ISelectedMainRune[], updateEquipped: (type: string, list: ISelectedMainRune[]) => void }) => {
-
-  const getLocalStorage = () => {
-    const local = localStorage.getItem("equipped")
-    if (local) {
-      return JSON.parse(local).mainRuneList
-    }
-    return []
-  }
-  const [equippedRunes, setEquippedRunes] = useState<ISelectedMainRune[]>(getLocalStorage())
+export const MainRuneCollection = () => {
+  const dispatch = useDispatch();
+  const runesList = useSelector((state: RootState) => state.collectionDisplay.mainRuneList)
+  const equippedRunes = useSelector((state: RootState) => state.equipmentDisplay.mainRuneList)
 
   const sortById = (a: ISelectedMainRune, b: ISelectedMainRune) => {
     return a.id - b.id
   }
-  runesList.sort(sortById);
 
   const addToList = (rune: ISelectedMainRune) => {
+    if (equippedRunes.some((obj) => obj.id === rune.id)) return
     const equippedRuneList = [...equippedRunes, rune]
     if (equippedRuneList.length > 3) {
       equippedRuneList.shift()
     }
-    setEquippedRunes(equippedRuneList)
+    dispatch(setMainRuneList(equippedRuneList));
   }
   const removeFromList = (rune: ISelectedMainRune) => {
-    setEquippedRunes(equippedRunes.filter((obj) => obj.id !== rune.id))
+    dispatch(setMainRuneList(equippedRunes.filter((obj) => obj.id !== rune.id)));
   }
   const isEquipped = (id: number) => {
     return equippedRunes.some((rune) => rune.id === id)
   }
-  useEffect(() => {
-    updateEquipped("mainRune", equippedRunes)
-  }, [equippedRunes])
 
   return (
     <div className="container-dark-inner flex flex-col gap-3">
       <h3 className="text-center min-w-48">Main Runes</h3>
       <div className="flex flex-row gap-1 flex-wrap justify-center">
-        {runesList.map((rune) => {
+        {runesList.toSorted(sortById).map((rune, index) => {
           const isEquippedBool = isEquipped(rune.id)
           return (
-            <MainRuneBox add={addToList} remove={removeFromList} isEquipped={isEquippedBool} rune={rune} key={rune.id} />
+            <MainRuneBox add={addToList} remove={removeFromList} isEquipped={isEquippedBool} rune={rune} key={index} />
           )
         })}
       </div>

@@ -1,4 +1,4 @@
-import { ISelectedMainRune } from "../../MainRuneSelection/MainRuneSelection";
+import { ISelectedMainRune } from "types/ICollection";
 import { runes } from "data/runes/runes";
 import { RuneIcon } from "components/RuneIcon/RuneIcon";
 

@@ -1,11 +1,13 @@
-import { ICollection } from "src/views/Tools/CollectionDisplay/CollectionDisplay";
 import { EquippedCompanions } from "./EquippedCompanions/EquippedCompanions";
 import { EquippedSkills } from "./EquippedSkills/EquippedSkills";
 import { EquippedMainRunes } from "./EquippedMainRunes/EquippedMainRunes";
 import { EquippedSubRunes } from "./EquippedSubRunes/EquippedSubRunes";
+import { useSelector } from "react-redux";
+import { RootState } from "src/config/redux/store";
 
 
-export const EquippedContainer = ({ equipped }: { equipped: ICollection }) => {
+export const EquippedContainer = () => {
+  const equipped = useSelector((state: RootState) => state.equipmentDisplay)
 
 
   return (

@@ -1,4 +1,4 @@
-import { ISelectedSubRune } from "../../SubRuneSelection/SubRuneSelection";
+import { ISelectedSubRune } from "types/ICollection";
 import { runes } from "data/runes/runes";
 import { RuneIcon } from "components/RuneIcon/RuneIcon";
 

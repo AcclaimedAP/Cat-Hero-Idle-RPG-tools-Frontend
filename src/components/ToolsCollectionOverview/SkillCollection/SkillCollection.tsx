@@ -1,7 +1,10 @@
-import { ISelectedSkill } from "../SkillSelection/SkillSelection";
+import { ISelectedSkill } from "types/ICollection";
 import { skills } from "src/data/skills/skills";
 import { SkillIcon } from "src/components/SkillIcon/SkillIcon";
 import { useEffect, useState } from "react";
+import type { RootState } from 'src/config/redux/store'
+import { useSelector, useDispatch } from 'react-redux'
+import { setSkillList } from 'src/config/redux/slices/equipmentDisplaySlice'
 
 
 const SkillBox = ({ skill, add, remove, isEquipped }: { skill: ISelectedSkill, add: (skill: ISelectedSkill) => void, remove: (skill: ISelectedSkill) => void, isEquipped: boolean }) => {
@@ -34,51 +37,41 @@ const SkillBox = ({ skill, add, remove, isEquipped }: { skill: ISelectedSkill, a
   )
 }
 
-export const SkillCollection = ({ skillsList, updateEquipped }: { skillsList: ISelectedSkill[], updateEquipped: (type: string, list: ISelectedSkill[]) => void }) => {
-  const getLocalStorage = () => {
-    const local = localStorage.getItem("equipped")
-    if (local) {
-      return JSON.parse(local).skillList
-    }
-    return []
-  }
-  const [equippedSkills, setEquippedSkills] = useState<ISelectedSkill[]>(getLocalStorage())
+export const SkillCollection = () => {
+  const dispatch = useDispatch();
+  const skillsList = useSelector((state: RootState) => state.collectionDisplay.skillList)
+  const equippedSkills = useSelector((state: RootState) => state.equipmentDisplay.skillList)
 
   const sortById = (a: ISelectedSkill, b: ISelectedSkill) => {
     return a.id - b.id
   }
-  skillsList.sort(sortById);
 
   const addToList = (skill: ISelectedSkill) => {
+    if (equippedSkills.some((obj) => obj.id === skill.id)) return
     const equippedSkillList = [...equippedSkills, skill]
     if (equippedSkillList.length > 6) {
       equippedSkillList.shift()
     }
-    setEquippedSkills(equippedSkillList)
+    dispatch(setSkillList(equippedSkillList));
   }
 
   const removeFromList = (skill: ISelectedSkill) => {
-    setEquippedSkills(equippedSkills.filter((obj) => obj.id !== skill.id))
+    dispatch(setSkillList(equippedSkills.filter((obj) => obj.id !== skill.id)));
   }
 
   const isEquipped = (id: number) => {
     return equippedSkills.some((skill) => skill.id === id)
   }
 
-  useEffect(() => {
-    updateEquipped("skill", equippedSkills)
-  }, [equippedSkills])
-
-
 
   return (
     <div className="container-dark-inner flex flex-col gap-3">
       <h3 className="text-center min-w-48">Skills</h3>
       <div className="flex flex-row gap-2 flex-wrap justify-center">
-        {skillsList.map((skill) => {
+        {skillsList.toSorted(sortById).map((skill, index) => {
           const isEquippedBool = isEquipped(skill.id)
           return (
-            <SkillBox add={addToList} remove={removeFromList} skill={skill} key={skill.id} isEquipped={isEquippedBool} />
+            <SkillBox add={addToList} remove={removeFromList} skill={skill} key={index} isEquipped={isEquippedBool} />
           )
         })}
       </div>

@@ -2,10 +2,11 @@ import { runes } from "data/runes/runes"
 import { useEffect, useState } from "react"
 import { RuneIcon } from "src/components/RuneIcon/RuneIcon"
 import { IRune } from "src/types/IRune"
+import { ISelectedSubRune } from "types/ICollection"
+import type { RootState } from 'src/config/redux/store'
+import { useSelector, useDispatch } from 'react-redux'
+import { setSubRuneList } from 'src/config/redux/slices/collectionDisplaySlice'
 
-export interface ISelectedSubRune {
-  id: number
-}
 const RuneBox = ({ rune, isSelected, add, remove }: { rune: IRune, isSelected: { selected: boolean }, add: (rune: ISelectedSubRune) => void, remove: (rune: ISelectedSubRune) => void }) => {
   const [selected, setSelected] = useState(isSelected.selected)
   const handleSelect = () => {
@@ -31,24 +32,16 @@ const RuneBox = ({ rune, isSelected, add, remove }: { rune: IRune, isSelected: {
 }
 
 
-export const SubRuneSelection = ({ setSubRuneList }: { setSubRuneList: (subRuneList: ISelectedSubRune[]) => void }) => {
-  const getLocalStorage = () => {
-    const local = localStorage.getItem("subRunesList")
-    if (local) {
-      return JSON.parse(local).subRunesList
-    }
-    return []
-  }
-  const [selectedRunes, setSelectedRunes] = useState<ISelectedSubRune[]>(getLocalStorage())
+export const SubRuneSelection = () => {
+  const selectedRunes = useSelector((state: RootState) => state.collectionDisplay.subRuneList)
+  const dispatch = useDispatch();
 
   const addToList = (rune: ISelectedSubRune) => {
-    setSelectedRunes([...selectedRunes, rune])
-    localStorage.setItem("subRunesList", JSON.stringify({ subRunesList: [...selectedRunes, rune] }))
+    dispatch(setSubRuneList([...selectedRunes, rune]));
   }
 
   const removeFromList = (rune: ISelectedSubRune) => {
-    setSelectedRunes(selectedRunes.filter((obj) => obj.id !== rune.id))
-    localStorage.setItem("subRunesList", JSON.stringify({ subRunesList: selectedRunes.filter((obj) => obj.id !== rune.id) }))
+    dispatch(setSubRuneList(selectedRunes.filter((obj) => obj.id !== rune.id)));
   }
 
   const isSelected = (id: number) => {
@@ -64,10 +57,6 @@ export const SubRuneSelection = ({ setSubRuneList }: { setSubRuneList: (subRuneL
       <RuneBox add={addToList} isSelected={isSelectedBool} remove={removeFromList} rune={rune} key={rune.id} />
     )
   })
-  useEffect(() => {
-    setSubRuneList(selectedRunes)
-  }, [selectedRunes]);
-
 
   return (
     <>

@@ -2,11 +2,11 @@ import { companions } from "data/companions/companions"
 import { useEffect, useState } from "react"
 import { CompanionIcon } from "src/components/CompanionIcon/CompanionIcon"
 import { ICompanion } from "src/types/ICompanion"
+import { ISelectedCompanion } from "types/ICollection"
+import type { RootState } from 'src/config/redux/store'
+import { useSelector, useDispatch } from 'react-redux'
+import { setCompanionsList } from 'src/config/redux/slices/collectionDisplaySlice'
 
-export interface ISelectedCompanion {
-  id: number,
-  level: number
-}
 const CompanionBox = ({ companion, isSelected, add, remove, update }: { companion: ICompanion, isSelected: { selected: boolean, level: number }, add: (companion: ISelectedCompanion) => void, remove: (companion: ISelectedCompanion) => void, update: (companion: ISelectedCompanion) => void }) => {
   const [level, setLevel] = useState(isSelected.level)
   const [selected, setSelected] = useState(isSelected.selected)
@@ -38,34 +38,21 @@ const CompanionBox = ({ companion, isSelected, add, remove, update }: { companio
 }
 
 
-export const CompanionSelection = ({ setCompanionList }: { setCompanionList: (companionList: ISelectedCompanion[]) => void }) => {
-  const getLocalStorage = () => {
-    const local = localStorage.getItem("companionsList")
-    if (local) {
-      return JSON.parse(local).companionsList
-    }
-    return []
-  }
-  const [selectedCompanions, setSelectedCompanions] = useState<ISelectedCompanion[]>(getLocalStorage())
+export const CompanionSelection = () => {
+  const selectedCompanions = useSelector((state: RootState) => state.collectionDisplay.companionsList)
+  const dispatch = useDispatch();
+
 
   const addToList = (companion: ISelectedCompanion) => {
-    setSelectedCompanions([...selectedCompanions, companion])
-    localStorage.setItem("companionsList", JSON.stringify({ companionsList: [...selectedCompanions, companion] }))
+    dispatch(setCompanionsList([...selectedCompanions, companion]));
   }
 
   const removeFromList = (companion: ISelectedCompanion) => {
-    setSelectedCompanions(selectedCompanions.filter((comp) => comp.id !== companion.id))
-    localStorage.setItem("companionsList", JSON.stringify({ companionsList: selectedCompanions.filter((comp) => comp.id !== companion.id) }))
+    dispatch(setCompanionsList(selectedCompanions.filter((obj) => obj.id !== companion.id)));
   }
 
   const updateList = (companion: ISelectedCompanion) => {
-    setSelectedCompanions(selectedCompanions.map((comp) => {
-      if (comp.id === companion.id) {
-        return companion
-      }
-      return comp
-    }))
-    localStorage.setItem("companionsList", JSON.stringify({ companionsList: selectedCompanions.map((comp) => { if (comp.id === companion.id) { return companion } return comp }) }))
+    dispatch(setCompanionsList(selectedCompanions.map((obj) => obj.id === companion.id ? companion : obj)));
   }
   const isSelected = (id: number) => {
     const companion = selectedCompanions.find((companion) => companion.id === id)
@@ -81,15 +68,12 @@ export const CompanionSelection = ({ setCompanionList }: { setCompanionList: (co
   })
 
 
-  useEffect(() => {
-    setCompanionList(selectedCompanions)
-  }, [selectedCompanions]);
 
 
   return (
     <>
       <div className="container-dark-inner">
-        <h1 className="text-xl" onClick={() => { console.log(selectedCompanions) }}>
+        <h1 className="text-xl">
           Companion Selection
         </h1>
         <div className="flex flex-wrap gap-1">

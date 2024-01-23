@@ -1,4 +1,4 @@
-import { ISelectedCompanion } from "../../CompanionSelection/CompanionSelection";
+import { ISelectedCompanion } from "types/ICollection";
 import { companions } from "data/companions/companions";
 import { CompanionIcon } from "components/CompanionIcon/CompanionIcon";
 

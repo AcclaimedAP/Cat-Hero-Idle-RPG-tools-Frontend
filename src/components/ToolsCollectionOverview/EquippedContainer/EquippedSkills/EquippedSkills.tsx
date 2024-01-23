@@ -1,5 +1,5 @@
 import { SkillIcon } from "src/components/SkillIcon/SkillIcon";
-import { ISelectedSkill } from "../../SkillSelection/SkillSelection";
+import { ISelectedSkill } from "types/ICollection";
 import { skills } from "data/skills/skills";
 
 const SkillBox = ({ skill }: { skill: ISelectedSkill }) => {
