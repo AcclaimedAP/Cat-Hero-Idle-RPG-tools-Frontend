@@ -61,7 +61,11 @@ export const SkillCollection = () => {
   }
 
   const removeFromList = (skill: ISelectedSkill) => {
-    dispatch(setSkillList(equippedSkills.filter((obj) => obj.id !== skill.id)));
+    const equippedSkillList = [...equippedSkills]
+    const index = equippedSkillList.findIndex((obj) => obj.id === skill.id)
+    if (index === -1) return
+    equippedSkillList[index] = {}
+    dispatch(setSkillList(equippedSkillList));
   }
 
   const isEquipped = (id: number) => {

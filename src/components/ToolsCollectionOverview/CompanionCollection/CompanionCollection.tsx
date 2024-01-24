@@ -63,7 +63,11 @@ export const CompanionCollection = () => {
   }
 
   const removeFromList = (companion: ISelectedCompanion) => {
-    dispatch(setCompanionsList(equippedCompanions.filter((obj) => obj.id !== companion.id)));
+    const equippedCompanionList = [...equippedCompanions]
+    const index = equippedCompanionList.findIndex((obj) => obj.id === companion.id)
+    if (index === -1) return
+    equippedCompanionList[index] = {}
+    dispatch(setCompanionsList(equippedCompanionList));
   }
 
   const isEquipped = (id: number) => {

@@ -66,7 +66,11 @@ export const SubRuneCollection = () => {
     dispatch(setSubRuneList(equippedRuneList));
   }
   const removeFromList = (rune: ISelectedSubRune) => {
-    dispatch(setSubRuneList(equippedRunes.filter((obj) => obj.id !== rune.id)));
+    const equippedRuneList = [...equippedRunes]
+    const index = equippedRuneList.findIndex((obj) => obj.id === rune.id)
+    if (index === -1) return
+    equippedRuneList[index] = {}
+    dispatch(setSubRuneList(equippedRuneList));
   }
   const isEquipped = (id: number) => {
     return equippedRunes.some((rune) => rune.id === id)
