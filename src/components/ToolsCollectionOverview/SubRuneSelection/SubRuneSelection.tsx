@@ -2,23 +2,34 @@ import { runes } from "data/runes/runes"
 import { useEffect, useState } from "react"
 import { RuneIcon } from "src/components/RuneIcon/RuneIcon"
 import { IRune } from "src/types/IRune"
-import { ISelectedSubRune } from "types/ICollection"
 import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setSubRuneList } from 'src/config/redux/slices/collectionDisplaySlice'
 
-const RuneBox = ({ rune, isSelected, add, remove }: { rune: IRune, isSelected: { selected: boolean }, add: (rune: ISelectedSubRune) => void, remove: (rune: ISelectedSubRune) => void }) => {
-  const [selected, setSelected] = useState(isSelected.selected)
+const RuneBox = ({ rune }: { rune: IRune }) => {
+  const dispatch = useDispatch();
+  const selectedRunes = useSelector((state: RootState) => state.collectionDisplay.subRuneList)
+  const isSelected = selectedRunes.some((obj) => obj.id === rune.id)
+  const runeFromList = selectedRunes.find((obj) => obj.id === rune.id)
+  const [selected, setSelected] = useState(isSelected)
   const handleSelect = () => {
     setSelected(!selected)
   }
   useEffect(() => {
     if (selected) {
-      add({ id: rune.id })
+      if (runeFromList) {
+        dispatch(setSubRuneList(selectedRunes.map((obj) => obj.id === rune.id ? { id: rune.id } : obj)));
+      } else {
+        dispatch(setSubRuneList([...selectedRunes, { id: rune.id }]));
+      }
     } else {
-      remove({ id: rune.id })
+      dispatch(setSubRuneList(selectedRunes.filter((obj) => obj.id !== rune.id)));
     }
   }, [selected])
+
+  useEffect(() => {
+    setSelected(isSelected)
+  }, [isSelected])
 
   const selectedClass = selected ? "" : "brightness-50"
 
@@ -33,28 +44,11 @@ const RuneBox = ({ rune, isSelected, add, remove }: { rune: IRune, isSelected: {
 
 
 export const SubRuneSelection = () => {
-  const selectedRunes = useSelector((state: RootState) => state.collectionDisplay.subRuneList)
-  const dispatch = useDispatch();
-
-  const addToList = (rune: ISelectedSubRune) => {
-    dispatch(setSubRuneList([...selectedRunes, rune]));
-  }
-
-  const removeFromList = (rune: ISelectedSubRune) => {
-    dispatch(setSubRuneList(selectedRunes.filter((obj) => obj.id !== rune.id)));
-  }
-
-  const isSelected = (id: number) => {
-    const rune = selectedRunes.find((rune) => rune.id === id)
-    if (!rune) return { selected: false };
-    return { selected: true }
-  }
 
   const runeBoxes = runes.map((rune) => {
     if (rune.type !== "Sub") return null;
-    const isSelectedBool = isSelected(rune.id)
     return (
-      <RuneBox add={addToList} isSelected={isSelectedBool} remove={removeFromList} rune={rune} key={rune.id} />
+      <RuneBox rune={rune} key={rune.id} />
     )
   })
 
