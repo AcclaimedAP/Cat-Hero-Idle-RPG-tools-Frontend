@@ -2,6 +2,7 @@
 	"name": "cat-hero-tools-frontend",
 	"private": true,
 	"version": "0.0.0",
+	"homepage": "https://AcclaimedAP.github.io/Cat-Hero-Idle-RPG-tools-Frontend",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
@@ -9,7 +10,9 @@
 		"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
 		"preview": "vite preview",
 		"test": "vitest",
-		"coverage": "vitest --coverage"
+		"coverage": "vitest --coverage",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d dist"
 	},
 	"dependencies": {
 		"@reduxjs/toolkit": "^2.0.1",
@@ -31,6 +34,7 @@
 		"eslint-plugin-react": "^7.33.2",
 		"eslint-plugin-react-hooks": "^4.6.0",
 		"eslint-plugin-react-refresh": "^0.4.5",
+		"gh-pages": "^6.1.1",
 		"postcss": "^8.4.33",
 		"stylelint": "^16.1.0",
 		"stylelint-config-standard": "^36.0.0",

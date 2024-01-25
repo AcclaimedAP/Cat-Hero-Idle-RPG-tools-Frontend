@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, createHashRouter } from 'react-router-dom';
 import { Layout } from 'views/layouts/mainLayout';
 import { NotFound } from 'views/NotFound/NotFound';
 import { Home } from 'views/Home/Home';
@@ -10,7 +10,8 @@ import { RunesOverview } from 'views/GameData/Runes/RunesOverview';
 import { CollectionDisplay } from 'src/views/Tools/CollectionDisplay/CollectionDisplay';
 
 
-export const router = createBrowserRouter([
+
+const routes = [
 	{
 		path: '/',
 		element: <Layout></Layout>,
@@ -68,4 +69,7 @@ export const router = createBrowserRouter([
 			},
 		],
 	},
-]);
+];
+
+
+export const router = createHashRouter(routes) //: createBrowserRouter(routes);
