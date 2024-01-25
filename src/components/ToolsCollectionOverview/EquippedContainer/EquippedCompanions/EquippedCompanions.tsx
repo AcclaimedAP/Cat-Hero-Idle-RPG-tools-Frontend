@@ -25,7 +25,7 @@ const CompanionBox = ({ companion }: { companion: ISelectedCompanion }) => {
   return (
     <>
       <div onClick={removeCompanionFromList}>
-        <CompanionIcon companion={getCompanion(companion.id)} level={companion.level} />
+        <CompanionIcon companion={getCompanion(companion.id)} level={companion.level} border={false} stars={false} />
       </div>
     </>
   )

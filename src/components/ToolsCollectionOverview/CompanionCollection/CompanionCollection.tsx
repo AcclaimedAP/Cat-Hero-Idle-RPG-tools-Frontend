@@ -31,7 +31,7 @@ const CompanionBox = ({ companion, add, remove, isEquipped }: { companion: ISele
 
   if (!companion.id) return null
   return (
-    <div className={`${selectedClass} flex flex-col justify-center items-center w-14`} key={companion.id} onClick={handleSelect}>
+    <div className={`${selectedClass} flex flex-col justify-center items-center w-20 h-24`} key={companion.id} onClick={handleSelect}>
       {selected && <span className="absolute z-10 right-0 top-0 text-2xl">🗸</span>}
       <CompanionIcon companion={getCompanion(companion.id)} level={companion.level} label={true} />
     </div>

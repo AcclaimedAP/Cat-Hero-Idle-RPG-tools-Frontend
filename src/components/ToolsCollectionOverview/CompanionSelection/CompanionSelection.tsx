@@ -49,7 +49,7 @@ const CompanionBox = ({ companion }: { companion: ICompanion }) => {
       <div onClick={handleSelect}>
         <CompanionIcon companion={companion} level={level} label={true} />
       </div>
-      <input type="number" name="" id="" value={level} onChange={handleLevelChange} className="w-full z-10 -mt-3" />
+      <input type="number" name="" id="" value={level} onChange={handleLevelChange} className="w-20 z-10 -mt-3" />
     </div>
   )
 }
@@ -69,7 +69,7 @@ export const CompanionSelection = () => {
         <h1 className="text-xl">
           Companion Selection
         </h1>
-        <div className="flex flex-wrap gap-1">
+        <div className="flex flex-wrap gap-8">
           {companionBoxes}
         </div>
       </div>
