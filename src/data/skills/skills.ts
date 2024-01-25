@@ -29,6 +29,7 @@ import ImageBlackHole from 'assets/sprites/skills/legendary/GV_skillicon_blackh.
 import ImageDreadnoughWhale from 'assets/sprites/skills/legendary/GV_skillicon_gogorae_single.png';
 import ImageCatHeroes from 'assets/sprites/skills/mythic/GV_skillicon_catheroes.png';
 import ImageOceansPunishment from 'assets/sprites/skills/mythic/GV_skillicon_seaexecution.png';
+import ImageShamanCat from 'assets/sprites/skills/mythic/GV_skill_redcloud_s_0000.png';
 import { IBaseSkill, ISkill } from 'types/ISkill';
 
 const baseSkills: IBaseSkill[] = [
@@ -656,6 +657,26 @@ const baseSkills: IBaseSkill[] = [
 	{
 		name: "Ocean's Punishment",
 		image: ImageOceansPunishment,
+		rarity: 'Mythic',
+		description: '',
+		cooldown: 0,
+		tags: [],
+		basePossesBonus: {
+			ATKBoost: 2,
+		},
+		possesBonusPerLevel: {
+			ATKBoost: 1,
+		},
+		levelModifiers: [
+			{
+				level: 1,
+				dmgMultiplier: 0,
+			},
+		],
+	},
+	{
+		name: 'Shaman Cat',
+		image: ImageShamanCat,
 		rarity: 'Mythic',
 		description: '',
 		cooldown: 0,
