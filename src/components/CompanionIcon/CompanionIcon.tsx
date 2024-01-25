@@ -16,7 +16,9 @@ export const CompanionIcon = ({ companion, label = true, level = 1, border = tru
 			case 6:
 				return 'min-w-10 min-h-10 max-w-12 max-h-12';
 			case 8:
-				return 'min-w-10 min-h-12 max-w-16 max-h-12';
+        return 'min-w-10 min-h-12 max-w-16 max-h-12';
+      case 12:
+        return 'min-w-10 min-h-14 max-w-16 max-h-12';
 			default:
 				return 'max-w-6 max-h-6';
 		}
@@ -26,14 +28,15 @@ export const CompanionIcon = ({ companion, label = true, level = 1, border = tru
     <>
       <div className={border ? 'container-light' : ''}>
         <div className='relative w-14 h-16 z-0 inline-block'>
-				<div className='absolute z-20 left-0 top-0 w-[45%] h-[45%] -translate-x-1/3 -translate-y-1/3'>
-					<div className='relative left-0 top-0'>
+          <div className='absolute z-20 left-0 top-0 w-[45%] h-[45%] -translate-x-1/3 -translate-y-1/3'>
+
+            <div className='relative left-0 top-0 h-6 w-6'>
 						<img
 							src={manaIcon}
 							alt=''
-							className='absolute left-0 top-0'
+                className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
 						/>
-						<span className='absolute left-1/3 top-0.5 text-[0.75rem]'>{companion.manaCost}</span>
+              <span className='absolute left-1/2 top-1/2 text-[0.75rem] -translate-x-1/2 -translate-y-1/2'>{companion.manaCost}</span>
 					</div>
 				</div>
 				<div className='overflow-hidden absolute z-10 w-14 h-14 left-0 top-0 border-[2px] border-black'>

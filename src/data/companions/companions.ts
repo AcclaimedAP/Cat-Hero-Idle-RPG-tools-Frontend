@@ -43,6 +43,7 @@ import ImageJackFly from 'assets/sprites/companions/legendary/dGV_pet_jackfly_00
 import ImageWarWolf from 'assets/sprites/companions/legendary/dGV_pet_warwolf_0000.png';
 import ImageJackdaw from 'assets/sprites/companions/legendary/dGV_pet_jackdaw_0000.png';
 import ImageTanker from 'assets/sprites/companions/legendary/dGV_pet_catmachine_0000.png';
+import ImageOracle from 'assets/sprites/companions/mythic/GV_pet_oracle_0000.png';
 import { IBaseCompanion, ICompanion } from 'types/ICompanion';
 
 const baseCompanions: IBaseCompanion[] = [
@@ -1029,6 +1030,28 @@ const baseCompanions: IBaseCompanion[] = [
 		rarity: 'Legendary',
 		image: ImageTanker,
 		manaCost: 8,
+		baseAttack: 3.2,
+		baseASPD: 1,
+		attackPerLevel: 0.103,
+		ASPDPerLevel: 0.01,
+		specialEffect: [
+			{
+				bonusId: 0,
+				description: '',
+				tiers: [
+					{
+						level: 1,
+						requiredLevel: 1,
+					},
+				],
+			},
+		],
+	},
+	{
+		name: 'Oracle',
+		rarity: 'Mythic',
+		image: ImageOracle,
+		manaCost: 12,
 		baseAttack: 3.2,
 		baseASPD: 1,
 		attackPerLevel: 0.103,
