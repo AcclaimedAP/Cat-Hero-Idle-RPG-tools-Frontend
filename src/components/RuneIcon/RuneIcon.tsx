@@ -1,7 +1,8 @@
 import { getRuneBackground } from "utility/imageHandling/getRuneBackground";
 import { IRune } from "types/IRune";
 
-export const RuneIcon = ({ rune, label = true }: { rune: IRune, label?: boolean }) => {
+export const RuneIcon = ({ rune, label = true }: { rune: IRune | undefined, label?: boolean }) => {
+  if (!rune) return null;
 
   const background: string = getRuneBackground(rune.type, rune.rarity);
   const setImages = () => {
@@ -23,7 +24,7 @@ export const RuneIcon = ({ rune, label = true }: { rune: IRune, label?: boolean 
   const runeImage = setImages()
   return (
     <>
-      <div className='relative w-14 h-14 inline-block m-1'>
+      <div className='relative w-14 h-14 inline-block'>
         {label && <span className='absolute z-10 text-[0.7rem] left-1/2 bottom-0 -translate-x-1/2 translate-y-1/2'>{rune.label}</span>}
         <div className="z-10 relative h-full w-full">{runeImage}</div>
         <img

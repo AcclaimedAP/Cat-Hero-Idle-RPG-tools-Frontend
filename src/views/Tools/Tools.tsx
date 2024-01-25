@@ -1,8 +1,14 @@
-// Will display a list of all tools available on the site, however there will also be available in the navbar.
+import { SubNavigationBar } from 'components/SubNavigationBar/SubNavigationBar';
+import { navigationDataTools } from './subMenuData';
+
 export const Tools = () => {
-	return (
-		<div className='tools'>
+  return (
+    <>
+      <SubNavigationBar navigationData={navigationDataTools} />
+      <div className='container-dark'>
 			<h1>Tools</h1>
-		</div>
+      </div>
+    </>
+
 	);
 };

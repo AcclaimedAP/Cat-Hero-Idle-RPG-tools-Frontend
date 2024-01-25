@@ -52,6 +52,13 @@ h1, h2, h3, span {
   0 -1px 0 #000;
 }
 
+.selected-shadow {
+  box-shadow: 0 0 5px 2px rgb(236 234 120 / 70%);
+}
+
+.selected-shadow-circle {
+  box-shadow: 0 0 5px 2px rgb(236 234 120 / 70%);
+}
 
 .background-image {
   background-image: url("./assets/sprites/background/GV_Dungeon3_background.png");

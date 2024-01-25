@@ -4,11 +4,11 @@ import { ILinkRoute, INavigationRoute } from 'types/INavigationRoute';
 const NavigationLink = ({ link }: { link: ILinkRoute }) => {
 	const location = useLocation();
 	const isActive = location.pathname === link.url;
-	const activeClass = isActive ? 'h-14 sub-menu-button-active' : 'h-12 relative -bottom-2';
+  const activeClass = isActive ? 'h-14 sub-menu-button-active bottom-[6px]' : 'h-12 bottom-[-2px]';
 	return (
 		<li className='relative flex mx-[-4px]'>
 			<Link
-				className={`${activeClass} text-center sub-menu-button text-sm flex flex-col items-center  w-20 text-outline`}
+        className={`${activeClass} relative text-center sub-menu-button text-sm flex flex-col items-center  w-20 text-outline`}
 				to={link.url}
 			>
 				{link.icon && (
