@@ -69,7 +69,7 @@ export const CompanionSelection = () => {
         <h1 className="text-xl">
           Companion Selection
         </h1>
-        <div className="flex flex-wrap gap-8">
+        <div className="flex flex-wrap gap-x-8">
           {companionBoxes}
         </div>
       </div>
