@@ -70,6 +70,7 @@ import ImageSkillFullMoon from 'assets/sprites/skills/epic/GV_skillicon_fullmoon
 import ImageSkillWolfClaw from 'assets/sprites/skills/legendary/GV_skill_wolfclaw.png';
 import ImageSkillCatHeroes from 'assets/sprites/skills/mythic/GV_skillicon_catheroes.png';
 import ImageSkillSeaExecution from 'assets/sprites/skills/mythic/GV_skillicon_seaexecution.png';
+import ImageSkillShamanCat from 'assets/sprites/skills/mythic/GV_skill_redcloud_s_0000.png';
 
 import { IBaseRune, IRune } from 'types/IRune';
 
@@ -184,7 +185,7 @@ const baseRunes: IBaseRune[] = [
 		name: 'Wolf Enhanced',
 		type: 'Sub',
 		rarity: 'Uncommon',
-		label: 'WoAtk%Wo',
+		label: 'WoSk%Wo',
 		description: '',
 		image: [ImageWolf, ImageSword],
 		possessBonus: {
@@ -407,7 +408,7 @@ const baseRunes: IBaseRune[] = [
 		rarity: 'Rare',
 		label: 'DeSk%De',
 		description: '',
-		image: [ImageDessert, ImageSword],
+		image: [ImageDessert],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.2,
@@ -649,12 +650,25 @@ const baseRunes: IBaseRune[] = [
 		modifiers: {},
 	},
 	{
+		name: 'Medium Enhanced',
+		type: 'Sub',
+		rarity: 'Rare',
+		label: 'Skill%M',
+		description: '',
+		image: [ImageMedium, ImageSword],
+		possessBonus: {
+			tankFishLevel: 0,
+			ATKBoost: 0.2,
+		},
+		modifiers: {},
+	},
+	{
 		name: 'Food Enhanced',
 		type: 'Sub',
 		rarity: 'Rare',
 		label: 'FoSk%Fo',
 		description: '',
-		image: [ImageFood, ImageSword],
+		image: [ImageFood],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 0.2,
@@ -675,7 +689,7 @@ const baseRunes: IBaseRune[] = [
 		modifiers: {},
 	},
 	{
-		name: 'Persistent Cloud',
+		name: 'Cloud Enhanced 2',
 		type: 'Sub',
 		rarity: 'Epic',
 		label: 'ClDur',
@@ -990,7 +1004,7 @@ const baseRunes: IBaseRune[] = [
 		name: 'Wolf Enhanced',
 		type: 'Sub',
 		rarity: 'Epic',
-		label: 'WoAtk%Wo',
+		label: 'WoSk%Wo',
 		description: '',
 		image: [ImageWolf, ImageSword],
 		possessBonus: {
@@ -1185,7 +1199,7 @@ const baseRunes: IBaseRune[] = [
 		name: 'Wolf Enhanced',
 		type: 'Sub',
 		rarity: 'Legendary',
-		label: 'WoAtk%Wo',
+		label: 'WoSk%Wo',
 		description: '',
 		image: [ImageWolf, ImageSword],
 		possessBonus: {
@@ -1409,6 +1423,19 @@ const baseRunes: IBaseRune[] = [
 		label: 'CrDmg',
 		description: '',
 		image: [ImageCritSword, ImageGreenTriangle],
+		possessBonus: {
+			tankFishLevel: 0,
+			ATKBoost: 1,
+		},
+		modifiers: {},
+	},
+	{
+		name: 'Max MP Increased',
+		type: 'Sub',
+		rarity: 'Legendary',
+		label: 'MaxMp',
+		description: '',
+		image: [ImageMana],
 		possessBonus: {
 			tankFishLevel: 0,
 			ATKBoost: 1,
@@ -1818,6 +1845,18 @@ const baseRunes: IBaseRune[] = [
 		modifiers: {},
 	},
 	{
+		name: 'Cloud Enhanced',
+		type: 'Main',
+		rarity: 'Legendary',
+		description: '',
+		image: [ImageCloud],
+		possessBonus: {
+			tankFishLevel: 10,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
 		name: 'Random Legendary Skill',
 		type: 'Main',
 		rarity: 'Legendary',
@@ -1902,6 +1941,18 @@ const baseRunes: IBaseRune[] = [
 		modifiers: {},
 	},
 	{
+		name: 'Shaman Cat Enhanced',
+		type: 'Main',
+		rarity: 'Legendary',
+		description: '',
+		image: [ImageSkillShamanCat, ImageGreenTriangleDouble],
+		possessBonus: {
+			tankFishLevel: 10,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
 		name: 'Guardian Angel',
 		type: 'Main',
 		rarity: 'Mythic',
@@ -1931,6 +1982,18 @@ const baseRunes: IBaseRune[] = [
 		rarity: 'Mythic',
 		description: '',
 		image: [ImageSkillSeaExecution],
+		possessBonus: {
+			tankFishLevel: 40,
+			ATKBoost: 0,
+		},
+		modifiers: {},
+	},
+	{
+		name: 'Shaman Cat Enhanced 2',
+		type: 'Main',
+		rarity: 'Mythic',
+		description: '',
+		image: [ImageSkillShamanCat],
 		possessBonus: {
 			tankFishLevel: 40,
 			ATKBoost: 0,
