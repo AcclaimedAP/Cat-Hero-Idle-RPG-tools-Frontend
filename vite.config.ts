@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+	base: '/Cat-Hero-Idle-RPG-tools-Frontend/',
 	plugins: [react()],
 	resolve: {
 		alias: {
