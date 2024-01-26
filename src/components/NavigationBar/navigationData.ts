@@ -16,7 +16,7 @@ export const navigationData: INavigationRoute = {
 		},
 		{
 			displayText: 'Tips & Tricks',
-			url: 'tips',
+			url: 'tips-tricks',
 			icon: iconTools,
 		},
 		{
