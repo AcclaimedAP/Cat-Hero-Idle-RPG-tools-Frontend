@@ -7,7 +7,8 @@ import { GameData } from 'views/GameData/GameData';
 import { SkillsOverview } from 'views/GameData/Skills/SkillsOverview';
 import { CompanionsOverview } from 'views/GameData/Companions/CompanionsOverview';
 import { RunesOverview } from 'views/GameData/Runes/RunesOverview';
-import { CollectionDisplay } from 'src/views/Tools/CollectionDisplay/CollectionDisplay';
+import { CollectionDisplay } from 'views/Tools/CollectionDisplay/CollectionDisplay';
+import { Builds } from 'views/Builds/Builds';
 
 
 
@@ -66,7 +67,18 @@ const routes = [
             children: [],
           }
 				],
-			},
+      },
+      {
+        path: 'builds',
+        element: <Builds></Builds>,
+        children: [],
+      },
+      {
+        path: 'builds/:buildName',
+        element: <Builds></Builds>,
+        children: [],
+      },
+
 		],
 	},
 ];

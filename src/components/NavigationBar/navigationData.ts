@@ -10,8 +10,23 @@ export const navigationData: INavigationRoute = {
 			icon: iconMail,
 		},
 		{
+			displayText: 'Builds',
+			url: 'builds',
+			icon: iconTools,
+		},
+		{
+			displayText: 'Tips & Tricks',
+			url: 'tips',
+			icon: iconTools,
+		},
+		{
 			displayText: 'Tools',
 			url: 'tools',
+			icon: iconTools,
+		},
+		{
+			displayText: 'Contact',
+			url: 'contact',
 			icon: iconTools,
 		},
 	],
