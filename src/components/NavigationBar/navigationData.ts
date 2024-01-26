@@ -1,5 +1,8 @@
 import iconMail from 'assets/sprites/ui/GV_icon_speaker.png';
 import iconTools from 'assets/sprites/ui/GV_icon_preset.png';
+import iconContact from 'assets/sprites/ui/GV_icon_mail.png';
+import iconTipsTricks from 'assets/sprites/ui/GV_icon_recommend.png';
+import iconBuilds from 'assets/sprites/ui/GV_icon_main_2.png';
 import { INavigationRoute } from 'types/INavigationRoute';
 
 export const navigationData: INavigationRoute = {
@@ -12,12 +15,12 @@ export const navigationData: INavigationRoute = {
 		{
 			displayText: 'Builds',
 			url: 'builds',
-			icon: iconTools,
+			icon: iconBuilds,
 		},
 		{
 			displayText: 'Tips & Tricks',
 			url: 'tips-tricks',
-			icon: iconTools,
+			icon: iconTipsTricks,
 		},
 		{
 			displayText: 'Tools',
@@ -27,7 +30,7 @@ export const navigationData: INavigationRoute = {
 		{
 			displayText: 'Contact',
 			url: 'contact',
-			icon: iconTools,
+			icon: iconContact,
 		},
 	],
 };
