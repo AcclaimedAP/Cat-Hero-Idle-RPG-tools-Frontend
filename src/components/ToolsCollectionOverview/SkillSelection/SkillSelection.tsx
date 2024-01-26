@@ -13,9 +13,13 @@ const SkillBox = ({ skill }: { skill: ISkill }) => {
   const isSelected = selectedSkills.some((obj) => obj.id === skill.id)
   const skillFromList = selectedSkills.find((obj) => obj.id === skill.id)
 
-  const [level, setLevel] = useState(1)
+  const [level, setLevel] = useState<number | string>(1)
   const [selected, setSelected] = useState(isSelected)
   const handleLevelChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.value === "") {
+      setLevel(event.target.value)
+      return
+    }
     setLevel(parseInt(event.target.value))
     const updatedSkillList = selectedSkills.map((obj) => obj.id === skill.id ? { id: skill.id, level: parseInt(event.target.value) } : obj)
     dispatch(setSkillList(updatedSkillList));
@@ -25,6 +29,9 @@ const SkillBox = ({ skill }: { skill: ISkill }) => {
   }
   useEffect(() => {
     if (selected) {
+      if (typeof level != "number") {
+        return
+      }
       if (skillFromList) {
         dispatch(setSkillList(selectedSkills.map((obj) => obj.id === skill.id ? { id: skill.id, level: level } : obj)));
       } else {
@@ -43,11 +50,12 @@ const SkillBox = ({ skill }: { skill: ISkill }) => {
   }, [isSelected, skillFromList])
 
   const selectedClass = selected ? "" : "brightness-50"
+  const skillLevel = typeof level === "number" ? level : 1;
 
   return (
     <div className={`flex flex-col ${selectedClass} justify-center items-center w-14`}>
       <div onClick={handleSelect}>
-        <SkillIcon skill={skill} level={level} label={true} />
+        <SkillIcon skill={skill} level={skillLevel} label={true} />
       </div>
       <input type="number" name="" id="" value={level} onChange={handleLevelChange} className="w-full z-10 -mt-3" />
     </div>

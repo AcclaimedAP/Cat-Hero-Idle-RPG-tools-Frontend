@@ -12,9 +12,14 @@ const CompanionBox = ({ companion }: { companion: ICompanion }) => {
   const isSelected = selectedCompanions.some((obj) => obj.id === companion.id)
   const companionFromList = selectedCompanions.find((obj) => obj.id === companion.id)
 
-  const [level, setLevel] = useState(1)
+  const [level, setLevel] = useState<number | string>(1)
+
   const [selected, setSelected] = useState(isSelected)
   const handleLevelChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.value === "") {
+      setLevel(event.target.value)
+      return
+    }
     setLevel(parseInt(event.target.value))
     const updatedCompanionList = selectedCompanions.map((obj) => obj.id === companion.id ? { id: companion.id, level: parseInt(event.target.value) } : obj)
     dispatch(setCompanionsList(updatedCompanionList));
@@ -24,10 +29,14 @@ const CompanionBox = ({ companion }: { companion: ICompanion }) => {
   }
   useEffect(() => {
     if (selected) {
+      if (typeof level != "number") {
+        return
+      }
+      const companionLevel = level || 1;
       if (companionFromList) {
-        dispatch(setCompanionsList(selectedCompanions.map((obj) => obj.id === companion.id ? { id: companion.id, level: level } : obj)));
+        dispatch(setCompanionsList(selectedCompanions.map((obj) => obj.id === companion.id ? { id: companion.id, level: companionLevel } : obj)));
       } else {
-        dispatch(setCompanionsList([...selectedCompanions, { id: companion.id, level: level }]));
+        dispatch(setCompanionsList([...selectedCompanions, { id: companion.id, level: companionLevel }]));
       }
     } else {
       dispatch(setCompanionsList(selectedCompanions.filter((obj) => obj.id !== companion.id)));
@@ -43,11 +52,11 @@ const CompanionBox = ({ companion }: { companion: ICompanion }) => {
   }, [isSelected, companionFromList])
 
   const selectedClass = selected ? "" : "brightness-50"
-
+  const companionLevel = typeof level === "number" ? level : 1;
   return (
     <div className={`flex flex-col ${selectedClass} justify-center items-center w-14`}>
       <div onClick={handleSelect}>
-        <CompanionIcon companion={companion} level={level} label={true} />
+        <CompanionIcon companion={companion} level={companionLevel} label={true} />
       </div>
       <input type="number" name="" id="" value={level} onChange={handleLevelChange} className="w-20 z-10 -mt-3" />
     </div>
