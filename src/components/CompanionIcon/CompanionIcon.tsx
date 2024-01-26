@@ -26,7 +26,7 @@ export const CompanionIcon = ({ companion, label = true, level = 1, border = tru
 
 	return (
     <>
-      <div className={border ? 'container-light' : ''}>
+      <div className={border ? 'container-light inline-block' : ''}>
         <div className='relative w-14 h-16 z-0 inline-block'>
           <div className='absolute z-20 left-0 top-0 w-[45%] h-[45%] -translate-x-1/3 -translate-y-1/3'>
 
