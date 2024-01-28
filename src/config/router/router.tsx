@@ -86,6 +86,16 @@ const routes = [
         children: [],
       },
       {
+        path: 'tips-tricks/:category',
+        element: <TipsTricks></TipsTricks>,
+        children: [],
+      },
+      {
+        path: 'tips-tricks/:category/:article',
+        element: <TipsTricks></TipsTricks>,
+        children: [],
+      },
+      {
         path: 'contact',
         element: <Contact></Contact>,
         children: [],
