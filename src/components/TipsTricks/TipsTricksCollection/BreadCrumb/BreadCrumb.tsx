@@ -5,12 +5,12 @@ export const BreadCrumb = () => {
   const { category, article } = useParams()
 
   if (!category) return (
-    <div className="text-sm breadcrumbs h-8">
+    <div className="text-sm breadcrumbs h-8 m-4">
     </div>
   )
 
   return (
-    <div className="text-sm breadcrumbs h-8">
+    <div className="text-sm breadcrumbs h-8 m-4">
       <ul>
         <li><Link to="/tips-tricks">All Articles</Link></li>
         <li><Link to={`/tips-tricks/${category}`}>{category}</Link></li>

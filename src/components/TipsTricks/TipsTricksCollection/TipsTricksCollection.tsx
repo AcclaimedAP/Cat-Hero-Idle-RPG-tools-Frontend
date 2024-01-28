@@ -56,16 +56,16 @@ export const TipsTricksCollection = () => {
       <div className="flex flex-row flex-wrap gap-8">
         {categories.map(category => {
           return (
-            <div key={category}>
-              <h2><Link to={`/tips-tricks/${category}`}>{category}</Link></h2>
-              <ul>
+            <div key={category} className="m-4 flex flex-col gap-2">
+              <h2 className="text-2xl hover:underline"><Link to={`/tips-tricks/${category}`}>{category}</Link></h2>
+              <ul className="flex flex-col gap-1">
                 {sortedList.map(article => {
                   if (article.category !== category) {
                     return null
                   }
                   return (
-                    <li key={`${category}-${article.title}`}>
-                      <Link to={`/tips-tricks/${category}/${article.title}`}>{article.title}</Link>
+                    <li className="text-lg hover:underline hover:text-gray-700" key={`${category}-${article.title}`}>
+                      <Link className="block" to={`/tips-tricks/${category}/${article.title}`}>{article.title}</Link>
                     </li>
                   )
                 })}

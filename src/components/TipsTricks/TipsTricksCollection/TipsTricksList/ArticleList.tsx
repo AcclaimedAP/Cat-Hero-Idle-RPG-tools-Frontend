@@ -1,3 +1,4 @@
+import { GeneralArticles } from "../../Articles/General/GeneralArticles";
 export interface ITipsTricksArticle {
   title: string;
   category: string;
@@ -6,27 +7,8 @@ export interface ITipsTricksArticle {
 
 export const articleList: ITipsTricksArticle[] = [
   {
-    title: "abc",
-    category: "test category",
-    article: function () { return <div>Test article</div> }
-
-  },
-  {
-    title: "aa",
-    category: "test categorytest categorytest categorytest category",
-    article: function () { return <div>Test article</div> }
-
-  },
-  {
-    title: "Bb",
-    category: "test category2",
-    article: function () { return <div>Test article</div> }
-
-  },
-  {
-    title: "CC",
-    category: "test category2",
-    article: function () { return <div>Test article</div> }
-
+    title: "Getting Started",
+    category: "General",
+    article: function () { return <GeneralArticles articleId={0} /> }
   }
 ]
