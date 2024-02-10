@@ -24,6 +24,10 @@ The project is built using Vite, with a React template, for a full list with ver
   * Tailwind 3.4.1
   * daisyui 4.6.0
 
+## Documentation
+
+You can generate documentation by writing `npm run docs` in the root folder.  
+This will generate all written documentations into a folder called "docs", and you can open the web file to browse through the documentation.
 
 
 ## Contributing, questions, contact

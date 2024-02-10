@@ -1,0 +1,9 @@
+{
+	"exclude": ["**/node_modules/**/*", "**/dist/**/*"],
+	"out": "./docs",
+	"excludeNotDocumented": true,
+	"excludeNotDocumentedKinds": ["Property", "Interface", "TypeAlias", "Function", "Variable", "Class", "Method", "Constructor", "Accessor", "CallSignature", "IndexSignature", "ConstructorSignature", "GetSignature", "SetSignature", "Module"],
+	"excludeExternals": true,
+	"excludeReferences": true,
+	"disableSources": true
+}
