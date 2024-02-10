@@ -9,6 +9,16 @@ import BgSubEpic from 'assets/sprites/rune/mega-runes/backgrounds/bg_sub_epic.pn
 import BgSubLegendary from 'assets/sprites/rune/mega-runes/backgrounds/bg_sub_legendary.png';
 import BgSubMythic from 'assets/sprites/rune/mega-runes/backgrounds/bg_sub_mythic.png';
 
+/**
+ * Get the background image for the rune based on the type and rarity
+ * @param type - The type of the rune
+ * @param rarity - The rarity of the rune
+ * @returns The background image for the rune
+ * @example
+ * const background = getRuneBackground('Main', 'Uncommon');
+ * // returns BgMainUncommon
+ * 
+ */
 export const getRuneBackground = (type: string, rarity: string) => {
 	switch (type) {
 		case 'Main':
