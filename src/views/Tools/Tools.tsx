@@ -9,9 +9,7 @@ export const Tools = () => {
             <h1 className='text-3xl font-bold'>Tools</h1>
           </div>
         </div>
-        <div className="container-light flex flex-col gap-2">
-          <ContentRouter contentList={toolsList} />
-        </div>
+        <ContentRouter contentList={toolsList} />
       </div>
 
     </>

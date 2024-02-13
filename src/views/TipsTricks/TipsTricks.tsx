@@ -11,9 +11,7 @@ export const TipsTricks = () => {
             <h1 className='text-3xl font-bold'>Tips & Tricks</h1>
           </div>
         </div>
-        <div className="container-light flex flex-col gap-2">
-          <ContentRouter contentList={articleList} />
-        </div>
+        <ContentRouter contentList={articleList} />
       </div>
     </>
   );

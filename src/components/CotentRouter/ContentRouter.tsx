@@ -48,6 +48,7 @@ export const ContentRouter = ({ contentList }: { contentList: IGenericContent[] 
 
   return (
     <>
+      <div className="container-light flex flex-col gap-2">
       <BreadCrumb />
       {content ?
         currentContentComponent()
@@ -63,6 +64,7 @@ export const ContentRouter = ({ contentList }: { contentList: IGenericContent[] 
           </div>
         </>
       }
+      </div>
     </>
   )
 }

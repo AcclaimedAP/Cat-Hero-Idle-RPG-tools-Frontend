@@ -1,12 +1,8 @@
-import { useParams } from "react-router-dom";
-import { ContentRouter } from "src/components/CotentRouter/ContentRouter";
+import { ContentRouter } from "components/CotentRouter/ContentRouter";
 import { buildList } from "components/Builds/BuildsCollection/BuildsList";
 
 
 export const Builds = () => {
-  const { buildName } = useParams<{ buildName: string }>();
-  console.log(buildName);
-
 
   return (
     <>
@@ -16,10 +12,9 @@ export const Builds = () => {
             <h1 className='text-3xl font-bold'>Builds</h1>
           </div>
         </div>
-        <div className="container-light flex flex-col gap-2">
           <ContentRouter contentList={buildList} />
         </div>
-      </div>
+
 
     </>
   );

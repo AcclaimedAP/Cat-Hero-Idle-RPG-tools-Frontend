@@ -1,5 +1,3 @@
-
-import { useEffect, useState } from "react"
 import { CompanionSelection } from "components/Tools/Tools/Structure/CollectionOverview/Selection/CompanionSelection/CompanionSelection"
 import { SkillSelection } from "components/Tools/Tools/Structure/CollectionOverview/Selection/SkillSelection/SkillSelection"
 import { MainRuneSelection } from "components/Tools/Tools/Structure/CollectionOverview/Selection/MainRuneSelection/MainRuneSelection"

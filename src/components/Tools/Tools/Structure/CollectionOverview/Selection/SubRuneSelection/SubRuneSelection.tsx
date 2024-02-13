@@ -58,7 +58,7 @@ export const SubRuneSelection = () => {
         <h1 className="text-xl">
           Rune Selection
         </h1>
-        <div className="flex flex-wrap gap-1">
+        <div className="flex flex-row gap-1 flex-wrap justify-center">
           {runeBoxes}
         </div>
       </div>

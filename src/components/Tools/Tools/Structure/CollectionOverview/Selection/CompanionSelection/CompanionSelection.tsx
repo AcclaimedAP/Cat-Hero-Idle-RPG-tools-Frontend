@@ -54,7 +54,7 @@ const CompanionBox = ({ companion }: { companion: ICompanion }) => {
   const selectedClass = selected ? "" : "brightness-50"
   const companionLevel = typeof level === "number" ? level : 1;
   return (
-    <div className={`flex flex-col ${selectedClass} justify-center items-center w-14`}>
+    <div className={`flex flex-col ${selectedClass} justify-center items-center w-20 h-28 mb-2`}>
       <div onClick={handleSelect}>
         <CompanionIcon companion={companion} level={companionLevel} label={true} />
       </div>
@@ -78,7 +78,7 @@ export const CompanionSelection = () => {
         <h1 className="text-xl">
           Companion Selection
         </h1>
-        <div className="flex flex-wrap gap-x-8">
+        <div className="flex flex-row gap-2 flex-wrap justify-center">
           {companionBoxes}
         </div>
       </div>
