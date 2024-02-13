@@ -1,14 +1,17 @@
-import { GeneralArticles } from "../../Articles/General/GeneralArticles";
+
+import { GettingStarted } from "components/TipsTricks/Articles/General/GettingStarted"
 export interface ITipsTricksArticle {
   title: string;
   category: string;
-  article: () => JSX.Element;
+  content: () => JSX.Element;
+  authors: string[];
 }
 
 export const articleList: ITipsTricksArticle[] = [
   {
     title: "Getting Started",
     category: "General",
-    article: function () { return <GeneralArticles articleId={0} /> }
+    content: function () { return <GettingStarted /> },
+    authors: ["Alexus"]
   }
 ]

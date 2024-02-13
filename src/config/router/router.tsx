@@ -36,14 +36,14 @@ const routes = [
 				children: [],
       },
       {
-        path: 'tools',
-        children: [
-          {
-            path: 'collection-display',
-            element: <CollectionDisplay></CollectionDisplay>,
-            children: [],
-          }
-        ]
+        path: 'tools/:category',
+        element: <Tools></Tools>,
+        children: []
+      },
+      {
+        path: 'tools/:category:content',
+        element: <Tools></Tools>,
+        children: []
       },
 			{
 				path: 'game-data',
@@ -76,7 +76,12 @@ const routes = [
         children: [],
       },
       {
-        path: 'builds/:buildName',
+        path: 'builds/:category',
+        element: <Builds></Builds>,
+        children: [],
+      },
+      {
+        path: 'builds/:category/:content',
         element: <Builds></Builds>,
         children: [],
       },
@@ -91,7 +96,7 @@ const routes = [
         children: [],
       },
       {
-        path: 'tips-tricks/:category/:article',
+        path: 'tips-tricks/:category/:content',
         element: <TipsTricks></TipsTricks>,
         children: [],
       },
