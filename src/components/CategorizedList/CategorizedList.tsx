@@ -1,7 +1,15 @@
 import { Link, useLocation, useParams } from "react-router-dom"
 import { IGenericContent } from "types/IGenericContent"
 
-
+/**
+ * @name CategorizedList
+ * @description This component is used to display a list of content, categorized by a category. It is used in the ContentRouter component.
+ * @param contentList An array of IGenericContent objects.
+ * @returns A list of content, categorized by category.
+ * @example
+ * <CategorizedList contentList={contentList}></CategorizedList>
+ * // returns a list of content, categorized by category.
+ */
 
 export const CategorizedList = ({ contentList }: { contentList: IGenericContent[] }) => {
 

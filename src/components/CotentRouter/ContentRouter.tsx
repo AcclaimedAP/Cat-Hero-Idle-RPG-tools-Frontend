@@ -4,6 +4,16 @@ import { BreadCrumb } from "components/BreadCrumb/BreadCrumb";
 import { CategorizedList } from "components/CategorizedList/CategorizedList";
 import { IGenericContent } from "types/IGenericContent";
 
+/**
+ * @name ContentRouter
+ * @description This component is used to display a list of content, and to display a single piece of content.
+ * @param contentList An array of IGenericContent objects.
+ * @returns A list of content, categorized by category, and a single piece of content.
+ * @example
+ * <ContentRouter contentList={contentList}></ContentRouter>
+ * // returns a list of content, categorized by category, and a single piece of content.
+ */
+
 export const ContentRouter = ({ contentList }: { contentList: IGenericContent[] }) => {
   const [searchQuery, setSearchQuery] = useState('')
   const [contents, setContents] = useState(contentList)

@@ -1,5 +1,5 @@
 import { ContentRouter } from "src/components/CotentRouter/ContentRouter";
-import { articleList } from "components/TipsTricks/TipsTricksCollection/TipsTricksList/ArticleList"
+import { articleList } from "src/components/TipsTricks/TipsTricksCollection/ArticleList"
 
 export const TipsTricks = () => {
 
