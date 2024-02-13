@@ -7,7 +7,6 @@ import { GameData } from 'views/GameData/GameData';
 import { SkillsOverview } from 'views/GameData/Skills/SkillsOverview';
 import { CompanionsOverview } from 'views/GameData/Companions/CompanionsOverview';
 import { RunesOverview } from 'views/GameData/Runes/RunesOverview';
-import { CollectionDisplay } from 'views/Tools/CollectionDisplay/CollectionDisplay';
 import { Builds } from 'views/Builds/Builds';
 import { TipsTricks } from 'views/TipsTricks/TipsTricks';
 import { Contact } from 'src/views/Contact/Contact';
@@ -41,7 +40,7 @@ const routes = [
         children: []
       },
       {
-        path: 'tools/:category:content',
+        path: 'tools/:category/:content',
         element: <Tools></Tools>,
         children: []
       },
