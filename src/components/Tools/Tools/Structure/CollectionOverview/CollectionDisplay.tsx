@@ -1,13 +1,12 @@
 import { SubNavigationBar } from 'components/SubNavigationBar/SubNavigationBar';
-import { navigationDataTools } from 'views/Tools/subMenuData';
-import { SelectionContainer } from 'components/ToolsCollectionOverview/SelectionContainer/SelectionContainer';
-import { CollectionContainer } from 'components/ToolsCollectionOverview/CollectionContainer/CollectionContainer';
+import { SelectionContainer } from 'components/Tools/Tools/Structure/CollectionOverview/Selection/SelectionContainer/SelectionContainer';
+import { CollectionContainer } from 'components/Tools/Tools/Structure/CollectionOverview/Collection/CollectionContainer/CollectionContainer';
 import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setEquipment, resetEquipment } from 'src/config/redux/slices/equipmentDisplaySlice'
 import { setCollection, resetCollection } from 'src/config/redux/slices/collectionDisplaySlice'
 import { useState } from 'react';
-import { StringTextField } from 'src/components/ToolsCollectionOverview/StringTextField/StringTextField';
+import { StringTextField } from 'components/Tools/Tools/Structure/CollectionOverview/StringTextField/StringTextField';
 
 
 
@@ -70,8 +69,6 @@ export const CollectionDisplay = () => {
 
   return (
     <>
-
-      <SubNavigationBar navigationData={navigationDataTools} />
       <div className="container-dark flex flex-col gap-2">
         <div className='flex flex-row justify-between'>
           <h1 className='text-2xl p-2'>Collection Display</h1>

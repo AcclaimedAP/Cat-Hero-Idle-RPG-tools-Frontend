@@ -77,7 +77,7 @@ export const SkillSelection = () => {
         <h1 className="text-xl">
           Skill Selection
         </h1>
-        <div className="flex flex-wrap gap-1">
+        <div className="flex flex-row gap-2 flex-wrap justify-center">
           {skillBoxes}
         </div>
       </div>
