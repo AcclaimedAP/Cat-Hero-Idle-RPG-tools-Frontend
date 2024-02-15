@@ -14,7 +14,7 @@ export const StringTextField = ({ children }: { children: string }) => {
   return (
     <>
       <div className="container-light">
-        <input type="text" name="" id="" value={value} onChange={handleChange} className="h-6 bg-transparent text-black placeholder:text-gray-600" placeholder="Import/Export field.." />
+        <input type="text" name="" id="" value={value} onChange={handleChange} className="h-6 w-full bg-transparent text-black placeholder:text-gray-600" placeholder="..." />
       </div>
     </>
   )
