@@ -1,4 +1,3 @@
-import { SubNavigationBar } from 'components/SubNavigationBar/SubNavigationBar';
 import { SelectionContainer } from 'components/Tools/Tools/Structure/CollectionOverview/Selection/SelectionContainer/SelectionContainer';
 import { CollectionContainer } from 'components/Tools/Tools/Structure/CollectionOverview/Collection/CollectionContainer/CollectionContainer';
 import type { RootState } from 'src/config/redux/store'
