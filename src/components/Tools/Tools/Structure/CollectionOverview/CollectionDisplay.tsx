@@ -99,10 +99,12 @@ export const CollectionDisplay = () => {
   return (
     <>
       <PopupModal isOpen={popupModal} onClose={() => { setPopupModal(false) }}>
+        <div className='p-4 min-w-96'>
         Share string:
         <StringTextField>{shareString}</StringTextField>
         Url:
-        <StringTextField>{shareUrl}</StringTextField>
+          <StringTextField>{shareUrl}</StringTextField>
+        </div>
       </PopupModal>
 
       <div className="container-dark flex flex-col gap-2">
