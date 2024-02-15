@@ -4,16 +4,38 @@ import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setEquipment, resetEquipment } from 'src/config/redux/slices/equipmentDisplaySlice'
 import { setCollection, resetCollection } from 'src/config/redux/slices/collectionDisplaySlice'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { StringTextField } from 'components/Tools/Tools/Structure/CollectionOverview/StringTextField/StringTextField';
 import { collectionInitialState } from 'src/config/redux/slices/collectionDisplaySlice';
 import { equipmentInitialState } from 'src/config/redux/slices/equipmentDisplaySlice';
+import { useSearchParams } from 'react-router-dom';
+import { PopupModal } from 'src/components/PopupModal/PopupModal';
+
 
 export const CollectionDisplay = () => {
   const dispatch = useDispatch();
   const collection = useSelector((state: RootState) => state.collectionDisplay)
   const equipment = useSelector((state: RootState) => state.equipmentDisplay)
   const [shareString, setShareString] = useState('')
+  const [shareUrl, setShareUrl] = useState('')
+  const [searchParams, setSearchParams] = useSearchParams();
+  const collectionParamString = searchParams.get('collection');
+  const [popupModal, setPopupModal] = useState(false)
+  useEffect(() => {
+    if (collectionParamString) {
+      const decodedCollectionString = atob(collectionParamString)
+      const [collectionString, equipmentString] = decodedCollectionString.split('|')
+      const collectionData = JSON.parse(collectionString)
+      const equipmentData = JSON.parse(equipmentString)
+      if (collectionData) {
+        dispatch(setCollection(collectionData))
+      }
+      if (equipmentData) {
+        dispatch(setEquipment(equipmentData))
+      }
+      setSearchParams({})
+    }
+  }, [collectionParamString, dispatch, setSearchParams])
   const getFromLocalStorage = () => {
     const collection = localStorage.getItem('collection')
     const equipment = localStorage.getItem('equipment')
@@ -40,8 +62,12 @@ export const CollectionDisplay = () => {
   const exportString = () => {
     const collectionString = JSON.stringify(collection);
     const equipmentString = JSON.stringify(equipment);
-    const shareString = btoa(collectionString + "|" + equipmentString)
-    setShareString(shareString)
+    const shareString = btoa(collectionString + "|" + equipmentString);
+    const currentUrl = window.location.href.split('?')[0];
+
+    setShareString(shareString);
+    setShareUrl(currentUrl + '?collection=' + shareString);
+    setPopupModal(true);
   }
 
   const importString = () => {
@@ -71,12 +97,20 @@ export const CollectionDisplay = () => {
 
   return (
     <>
+      <PopupModal isOpen={popupModal} onClose={() => { setPopupModal(false) }}>
+        Share string:
+        <StringTextField>{shareString}</StringTextField>
+        Url:
+        <StringTextField>{shareUrl}</StringTextField>
+      </PopupModal>
+
       <div className="container-dark flex flex-col gap-2">
+
         <div className='flex flex-row justify-between'>
           <h1 className='text-2xl p-2'>Collection Display</h1>
           <div className='flex gap-8 flex-row'>
             <div className='flex flex-row flex-nowrap gap-2'>
-              {shareString ? <StringTextField>{shareString}</StringTextField> : <></>}
+
               <button className='container-light hover:brightness-110' onClick={exportString}>Export</button>
               <button className='container-light hover:brightness-110' onClick={importString}>Import</button>
             </div>
