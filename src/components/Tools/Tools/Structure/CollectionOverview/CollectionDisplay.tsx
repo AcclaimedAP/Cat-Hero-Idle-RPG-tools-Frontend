@@ -23,6 +23,7 @@ export const CollectionDisplay = () => {
   const [popupModal, setPopupModal] = useState(false)
   useEffect(() => {
     if (collectionParamString) {
+      setPopupModal(false);
       const decodedCollectionString = atob(collectionParamString)
       const [collectionString, equipmentString] = decodedCollectionString.split('|')
       const collectionData = JSON.parse(collectionString)
