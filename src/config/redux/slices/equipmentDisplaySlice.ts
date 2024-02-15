@@ -9,6 +9,8 @@ const initialState: ICollection = {
 	subRuneList: [{}, {}, {}, {}],
 };
 
+export const equipmentInitialState = initialState;
+
 export const equipmentDisplaySlice = createSlice({
 	name: 'equipmentDisplay',
 	initialState,

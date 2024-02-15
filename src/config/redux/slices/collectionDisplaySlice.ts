@@ -8,6 +8,7 @@ const initialState: ICollection = {
 	mainRuneList: [],
 	subRuneList: [],
 };
+export const collectionInitialState = initialState;
 
 export const collectionDisplaySlice = createSlice({
 	name: 'collectionDisplay',

@@ -7,8 +7,8 @@ import { setEquipment, resetEquipment } from 'src/config/redux/slices/equipmentD
 import { setCollection, resetCollection } from 'src/config/redux/slices/collectionDisplaySlice'
 import { useState } from 'react';
 import { StringTextField } from 'components/Tools/Tools/Structure/CollectionOverview/StringTextField/StringTextField';
-
-
+import { collectionInitialState } from 'src/config/redux/slices/collectionDisplaySlice';
+import { equipmentInitialState } from 'src/config/redux/slices/equipmentDisplaySlice';
 
 export const CollectionDisplay = () => {
   const dispatch = useDispatch();
@@ -32,6 +32,9 @@ export const CollectionDisplay = () => {
     }
   }
   const saveToLocalStorage = () => {
+    if (JSON.stringify(collection) === JSON.stringify(collectionInitialState) && JSON.stringify(equipment) === JSON.stringify(equipmentInitialState)) {
+      return
+    }
     localStorage.setItem('collection', JSON.stringify(collection))
     localStorage.setItem('equipment', JSON.stringify(equipment))
   }
