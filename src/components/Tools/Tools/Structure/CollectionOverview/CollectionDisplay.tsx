@@ -10,6 +10,8 @@ import { collectionInitialState } from 'src/config/redux/slices/collectionDispla
 import { equipmentInitialState } from 'src/config/redux/slices/equipmentDisplaySlice';
 import { useSearchParams } from 'react-router-dom';
 import { PopupModal } from 'src/components/PopupModal/PopupModal';
+import { saveBuild, getBuild } from 'src/config/api/services/buildUrl';
+
 
 
 export const CollectionDisplay = () => {
@@ -19,12 +21,17 @@ export const CollectionDisplay = () => {
   const [shareString, setShareString] = useState('')
   const [shareUrl, setShareUrl] = useState('')
   const [searchParams, setSearchParams] = useSearchParams();
-  const collectionParamString = searchParams.get('collection');
+  const buildIdParam = searchParams.get('build_id');
   const [popupModal, setPopupModal] = useState(false)
-  useEffect(() => {
-    if (collectionParamString) {
-      setPopupModal(false);
-      const decodedCollectionString = atob(collectionParamString)
+
+  const fetchBuild = async (id: string) => {
+
+    const response: any = await getBuild(id);
+    if (response.status !== 200) {
+      alert('Failed to load build');
+      return;
+    }
+    const decodedCollectionString = atob(response.data.build)
       const [collectionString, equipmentString] = decodedCollectionString.split('|')
       const collectionData = JSON.parse(collectionString)
       const equipmentData = JSON.parse(equipmentString)
@@ -35,8 +42,15 @@ export const CollectionDisplay = () => {
         dispatch(setEquipment(equipmentData))
       }
       setSearchParams({})
+
+  }
+
+  useEffect(() => {
+    if (buildIdParam) {
+      setPopupModal(false);
+      fetchBuild(buildIdParam);
     }
-  }, [collectionParamString, dispatch, setSearchParams])
+  }, [buildIdParam, dispatch, setSearchParams])
   const getFromLocalStorage = () => {
     const collection = localStorage.getItem('collection')
     const equipment = localStorage.getItem('equipment')
@@ -60,14 +74,18 @@ export const CollectionDisplay = () => {
     localStorage.setItem('collection', JSON.stringify(collection))
     localStorage.setItem('equipment', JSON.stringify(equipment))
   }
-  const exportString = () => {
+  const exportString = async () => {
     const collectionString = JSON.stringify(collection);
     const equipmentString = JSON.stringify(equipment);
     const shareString = btoa(collectionString + "|" + equipmentString);
     const currentUrl = window.location.href.split('?')[0];
-
+    const response: any = await saveBuild(shareString);
+    if (response.status !== 201) {
+      alert('Failed to save build');
+      return;
+    }
     setShareString(shareString);
-    setShareUrl(currentUrl + '?collection=' + shareString);
+    setShareUrl(currentUrl + '?build_id=' + response.data.build_id);
     setPopupModal(true);
   }
 
