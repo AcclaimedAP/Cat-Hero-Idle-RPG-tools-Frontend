@@ -30,7 +30,7 @@ jobs:
     steps:
       - name: Logging
         env:
-          VITE_API_URL: ${{ vars.VITE_API_URL }}
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
         run: echo LOG ENV VARS $VITE_API_URL
       - name: Checkout
         uses: actions/checkout@v4
@@ -44,7 +44,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          VITE_API_URL: $VITE_API_URL
+          VITE_API_URL: ${{ env.VITE_API_URL }}
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
