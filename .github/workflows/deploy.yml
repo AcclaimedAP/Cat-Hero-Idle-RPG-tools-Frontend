@@ -21,7 +21,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  VITE_API_URL: ${{ secrets.VITE_API_URL }}
+  VITE_API_URL: ${{ vars.VITE_API_URL }}
     
 jobs:
   # Single deploy job since we're just deploying
