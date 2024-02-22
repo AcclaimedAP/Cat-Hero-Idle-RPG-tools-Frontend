@@ -1,5 +1,5 @@
 import { MouseEventHandler, ReactNode } from "react";
-import 'components/PopupModal/PopupModal.css';
+import './PopupModal.css';
 export const PopupModal = ({ children, isOpen, onClose }: { children: ReactNode, isOpen: Boolean, onClose: MouseEventHandler }) => {
   return (
     <div className={`popup-modal z-40 ${isOpen ? 'popup-modal-is-active' : ''}`}>
