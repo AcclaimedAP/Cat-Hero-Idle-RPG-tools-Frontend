@@ -15,6 +15,7 @@ export default defineConfig({
 			types: '/src/types',
 			data: '/src/data',
 			views: '/src/views',
+			config: '/src/config',
 		},
 	},
 	test: {

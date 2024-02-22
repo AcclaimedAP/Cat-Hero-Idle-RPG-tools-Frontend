@@ -23,7 +23,8 @@
 			"utility/*": ["./src/utility/*"],
 			"types/*": ["./src/types/*"],
 			"data/*": ["./src/data/*"],
-			"views/*": ["./src/views/*"]
+			"views/*": ["./src/views/*"],
+			"config/*": ["./src/config/*"]
 		}
 	},
 	"include": ["src"],
