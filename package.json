@@ -2,7 +2,7 @@
 	"name": "cat-hero-tools-frontend",
 	"private": true,
 	"version": "0.0.0",
-	"homepage": "https://AcclaimedAP.github.io/Cat-Hero-Idle-RPG-tools-Frontend/",
+	"homepage": "https://cathero.tools/",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
