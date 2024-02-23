@@ -109,4 +109,4 @@ const routes = [
 ];
 
 
-export const router = createHashRouter(routes) //: createBrowserRouter(routes);
+export const router = createBrowserRouter(routes);
