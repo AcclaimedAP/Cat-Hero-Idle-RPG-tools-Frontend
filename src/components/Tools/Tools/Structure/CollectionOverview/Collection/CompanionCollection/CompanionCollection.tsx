@@ -76,7 +76,9 @@ export const CompanionCollection = () => {
 
   return (
     <div className="container-dark-inner flex flex-col gap-3">
-      <h3 className="text-center min-w-48">Companions</h3>
+      <h3 className="text-center min-w-48" onClick={() => {
+        console.log(equippedCompanions); console.log(companionsList);
+      }}>Companions</h3>
       <div className="flex flex-row gap-2 flex-wrap justify-center">
         {companionsList.toSorted(sortById).map((companion, index) => {
           if (!companion.id) return null
