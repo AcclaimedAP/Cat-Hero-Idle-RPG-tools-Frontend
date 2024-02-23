@@ -8,7 +8,7 @@ export const api = () => {
 			return `${baseUrl}/builds/new/`;
 		};
 		const get = (id: string) => {
-			return `${baseUrl}/builds/${id}/`;
+			return `${baseUrl}/builds/data/${id}/`;
 		};
 		return {
 			create,
