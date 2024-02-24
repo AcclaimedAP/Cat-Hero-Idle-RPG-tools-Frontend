@@ -80,7 +80,7 @@ export const BuilderTool = () => {
     const shareString = btoa(collectionString + "|" + equipmentString);
     const currentUrl = window.location.href.split('?')[0];
     const response: any = await saveBuild(shareString);
-    if (response.status !== 201) {
+    if (response.status !== 201 || response.status !== 200) {
       alert('Failed to save build');
       return;
     }
