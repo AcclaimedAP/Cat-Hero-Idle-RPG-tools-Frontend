@@ -19,7 +19,7 @@ export const api = () => {
 			return `${baseUrl}/news/`;
 		};
 		const show = (slug: string) => {
-			return `${baseUrl}/news/${slug}/`;
+			return `${baseUrl}/news/${slug}`;
 		};
 		return {
 			get,

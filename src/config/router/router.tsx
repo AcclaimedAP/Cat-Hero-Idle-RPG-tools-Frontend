@@ -1,7 +1,6 @@
 import { createBrowserRouter, createHashRouter } from 'react-router-dom';
 import { Layout } from 'views/layouts/mainLayout';
 import { NotFound } from 'views/NotFound/NotFound';
-import { Home } from 'views/Home/Home';
 import { Builder } from 'src/views/Builder/Builder';
 import { GameData } from 'views/GameData/GameData';
 import { SkillsOverview } from 'views/GameData/Skills/SkillsOverview';
@@ -11,6 +10,7 @@ import { Builds } from 'views/Builds/Builds';
 import { TipsTricks } from 'views/TipsTricks/TipsTricks';
 import { Contact } from 'src/views/Contact/Contact';
 import { News } from 'src/views/News/News';
+import { NewsView } from 'src/views/News/NewsView';
 
 
 
@@ -36,8 +36,8 @@ const routes = [
         children: []
       },
       {
-        path: '/news/:type/:content',
-        element: <News></News>,
+        path: '/news/:type/:slug',
+        element: <NewsView></NewsView>,
         children: []
 			},
 			{

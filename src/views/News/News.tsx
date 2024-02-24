@@ -2,16 +2,17 @@ import { useEffect, useState } from "react";
 import { getNews } from "src/config/api/services/news";
 import { INews, INewsData } from "src/types/INews";
 import { NewsList } from "src/components/News/NewsList/NewsList";
+import { useParams } from "react-router-dom";
 
 
 
 export const News = () => {
   const [newsData, setNewsData] = useState<INewsData>();
-
+  const { type } = useParams<{ type: string }>();
   const fetchNews = async () => {
-    const res: any = await getNews({ page: 1, per_page: 5 });
+    const params = type ? { page: 1, per_page: 5, type } : { page: 1, per_page: 5 };
+    const res: any = await getNews(params);
     setNewsData(res.data);
-    console.log(res.data);
   }
 
   useEffect(() => {
