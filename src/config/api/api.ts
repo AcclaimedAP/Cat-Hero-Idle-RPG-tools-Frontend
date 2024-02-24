@@ -14,8 +14,21 @@ export const api = () => {
 			get,
 		};
 	};
+	const news = () => {
+		const get = () => {
+			return `${baseUrl}/news/`;
+		};
+		const show = (slug: string) => {
+			return `${baseUrl}/news/${slug}/`;
+		};
+		return {
+			get,
+			show,
+		};
+	};
 
 	return {
 		build,
+		news,
 	};
 };
