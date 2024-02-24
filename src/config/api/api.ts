@@ -5,10 +5,10 @@ export const api = () => {
   console.log('baseUrl', baseUrl);
 	const build = () => {
 		const create = () => {
-			return `${baseUrl}/builds/new/`;
+			return `${baseUrl}/builds/`;
 		};
 		const get = (id: string) => {
-			return `${baseUrl}/builds/data/${id}/`;
+			return `${baseUrl}/builds/${id}/`;
 		};
 		return {
 			create,
