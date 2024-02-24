@@ -10,6 +10,7 @@ import { RunesOverview } from 'views/GameData/Runes/RunesOverview';
 import { Builds } from 'views/Builds/Builds';
 import { TipsTricks } from 'views/TipsTricks/TipsTricks';
 import { Contact } from 'src/views/Contact/Contact';
+import { News } from 'src/views/News/News';
 
 
 
@@ -21,23 +22,33 @@ const routes = [
 		children: [
 			{
 				path: '/',
-				element: <Home></Home>,
+        element: <News></News>,
 				index: true,
 			},
 			{
 				path: '/news',
-				element: <Home></Home>,
-				index: true,
+        element: <News></News>,
+        children: []
+      },
+      {
+        path: '/news/:type',
+        element: <News></News>,
+        children: []
+      },
+      {
+        path: '/news/:type/:content',
+        element: <News></News>,
+        children: []
 			},
 			{
         path: '/builder',
         element: <Builder></Builder>,
-				children: [],
+        children: []
       },
 			{
 				path: 'game-data',
 				element: <GameData></GameData>,
-				children: [],
+        children: []
 			},
 			{
 				path: 'game-data',
