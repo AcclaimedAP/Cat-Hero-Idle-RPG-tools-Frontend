@@ -2,7 +2,7 @@ import { createBrowserRouter, createHashRouter } from 'react-router-dom';
 import { Layout } from 'views/layouts/mainLayout';
 import { NotFound } from 'views/NotFound/NotFound';
 import { Home } from 'views/Home/Home';
-import { Tools } from 'views/Tools/Tools';
+import { Builder } from 'src/views/Builder/Builder';
 import { GameData } from 'views/GameData/GameData';
 import { SkillsOverview } from 'views/GameData/Skills/SkillsOverview';
 import { CompanionsOverview } from 'views/GameData/Companions/CompanionsOverview';
@@ -30,19 +30,9 @@ const routes = [
 				index: true,
 			},
 			{
-				path: 'tools',
-				element: <Tools></Tools>,
+        path: '/builder',
+        element: <Builder></Builder>,
 				children: [],
-      },
-      {
-        path: 'tools/:category',
-        element: <Tools></Tools>,
-        children: []
-      },
-      {
-        path: 'tools/:category/:content',
-        element: <Tools></Tools>,
-        children: []
       },
 			{
 				path: 'game-data',

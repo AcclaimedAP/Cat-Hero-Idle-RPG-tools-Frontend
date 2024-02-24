@@ -23,8 +23,8 @@ export const navigationData: INavigationRoute = {
 			icon: iconTipsTricks,
 		},
 		{
-			displayText: 'Tools',
-			url: 'tools',
+			displayText: 'Builder',
+			url: 'builder',
 			icon: iconTools,
 		},
 		{
