@@ -1,8 +1,8 @@
-import { CompanionCollection } from "components/Tools/Tools/Structure/CollectionOverview/Collection/CompanionCollection/CompanionCollection";
-import { SkillCollection } from "components/Tools/Tools/Structure/CollectionOverview/Collection/SkillCollection/SkillCollection";
-import { MainRuneCollection } from "components/Tools/Tools/Structure/CollectionOverview/Collection/MainRuneCollection/MainRuneCollection";
-import { SubRuneCollection } from "components/Tools/Tools/Structure/CollectionOverview/Collection/SubRuneCollection/SubRuneCollection";
-import { EquippedContainer } from "components/Tools/Tools/Structure/CollectionOverview/EquippedContainer/EquippedContainer";
+import { CompanionCollection } from "components/Builder/Collection/CompanionCollection/CompanionCollection";
+import { SkillCollection } from "components/Builder/Collection/SkillCollection/SkillCollection";
+import { MainRuneCollection } from "components/Builder/Collection/MainRuneCollection/MainRuneCollection";
+import { SubRuneCollection } from "components/Builder/Collection/SubRuneCollection/SubRuneCollection";
+import { EquippedContainer } from "components/Builder/EquippedContainer/EquippedContainer";
 
 
 export const CollectionContainer = () => {
