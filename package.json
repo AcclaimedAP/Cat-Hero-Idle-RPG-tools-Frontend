@@ -1,7 +1,7 @@
 {
 	"name": "cat-hero-tools-frontend",
 	"private": true,
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"homepage": "https://cathero.tools/",
 	"type": "module",
 	"scripts": {
