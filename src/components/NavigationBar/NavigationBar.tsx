@@ -32,8 +32,8 @@ export const NavigationBar = () => {
 
 	return (
 		<>
-			<nav className='flex fixed bottom-0 left-0 navigation-background z-50'>
-				<ul className='flex mt-[-20px]'>{links}</ul>
+      <nav className='flex fixed bottom-0 left-0 navigation-background z-50'>
+        <ul className='flex mt-[-20px] overflow-x-auto w-full'>{links}</ul>
 			</nav>
 		</>
 	);
