@@ -125,10 +125,9 @@ export const BuilderTool = () => {
         </div>
       </PopupModal>
 
-      <div className="container-dark flex flex-col gap-2">
+      <div className="flex flex-col gap-2">
 
         <div className='flex flex-row justify-between'>
-          <h1 className='text-2xl p-2'>Collection Display</h1>
           <div className='flex gap-8 flex-row'>
             <div className='flex flex-row flex-nowrap gap-2'>
 
