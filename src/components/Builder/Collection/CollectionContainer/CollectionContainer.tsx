@@ -10,7 +10,7 @@ export const CollectionContainer = () => {
   return (
     <>
       <div className="w-full">
-        <div className="flex flex-row justify-around p-2 gap-2">
+        <div className="flex flex-col lg:flex-row justify-around gap-2">
           <div className=" flex flex-col gap-2 w-full">
             <CompanionCollection />
             <div className="flex flex-col lg:flex-col gap-2 justify-around">

@@ -24,8 +24,10 @@ const CompanionBox = ({ companion }: { companion: ISelectedCompanion }) => {
   if (!companion.id) return null
   return (
     <>
-      <div onClick={removeCompanionFromList}>
-        <CompanionIcon companion={getCompanion(companion.id)} level={companion.level} border={false} stars={false} />
+      <div onClick={removeCompanionFromList} className="scale-[.8] sm:scale-100  -translate-x-[0.4rem] -translate-y-[0.35rem] sm:-translate-x-0 sm:-translate-y-0 relative">
+        <div className="absolute">
+          <CompanionIcon companion={getCompanion(companion.id)} level={companion.level} border={false} stars={false} />
+        </div>
       </div>
     </>
   )
@@ -34,7 +36,7 @@ const CompanionBox = ({ companion }: { companion: ISelectedCompanion }) => {
 const EmptySlot = () => {
   return (
     <>
-      <div className="w-12 h-12 container-dark-inner"></div>
+      <div className="w-8 h-8 sm:w-12 sm:h-12 container-dark-inner"></div>
     </>
   )
 }
@@ -44,7 +46,7 @@ export const EquippedCompanions = () => {
 
   return (
     <>
-      <div className="grid grid-cols-6 gap-0">
+      <div className="grid grid-cols-6 gap-4 max-w-96 m-2">
         {equipped.map((companion, index) => {
           if (!companion.id) return <EmptySlot key={index} />
           return (
