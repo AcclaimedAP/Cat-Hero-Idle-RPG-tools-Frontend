@@ -24,7 +24,7 @@ const CompanionBox = ({ companion }: { companion: ISelectedCompanion }) => {
   if (!companion.id) return null
   return (
     <>
-      <div onClick={removeCompanionFromList} className="scale-[.8] sm:scale-100  -translate-x-[0.4rem] -translate-y-[0.35rem] sm:-translate-x-0 sm:-translate-y-0 relative">
+      <div onClick={removeCompanionFromList} className="scale-[.8] sm:scale-100  -translate-x-[0.4rem] -translate-y-[0.35rem] sm:-translate-x-0 sm:-translate-y-0 relative min-h-8 sm:min-h-12">
         <div className="absolute">
           <CompanionIcon companion={getCompanion(companion.id)} level={companion.level} border={false} stars={false} />
         </div>
