@@ -127,10 +127,9 @@ export const BuilderTool = () => {
 
       <div className="flex flex-col gap-2">
 
-        <div className='flex flex-row justify-between'>
+        <div className='flex flex-row justify-end justify-items-end'>
           <div className='flex gap-8 flex-row'>
             <div className='flex flex-row flex-nowrap gap-2'>
-
               <button className='container-light hover:brightness-110' onClick={exportString}>Export</button>
               <button className='container-light hover:brightness-110' onClick={importString}>Import</button>
             </div>
