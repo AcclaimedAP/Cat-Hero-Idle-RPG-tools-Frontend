@@ -32,7 +32,7 @@ const RuneBox = ({ rune }: { rune: ISelectedSubRune }) => {
 const EmptySlot = () => {
   return (
     <>
-      <div className="justify-center flex">
+      <div className="">
         <div className="w-14 h-14 bg-[#392d20] border-2 border-black rounded-[50%]">
 
         </div>
@@ -45,7 +45,7 @@ export const EquippedSubRunes = () => {
   const equipped = useSelector((state: RootState) => state.equipmentDisplay.subRuneList)
   return (
     <>
-      <div className="grid grid-cols-2 grid-rows-2 gap-1 [&>*:first-child]:w-full ">
+      <div className="grid grid-cols-2 grid-rows-2 gap-4 [&>*:first-child]:w-full ">
         {equipped.map((rune, index) => {
           if (!rune.id) return <EmptySlot key={index} />
           return (

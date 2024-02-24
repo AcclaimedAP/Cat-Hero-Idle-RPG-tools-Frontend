@@ -23,8 +23,10 @@ const SkillBox = ({ skill }: { skill: ISelectedSkill }) => {
   if (!skill.id) return null
   return (
     <>
-      <div onClick={removeSkillFromList}>
-        <SkillIcon skill={getSkill(skill.id)} level={skill.level} />
+      <div onClick={removeSkillFromList} className="scale-[.8] sm:scale-100 -translate-x-[0.4rem] -translate-y-[0.4rem] sm:-translate-x-0 sm:-translate-y-0 relative">
+        <div className="absolute">
+          <SkillIcon skill={getSkill(skill.id)} level={skill.level} />
+        </div>
       </div>
     </>
   )
@@ -33,7 +35,7 @@ const SkillBox = ({ skill }: { skill: ISelectedSkill }) => {
 const EmptySlot = () => {
   return (
     <>
-      <div className="w-12 h-12 container-dark-inner"></div>
+      <div className="w-8 h-8 sm:w-12 sm:h-12 container-dark-inner"></div>
     </>
   )
 }
@@ -43,7 +45,7 @@ export const EquippedSkills = () => {
 
   return (
     <>
-      <div className="grid grid-cols-6">
+      <div className="grid grid-cols-6 max-w-96 gap-4 m-2">
         {equipped.map((skill, index) => {
           if (!skill.id) return <EmptySlot key={index} />
           return (

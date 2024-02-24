@@ -23,7 +23,7 @@ export const BuilderTool = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const buildIdParam = searchParams.get('build_id');
   const [popupModal, setPopupModal] = useState(false)
-
+  const [activeTab, setActiveTab] = useState('collection' as 'collection' | 'equip' | '')
   const fetchBuild = async (id: string) => {
 
     const response: any = await getBuild(id);
@@ -105,14 +105,17 @@ export const BuilderTool = () => {
         dispatch(setEquipment(equipmentData))
       }
     }
-
   }
-
 
   const reset = () => {
     dispatch(resetCollection())
     dispatch(resetEquipment())
   }
+
+  const handleTabClick = (tab: 'collection' | 'equip') => {
+    setActiveTab(tab)
+  }
+
 
   return (
     <>
@@ -127,21 +130,29 @@ export const BuilderTool = () => {
 
       <div className="flex flex-col gap-2">
 
-        <div className='flex flex-row justify-end justify-items-end'>
-          <div className='flex gap-8 flex-row'>
-            <div className='flex flex-row flex-nowrap gap-2'>
+        <div>
+          <div className='flex flex-col-reverse md:flex-row justify-between'>
+            <div className='flex flex-row gap-1 justify-items-end w-full'>
+              <button className={`sub-menu-button ${activeTab == "collection" ? "sub-menu-button-active top-0 md:top-[10px]" : "top-[14px] md:top-[24px]"}`} onClick={() => { handleTabClick("collection") }}>collection</button>
+              <button className={`sub-menu-button ${activeTab == "equip" ? "sub-menu-button-active top-0 md:top-[10px]" : "top-[14px] md:top-[24px]"}`} onClick={() => { handleTabClick("equip") }}>equip</button>
+            </div>
+            <div className='flex gap-4 flex-row'>
+              <div className='flex flex-row flex-nowrap gap-1'>
               <button className='container-light hover:brightness-110' onClick={exportString}>Export</button>
               <button className='container-light hover:brightness-110' onClick={importString}>Import</button>
             </div>
-            <div className='flex flex-row flex-nowrap gap-2'>
+              <div className='flex flex-row flex-nowrap gap-1'>
               <button className='container-light hover:brightness-110' onClick={getFromLocalStorage}>Load</button>
               <button className='container-light hover:brightness-110' onClick={saveToLocalStorage}>Save</button>
               <button className='container-light hover:brightness-110' onClick={reset}>Clear</button>
+              </div>
             </div>
           </div>
+          <div className=''>
+            {activeTab == "collection" ? <SelectionContainer /> :
+              <CollectionContainer />}
+          </div>
         </div>
-        <SelectionContainer />
-        <CollectionContainer />
       </div>
     </>
   );

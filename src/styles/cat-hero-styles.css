@@ -66,18 +66,24 @@
 }
 
 .sub-menu-button {
-  background-image: url("../assets/sprites/ui/GV_ui_main0.png");
+  background-image: url("../assets/sprites/ui/GV_ui_main16_3.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  padding: 15px;
+  padding: 12px;
+  height: 50px;
   width: 100%;
+  max-width: 150px;
   min-width: 125px;
   z-index: 0;
+  position: relative;
 }
 
 .sub-menu-button-active {
   z-index: 5;
-  background-image: url("../assets/sprites/ui/GV_ui_main16_3.png");
+
+  height: 64px;
+  filter: brightness(1.2);
+
 }
 
 .sub-menu-button:hover {
