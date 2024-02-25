@@ -39,6 +39,72 @@ h1, h2, h3, span {
   0 -1px 0 #000;
 }
 
+.markdown h1, h2, h3, span{
+  color: #000;
+  text-shadow: none;
+}
+
+.markdown h1 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #000;
+  text-shadow: none;
+}
+
+.markdown h2 {
+  font-size: 1.2rem;
+  line-height: 1.2;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+  color: #000;
+  text-shadow: none;
+}
+
+.markdown h3 {
+  font-size: 1.1rem;
+  line-height: 1.2;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+  color: #000;
+  text-shadow: none;
+}
+
+.markdown p {
+  font-size: 1rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  font-weight: 400;
+  color: #000;
+  text-shadow: none;
+}
+
+.markdown ul li {
+  font-size: 1rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  font-weight: 400;
+  color: #000;
+  text-shadow: none;
+  list-style-type: disc;
+}
+
+.markdown ul li ul li {
+  font-size: 1rem;
+  line-height: 1.2;
+  margin-bottom: 0.3rem;
+  margin-left: 0.5rem;
+  font-weight: 400;
+  color: #000;
+  text-shadow: none;
+  list-style-type: circle;
+}
+
+
+
+
 .text-outline {
   color: rgb(255 255 255 / 87%);
   text-shadow:
