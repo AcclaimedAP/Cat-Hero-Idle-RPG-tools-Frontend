@@ -136,7 +136,6 @@
   position: absolute;
   z-index: 4;
   width: 60px;
-  left: 0;
   height: 24px;
   color: rgb(255 255 255 / 87%);
   border-image-source: url("../assets/sprites/ui/GV_ui_main12_1.png");
