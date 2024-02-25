@@ -7,8 +7,6 @@ import { setMp, setMaxMp } from "src/config/redux/slices/equipmentDisplaySlice";
 
 export const EquippedMana = () => {
   const dispatch = useDispatch();
-  //const [mana, setMana] = useState(0);
-  //const [maxMana, setMaxMana] = useState(30);
   const mana = useSelector((state: RootState) => state.equipmentDisplay.mp) || 0;
   const maxMana = useSelector((state: RootState) => state.equipmentDisplay.maxMp) || 30;
   const [helpBox, setHelpBox] = useState(false);

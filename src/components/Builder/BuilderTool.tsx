@@ -41,6 +41,7 @@ export const BuilderTool = () => {
     if (equipmentData) {
       dispatch(setEquipment(equipmentData))
     }
+    setActiveTab('equip')
     setSearchParams({})
 
   }
