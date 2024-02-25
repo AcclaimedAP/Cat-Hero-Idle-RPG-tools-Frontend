@@ -89,3 +89,61 @@
 .sub-menu-button:hover {
   filter: brightness(1.2);
 }
+
+.radio-background {
+  border: 5px solid transparent;
+  padding: 0;
+  margin: 5px;
+  color: rgb(255 255 255 / 87%);
+  border-image-source: url("../assets/sprites/ui/GV_ui_main16_1.png");
+  border-image-outset: 1px;
+  border-image-slice: 15;
+  border-image-repeat: round;
+  width: fit-content;
+  background-color: #392d20;
+  position: relative;
+}
+
+.radio-button {
+  z-index: 5;
+  width: 60px;
+  text-align: center;
+  height: 24px;
+  vertical-align: middle;
+  text-transform: capitalize;
+}
+
+.radio-button input[type="radio"] {
+  display: none;
+}
+
+.radio-button input[type="radio"] + label {
+  border: 3px transparent solid;
+  position: relative;
+  top: 50%;
+  cursor: pointer;
+  transform: translateY(-50%);
+  display: inline-block;
+}
+
+.radio-button input[type="radio"] + label:hover {
+  filter: brightness(0.9);
+}
+
+.radio-background-checked {
+  transition: all 0.2s ease-in-out;
+  border: 3px solid transparent;
+  position: absolute;
+  z-index: 4;
+  width: 60px;
+  left: 0;
+  height: 24px;
+  color: rgb(255 255 255 / 87%);
+  border-image-source: url("../assets/sprites/ui/GV_ui_main12_1.png");
+  border-image-outset: 3px;
+  border-image-slice: 10;
+  border-image-repeat: round;
+  background-repeat: repeat;
+  background-image: url("../assets/sprites/ui/GV_ui_main12_1_background.png");
+  background-size: 70% 70%;
+}
