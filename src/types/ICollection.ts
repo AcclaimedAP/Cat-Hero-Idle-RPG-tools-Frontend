@@ -17,4 +17,6 @@ export interface ICollection {
 	skillList: ISelectedSkill[];
 	mainRuneList: ISelectedMainRune[];
 	subRuneList: ISelectedSubRune[];
+	mp: number;
+	maxMp: number;
 }
