@@ -1,5 +1,5 @@
 import { INews } from "src/types/INews";
-
+import Markdown from 'react-markdown'
 
 export const NewsContainer = (news: INews) => {
   const isUpdated = news.updated_at !== news.created_at;
@@ -23,8 +23,8 @@ export const NewsContainer = (news: INews) => {
           </h1>
         </div>
         <div className="container-light">
-          <div className="p-4 m-4">
-            {news.body}
+          <div className="p-4 m-4 markdown">
+            <Markdown>{news.body}</Markdown>
           </div>
           <div className="p-4 mt-4 me-4 flex justify-end text-sm flex-col text-nowrap">
             <p className='text-xs text-right'>Posted by: {news.author}</p>
