@@ -16,11 +16,16 @@ const NewsContainer = (news: INews) => {
     <div>
       <div className='container-light flex flex-col gap-2'>
         <div className="p-2 flex flex-col gap-2">
+          <div className="flex flex-col sm:flex-row justify-between">
           <h3><Link to={`/news/${news.type}/${news.slug}`} className='text-xl'>
             {news.title}
-          </Link></h3>
-          <p className="">{news.body}</p>
-          <p className='text-sm'>{formatDate(news.created_at)} {isUpdated ? ` - Updated at ${formatDate(news.updated_at)}` : ""}</p>
+            </Link></h3>
+            <p className='text-xs'>{formatDate(news.created_at)} {isUpdated ? ` - Updated at ${formatDate(news.updated_at)}` : ""}</p>
+          </div>
+          <div className="flex flex-col sm:flex-row justify-between ">
+            <p className="text-sm max-w-[90%]">{news.body}</p>
+            <Link to={`/news/${news.type}/${news.slug}`} className="text-xs underline hover:text-indigo-950 text-nowrap text-right translate-y-3">Read more</Link>
+          </div>
         </div>
       </div>
     </div>
