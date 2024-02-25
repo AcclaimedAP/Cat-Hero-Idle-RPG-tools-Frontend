@@ -20,7 +20,7 @@ export const News = () => {
 
   const moveBackground = () => {
     if (ref.current !== null) {
-      const index = newsTypes.indexOf(selectedType);
+      const index = newsTypes.indexOf(selectedType) === -1 ? 0 : newsTypes.indexOf(selectedType);
       (ref.current as HTMLDivElement).style.left = `${index * 68}px`;
     }
   }
