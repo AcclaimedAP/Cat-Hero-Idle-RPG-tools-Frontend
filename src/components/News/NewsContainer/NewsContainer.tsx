@@ -26,9 +26,9 @@ export const NewsContainer = (news: INews) => {
           <div className="p-4 m-4">
             {news.body}
           </div>
-          <div className="p-4 mt-4 me-4 flex justify-end text-sm flex-col">
-            <p className='text-sm text-right'>Written by: {news.author}</p>
-            <p className='text-sm text-right'>{formatDate(news.created_at)} {isUpdated ? ` - Updated at ${formatDate(news.updated_at)}` : ""}</p>
+          <div className="p-4 mt-4 me-4 flex justify-end text-sm flex-col text-nowrap">
+            <p className='text-xs text-right'>Posted by: {news.author}</p>
+            <p className='text-xs text-right'>{formatDate(news.created_at)} {isUpdated ? ` - Updated at ${formatDate(news.updated_at)}` : ""}</p>
           </div>
         </div>
       </div>
