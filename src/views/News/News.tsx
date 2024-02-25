@@ -83,10 +83,10 @@ export const News = () => {
     <div>
       <div className='container-dark'>
         <div className='flex justify-center container-light'>
-          <h1>News</h1>
+          <h1 className="text-2xl">News</h1>
         </div>
         <div className="flex flex-row justify-center">
-          <div className="radio-background text-sm flex flex-row gap-2">
+          <div className="radio-background text-xs flex flex-row gap-2">
             {radios}
             {radioBackground}
           </div>

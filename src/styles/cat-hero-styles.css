@@ -108,7 +108,7 @@
   z-index: 5;
   width: 60px;
   text-align: center;
-  height: 24px;
+  height: 18px;
   vertical-align: middle;
   text-transform: capitalize;
 }
@@ -124,6 +124,7 @@
   cursor: pointer;
   transform: translateY(-50%);
   display: inline-block;
+  width: 100%;
 }
 
 .radio-button input[type="radio"] + label:hover {
@@ -136,7 +137,7 @@
   position: absolute;
   z-index: 4;
   width: 60px;
-  height: 24px;
+  height: 18px;
   color: rgb(255 255 255 / 87%);
   border-image-source: url("../assets/sprites/ui/GV_ui_main12_1.png");
   border-image-outset: 3px;

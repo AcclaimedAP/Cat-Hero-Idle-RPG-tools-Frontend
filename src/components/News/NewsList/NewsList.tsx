@@ -16,9 +16,9 @@ const NewsContainer = (news: INews) => {
     <div>
       <div className='container-light flex flex-col gap-2'>
         <div className="p-2 flex flex-col gap-2">
-          <Link to={`/news/${news.type}/${news.slug}`} className='text-xl'>
+          <h3><Link to={`/news/${news.type}/${news.slug}`} className='text-xl'>
             {news.title}
-          </Link>
+          </Link></h3>
           <p className="">{news.body}</p>
           <p className='text-sm'>{formatDate(news.created_at)} {isUpdated ? ` - Updated at ${formatDate(news.updated_at)}` : ""}</p>
         </div>
