@@ -7,7 +7,7 @@ import { SkillsOverview } from 'views/GameData/Skills/SkillsOverview';
 import { CompanionsOverview } from 'views/GameData/Companions/CompanionsOverview';
 import { RunesOverview } from 'views/GameData/Runes/RunesOverview';
 import { Builds } from 'views/Builds/Builds';
-import { TipsTricks } from 'views/TipsTricks/TipsTricks';
+import { Articles } from 'src/views/Articles/Articles';
 import { Contact } from 'src/views/Contact/Contact';
 import { News } from 'src/views/News/News';
 import { NewsView } from 'src/views/News/NewsView';
@@ -86,18 +86,18 @@ const routes = [
         children: [],
       },
       {
-        path: 'tips-tricks',
-        element: <TipsTricks></TipsTricks>,
+        path: 'articles',
+        element: <Articles></Articles>,
         children: [],
       },
       {
-        path: 'tips-tricks/:category',
-        element: <TipsTricks></TipsTricks>,
+        path: 'articles/:category',
+        element: <Articles></Articles>,
         children: [],
       },
       {
-        path: 'tips-tricks/:category/:content',
-        element: <TipsTricks></TipsTricks>,
+        path: 'articles/:category/:content',
+        element: <Articles></Articles>,
         children: [],
       },
       {
