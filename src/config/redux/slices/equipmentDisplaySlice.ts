@@ -7,6 +7,8 @@ const initialState: ICollection = {
 	skillList: [{}, {}, {}, {}, {}, {}],
 	mainRuneList: [{}, {}, {}],
 	subRuneList: [{}, {}, {}, {}],
+	mp: 0,
+	maxMp: 30,
 };
 
 export const equipmentInitialState = initialState;
@@ -20,6 +22,8 @@ export const equipmentDisplaySlice = createSlice({
 			state.skillList = action.payload.skillList;
 			state.mainRuneList = action.payload.mainRuneList;
 			state.subRuneList = action.payload.subRuneList;
+			state.mp = action.payload.mp;
+			state.maxMp = action.payload.maxMp;
 		},
 		setCompanionsList: (state, action: PayloadAction<ICollection['companionsList']>) => {
 			state.companionsList = action.payload;
@@ -32,15 +36,23 @@ export const equipmentDisplaySlice = createSlice({
 		},
 		setSubRuneList: (state, action: PayloadAction<ICollection['subRuneList']>) => {
 			state.subRuneList = action.payload;
-    },
-    resetEquipment: (state) => {
-      state.companionsList = initialState.companionsList;
-      state.skillList = initialState.skillList;
-      state.mainRuneList = initialState.mainRuneList;
-      state.subRuneList = initialState.subRuneList;
-    }
+		},
+		setMp: (state, action: PayloadAction<number>) => {
+			state.mp = action.payload;
+		},
+		setMaxMp: (state, action: PayloadAction<number>) => {
+			state.maxMp = action.payload;
+		},
+		resetEquipment: (state) => {
+			state.companionsList = initialState.companionsList;
+			state.skillList = initialState.skillList;
+			state.mainRuneList = initialState.mainRuneList;
+			state.subRuneList = initialState.subRuneList;
+			state.mp = initialState.mp;
+			state.maxMp = initialState.maxMp;
+		},
 	},
 });
 
-export const { setEquipment, setCompanionsList, setSkillList, setMainRuneList, setSubRuneList, resetEquipment } = equipmentDisplaySlice.actions;
+export const { setEquipment, setCompanionsList, setSkillList, setMainRuneList, setSubRuneList, setMp, setMaxMp, resetEquipment } = equipmentDisplaySlice.actions;
 export default equipmentDisplaySlice.reducer;

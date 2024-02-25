@@ -1,14 +1,25 @@
 import { useState } from "react";
 import { companions } from "src/data/companions/companions";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from "src/config/redux/store";
+import { setMp, setMaxMp } from "src/config/redux/slices/equipmentDisplaySlice";
 
 
 export const EquippedMana = () => {
-  const [mana, setMana] = useState(0);
-  const [maxMana, setMaxMana] = useState(30);
+  const dispatch = useDispatch();
+  //const [mana, setMana] = useState(0);
+  //const [maxMana, setMaxMana] = useState(30);
+  const mana = useSelector((state: RootState) => state.equipmentDisplay.mp) || 0;
+  const maxMana = useSelector((state: RootState) => state.equipmentDisplay.maxMp) || 30;
   const [helpBox, setHelpBox] = useState(false);
   const equipment = useSelector((state: RootState) => state.equipmentDisplay)
+
+  const setMana = (mana: number) => {
+    dispatch(setMp(mana));
+  }
+  const setMaxMana = (maxMana: number) => {
+    dispatch(setMaxMp(maxMana));
+  }
 
   const handleMaxManaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (Number(e.target.value) < 20 || Number(e.target.value) > 37) {
