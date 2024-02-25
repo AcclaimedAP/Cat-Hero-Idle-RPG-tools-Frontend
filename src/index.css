@@ -39,7 +39,7 @@ h1, h2, h3, span {
   0 -1px 0 #000;
 }
 
-.markdown h1, h2, h3, span{
+.markdown h1, .markdown h2, .markdown h3, .markdown span{
   color: #000;
   text-shadow: none;
 }
