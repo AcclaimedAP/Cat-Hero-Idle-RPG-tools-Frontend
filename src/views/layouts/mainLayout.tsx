@@ -7,8 +7,10 @@ export const Layout = () => {
 			<header>
 				<NavigationBar />
 			</header>
-      <main className='py-6 md:p-12'>
-				<Outlet></Outlet>
+      <main className='py-6 md:p-12 flex flex-row justify-center w-full'>
+        <div className='max-w-[1090px] w-full'>
+          <Outlet></Outlet>
+        </div>
 			</main>
       <footer className='md:px-12 mb-[120px]'></footer>
 			<div className='background-image'>
