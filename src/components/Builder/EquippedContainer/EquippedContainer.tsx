@@ -4,6 +4,7 @@ import { EquippedMainRunes } from "./EquippedMainRunes/EquippedMainRunes";
 import { EquippedSubRunes } from "./EquippedSubRunes/EquippedSubRunes";
 import { useDispatch } from 'react-redux'
 import { resetEquipment } from 'src/config/redux/slices/equipmentDisplaySlice'
+import { EquippedMana } from "./EquippedMana/EquippedMana";
 
 export const EquippedContainer = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ export const EquippedContainer = () => {
       <div className="flex flex-col gap-2 container-light">
 
         <div className="flex flex-col gap-2 p-2">
+          <EquippedMana />
           <EquippedCompanions />
           <EquippedSkills />
         </div>

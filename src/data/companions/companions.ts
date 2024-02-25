@@ -891,6 +891,47 @@ const baseCompanions: IBaseCompanion[] = [
 					},
 				],
 			},
+			{
+				bonusId: 1,
+				description: '',
+				tiers: [
+					{
+						level: 1,
+						requiredLevel: 1,
+					},
+				],
+			},
+			{
+				bonusId: 2,
+				description: '',
+				tiers: [
+					{
+						level: 1,
+						requiredLevel: 1,
+					},
+				],
+			},
+			{
+				bonusId: 3,
+				description: 'Reduces required MP by ${selfMpReduction}%.',
+				tiers: [
+					{
+						level: 1,
+						requiredLevel: 41,
+						selfMpReduction: 1,
+					},
+					{
+						level: 2,
+						requiredLevel: 81,
+						selfMpReduction: 2,
+					},
+					{
+						level: 3,
+						requiredLevel: 121,
+						selfMpReduction: 3,
+					},
+				],
+			},
 		],
 	},
 	{
