@@ -7,6 +7,7 @@ import { RootState } from "src/config/redux/store";
 export const EquippedMana = () => {
   const [mana, setMana] = useState(0);
   const [maxMana, setMaxMana] = useState(30);
+  const [helpBox, setHelpBox] = useState(false);
   const equipment = useSelector((state: RootState) => state.equipmentDisplay)
 
   const handleMaxManaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -73,13 +74,21 @@ export const EquippedMana = () => {
         <progress className="w-full border-2 border-solid bg-slate-800 border-zinc-800" max={maxMana} value={mana}></progress>
 
         <div className="flex flex-row justify-between">
-          <button className="text-xs text-outline" onClick={calculateMana}>Calculate</button>
+          <div className="flex flex-row gap-2 text-center">
+            <button className="text-xs text-outline" onClick={calculateMana}>Calculate</button>
+            <div className="rounded-2xl bg-blue-700 text-outline w-4 text-[0.6rem] h-4 cursor-pointer" title="This will attempt to calculate your current mana based on the data that is currently added in the app, however this doesn't take into account everything due to missing data, and thus you may have to manually change the numbers by clicking on the and inputting them yourself." onClick={() => { setHelpBox(true) }}>?</div>
+          </div>
           <div>
             <span><input type="text" value={mana} onChange={(e) => { handleManaChange(e) }} className="text-outline mx-1 w-10 text-center rounded-2xl bg-transparent hover:bg-opacity-45 hover:bg-slate-800 focus:bg-opacity-75 focus:bg-slate-800" /></span>
             <span>/</span>
             <span><input type="text" value={maxMana} onChange={(e) => { handleMaxManaChange(e) }} className="text-outline w-10 text-center rounded-2xl bg-transparent hover:bg-opacity-45 hover:bg-slate-800 focus:bg-opacity-75 focus:bg-slate-800" />MP</span>
           </div>
         </div>
+        {helpBox && <div className="w-full p-2 text-xs bg-gray-600" onClick={() => { setHelpBox(false) }}>
+          <span>
+            This will attempt to calculate your current mana based on the data that is currently added in the app, however this doesn't take into account everything due to missing data, and thus you may have to manually change the numbers by clicking on the and inputting them yourself.
+          </span>
+        </div>}
       </div>
     </>
   );
