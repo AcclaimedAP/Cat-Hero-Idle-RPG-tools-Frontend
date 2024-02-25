@@ -1,5 +1,5 @@
 
-import { GettingStarted } from "components/TipsTricks/Articles/General/GettingStarted"
+import { GettingStarted } from "components/Articles/Articles/General/GettingStarted"
 export interface ITipsTricksArticle {
   title: string;
   category: string;
