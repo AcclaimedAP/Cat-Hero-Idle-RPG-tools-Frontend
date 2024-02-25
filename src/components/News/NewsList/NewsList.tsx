@@ -12,6 +12,10 @@ const NewsContainer = (news: INews) => {
     return `${day}/${month}/${year} ${hours}:${minutes}`;
   }
 
+  const filterMarkdown = (text: string) => {
+    return text.replace(/[#]+/g, '');
+  }
+
   return (
     <div>
       <div className='container-light flex flex-col gap-2'>
@@ -23,7 +27,7 @@ const NewsContainer = (news: INews) => {
             <p className='text-xs'>{formatDate(news.created_at)} {isUpdated ? ` - Updated at ${formatDate(news.updated_at)}` : ""}</p>
           </div>
           <div className="flex flex-col sm:flex-row justify-between ">
-            <p className="text-sm max-w-[90%]">{news.body}</p>
+            <p className="text-sm max-w-[90%]">{filterMarkdown(news.body)}</p>
             <Link to={`/news/${news.type}/${news.slug}`} className="text-xs underline hover:text-indigo-950 text-nowrap text-right translate-y-3">Read more</Link>
           </div>
         </div>

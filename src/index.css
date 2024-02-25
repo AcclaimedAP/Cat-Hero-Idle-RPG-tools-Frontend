@@ -80,6 +80,31 @@ h1, h2, h3, span {
   text-shadow: none;
 }
 
+.markdown ul li {
+  font-size: 1rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  font-weight: 400;
+  color: #000;
+  text-shadow: none;
+  list-style-type: disc;
+}
+
+.markdown ul li ul li {
+  font-size: 1rem;
+  line-height: 1.2;
+  margin-bottom: 0.3rem;
+  margin-left: 0.5rem;
+  font-weight: 400;
+  color: #000;
+  text-shadow: none;
+  list-style-type: circle;
+}
+
+
+
+
 .text-outline {
   color: rgb(255 255 255 / 87%);
   text-shadow:
