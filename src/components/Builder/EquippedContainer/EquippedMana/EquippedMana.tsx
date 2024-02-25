@@ -27,7 +27,7 @@ export const EquippedMana = () => {
     setMana(Number(e.target.value));
   }
 
-  const attemptToCalculate = () => {
+  const calculateMana = () => {
     let newMana = 0;
     let companionsArray = equipment.companionsList;
     let companionsList = companionsArray.map((companion) => {
@@ -40,13 +40,11 @@ export const EquippedMana = () => {
       if (companion === null) {
         return;
       }
-      // Check if companion has selfMpReduction in any of it's specialEffects
       let mpReduced = 0;
       companion.specialEffect.forEach((effect) => {
         let selfMpReduction = 0;
         effect.tiers.forEach((tier) => {
           if (tier.hasOwnProperty("selfMpReduction")) {
-            // Check if level in equipment.companionsList is high enough to apply the effect
             const companionLevel = companionsArray.find((companion) => {
               return companion.id === companion.id;
             })?.level;
@@ -71,12 +69,16 @@ export const EquippedMana = () => {
   return (
     <>
       <div className="m-1 w-full">
+
         <progress className="w-full border-2 border-solid bg-slate-800 border-zinc-800" max={maxMana} value={mana}></progress>
 
         <div className="flex flex-row justify-between">
-          <span><input type="text" value={mana} onChange={(e) => { handleManaChange(e) }} className="text-outline w-8 text-center bg-transparent focus:bg-slate-800" /><button className="text-xs text-outline" onClick={attemptToCalculate}>attempt to calculate</button></span>
-
-          <span><input type="text" value={maxMana} onChange={(e) => { handleMaxManaChange(e) }} className="text-outline w-8 text-center bg-transparent focus:bg-slate-800" /></span>
+          <button className="text-xs text-outline" onClick={calculateMana}>Calculate</button>
+          <div>
+            <span><input type="text" value={mana} onChange={(e) => { handleManaChange(e) }} className="text-outline mx-1 w-10 text-center rounded-2xl bg-transparent hover:bg-opacity-45 hover:bg-slate-800 focus:bg-opacity-75 focus:bg-slate-800" /></span>
+            <span>/</span>
+            <span><input type="text" value={maxMana} onChange={(e) => { handleMaxManaChange(e) }} className="text-outline w-10 text-center rounded-2xl bg-transparent hover:bg-opacity-45 hover:bg-slate-800 focus:bg-opacity-75 focus:bg-slate-800" />MP</span>
+          </div>
         </div>
       </div>
     </>

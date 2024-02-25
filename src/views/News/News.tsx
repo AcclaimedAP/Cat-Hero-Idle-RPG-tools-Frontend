@@ -56,13 +56,11 @@ export const News = () => {
     const queryType = selectedType === 'all' ? '' : selectedType;
     const params = queryType ? { page: 1, per_page: 5, type: queryType } : { page: 1, per_page: 5 };
     try {
-      console.log("params", params);
-      console.log("queryType", queryType)
       const res: any = await getNews(params);
       setNewsData(res.data);
       setFetched(true);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
   useEffect(() => {
