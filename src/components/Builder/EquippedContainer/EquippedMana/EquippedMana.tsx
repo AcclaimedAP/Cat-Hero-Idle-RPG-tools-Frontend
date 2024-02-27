@@ -70,10 +70,7 @@ export const EquippedMana = () => {
       });
       newMana += companion.manaCost - mpReduced;
     });
-
-
     setMana(newMana);
-
   }
 
   return (

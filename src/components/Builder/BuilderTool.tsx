@@ -18,12 +18,18 @@ export const BuilderTool = () => {
   const dispatch = useDispatch();
   const collection = useSelector((state: RootState) => state.collectionDisplay)
   const equipment = useSelector((state: RootState) => state.equipmentDisplay)
-  const [shareString, setShareString] = useState('')
   const [shareUrl, setShareUrl] = useState('')
   const [searchParams, setSearchParams] = useSearchParams();
   const buildIdParam = searchParams.get('build_id');
   const [popupModal, setPopupModal] = useState(false)
   const [activeTab, setActiveTab] = useState('collection' as 'collection' | 'equip' | '')
+  const [automaticSave, setAutomaticSave] = useState(false)
+
+  const toggleAutomaticSave = () => {
+    setAutomaticSave(!automaticSave)
+    localStorage.setItem('automaticSave', (!automaticSave).toString())
+  }
+
   const fetchBuild = async (id: string) => {
 
     const response: any = await getBuild(id);
@@ -47,11 +53,21 @@ export const BuilderTool = () => {
   }
 
   useEffect(() => {
+    const autoSave = localStorage.getItem('automaticSave')
     if (buildIdParam) {
       setPopupModal(false);
       fetchBuild(buildIdParam);
+    } else {
+      if (autoSave) {
+        setAutomaticSave(autoSave === 'true')
+        if (autoSave !== 'true') return;
+      }
+      if (JSON.stringify(collection) === JSON.stringify(collectionInitialState) && JSON.stringify(equipment) === JSON.stringify(equipmentInitialState)) {
+        getFromLocalStorage();
+      }
     }
   }, [buildIdParam, dispatch, setSearchParams])
+
   const getFromLocalStorage = () => {
     const collection = localStorage.getItem('collection')
     const equipment = localStorage.getItem('equipment')
@@ -65,6 +81,9 @@ export const BuilderTool = () => {
       const equipmentData = JSON.parse(equipment)
       if (equipmentData) {
         dispatch(setEquipment(equipmentData))
+        if (equipmentData !== equipmentInitialState) {
+          setActiveTab('equip')
+        }
       }
     }
   }
@@ -82,7 +101,6 @@ export const BuilderTool = () => {
     const currentUrl = window.location.href.split('?')[0];
     const response: any = await saveBuild(shareString);
     if (response.status === 201 || response.status === 200) {
-      setShareString(shareString);
       setShareUrl(currentUrl + '?build_id=' + response.data.build_id);
       setPopupModal(true);
       return;
@@ -90,23 +108,19 @@ export const BuilderTool = () => {
     alert('Failed to save build');
   }
 
-  const importString = () => {
-    const shareString = prompt('Paste the share string here:')
-    if (shareString) {
-      const decodedShareString = atob(shareString)
 
-      const [collectionString, equipmentString] = decodedShareString.split('|')
-
-      const collectionData = JSON.parse(collectionString)
-      const equipmentData = JSON.parse(equipmentString)
-      if (collectionData) {
-        dispatch(setCollection(collectionData))
-      }
-      if (equipmentData) {
-        dispatch(setEquipment(equipmentData))
-      }
+  const updateLocalStorage = () => {
+    if (!automaticSave) return;
+    if (JSON.stringify(collection) === JSON.stringify(collectionInitialState) && JSON.stringify(equipment) === JSON.stringify(equipmentInitialState)) {
+      return
     }
+    localStorage.setItem('collection', JSON.stringify(collection))
+    localStorage.setItem('equipment', JSON.stringify(equipment))
   }
+
+  useEffect(() => {
+    updateLocalStorage();
+  }, [collection, equipment])
 
   const reset = () => {
     dispatch(resetCollection())
@@ -120,17 +134,18 @@ export const BuilderTool = () => {
 
   return (
     <>
-      <PopupModal isOpen={popupModal} onClose={() => { setPopupModal(false) }}>
-        <div className='p-4 min-w-96'>
-          Share string:
-          <StringTextField>{shareString}</StringTextField>
-          Url:
-          <StringTextField>{shareUrl}</StringTextField>
+      {popupModal && <PopupModal isOpen={popupModal} onClose={() => { setPopupModal(false) }}>
+        <div className='p-2 min-w-96'>
+          <div className='flex flex-row justify-between'><span>Url:</span> <span className='flex justify-center justify-items-center hover:scale-110 transition-all cursor-pointer w-8 h-8 text-center hover:brightness-125' onClick={() => { setPopupModal(false) }}><div>X</div></span></div>
+          <StringTextField >{shareUrl}</StringTextField>
         </div>
-      </PopupModal>
+      </PopupModal>}
 
       <div className="flex flex-col gap-2">
-
+        <div className='w-full flex flex-row justify-end'>
+          <label htmlFor="manualSave" className='text-sm m-1'>Automatic Save</label>
+          <input type="checkbox" name="manualSave" onChange={toggleAutomaticSave} checked={automaticSave} id="" className='m-1' />
+        </div>
         <div>
           <div className='flex flex-col-reverse md:flex-row justify-between'>
             <div className='flex flex-row gap-1 justify-items-end w-full'>
@@ -139,12 +154,14 @@ export const BuilderTool = () => {
             </div>
             <div className='flex gap-4 flex-row'>
               <div className='flex flex-row flex-nowrap gap-1'>
-              <button className='container-light hover:brightness-110' onClick={exportString}>Export</button>
-              <button className='container-light hover:brightness-110' onClick={importString}>Import</button>
+                <button className='container-light hover:brightness-110' onClick={exportString}>Export</button>
             </div>
               <div className='flex flex-row flex-nowrap gap-1'>
-              <button className='container-light hover:brightness-110' onClick={getFromLocalStorage}>Load</button>
-              <button className='container-light hover:brightness-110' onClick={saveToLocalStorage}>Save</button>
+
+                {!automaticSave && <>
+                  <button className='container-light hover:brightness-110' onClick={getFromLocalStorage}>Load</button>
+                  <button className='container-light hover:brightness-110' onClick={saveToLocalStorage}>Save</button>
+                </>}
               <button className='container-light hover:brightness-110' onClick={reset}>Clear</button>
               </div>
             </div>
