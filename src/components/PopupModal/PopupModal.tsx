@@ -8,11 +8,6 @@ export const PopupModal = ({ children, isOpen, onClose }: { children: ReactNode,
         onClick={onClose}
       ></div>
       <div className='popup-modal-content z-50 container-dark min-w-[360px] sm:min-w-[480px] max-w-full'>{children}</div>
-      <button
-        className='modal-close is-large'
-        aria-label='close'
-        onClick={onClose}
-      ></button>
     </div>
   );
 };

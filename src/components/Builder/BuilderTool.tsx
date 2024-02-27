@@ -23,6 +23,12 @@ export const BuilderTool = () => {
   const buildIdParam = searchParams.get('build_id');
   const [popupModal, setPopupModal] = useState(false)
   const [activeTab, setActiveTab] = useState('collection' as 'collection' | 'equip' | '')
+  const [automaticSave, setAutomaticSave] = useState(false)
+
+  const toggleAutomaticSave = () => {
+    setAutomaticSave(!automaticSave)
+    localStorage.setItem('automaticSave', (!automaticSave).toString())
+  }
 
   const fetchBuild = async (id: string) => {
 
@@ -47,10 +53,15 @@ export const BuilderTool = () => {
   }
 
   useEffect(() => {
+    const autoSave = localStorage.getItem('automaticSave')
     if (buildIdParam) {
       setPopupModal(false);
       fetchBuild(buildIdParam);
     } else {
+      if (autoSave) {
+        setAutomaticSave(autoSave === 'true')
+        if (autoSave !== 'true') return;
+      }
       if (JSON.stringify(collection) === JSON.stringify(collectionInitialState) && JSON.stringify(equipment) === JSON.stringify(equipmentInitialState)) {
         getFromLocalStorage();
       }
@@ -99,6 +110,7 @@ export const BuilderTool = () => {
 
 
   const updateLocalStorage = () => {
+    if (!automaticSave) return;
     if (JSON.stringify(collection) === JSON.stringify(collectionInitialState) && JSON.stringify(equipment) === JSON.stringify(equipmentInitialState)) {
       return
     }
@@ -122,15 +134,18 @@ export const BuilderTool = () => {
 
   return (
     <>
-      <PopupModal isOpen={popupModal} onClose={() => { setPopupModal(false) }}>
+      {popupModal && <PopupModal isOpen={popupModal} onClose={() => { setPopupModal(false) }}>
         <div className='p-2 min-w-96'>
-          <div className='flex flex-row justify-between'><span>Url:</span> <span className='flex justify-center justify-items-center hover:scale-110 transition-all cursor-pointer w-8 h-8 text-center hover:brightness-125'><div>X</div></span></div>
-          <StringTextField>{shareUrl}</StringTextField>
+          <div className='flex flex-row justify-between'><span>Url:</span> <span className='flex justify-center justify-items-center hover:scale-110 transition-all cursor-pointer w-8 h-8 text-center hover:brightness-125' onClick={() => { setPopupModal(false) }}><div>X</div></span></div>
+          <StringTextField >{shareUrl}</StringTextField>
         </div>
-      </PopupModal>
+      </PopupModal>}
 
       <div className="flex flex-col gap-2">
-
+        <div className='w-full flex flex-row justify-end'>
+          <label htmlFor="manualSave" className='text-sm m-1'>Automatic Save</label>
+          <input type="checkbox" name="manualSave" onChange={toggleAutomaticSave} checked={automaticSave} id="" className='m-1' />
+        </div>
         <div>
           <div className='flex flex-col-reverse md:flex-row justify-between'>
             <div className='flex flex-row gap-1 justify-items-end w-full'>
@@ -142,8 +157,11 @@ export const BuilderTool = () => {
                 <button className='container-light hover:brightness-110' onClick={exportString}>Export</button>
             </div>
               <div className='flex flex-row flex-nowrap gap-1'>
-              <button className='container-light hover:brightness-110' onClick={getFromLocalStorage}>Load</button>
-              <button className='container-light hover:brightness-110' onClick={saveToLocalStorage}>Save</button>
+
+                {!automaticSave && <>
+                  <button className='container-light hover:brightness-110' onClick={getFromLocalStorage}>Load</button>
+                  <button className='container-light hover:brightness-110' onClick={saveToLocalStorage}>Save</button>
+                </>}
               <button className='container-light hover:brightness-110' onClick={reset}>Clear</button>
               </div>
             </div>
