@@ -18,7 +18,6 @@ export const BuilderTool = () => {
   const dispatch = useDispatch();
   const collection = useSelector((state: RootState) => state.collectionDisplay)
   const equipment = useSelector((state: RootState) => state.equipmentDisplay)
-  const [shareString, setShareString] = useState('')
   const [shareUrl, setShareUrl] = useState('')
   const [searchParams, setSearchParams] = useSearchParams();
   const buildIdParam = searchParams.get('build_id');
@@ -82,7 +81,6 @@ export const BuilderTool = () => {
     const currentUrl = window.location.href.split('?')[0];
     const response: any = await saveBuild(shareString);
     if (response.status === 201 || response.status === 200) {
-      setShareString(shareString);
       setShareUrl(currentUrl + '?build_id=' + response.data.build_id);
       setPopupModal(true);
       return;
@@ -90,23 +88,6 @@ export const BuilderTool = () => {
     alert('Failed to save build');
   }
 
-  const importString = () => {
-    const shareString = prompt('Paste the share string here:')
-    if (shareString) {
-      const decodedShareString = atob(shareString)
-
-      const [collectionString, equipmentString] = decodedShareString.split('|')
-
-      const collectionData = JSON.parse(collectionString)
-      const equipmentData = JSON.parse(equipmentString)
-      if (collectionData) {
-        dispatch(setCollection(collectionData))
-      }
-      if (equipmentData) {
-        dispatch(setEquipment(equipmentData))
-      }
-    }
-  }
 
   const reset = () => {
     dispatch(resetCollection())
@@ -122,9 +103,7 @@ export const BuilderTool = () => {
     <>
       <PopupModal isOpen={popupModal} onClose={() => { setPopupModal(false) }}>
         <div className='p-4 min-w-96'>
-          Share string:
-          <StringTextField>{shareString}</StringTextField>
-          Url:
+          <div className='flex flex-row justify-between'><span>Url:</span> <span className='-m-3 flex justify-center justify-items-center hover:scale-110 transition-all cursor-pointer w-8 h-8 text-center hover:brightness-125'><div>X</div></span></div>
           <StringTextField>{shareUrl}</StringTextField>
         </div>
       </PopupModal>
@@ -139,8 +118,7 @@ export const BuilderTool = () => {
             </div>
             <div className='flex gap-4 flex-row'>
               <div className='flex flex-row flex-nowrap gap-1'>
-              <button className='container-light hover:brightness-110' onClick={exportString}>Export</button>
-              <button className='container-light hover:brightness-110' onClick={importString}>Import</button>
+                <button className='container-light hover:brightness-110' onClick={exportString}>Export</button>
             </div>
               <div className='flex flex-row flex-nowrap gap-1'>
               <button className='container-light hover:brightness-110' onClick={getFromLocalStorage}>Load</button>
