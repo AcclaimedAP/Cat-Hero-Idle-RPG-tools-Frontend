@@ -70,6 +70,9 @@ export const BuilderTool = () => {
       const equipmentData = JSON.parse(equipment)
       if (equipmentData) {
         dispatch(setEquipment(equipmentData))
+        if (equipmentData !== equipmentInitialState) {
+          setActiveTab('equip')
+        }
       }
     }
   }
@@ -94,6 +97,18 @@ export const BuilderTool = () => {
     alert('Failed to save build');
   }
 
+
+  const updateLocalStorage = () => {
+    if (JSON.stringify(collection) === JSON.stringify(collectionInitialState) && JSON.stringify(equipment) === JSON.stringify(equipmentInitialState)) {
+      return
+    }
+    localStorage.setItem('collection', JSON.stringify(collection))
+    localStorage.setItem('equipment', JSON.stringify(equipment))
+  }
+
+  useEffect(() => {
+    updateLocalStorage();
+  }, [collection, equipment])
 
   const reset = () => {
     dispatch(resetCollection())
