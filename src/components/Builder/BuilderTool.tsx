@@ -102,8 +102,8 @@ export const BuilderTool = () => {
   return (
     <>
       <PopupModal isOpen={popupModal} onClose={() => { setPopupModal(false) }}>
-        <div className='p-4 min-w-96'>
-          <div className='flex flex-row justify-between'><span>Url:</span> <span className='-m-3 flex justify-center justify-items-center hover:scale-110 transition-all cursor-pointer w-8 h-8 text-center hover:brightness-125'><div>X</div></span></div>
+        <div className='p-2 min-w-96'>
+          <div className='flex flex-row justify-between'><span>Url:</span> <span className='flex justify-center justify-items-center hover:scale-110 transition-all cursor-pointer w-8 h-8 text-center hover:brightness-125'><div>X</div></span></div>
           <StringTextField>{shareUrl}</StringTextField>
         </div>
       </PopupModal>
