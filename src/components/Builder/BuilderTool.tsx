@@ -23,6 +23,7 @@ export const BuilderTool = () => {
   const buildIdParam = searchParams.get('build_id');
   const [popupModal, setPopupModal] = useState(false)
   const [activeTab, setActiveTab] = useState('collection' as 'collection' | 'equip' | '')
+
   const fetchBuild = async (id: string) => {
 
     const response: any = await getBuild(id);
@@ -49,8 +50,13 @@ export const BuilderTool = () => {
     if (buildIdParam) {
       setPopupModal(false);
       fetchBuild(buildIdParam);
+    } else {
+      if (JSON.stringify(collection) === JSON.stringify(collectionInitialState) && JSON.stringify(equipment) === JSON.stringify(equipmentInitialState)) {
+        getFromLocalStorage();
+      }
     }
   }, [buildIdParam, dispatch, setSearchParams])
+
   const getFromLocalStorage = () => {
     const collection = localStorage.getItem('collection')
     const equipment = localStorage.getItem('equipment')
