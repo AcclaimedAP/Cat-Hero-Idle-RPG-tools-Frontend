@@ -7,8 +7,8 @@ describe("companionIcon", () => {
   test("Should render image based on companion", () => {
     const { getAllByRole } = render(<CompanionIcon companion={companions[0]} />);
     const images = getAllByRole("img");
-    const image = images.find((image) => image.getAttribute("src") === companions[0].image);
-    expect(image).toHaveAttribute("src", companions[0].image);
+    const image = images.find((image) => image.getAttribute("src") === `game-assets/companions/${companions[0].rarity}/${companions[0].name.replace(/ /g, '_').replace(/-/g, '_').replace(/'/g, '').replace(/!/g, '').toLowerCase()}.png`.toLowerCase());
+    expect(image).not.toBeUndefined();
 
   });
   test("Should have level label that equals the level if label is true", () => {

@@ -4,11 +4,13 @@ import { RuneIcon } from "components/RuneIcon/RuneIcon";
 import { runes } from "src/data/runes/runes";
 
 describe("RuneIcon", () => {
-  test("Should render image based on skill", () => {
+  test("Should render image based on rune", () => {
     const { getAllByRole } = render(<RuneIcon rune={runes[0]} />);
     const images = getAllByRole("img");
-    const image = images.find((image) => image.getAttribute("src") === runes[0].image[0]);
-    expect(image).toHaveAttribute("src", runes[0].image[0]);
+    const runename = runes[0].name.replace(/ /g, '_').replace(/-/g, '_').replace(/'/g, '').replace(/!/g, '').toLowerCase();
+    const runeImage = `game-assets/runes-${runes[0].type}/${runes[0].rarity}/${runename}.webp`.toLowerCase();
+    const image = images.find((image) => image.getAttribute("src") === runeImage);
+    expect(image).not.toBeUndefined();
 
   });
   test("Should have label if it exists", () => {
