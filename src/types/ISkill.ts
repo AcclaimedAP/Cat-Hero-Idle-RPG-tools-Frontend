@@ -1,6 +1,5 @@
 export interface IBaseSkill {
 	name: string;
-	image: string;
 	rarity: string;
 	description: string;
 	cooldown: number;

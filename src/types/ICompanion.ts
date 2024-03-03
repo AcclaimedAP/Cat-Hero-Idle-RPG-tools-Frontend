@@ -1,7 +1,6 @@
 export interface IBaseCompanion {
 	name: string;
 	rarity: string;
-	image: string;
 	manaCost: number;
 	baseAttack: number;
 	baseASPD: number;

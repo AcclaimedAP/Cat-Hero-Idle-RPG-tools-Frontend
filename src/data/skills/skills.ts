@@ -1,41 +1,9 @@
-import ImageDinnerTime from 'assets/sprites/skills/common/GV_skillicon_dinnertime.png';
-import ImageRatBomb from 'assets/sprites/skills/common/GV_skillicon_boommouse_single.png';
-import ImageSuperCat from 'assets/sprites/skills/common/GV_skillicon_supercat.png';
-import ImageMagicCircus from 'assets/sprites/skills/common/GV_skillicon_magiccircus.png';
-import ImageDessertComa from 'assets/sprites/skills/uncommon/GV_skillicon_dessertmeteor.png';
-import ImageLeafSlash from 'assets/sprites/skills/uncommon/GV_skillicon_leaf.png';
-import ImageIcyThorns from 'assets/sprites/skills/uncommon/GV_skillicon_ice_single.png';
-import ImageScraaatch from 'assets/sprites/skills/uncommon/GV_skill_hunting.png';
-import ImageGrrrrrrr from 'assets/sprites/skills/uncommon/GV_skillicon_angry.png';
-import ImageClusterBomb from 'assets/sprites/skills/uncommon/GV_skillicon_bomb_single.png';
-import ImageFishRain from 'assets/sprites/skills/rare/GV_skillicon_fishbomb.png';
-import ImageScarecrow from 'assets/sprites/skills/rare/GV_skillicon_CatScarecrow.png';
-import ImageTornado from 'assets/sprites/skills/rare/GV_skillicon_tornado.png';
-import ImageMagicShield from 'assets/sprites/skills/rare/GV_skillicon_shield.png';
-import ImageChickenRun from 'assets/sprites/skills/rare/GV_skillicon_boomchicken.png';
-import ImageChakra from 'assets/sprites/skills/rare/GV_skillicon_magiccompress.png';
-import ImageHowl from 'assets/sprites/skills/epic/GV_skill_howling.png';
-import ImageBlackCloud from 'assets/sprites/skills/epic/GV_skillicon_blackcloud.png';
-import ImageSprayInk from 'assets/sprites/skills/epic/GV_skillicon_26.png';
-import ImageBurgerParty from 'assets/sprites/skills/epic/GV_skillicon_bugerparty.png';
-import ImageMagicCrossbow from 'assets/sprites/skills/epic/GV_skillicon_arrow.png';
-import ImageFullMoon from 'assets/sprites/skills/epic/GV_skillicon_fullmoon.png';
-import ImageCatteor from 'assets/sprites/skills/epic/GV_skillicon_meteor.png';
-import ImageCatLaser from 'assets/sprites/skills/epic/GV_skillicon_laser_single.png';
-import ImageClawPunch from 'assets/sprites/skills/legendary/GV_skill_wolfclaw.png';
-import ImagePirateSign from 'assets/sprites/skills/legendary/GV_skillicon_25.png';
-import ImageNocturneSummon from 'assets/sprites/skills/legendary/GV_skillicon_24.png';
-import ImageBlackHole from 'assets/sprites/skills/legendary/GV_skillicon_blackh.png';
-import ImageDreadnoughWhale from 'assets/sprites/skills/legendary/GV_skillicon_gogorae_single.png';
-import ImageCatHeroes from 'assets/sprites/skills/mythic/GV_skillicon_catheroes.png';
-import ImageOceansPunishment from 'assets/sprites/skills/mythic/GV_skillicon_seaexecution.png';
-import ImageShamanCat from 'assets/sprites/skills/mythic/GV_skill_redcloud_s_0000.png';
 import { IBaseSkill, ISkill } from 'types/ISkill';
 
 const baseSkills: IBaseSkill[] = [
 	{
 		name: 'Dinner Time',
-		image: ImageDinnerTime,
+
 		rarity: 'Common',
 		description: 'Summons ${count} food missiles that deal ${dmgMultiplier}% DMG of ATK.',
 		cooldown: 20,
@@ -76,7 +44,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Rat Bomb',
-		image: ImageRatBomb,
+
 		rarity: 'Common',
 		description: '',
 		cooldown: 0,
@@ -96,7 +64,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Super Cat',
-		image: ImageSuperCat,
+
 		rarity: 'Common',
 		description: '',
 		cooldown: 0,
@@ -116,7 +84,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Magic Circus',
-		image: ImageMagicCircus,
+
 		rarity: 'Common',
 		description: '',
 		cooldown: 0,
@@ -136,7 +104,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Dessert Coma',
-		image: ImageDessertComa,
+
 		rarity: 'Uncommon',
 		description: '',
 		cooldown: 0,
@@ -156,7 +124,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Leaf Slash',
-		image: ImageLeafSlash,
+
 		rarity: 'Uncommon',
 		description: '',
 		cooldown: 0,
@@ -176,7 +144,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Icy Thorns',
-		image: ImageIcyThorns,
+
 		rarity: 'Uncommon',
 		description: '',
 		cooldown: 0,
@@ -196,7 +164,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Scraaatch',
-		image: ImageScraaatch,
+
 		rarity: 'Uncommon',
 		description: '',
 		cooldown: 0,
@@ -216,7 +184,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Grrrrrrr!',
-		image: ImageGrrrrrrr,
+
 		rarity: 'Uncommon',
 		description: '',
 		cooldown: 0,
@@ -236,7 +204,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Cluster Bomb',
-		image: ImageClusterBomb,
+
 		rarity: 'Uncommon',
 		description: '',
 		cooldown: 0,
@@ -256,7 +224,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Fish Rain',
-		image: ImageFishRain,
+
 		rarity: 'Rare',
 		description: '',
 		cooldown: 0,
@@ -276,7 +244,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Scarecrow',
-		image: ImageScarecrow,
+
 		rarity: 'Rare',
 		description: '',
 		cooldown: 0,
@@ -296,7 +264,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Tornado',
-		image: ImageTornado,
+
 		rarity: 'Rare',
 		description: '',
 		cooldown: 0,
@@ -316,7 +284,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Magic Shield',
-		image: ImageMagicShield,
+
 		rarity: 'Rare',
 		description: '',
 		cooldown: 0,
@@ -336,7 +304,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Chicken Run',
-		image: ImageChickenRun,
+
 		rarity: 'Rare',
 		description: '',
 		cooldown: 0,
@@ -356,7 +324,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Chakra',
-		image: ImageChakra,
+
 		rarity: 'Rare',
 		description: '',
 		cooldown: 0,
@@ -376,7 +344,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Howl',
-		image: ImageHowl,
+
 		rarity: 'Epic',
 		description: '',
 		cooldown: 0,
@@ -396,7 +364,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Black Cloud',
-		image: ImageBlackCloud,
+
 		rarity: 'Epic',
 		description: '',
 		cooldown: 0,
@@ -416,7 +384,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Spray Ink',
-		image: ImageSprayInk,
+
 		rarity: 'Epic',
 		description: '',
 		cooldown: 0,
@@ -436,7 +404,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Burger Party',
-		image: ImageBurgerParty,
+
 		rarity: 'Epic',
 		description: '',
 		cooldown: 0,
@@ -456,7 +424,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Magic Crossbow',
-		image: ImageMagicCrossbow,
+
 		rarity: 'Epic',
 		description: '',
 		cooldown: 0,
@@ -476,7 +444,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Full Moon',
-		image: ImageFullMoon,
+
 		rarity: 'Epic',
 		description: '',
 		cooldown: 0,
@@ -496,7 +464,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Catteor',
-		image: ImageCatteor,
+
 		rarity: 'Epic',
 		description: '',
 		cooldown: 0,
@@ -516,7 +484,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Cat Laser',
-		image: ImageCatLaser,
+
 		rarity: 'Epic',
 		description: '',
 		cooldown: 0,
@@ -536,7 +504,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Claw Punch',
-		image: ImageClawPunch,
+
 		rarity: 'Legendary',
 		description: '',
 		cooldown: 0,
@@ -556,7 +524,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Pirate Sign',
-		image: ImagePirateSign,
+
 		rarity: 'Legendary',
 		description: '',
 		cooldown: 0,
@@ -576,7 +544,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Nocturne Summon',
-		image: ImageNocturneSummon,
+
 		rarity: 'Legendary',
 		description: '',
 		cooldown: 0,
@@ -596,7 +564,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Black Hole',
-		image: ImageBlackHole,
+
 		rarity: 'Legendary',
 		description: '',
 		cooldown: 0,
@@ -615,8 +583,8 @@ const baseSkills: IBaseSkill[] = [
 		],
 	},
 	{
-		name: 'Dreadnough Whale',
-		image: ImageDreadnoughWhale,
+		name: 'Dreadnought Whale',
+
 		rarity: 'Legendary',
 		description: '',
 		cooldown: 0,
@@ -636,7 +604,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Cat Heroes',
-		image: ImageCatHeroes,
+
 		rarity: 'Mythic',
 		description: '',
 		cooldown: 0,
@@ -656,7 +624,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: "Ocean's Punishment",
-		image: ImageOceansPunishment,
+
 		rarity: 'Mythic',
 		description: '',
 		cooldown: 0,
@@ -676,7 +644,7 @@ const baseSkills: IBaseSkill[] = [
 	},
 	{
 		name: 'Shaman Cat',
-		image: ImageShamanCat,
+
 		rarity: 'Mythic',
 		description: '',
 		cooldown: 0,
