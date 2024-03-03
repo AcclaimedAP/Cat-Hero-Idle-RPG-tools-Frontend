@@ -5,7 +5,10 @@ import manaIcon from 'assets/sprites/companions/GV_runeiconeff_1.png';
 
 export const CompanionIcon = ({ companion, label = true, level = 1, border = true, stars = true }: { companion: ICompanion | undefined, label?: boolean, level?: number, border?: boolean, stars?: boolean }) => {
   if (!companion) return null;
-  const background = getIconBackground(companion.rarity);
+  //const background = getIconBackground(companion.rarity);
+  const background = `game-assets/companions/${companion.rarity}/background.png`.toLowerCase();
+  const companionname = companion.name.replace(/ /g, '_').replace(/-/g, '_').replace(/'/g, '').replace(/!/g, '').toLowerCase();
+  const companionImage = `game-assets/companions/${companion.rarity}/${companionname}.png`.toLowerCase();
   const starsImage = getCompanionStars(level);
 	const iconSize = () => {
 		switch (companion.manaCost) {
@@ -43,7 +46,7 @@ export const CompanionIcon = ({ companion, label = true, level = 1, border = tru
 					{label && <span className='absolute z-20 text-[0.6rem] left-1/2 bottom-2 translate-x-[-50%] translate-y-[50%]'>Lv. {level}</span>}
 					<img
 						className={`${iconSize()} absolute z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2`}
-						src={companion.image}
+              src={companionImage}
 						alt=''
             />
 

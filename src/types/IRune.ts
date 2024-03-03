@@ -4,7 +4,6 @@ export interface IBaseRune {
 	type: string;
 	rarity: string;
 	description: string;
-	image: string[];
 	possessBonus: {
 		tankFishLevel: number;
 		ATKBoost: number;
