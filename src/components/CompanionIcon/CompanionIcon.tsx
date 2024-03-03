@@ -1,7 +1,15 @@
-import { getIconBackground } from 'utility/imageHandling/getIconBackground';
 import { getCompanionStars } from 'utility/imageHandling/getCompanionStars';
 import { ICompanion } from 'types/ICompanion';
-import manaIcon from 'assets/sprites/companions/GV_runeiconeff_1.png';
+
+/**
+ * Renders a companion icon with an optional label and level.
+ * @param companion - The companion object containing information about the companion.
+ * @param label - Whether to display the companion level label. Defaults to true.
+ * @param level - The companion level to display. Defaults to 1.
+ * @param border - Whether to display a border around the companion icon. Defaults to true.
+ * @param stars - Whether to display the companion stars. Defaults to true.
+ * @returns The rendered CompanionIcon component.
+ */
 
 export const CompanionIcon = ({ companion, label = true, level = 1, border = true, stars = true }: { companion: ICompanion | undefined, label?: boolean, level?: number, border?: boolean, stars?: boolean }) => {
   if (!companion) return null;
@@ -35,7 +43,7 @@ export const CompanionIcon = ({ companion, label = true, level = 1, border = tru
 
             <div className='relative left-0 top-0 h-6 w-6'>
 						<img
-							src={manaIcon}
+                src="game-assets/companions/shared/mana.png"
 							alt=''
                 className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
 						/>

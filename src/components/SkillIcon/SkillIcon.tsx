@@ -1,7 +1,14 @@
-import { getIconBackground } from 'utility/imageHandling/getIconBackground';
 import { ISkill } from 'types/ISkill';
 
-export const SkillIcon = ({ skill, label = true, level = 1 }: { skill: ISkill | undefined, label?: boolean, level?: number }) => {
+/**
+ * Renders a skill icon with an optional label and level.
+ * @param skill - The skill object containing information about the skill.
+ * @param label - Whether to display the skill level label. Defaults to true.
+ * @param level - The skill level to display. Defaults to 1.
+ * @returns The rendered SkillIcon component.
+ */
+
+export const SkillIcon = ({ skill, label = true, level = 1 }: { skill: ISkill, label?: boolean, level?: number }): JSX.Element | null => {
   if (!skill) return null;
   //const background: string = getIconBackground(skill.rarity);
   const background = `game-assets/skills/${skill.rarity}/background.png`.toLowerCase();
