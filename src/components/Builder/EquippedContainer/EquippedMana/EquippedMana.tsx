@@ -40,9 +40,6 @@ export const EquippedMana = () => {
   }
 
   const calculateMana = async () => {
-    if (equipment.hasOwnProperty("baseMp") === false) {
-      equipment.baseMp = 15 + mpResearchLevel + (shoes ? 2 : 0);
-    }
     const equipmentString = JSON.stringify(equipment);
     const initialEquipmentString = JSON.stringify(equipmentInitialState);
     if (equipmentString === initialEquipmentString) {
