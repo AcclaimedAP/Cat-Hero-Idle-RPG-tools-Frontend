@@ -17,11 +17,15 @@ export const api = () => {
 		const get = () => {
 			return `${baseUrl}/stuff/`;
 		};
+		const mp = (buildString: string) => {
+			return `${baseUrl}/stuff/mp?build_string=${buildString}`;
+		};
 		const show = (type: string, id: number) => {
 			return `${baseUrl}/stuff/${type}/${id}`;
 		};
 		return {
 			get,
+			mp,
 			show,
 		};
 	};

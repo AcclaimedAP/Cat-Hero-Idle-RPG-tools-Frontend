@@ -2,9 +2,12 @@ import axios from 'axios';
 import { api } from '../api';
 
 export const getStuff = async () => {
-  const stuffTimer = localStorage.getItem('stuff-timer');
-	if (stuffTimer && new Date().getTime() < JSON.parse(stuffTimer)) {
-		return JSON.parse(localStorage.getItem('stuff')!);
+	const stuffTimer = getTimeout();
+	if (stuffTimer && new Date().getTime() < stuffTimer) {
+		const stuff = stuffExists();
+		if (stuff) {
+			return JSON.parse(stuff);
+		}
 	}
 	const url = api().stuff().get();
 
@@ -31,10 +34,32 @@ export const getStuffByType = async (type: string, id: number) => {
 	}
 };
 
+export const getStuffMp = async (buildString: string) => {
+	const url = api().stuff().mp(buildString);
+	try {
+		const response = await axios.get(url);
+		return response;
+	} catch (error) {
+		return error;
+	}
+};
+
 const saveToLocalStorage = (key: string, data: any) => {
 	localStorage.setItem(key, JSON.stringify(data));
 };
 
-const existsInLocalStorage = (key: string) => {
-	return localStorage.getItem(key) !== null;
+const stuffExists = () => {
+	const stuff = localStorage.getItem('stuff');
+	if (stuff) {
+		return stuff;
+	}
+	return false;
+};
+
+const getTimeout = () => {
+	const stuffTimer = localStorage.getItem('stuff-timer');
+	if (stuffTimer) {
+		return JSON.parse(stuffTimer);
+	}
+	return new Date().getTime();
 };
