@@ -11,6 +11,7 @@ import { equipmentInitialState } from 'src/config/redux/slices/equipmentDisplayS
 import { useSearchParams } from 'react-router-dom';
 import { PopupModal } from 'src/components/PopupModal/PopupModal';
 import { saveBuild, getBuild } from 'src/config/api/services/buildUrl';
+import { getStuff } from 'src/config/api/services/stuff';
 
 
 
@@ -24,6 +25,17 @@ export const BuilderTool = () => {
   const [popupModal, setPopupModal] = useState(false)
   const [activeTab, setActiveTab] = useState('collection' as 'collection' | 'equip' | '')
   const [automaticSave, setAutomaticSave] = useState(false)
+  const [stuff, setStuff] = useState<any>(null)
+  const fetchStuff = async () => {
+    const res = await getStuff();
+    if (res) {
+      setStuff(await res)
+    }
+  }
+
+  useEffect(() => {
+    fetchStuff();
+  }, [])
 
   const toggleAutomaticSave = () => {
     setAutomaticSave(!automaticSave)
@@ -165,11 +177,20 @@ export const BuilderTool = () => {
               <button className='container-light hover:brightness-110' onClick={reset}>Clear</button>
               </div>
             </div>
-          </div>
-          <div className=''>
-            {activeTab == "collection" ? <SelectionContainer /> :
-              <CollectionContainer />}
-          </div>
+          </div>{stuff ?
+            <div>
+              <div className={`${activeTab === "collection" ? "" : "z-0 hidden"}`}>
+                <SelectionContainer />
+              </div>
+              <div className={`${activeTab === "equip" ? "" : "z-0 hidden"}`}>
+                <CollectionContainer />
+              </div>
+            </div>
+            :
+            <div className='flex justify-center items-center h-96 container-dark-inner' onClick={() => { console.log(stuff) }}>
+              <div className='animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-white'></div>
+            </div>
+          }
         </div>
       </div>
     </>

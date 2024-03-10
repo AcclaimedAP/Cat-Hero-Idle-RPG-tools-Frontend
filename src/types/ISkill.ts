@@ -1,24 +1,9 @@
-export interface IBaseSkill {
+export interface ISkill {
+	id: number;
 	name: string;
 	rarity: string;
-	description: string;
+	slug: string;
+	types: string[];
 	cooldown: number;
-	tags: string[];
-	basePossesBonus: {
-		ATKBoost: number;
-	};
-	possesBonusPerLevel: {
-		ATKBoost: number;
-	};
-	levelModifiers: {
-		level: number;
-		count?: number;
-		dmgMultiplier?: number;
-	}[];
-	getDescription?: (level?: number) => string;
-}
-
-export interface ISkill extends IBaseSkill {
-	id: number;
-	getDescription: (level?: number) => string;
+	description: string;
 }

@@ -18,5 +18,6 @@ export interface ICollection {
 	mainRuneList: ISelectedMainRune[];
 	subRuneList: ISelectedSubRune[];
 	mp: number;
+	baseMp: number;
 	maxMp: number;
 }

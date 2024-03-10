@@ -1,12 +1,12 @@
-import { runes } from "data/runes/runes"
 import { useEffect, useState } from "react"
 import { RuneIcon } from "src/components/RuneIcon/RuneIcon"
-import { IRune } from "src/types/IRune"
+import { ISubRune } from "src/types/IRune"
 import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setSubRuneList } from 'src/config/redux/slices/collectionDisplaySlice'
+import { getData } from "src/utility/data/getData"
 
-const RuneBox = ({ rune }: { rune: IRune }) => {
+const RuneBox = ({ rune }: { rune: ISubRune }) => {
   const dispatch = useDispatch();
   const selectedRunes = useSelector((state: RootState) => state.collectionDisplay.subRuneList)
   const isSelected = selectedRunes.some((obj) => obj.id === rune.id)
@@ -36,7 +36,7 @@ const RuneBox = ({ rune }: { rune: IRune }) => {
   return (
     <div className={`flex flex-col ${selectedClass} justify-center items-center w-14`}>
       <div onClick={handleSelect}>
-        <RuneIcon rune={rune} label={true} />
+        <RuneIcon type="sub" rune={rune} label={true} />
       </div>
     </div>
   )
@@ -44,9 +44,9 @@ const RuneBox = ({ rune }: { rune: IRune }) => {
 
 
 export const SubRuneSelection = () => {
+  const runes: ISubRune[] = getData('subRunes')
 
   const runeBoxes = runes.map((rune) => {
-    if (rune.type !== "Sub") return null;
     return (
       <RuneBox rune={rune} key={rune.id} />
     )

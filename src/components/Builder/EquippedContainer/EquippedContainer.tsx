@@ -16,7 +16,7 @@ export const EquippedContainer = () => {
 
   return (
     <>
-      <div className="flex flex-col gap-2 container-light">
+      <div className="flex flex-col gap-2 container-light sm:min-w-[26rem] max-w-full">
 
         <div className="flex flex-col gap-2 p-2">
           <EquippedMana />

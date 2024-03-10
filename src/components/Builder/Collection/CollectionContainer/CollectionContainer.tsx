@@ -18,9 +18,11 @@ export const CollectionContainer = () => {
               <SubRuneCollection />
             </div>
           </div>
-          <div className="md:min-w-[25rem] md:max-w-[26rem] gap-6 flex flex-col justify-items-center">
+          <div className="md:min-w-[25rem] lg:max-w-[26rem] gap-6 flex flex-col lg:flex-col md:flex-row justify-items-center">
             <SkillCollection />
-            <EquippedContainer />
+            <div>
+              <EquippedContainer />
+            </div>
           </div>
         </div>
       </div>

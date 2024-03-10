@@ -1,13 +1,15 @@
 import { ISelectedSubRune } from "types/ICollection";
-import { runes } from "data/runes/runes";
 import { RuneIcon } from "components/RuneIcon/RuneIcon";
 import { useEffect, useState } from "react";
 import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setSubRuneList } from 'src/config/redux/slices/equipmentDisplaySlice'
+import { getData } from "src/utility/data/getData";
+import { ISubRune } from "src/types/IRune";
 
 
 const SubRuneBox = ({ rune, add, remove, isEquipped }: { rune: ISelectedSubRune, add: (rune: ISelectedSubRune) => void, remove: (rune: ISelectedSubRune) => void, isEquipped: boolean }) => {
+  const runes: ISubRune[] = getData('subRunes');
   const [selected, setSelected] = useState(isEquipped)
   const selectedClass = selected ? "brightness-125" : ""
   const handleSelect = () => {
@@ -21,13 +23,12 @@ const SubRuneBox = ({ rune, add, remove, isEquipped }: { rune: ISelectedSubRune,
     }
   }, [selected])
 
-  const getRune = (id: number) => {
+  const getRune = (id: number | undefined) => {
     return runes.find((rune) => rune.id === id)
   }
   useEffect(() => {
     setSelected(isEquipped)
   }, [isEquipped])
-  if (!rune.id) return null
   return (
     <div className={`flex flex-col ${selectedClass} justify-center items-center w-14`} onClick={handleSelect}>
       {selected && <>
@@ -35,7 +36,7 @@ const SubRuneBox = ({ rune, add, remove, isEquipped }: { rune: ISelectedSubRune,
         <div className=" rounded-[50%] selected-shadow-circle border-2 border-red-400 w-14 h-14 top-1 absolute"></div>
       </>
       }
-      <RuneIcon rune={getRune(rune.id)} label={true} />
+      <RuneIcon type="sub" rune={getRune(rune.id)} label={true} />
     </div>
   )
 
@@ -81,7 +82,7 @@ export const SubRuneCollection = () => {
       <h3 className="text-center min-w-48">Sub Runes</h3>
       <div className="flex flex-row gap-1 flex-wrap justify-center">
         {runesList.toSorted(sortById).map((rune, index) => {
-          if (!rune.id) return null
+          if (rune.id === undefined) return null
           const isEquippedBool = isEquipped(rune.id)
           return (
             <SubRuneBox add={addToList} remove={removeFromList} isEquipped={isEquippedBool} rune={rune} key={index} />

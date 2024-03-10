@@ -1,17 +1,19 @@
 import { ISelectedCompanion } from "types/ICollection";
-import { companions } from "data/companions/companions";
 import { CompanionIcon } from "components/CompanionIcon/CompanionIcon";
 import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setCompanionsList } from "src/config/redux/slices/equipmentDisplaySlice";
+import { getData } from "src/utility/data/getData";
+import { ICompanion } from "src/types/ICompanion";
 
 
 
 const CompanionBox = ({ companion }: { companion: ISelectedCompanion }) => {
+  const companions: ICompanion[] = getData('companions');
   const dispatch = useDispatch();
   const equippedCompanions = useSelector((state: RootState) => state.equipmentDisplay.companionsList)
 
-  const getCompanion = (id: number) => {
+  const getCompanion = (id: number | undefined) => {
     return companions.find((companion) => companion.id === id)
   }
   const removeCompanionFromList = () => {
@@ -21,10 +23,10 @@ const CompanionBox = ({ companion }: { companion: ISelectedCompanion }) => {
     dispatch(setCompanionsList(equippedCompanionList));
   }
 
-  if (!companion.id) return null
+
   return (
     <>
-      <div onClick={removeCompanionFromList} className="scale-[.8] sm:scale-100  -translate-x-[0.4rem] -translate-y-[0.35rem] sm:-translate-x-0 sm:-translate-y-0 relative min-h-8 sm:min-h-14">
+      <div onClick={removeCompanionFromList} className="scale-[.8] sm:scale-100 w-8 h-8 sm:w-12 sm:h-12 -translate-x-[0.4rem] -translate-y-[0.35rem] sm:-translate-x-0 sm:-translate-y-0 relative min-h-8 sm:min-h-14">
         <div className="absolute">
           <CompanionIcon companion={getCompanion(companion.id)} level={companion.level} border={false} stars={false} />
         </div>
@@ -46,7 +48,7 @@ export const EquippedCompanions = () => {
 
   return (
     <>
-      <div className="grid grid-cols-6 gap-4 max-w-96 m-2">
+      <div className="grid grid-cols-6 gap-4 max-w-96 m-2 mx-auto">
         {equipped.map((companion, index) => {
           if (!companion.id) return <EmptySlot key={index} />
           return (

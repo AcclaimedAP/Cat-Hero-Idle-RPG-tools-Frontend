@@ -4,7 +4,8 @@ import { api } from '../api';
 export const getNews = async (query: any) => {
 	const url = api().news().get();
 	try {
-		const response = await axios.get(`${url}?page=${query.page}&per_page=${query.per_page}${query.hasOwnProperty('type') ? `&type=${query.type}` : ''}`);
+    const response = await axios.get(`${url}?page=${query.page}&per_page=${query.per_page}${query.hasOwnProperty('type') ? `&type=${query.type}` : ''}`);
+		console.log(response);
 		return response;
 	} catch (error) {
 		return error;
