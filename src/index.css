@@ -181,6 +181,33 @@ h1, h2, h3, span {
   background-color: #81684f;
 }
 
+.mp-bar {
+  border: 2px solid #000;
+  height: 16px;
+  width: 100%;
+  background-color: #81684f;
+}
+
+.mp-bar::-moz-progress-bar {
+  background-color: #376fd8;
+}
+
+.mp-bar::-webkit-progress-bar {
+  background-color: #81684f;
+}
+
+.mp-bar::-webkit-progress-value {
+  background-color: #376fd8;
+}
+
+.mp-bar-overload::-moz-progress-bar {
+  background-color: rgb(179 47 47);
+}
+
+.mp-bar-overload::-webkit-progress-value {
+  background-color: rgb(179 47 47);
+}
+
 @keyframes slide-left-900-px {
   0% {
     transform: translateX(0);

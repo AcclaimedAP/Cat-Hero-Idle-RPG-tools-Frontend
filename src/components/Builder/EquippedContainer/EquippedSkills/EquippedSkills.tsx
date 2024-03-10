@@ -47,7 +47,7 @@ export const EquippedSkills = () => {
 
   return (
     <>
-      <div className="grid grid-cols-6 max-w-96 gap-4 m-2">
+      <div className="grid grid-cols-6 max-w-96 gap-4 m-2 mx-auto">
         {equipped.map((skill, index) => {
           if (!skill.id) return <EmptySlot key={index} />
           return (

@@ -48,7 +48,7 @@ export const EquippedCompanions = () => {
 
   return (
     <>
-      <div className="grid grid-cols-6 gap-4 max-w-96 m-2">
+      <div className="grid grid-cols-6 gap-4 max-w-96 m-2 mx-auto">
         {equipped.map((companion, index) => {
           if (!companion.id) return <EmptySlot key={index} />
           return (

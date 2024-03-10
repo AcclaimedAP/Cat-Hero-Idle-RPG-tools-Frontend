@@ -13,7 +13,7 @@ export const EquippedMana = () => {
   const maxMana = useSelector((state: RootState) => state.equipmentDisplay.maxMp) || 30;
   const [mpResearchLevel, setMpResearchLevel] = useState(15);
   const [shoes, setShoes] = useState(false);
-
+  const [overload, setOverload] = useState(false);
   const handleShoesToggle = (e: any) => {
     setShoes(e.target.checked);
     dispatch(setBaseMp(15 + mpResearchLevel + (e.target.checked ? 2 : 0)));
@@ -50,6 +50,7 @@ export const EquippedMana = () => {
     const response: any = await getStuffMp(shareString);
     if (response.status === 200) {
       const data = response.data;
+      setOverload(data.mp > data.maxMp);
       dispatch(setMp(data.mp));
       dispatch(setMaxMp(data.maxMp));
     }
@@ -66,7 +67,7 @@ export const EquippedMana = () => {
           <label className="">Mp research level: <input className="w-10 text-white px-1" type="number" onChange={handleMpResearchLevelChange} value={mpResearchLevel} /></label>
           <label htmlFor="shoes-check">Shoes +3:<input onChange={handleShoesToggle} checked={shoes} className="mx-1" type="checkbox" name="shoes-check" /></label>
         </div>
-        <progress className="w-full border-2 border-solid bg-slate-800 border-zinc-800" max={maxMana} value={mana}></progress>
+        <progress className={`mp-bar ${overload ? "mp-bar-overload" : ""}`} max={maxMana} value={mana}></progress>
 
         <div className="flex flex-row justify-end">
 
