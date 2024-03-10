@@ -2,7 +2,8 @@ import axios from 'axios';
 import { api } from '../api';
 
 export const getStuff = async () => {
-	if (existsInLocalStorage('stuff')) {
+  const stuffTimer = localStorage.getItem('stuff-timer');
+	if (stuffTimer && new Date().getTime() < JSON.parse(stuffTimer)) {
 		return JSON.parse(localStorage.getItem('stuff')!);
 	}
 	const url = api().stuff().get();
@@ -10,6 +11,8 @@ export const getStuff = async () => {
 	try {
 		const response = await axios.get(`${url}`);
 		if (response.status === 200) {
+			const refreshTime = new Date().getTime() + 1000 * 60 * 60 * 3;
+			saveToLocalStorage('stuff-timer', refreshTime);
 			saveToLocalStorage('stuff', response.data);
 			return response.data;
 		}
