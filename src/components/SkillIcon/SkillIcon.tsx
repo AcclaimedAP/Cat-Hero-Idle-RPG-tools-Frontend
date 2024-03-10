@@ -8,11 +8,10 @@ import { ISkill } from 'types/ISkill';
  * @returns The rendered SkillIcon component.
  */
 
-export const SkillIcon = ({ skill, label = true, level = 1 }: { skill: ISkill, label?: boolean, level?: number }): JSX.Element | null => {
+export const SkillIcon = ({ skill, label = true, level = 1 }: { skill: ISkill | undefined, label?: boolean, level?: number }): JSX.Element | null => {
   if (!skill) return null;
-  //const background: string = getIconBackground(skill.rarity);
   const background = `game-assets/skills/${skill.rarity}/background.png`.toLowerCase();
-  const skillname = skill.name.replace(/ /g, '_').replace(/-/g, '_').replace(/'/g, '').replace(/!/g, '').toLowerCase();
+  const skillname = skill.slug.replaceAll('-', '_')
   const skillImage = `game-assets/skills/${skill.rarity}/${skillname}.png`.toLowerCase();
   return (
     <>

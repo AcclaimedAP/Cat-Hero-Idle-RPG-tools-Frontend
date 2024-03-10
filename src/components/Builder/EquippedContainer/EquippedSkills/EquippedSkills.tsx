@@ -1,16 +1,19 @@
 import { SkillIcon } from "src/components/SkillIcon/SkillIcon";
 import { ISelectedSkill } from "types/ICollection";
-import { skills } from "data/skills/skills";
 import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setSkillList } from 'src/config/redux/slices/equipmentDisplaySlice'
+import { getData } from "src/utility/data/getData";
+import { ISkill } from "src/types/ISkill";
 
 const SkillBox = ({ skill }: { skill: ISelectedSkill }) => {
+  const skills: ISkill[] = getData('skills');
+
   const dispatch = useDispatch();
   const equippedSkills = useSelector((state: RootState) => state.equipmentDisplay.skillList)
 
 
-  const getSkill = (id: number) => {
+  const getSkill = (id: number | undefined) => {
     return skills.find((skill) => skill.id === id)
   }
   const removeSkillFromList = () => {
@@ -20,7 +23,6 @@ const SkillBox = ({ skill }: { skill: ISelectedSkill }) => {
     dispatch(setSkillList(equippedSkillList));
   }
 
-  if (!skill.id) return null
   return (
     <>
       <div onClick={removeSkillFromList} className="scale-[.8] sm:scale-100 -translate-x-[0.4rem] -translate-y-[0.4rem] sm:-translate-x-0 sm:-translate-y-0 relative min-h-8 sm:min-h-14">

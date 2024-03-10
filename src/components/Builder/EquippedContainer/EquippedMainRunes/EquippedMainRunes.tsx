@@ -1,15 +1,17 @@
 import { ISelectedMainRune } from "types/ICollection";
-import { runes } from "data/runes/runes";
 import { RuneIcon } from "components/RuneIcon/RuneIcon";
 import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setMainRuneList } from 'src/config/redux/slices/equipmentDisplaySlice'
+import { getData } from "src/utility/data/getData";
+import { IMainRune } from "src/types/IRune";
 
 const RuneBox = ({ rune }: { rune: ISelectedMainRune }) => {
+  const runes: IMainRune[] = getData('mainRunes');
   const dispatch = useDispatch();
   const equippedRunes = useSelector((state: RootState) => state.equipmentDisplay.mainRuneList)
 
-  const getRune = (id: number) => {
+  const getRune = (id: number | undefined) => {
     return runes.find((rune) => rune.id === id)
   }
   const removeRuneFromList = () => {
@@ -19,11 +21,11 @@ const RuneBox = ({ rune }: { rune: ISelectedMainRune }) => {
     dispatch(setMainRuneList(equippedRuneList));
   }
 
-  if (!rune.id) return null
+
   return (
     <>
       <div className="justify-center flex" onClick={removeRuneFromList}>
-        <RuneIcon rune={getRune(rune.id)} />
+        <RuneIcon type="main" rune={getRune(rune.id)} />
       </div>
     </>
   )

@@ -1,17 +1,19 @@
 import { ISelectedCompanion } from "types/ICollection";
-import { companions } from "data/companions/companions";
 import { CompanionIcon } from "components/CompanionIcon/CompanionIcon";
 import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setCompanionsList } from "src/config/redux/slices/equipmentDisplaySlice";
+import { getData } from "src/utility/data/getData";
+import { ICompanion } from "src/types/ICompanion";
 
 
 
 const CompanionBox = ({ companion }: { companion: ISelectedCompanion }) => {
+  const companions: ICompanion[] = getData('companions');
   const dispatch = useDispatch();
   const equippedCompanions = useSelector((state: RootState) => state.equipmentDisplay.companionsList)
 
-  const getCompanion = (id: number) => {
+  const getCompanion = (id: number | undefined) => {
     return companions.find((companion) => companion.id === id)
   }
   const removeCompanionFromList = () => {
@@ -21,7 +23,7 @@ const CompanionBox = ({ companion }: { companion: ISelectedCompanion }) => {
     dispatch(setCompanionsList(equippedCompanionList));
   }
 
-  if (!companion.id) return null
+
   return (
     <>
       <div onClick={removeCompanionFromList} className="scale-[.8] sm:scale-100  -translate-x-[0.4rem] -translate-y-[0.35rem] sm:-translate-x-0 sm:-translate-y-0 relative min-h-8 sm:min-h-14">

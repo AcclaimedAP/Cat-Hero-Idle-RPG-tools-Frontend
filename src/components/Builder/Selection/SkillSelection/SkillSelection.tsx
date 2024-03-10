@@ -1,11 +1,10 @@
-import { skills } from "data/skills/skills"
 import { useEffect, useState } from "react"
 import { SkillIcon } from "src/components/SkillIcon/SkillIcon"
 import { ISkill } from "src/types/ISkill"
 import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setSkillList } from 'src/config/redux/slices/collectionDisplaySlice'
-
+import { getData } from "src/utility/data/getData"
 
 const SkillBox = ({ skill }: { skill: ISkill }) => {
   const dispatch = useDispatch();
@@ -64,6 +63,7 @@ const SkillBox = ({ skill }: { skill: ISkill }) => {
 
 
 export const SkillSelection = () => {
+  const skills: ISkill[] = getData("skills");
 
   const skillBoxes = skills.map((skill) => {
     return (

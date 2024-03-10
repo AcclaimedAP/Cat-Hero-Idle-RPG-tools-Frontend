@@ -1,12 +1,12 @@
-import { runes } from "data/runes/runes"
 import { useEffect, useState } from "react"
 import { RuneIcon } from "src/components/RuneIcon/RuneIcon"
-import { IRune } from "src/types/IRune"
+import { IMainRune } from "src/types/IRune"
 import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setMainRuneList } from 'src/config/redux/slices/collectionDisplaySlice'
+import { getData } from "src/utility/data/getData"
 
-const RuneBox = ({ rune }: { rune: IRune }) => {
+const RuneBox = ({ rune }: { rune: IMainRune }) => {
   const dispatch = useDispatch();
   const selectedRunes = useSelector((state: RootState) => state.collectionDisplay.mainRuneList)
   const isSelected = selectedRunes.some((obj) => obj.id === rune.id)
@@ -36,7 +36,7 @@ const RuneBox = ({ rune }: { rune: IRune }) => {
   return (
     <div className={`flex flex-col ${selectedClass} justify-center items-center w-14`}>
       <div onClick={handleSelect}>
-        <RuneIcon rune={rune} label={true} />
+        <RuneIcon type={"main"} rune={rune} label={false} />
       </div>
     </div>
   )
@@ -44,10 +44,8 @@ const RuneBox = ({ rune }: { rune: IRune }) => {
 
 
 export const MainRuneSelection = () => {
-
+  const runes: IMainRune[] = getData('mainRunes');
   const runeBoxes = runes.map((rune) => {
-    if (rune.type !== "Main") return null;
-
     return (
       <RuneBox rune={rune} key={rune.id} />
     )

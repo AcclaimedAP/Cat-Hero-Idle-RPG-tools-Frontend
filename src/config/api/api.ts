@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 export const api = () => {
 	const baseUrl = import.meta.env.VITE_API_URL;
 	const build = () => {
@@ -14,6 +12,20 @@ export const api = () => {
 			get,
 		};
 	};
+
+	const stuff = () => {
+		const get = () => {
+			return `${baseUrl}/stuff/`;
+		};
+		const show = (type: string, id: number) => {
+			return `${baseUrl}/stuff/${type}/${id}`;
+		};
+		return {
+			get,
+			show,
+		};
+	};
+
 	const news = () => {
 		const get = () => {
 			return `${baseUrl}/news/`;
@@ -29,6 +41,7 @@ export const api = () => {
 
 	return {
 		build,
+		stuff,
 		news,
 	};
 };

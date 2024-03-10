@@ -1,16 +1,18 @@
 import { ISelectedSubRune } from "types/ICollection";
-import { runes } from "data/runes/runes";
 import { RuneIcon } from "components/RuneIcon/RuneIcon";
 import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setSubRuneList } from 'src/config/redux/slices/equipmentDisplaySlice'
-
+import { getData } from "src/utility/data/getData";
+import { ISubRune } from "src/types/IRune";
 
 const RuneBox = ({ rune }: { rune: ISelectedSubRune }) => {
+  const runes: ISubRune[] = getData('subRunes');
+
   const dispatch = useDispatch();
   const equippedRunes = useSelector((state: RootState) => state.equipmentDisplay.subRuneList)
 
-  const getRune = (id: number) => {
+  const getRune = (id: number | undefined) => {
     return runes.find((rune) => rune.id === id)
   }
   const removeRuneFromList = () => {
@@ -19,11 +21,10 @@ const RuneBox = ({ rune }: { rune: ISelectedSubRune }) => {
     equippedRuneList[index] = {}
     dispatch(setSubRuneList(equippedRuneList));
   }
-  if (!rune.id) return null
   return (
     <>
       <div className="justify-center flex" onClick={removeRuneFromList}>
-        <RuneIcon rune={getRune(rune.id)} />
+        <RuneIcon type="sub" rune={getRune(rune.id)} />
       </div>
     </>
   )

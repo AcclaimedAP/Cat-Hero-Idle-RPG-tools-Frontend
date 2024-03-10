@@ -1,12 +1,14 @@
 import { ISelectedCompanion } from "types/ICollection";
-import { companions } from "src/data/companions/companions";
 import { CompanionIcon } from "src/components/CompanionIcon/CompanionIcon";
 import { useEffect, useState } from "react";
 import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setCompanionsList } from 'src/config/redux/slices/equipmentDisplaySlice'
+import { getData } from "src/utility/data/getData";
+import { ICompanion } from "src/types/ICompanion";
 
 const CompanionBox = ({ companion, add, remove, isEquipped }: { companion: ISelectedCompanion, add: (companion: ISelectedCompanion) => void, remove: (companion: ISelectedCompanion) => void, isEquipped: boolean }) => {
+  const companions: ICompanion[] = getData('companions');
 
   const [selected, setSelected] = useState(isEquipped)
   const selectedClass = selected ? "brightness-125 selected-shadow" : ""

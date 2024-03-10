@@ -1,10 +1,10 @@
-import { companions } from "data/companions/companions"
 import { useEffect, useState } from "react"
 import { CompanionIcon } from "src/components/CompanionIcon/CompanionIcon"
 import { ICompanion } from "src/types/ICompanion"
 import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setCompanionsList } from 'src/config/redux/slices/collectionDisplaySlice'
+import { getData } from "src/utility/data/getData"
 
 const CompanionBox = ({ companion }: { companion: ICompanion }) => {
   const dispatch = useDispatch();
@@ -65,6 +65,7 @@ const CompanionBox = ({ companion }: { companion: ICompanion }) => {
 
 
 export const CompanionSelection = () => {
+  const companions: any[] = getData("companions");
 
   const companionBoxes = companions.map((companion) => {
     return (

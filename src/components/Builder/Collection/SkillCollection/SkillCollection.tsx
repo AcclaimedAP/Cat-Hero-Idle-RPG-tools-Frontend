@@ -1,13 +1,14 @@
 import { ISelectedSkill } from "types/ICollection";
-import { skills } from "src/data/skills/skills";
 import { SkillIcon } from "src/components/SkillIcon/SkillIcon";
 import { useEffect, useState } from "react";
 import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setSkillList } from 'src/config/redux/slices/equipmentDisplaySlice'
-
+import { getData } from "src/utility/data/getData";
+import { ISkill } from "src/types/ISkill";
 
 const SkillBox = ({ skill, add, remove, isEquipped }: { skill: ISelectedSkill, add: (skill: ISelectedSkill) => void, remove: (skill: ISelectedSkill) => void, isEquipped: boolean }) => {
+  const skills: ISkill[] = getData('skills');
   const [selected, setSelected] = useState(isEquipped)
   const selectedClass = selected ? "brightness-125 selected-shadow" : ""
   const handleSelect = () => {

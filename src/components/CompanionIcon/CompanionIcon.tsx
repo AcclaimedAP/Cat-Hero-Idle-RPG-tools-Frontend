@@ -13,13 +13,12 @@ import { ICompanion } from 'types/ICompanion';
 
 export const CompanionIcon = ({ companion, label = true, level = 1, border = true, stars = true }: { companion: ICompanion | undefined, label?: boolean, level?: number, border?: boolean, stars?: boolean }) => {
   if (!companion) return null;
-  //const background = getIconBackground(companion.rarity);
   const background = `game-assets/companions/${companion.rarity}/background.png`.toLowerCase();
-  const companionname = companion.name.replace(/ /g, '_').replace(/-/g, '_').replace(/'/g, '').replace(/!/g, '').toLowerCase();
+  const companionname = companion.slug.replaceAll('-', '_');
   const companionImage = `game-assets/companions/${companion.rarity}/${companionname}.png`.toLowerCase();
   const starsImage = getCompanionStars(level);
 	const iconSize = () => {
-		switch (companion.manaCost) {
+    switch (companion.base_mp) {
 			case 3:
 				return 'max-w-6 max-h-6';
 			case 4:
@@ -47,7 +46,7 @@ export const CompanionIcon = ({ companion, label = true, level = 1, border = tru
 							alt=''
                 className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
 						/>
-              <span className='absolute left-1/2 top-1/2 text-[0.75rem] -translate-x-1/2 -translate-y-1/2'>{companion.manaCost}</span>
+              <span className='absolute left-1/2 top-1/2 text-[0.75rem] -translate-x-1/2 -translate-y-1/2'>{companion.base_mp}</span>
 					</div>
 				</div>
 				<div className='overflow-hidden absolute z-10 w-14 h-14 left-0 top-0 border-[2px] border-black'>
