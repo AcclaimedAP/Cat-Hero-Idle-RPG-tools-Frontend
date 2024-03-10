@@ -83,21 +83,13 @@ export const BuilderTool = () => {
   const getFromLocalStorage = () => {
     const collection = localStorage.getItem('collection')
     const equipment = localStorage.getItem('equipment')
-    if (collection && equipment) {
-      if (equipment.hasOwnProperty('baseMp') === false) {
-        alert('Old build detected, your build has been reset.')
-        localStorage.removeItem('collection')
-        localStorage.removeItem('equipment')
-        dispatch(resetCollection())
-        dispatch(resetEquipment())
-        return
-      }
+    if (collection) {
       const collectionData = JSON.parse(collection)
       if (collectionData) {
         dispatch(setCollection(collectionData))
       }
-
-
+    }
+    if (equipment) {
       const equipmentData = JSON.parse(equipment)
       if (equipmentData) {
         dispatch(setEquipment(equipmentData))
