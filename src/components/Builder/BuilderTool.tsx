@@ -178,9 +178,13 @@ export const BuilderTool = () => {
               </div>
             </div>
           </div>{stuff ?
-            <div className=''>
-              {activeTab == "collection" ? <SelectionContainer /> :
-              <CollectionContainer />}
+            <div>
+              <div className={`${activeTab === "collection" ? "" : "z-0 hidden"}`}>
+                <SelectionContainer />
+              </div>
+              <div className={`${activeTab === "equip" ? "" : "z-0 hidden"}`}>
+                <CollectionContainer />
+              </div>
             </div>
             :
             <div className='flex justify-center items-center h-96 container-dark-inner' onClick={() => { console.log(stuff) }}>
