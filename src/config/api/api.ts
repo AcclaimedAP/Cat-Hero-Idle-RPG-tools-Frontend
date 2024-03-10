@@ -17,8 +17,8 @@ export const api = () => {
 		const get = () => {
 			return `${baseUrl}/stuff/`;
 		};
-		const mp = (buildString: string) => {
-			return `${baseUrl}/stuff/mp?build_string=${buildString}`;
+		const mp = () => {
+			return `${baseUrl}/stuff/mp/`;
 		};
 		const show = (type: string, id: number) => {
 			return `${baseUrl}/stuff/${type}/${id}`;

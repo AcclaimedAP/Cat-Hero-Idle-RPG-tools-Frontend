@@ -35,9 +35,10 @@ export const getStuffByType = async (type: string, id: number) => {
 };
 
 export const getStuffMp = async (buildString: string) => {
-	const url = api().stuff().mp(buildString);
+	const url = api().stuff().mp();
+
 	try {
-		const response = await axios.get(url);
+		const response = await axios.post(url, { build_string: buildString });
 		return response;
 	} catch (error) {
 		return error;
