@@ -25,7 +25,7 @@ const SkillBox = ({ skill }: { skill: ISelectedSkill }) => {
 
   return (
     <>
-      <div onClick={removeSkillFromList} className="scale-[.8] sm:scale-100 -translate-x-[0.4rem] -translate-y-[0.4rem] sm:-translate-x-0 sm:-translate-y-0 relative min-h-8 sm:min-h-14">
+      <div onClick={removeSkillFromList} className="scale-[.8] w-8 h-8 sm:w-12 sm:h-12 sm:scale-100 -translate-x-[0.4rem] -translate-y-[0.4rem] sm:-translate-x-0 sm:-translate-y-0 relative min-h-8 sm:min-h-14">
         <div className="absolute">
           <SkillIcon skill={getSkill(skill.id)} level={skill.level} />
         </div>
