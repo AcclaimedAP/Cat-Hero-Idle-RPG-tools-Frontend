@@ -44,6 +44,7 @@ const CompanionBox = ({ companion }: { companion: ICompanion }) => {
       }
     } else {
       dispatch(setCompanionsList(selectedCompanions.filter((obj) => obj.id !== companion.id)));
+      dispatch(setEquippedChampions(equippedCompanions.map((obj) => obj.id === companion.id ? {} : obj)));
     }
   }, [selected])
 

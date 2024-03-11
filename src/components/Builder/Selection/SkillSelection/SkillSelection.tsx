@@ -42,6 +42,7 @@ const SkillBox = ({ skill }: { skill: ISkill }) => {
       }
     } else {
       dispatch(setSkillList(selectedSkills.filter((obj) => obj.id !== skill.id)));
+      dispatch(setEquippedSkills(equippedSkills.map((obj) => obj.id === skill.id ? {} : obj)));
     }
   }, [selected])
 
