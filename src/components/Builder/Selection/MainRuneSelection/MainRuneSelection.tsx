@@ -4,11 +4,13 @@ import { IMainRune } from "src/types/IRune"
 import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setMainRuneList } from 'src/config/redux/slices/collectionDisplaySlice'
+import { setMainRuneList as setEquippedRunes } from "src/config/redux/slices/equipmentDisplaySlice"
 import { getData } from "src/utility/data/getData"
 
 const RuneBox = ({ rune }: { rune: IMainRune }) => {
   const dispatch = useDispatch();
   const selectedRunes = useSelector((state: RootState) => state.collectionDisplay.mainRuneList)
+  const equippedRunes = useSelector((state: RootState) => state.equipmentDisplay.mainRuneList)
   const isSelected = selectedRunes.some((obj) => obj.id === rune.id)
   const runeFromList = selectedRunes.find((obj) => obj.id === rune.id)
   const [selected, setSelected] = useState(isSelected)
@@ -24,6 +26,7 @@ const RuneBox = ({ rune }: { rune: IMainRune }) => {
       }
     } else {
       dispatch(setMainRuneList(selectedRunes.filter((obj) => obj.id !== rune.id)));
+      dispatch(setEquippedRunes(equippedRunes.map((obj) => obj.id === rune.id ? {} : obj)));
     }
   }, [selected])
 

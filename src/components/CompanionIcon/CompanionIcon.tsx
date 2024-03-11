@@ -50,7 +50,7 @@ export const CompanionIcon = ({ companion, label = true, level = 1, border = tru
 					</div>
 				</div>
 				<div className='overflow-hidden absolute z-10 w-14 h-14 left-0 top-0 border-[2px] border-black'>
-					{label && <span className='absolute z-20 text-[0.6rem] left-1/2 bottom-2 translate-x-[-50%] translate-y-[50%]'>Lv. {level}</span>}
+            {label && <span className='absolute z-20 text-[0.6rem] left-1/2 bottom-2 translate-x-[-50%] translate-y-[50%] w-full text-center'>Lv. {level}</span>}
 					<img
 						className={`${iconSize()} absolute z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2`}
               src={companionImage}
