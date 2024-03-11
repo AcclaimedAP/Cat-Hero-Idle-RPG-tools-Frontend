@@ -4,11 +4,13 @@ import { ICompanion } from "src/types/ICompanion"
 import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setCompanionsList } from 'src/config/redux/slices/collectionDisplaySlice'
+import { setCompanionsList as setEquippedChampions } from "src/config/redux/slices/equipmentDisplaySlice"
 import { getData } from "src/utility/data/getData"
 
 const CompanionBox = ({ companion }: { companion: ICompanion }) => {
   const dispatch = useDispatch();
   const selectedCompanions = useSelector((state: RootState) => state.collectionDisplay.companionsList)
+  const equippedCompanions = useSelector((state: RootState) => state.equipmentDisplay.companionsList)
   const isSelected = selectedCompanions.some((obj) => obj.id === companion.id)
   const companionFromList = selectedCompanions.find((obj) => obj.id === companion.id)
 
@@ -23,6 +25,8 @@ const CompanionBox = ({ companion }: { companion: ICompanion }) => {
     setLevel(parseInt(event.target.value))
     const updatedCompanionList = selectedCompanions.map((obj) => obj.id === companion.id ? { id: companion.id, level: parseInt(event.target.value) } : obj)
     dispatch(setCompanionsList(updatedCompanionList));
+    const updatedEquipment = equippedCompanions.map((obj) => obj.id === companion.id ? { id: companion.id, level: parseInt(event.target.value) } : obj)
+    dispatch(setEquippedChampions(updatedEquipment))
   }
   const handleSelect = () => {
     setSelected(!selected)

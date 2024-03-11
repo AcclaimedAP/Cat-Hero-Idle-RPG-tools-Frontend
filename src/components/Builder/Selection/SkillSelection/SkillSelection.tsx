@@ -4,11 +4,13 @@ import { ISkill } from "src/types/ISkill"
 import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setSkillList } from 'src/config/redux/slices/collectionDisplaySlice'
+import { setSkillList as setEquippedSkills } from "src/config/redux/slices/equipmentDisplaySlice"
 import { getData } from "src/utility/data/getData"
 
 const SkillBox = ({ skill }: { skill: ISkill }) => {
   const dispatch = useDispatch();
   const selectedSkills = useSelector((state: RootState) => state.collectionDisplay.skillList)
+  const equippedSkills = useSelector((state: RootState) => state.equipmentDisplay.skillList)
   const isSelected = selectedSkills.some((obj) => obj.id === skill.id)
   const skillFromList = selectedSkills.find((obj) => obj.id === skill.id)
 
@@ -22,6 +24,8 @@ const SkillBox = ({ skill }: { skill: ISkill }) => {
     setLevel(parseInt(event.target.value))
     const updatedSkillList = selectedSkills.map((obj) => obj.id === skill.id ? { id: skill.id, level: parseInt(event.target.value) } : obj)
     dispatch(setSkillList(updatedSkillList));
+    const updatedEquipment = equippedSkills.map((obj) => obj.id === skill.id ? { id: skill.id, level: parseInt(event.target.value) } : obj)
+    dispatch(setEquippedSkills(updatedEquipment))
   }
   const handleSelect = () => {
     setSelected(!selected)
