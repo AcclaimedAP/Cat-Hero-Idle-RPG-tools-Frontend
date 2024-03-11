@@ -61,7 +61,7 @@ const SkillBox = ({ skill }: { skill: ISkill }) => {
       <div onClick={handleSelect}>
         <SkillIcon skill={skill} level={skillLevel} label={true} />
       </div>
-      <input type="number" name="" id="" value={level} onChange={handleLevelChange} className="w-full z-10 -mt-3" />
+      <input type="number" name="" id="" value={level} onChange={handleLevelChange} className="w-full z-10 -mt-3 bg-slate-800 text-white" />
     </div>
   )
 }
