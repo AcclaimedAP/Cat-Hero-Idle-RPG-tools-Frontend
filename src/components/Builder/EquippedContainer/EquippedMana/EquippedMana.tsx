@@ -64,7 +64,7 @@ export const EquippedMana = () => {
     <>
       <div className="m-1 w-full">
         <div className="flex flex-row justify-between text-sm mb-2">
-          <label className="">Mp research level: <input className="w-10 text-white px-1" type="number" onChange={handleMpResearchLevelChange} value={mpResearchLevel} /></label>
+          <label className="">Mp research level: <input className="w-12 bg-slate-800 text-white px-1" type="number" onChange={handleMpResearchLevelChange} value={mpResearchLevel} /></label>
           <label htmlFor="shoes-check">Shoes +3:<input onChange={handleShoesToggle} checked={shoes} className="mx-1" type="checkbox" name="shoes-check" /></label>
         </div>
         <progress className={`mp-bar ${overload ? "mp-bar-overload" : ""}`} max={maxMana} value={mana}></progress>
