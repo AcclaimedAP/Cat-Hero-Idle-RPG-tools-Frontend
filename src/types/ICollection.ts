@@ -19,5 +19,7 @@ export interface ICollection {
 	subRuneList: ISelectedSubRune[];
 	mp: number;
 	baseMp: number;
+	shoes: number;
+	mpResearchLevel: number;
 	maxMp: number;
 }

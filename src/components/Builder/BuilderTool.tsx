@@ -57,6 +57,7 @@ export const BuilderTool = () => {
       dispatch(setCollection(collectionData))
     }
     if (equipmentData) {
+      console.log(equipmentData)
       dispatch(setEquipment(equipmentData))
     }
     setActiveTab('equip')
