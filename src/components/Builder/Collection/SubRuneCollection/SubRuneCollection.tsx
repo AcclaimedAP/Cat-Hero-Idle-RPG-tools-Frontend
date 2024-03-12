@@ -6,12 +6,12 @@ import { useSelector, useDispatch } from 'react-redux'
 import { setSubRuneList } from 'src/config/redux/slices/equipmentDisplaySlice'
 import { getData } from "src/utility/data/getData";
 import { ISubRune } from "src/types/IRune";
+import { FilterQuery } from "../../FilterQuery/FilterQuery";
 
 
-const SubRuneBox = ({ rune, add, remove, isEquipped }: { rune: ISelectedSubRune, add: (rune: ISelectedSubRune) => void, remove: (rune: ISelectedSubRune) => void, isEquipped: boolean }) => {
+const SubRuneBox = ({ rune, add, remove, isEquipped, filterString }: { rune: ISelectedSubRune, add: (rune: ISelectedSubRune) => void, remove: (rune: ISelectedSubRune) => void, isEquipped: boolean, filterString: string }) => {
   const runes: ISubRune[] = getData('subRunes');
   const [selected, setSelected] = useState(isEquipped)
-  const selectedClass = selected ? "brightness-125" : ""
   const handleSelect = () => {
     setSelected(!selected)
   }
@@ -29,8 +29,40 @@ const SubRuneBox = ({ rune, add, remove, isEquipped }: { rune: ISelectedSubRune,
   useEffect(() => {
     setSelected(isEquipped)
   }, [isEquipped])
+
+  const runeData = getRune(rune.id)
+  if (!runeData) return null
+  const filterItem = (rune: ISubRune) => {
+    const filterWords = filterString.split(' ')
+    const nameAndTypes = rune.name + ' ' + rune.type + rune.rarity
+    for (let i = 0; i < filterWords.length; i++) {
+      if (!nameAndTypes.toLowerCase().includes(filterWords[i].toLowerCase())) {
+        return false
+      }
+    }
+    return true
+  }
+
+  const filtered = filterItem(runeData)
+  const brightness = () => {
+    if (filterString.length > 0) {
+      if (filtered) {
+        return "brightness-125"
+      }
+      if (selected) {
+        return "brightness-75"
+      }
+      return "brightness-50"
+    }
+    if (selected) {
+      return "brightness-125"
+    }
+    return "brightness-75"
+  }
+
+
   return (
-    <div className={`flex flex-col ${selectedClass} justify-center items-center w-14`} onClick={handleSelect}>
+    <div className={`flex flex-col ${brightness()} justify-center items-center w-14`} onClick={handleSelect}>
       {selected && <>
         <span className="absolute z-10 right-0 -top-1 text-2xl">🗸</span>
         <div className=" rounded-[50%] selected-shadow-circle border-2 border-red-400 w-14 h-14 top-1 absolute"></div>
@@ -48,6 +80,7 @@ export const SubRuneCollection = () => {
   const runesList = useSelector((state: RootState) => state.collectionDisplay.subRuneList)
   const equippedRunes = useSelector((state: RootState) => state.equipmentDisplay.subRuneList)
   const runes: ISubRune[] = getData('subRunes');
+  const [filter, setFilter] = useState('')
   const sortById = (a: ISelectedSubRune, b: ISelectedSubRune) => {
     if (!a.id || !b.id) return 0
     return a.id - b.id
@@ -79,16 +112,21 @@ export const SubRuneCollection = () => {
   const doesRuneExist = (id: number) => {
     return runes.some((rune) => rune.id === id)
   }
-
+  const updateFilter = (query: string) => {
+    setFilter(query)
+  }
   return (
     <div className="container-dark-inner flex flex-col gap-3">
-      <h3 className="text-center min-w-48">Sub Runes</h3>
+      <div className="flex flex-row md:flex-col lg:flex-row justify-between items-center container-dark">
+        <h3 className="text-center min-w-24 text-lg">Sub Runes</h3>
+        <FilterQuery updateFilter={updateFilter} />
+      </div>
       <div className="flex flex-row gap-1 flex-wrap justify-center">
         {runesList.toSorted(sortById).map((rune, index) => {
           if (rune.id === undefined || !doesRuneExist(rune.id)) return null
           const isEquippedBool = isEquipped(rune.id)
           return (
-            <SubRuneBox add={addToList} remove={removeFromList} isEquipped={isEquippedBool} rune={rune} key={index} />
+            <SubRuneBox filterString={filter} add={addToList} remove={removeFromList} isEquipped={isEquippedBool} rune={rune} key={index} />
           )
         })}
       </div>

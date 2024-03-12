@@ -17,6 +17,8 @@ export interface ICollection {
 	skillList: ISelectedSkill[];
 	mainRuneList: ISelectedMainRune[];
 	subRuneList: ISelectedSubRune[];
+}
+export interface IEquipment extends ICollection {
 	mp: number;
 	baseMp: number;
 	shoes: number;
