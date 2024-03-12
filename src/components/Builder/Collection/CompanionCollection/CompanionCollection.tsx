@@ -6,12 +6,13 @@ import { useSelector, useDispatch } from 'react-redux'
 import { setCompanionsList } from 'src/config/redux/slices/equipmentDisplaySlice'
 import { getData } from "src/utility/data/getData";
 import { ICompanion } from "src/types/ICompanion";
+import { FilterQuery } from "../../FilterQuery/FilterQuery";
 
-const CompanionBox = ({ companion, add, remove, isEquipped }: { companion: ISelectedCompanion, add: (companion: ISelectedCompanion) => void, remove: (companion: ISelectedCompanion) => void, isEquipped: boolean }) => {
+const CompanionBox = ({ companion, add, remove, isEquipped, filterString }: { companion: ISelectedCompanion, add: (companion: ISelectedCompanion) => void, remove: (companion: ISelectedCompanion) => void, isEquipped: boolean, filterString: string }) => {
+
+  if (!companion.id) return null
   const companions: ICompanion[] = getData('companions');
-
   const [selected, setSelected] = useState(isEquipped)
-  const selectedClass = selected ? "brightness-125 selected-shadow" : ""
   const handleSelect = () => {
     setSelected(!selected)
   }
@@ -27,15 +28,44 @@ const CompanionBox = ({ companion, add, remove, isEquipped }: { companion: ISele
       remove({ id: companion.id, level: companion.level })
     }
   }, [selected])
+
   useEffect(() => {
     setSelected(isEquipped)
   }, [isEquipped])
+  const companionData = getCompanion(companion.id)
+  if (!companionData) return null
+  const filterItem = (companion: ICompanion) => {
+    const filterWords = filterString.split(' ')
+    const types = companion.types.join(' ')
+    const nameAndTypes = companion.name + ' ' + types + companion.rarity
 
-  if (!companion.id) return null
+    for (let i = 0; i < filterWords.length; i++) {
+      if (!nameAndTypes.toLowerCase().includes(filterWords[i].toLowerCase())) {
+        return false
+      }
+    }
+    return true
+  }
+  const filtered = filterItem(companionData)
+  const brightness = () => {
+    if (filterString.length > 0) {
+      if (filtered) {
+        return "brightness-125"
+      }
+      if (selected) {
+        return "brightness-75"
+      }
+      return "brightness-50"
+    }
+    if (selected) {
+      return "brightness-125"
+    }
+    return "brightness-75"
+  }
   return (
-    <div className={`${selectedClass} flex flex-col justify-center items-center w-20 h-24`} key={companion.id} onClick={handleSelect}>
+    <div className={`${brightness()} flex flex-col justify-center items-center w-20 h-24`} key={companion.id} onClick={handleSelect}>
       {selected && <span className="absolute z-10 right-0 top-0 text-2xl">🗸</span>}
-      <CompanionIcon companion={getCompanion(companion.id)} level={companion.level} label={true} />
+      <CompanionIcon companion={companionData} level={companion.level} label={true} />
     </div>
   )
 }
@@ -44,7 +74,7 @@ export const CompanionCollection = () => {
   const companionsList = useSelector((state: RootState) => state.collectionDisplay.companionsList)
   const dispatch = useDispatch();
   const equippedCompanions = useSelector((state: RootState) => state.equipmentDisplay.companionsList)
-
+  const [filter, setFilter] = useState('')
   const sortById = (a: ISelectedCompanion, b: ISelectedCompanion) => {
     if (!a.id || !b.id) return 0
     return a.id - b.id
@@ -76,15 +106,24 @@ export const CompanionCollection = () => {
     return equippedCompanions.some((companion) => companion.id === id)
   }
 
+  const updateFilter = (query: string) => {
+    setFilter(query)
+  }
+
+
+
   return (
     <div className="container-dark-inner flex flex-col gap-3">
-      <h3 className="text-center min-w-48">Companions</h3>
+      <div className="flex flex-row justify-between items-center container-dark">
+        <h3 className="text-center min-w-32 text-lg">Companions</h3>
+        <FilterQuery updateFilter={updateFilter} />
+      </div>
       <div className="flex flex-row gap-2 flex-wrap justify-center">
         {companionsList.toSorted(sortById).map((companion, index) => {
           if (!companion.id) return null
           const isEquippedBool = isEquipped(companion.id)
           return (
-            <CompanionBox companion={companion} add={addToList} remove={removeFromList} key={index} isEquipped={isEquippedBool} />
+            <CompanionBox filterString={filter} companion={companion} add={addToList} remove={removeFromList} key={index} isEquipped={isEquippedBool} />
           )
         })}
       </div>

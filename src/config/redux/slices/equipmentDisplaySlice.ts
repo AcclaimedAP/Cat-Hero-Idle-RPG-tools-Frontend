@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { ICollection } from 'src/types/ICollection';
+import { IEquipment } from 'src/types/ICollection';
 
-const initialState: ICollection = {
+const initialState: IEquipment = {
 	companionsList: [{}, {}, {}, {}, {}, {}],
 	skillList: [{}, {}, {}, {}, {}, {}],
 	mainRuneList: [{}, {}, {}],
@@ -20,7 +20,7 @@ export const equipmentDisplaySlice = createSlice({
 	name: 'equipmentDisplay',
 	initialState,
 	reducers: {
-		setEquipment: (state, action: PayloadAction<ICollection>) => {
+		setEquipment: (state, action: PayloadAction<IEquipment>) => {
 			state.companionsList = action.payload.companionsList;
 			state.skillList = action.payload.skillList;
 			state.mainRuneList = action.payload.mainRuneList;
@@ -31,16 +31,16 @@ export const equipmentDisplaySlice = createSlice({
 			state.shoes = action.payload.shoes;
 			state.maxMp = action.payload.maxMp;
 		},
-		setCompanionsList: (state, action: PayloadAction<ICollection['companionsList']>) => {
+		setCompanionsList: (state, action: PayloadAction<IEquipment['companionsList']>) => {
 			state.companionsList = action.payload;
 		},
-		setSkillList: (state, action: PayloadAction<ICollection['skillList']>) => {
+		setSkillList: (state, action: PayloadAction<IEquipment['skillList']>) => {
 			state.skillList = action.payload;
 		},
-		setMainRuneList: (state, action: PayloadAction<ICollection['mainRuneList']>) => {
+		setMainRuneList: (state, action: PayloadAction<IEquipment['mainRuneList']>) => {
 			state.mainRuneList = action.payload;
 		},
-		setSubRuneList: (state, action: PayloadAction<ICollection['subRuneList']>) => {
+		setSubRuneList: (state, action: PayloadAction<IEquipment['subRuneList']>) => {
 			state.subRuneList = action.payload;
 		},
 		setMp: (state, action: PayloadAction<number>) => {
