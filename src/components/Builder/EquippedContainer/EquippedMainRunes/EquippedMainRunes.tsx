@@ -20,8 +20,11 @@ const RuneBox = ({ rune }: { rune: ISelectedMainRune }) => {
     equippedRuneList[index] = {}
     dispatch(setMainRuneList(equippedRuneList));
   }
+  const doesRuneExist = (id: number | undefined) => {
+    return runes.some((rune) => rune.id === id)
+  }
 
-
+  if (!doesRuneExist(rune.id)) return <EmptySlot />
   return (
     <>
       <div className="justify-center flex" onClick={removeRuneFromList}>

@@ -21,6 +21,12 @@ const RuneBox = ({ rune }: { rune: ISelectedSubRune }) => {
     equippedRuneList[index] = {}
     dispatch(setSubRuneList(equippedRuneList));
   }
+
+  const doesRuneExist = (id: number | undefined) => {
+    return runes.some((rune) => rune.id === id)
+  }
+
+  if (!doesRuneExist(rune.id)) return <EmptySlot />
   return (
     <>
       <div className="justify-center flex" onClick={removeRuneFromList}>
