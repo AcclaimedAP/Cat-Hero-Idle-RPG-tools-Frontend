@@ -43,6 +43,7 @@ const MainRuneBox = ({ rune, add, remove, isEquipped }: { rune: ISelectedMainRun
 
 
 export const MainRuneCollection = () => {
+  const runes: IMainRune[] = getData('mainRunes');
   const dispatch = useDispatch();
   const runesList = useSelector((state: RootState) => state.collectionDisplay.mainRuneList)
   const equippedRunes = useSelector((state: RootState) => state.equipmentDisplay.mainRuneList)
@@ -74,13 +75,16 @@ export const MainRuneCollection = () => {
   const isEquipped = (id: number) => {
     return equippedRunes.some((rune) => rune.id === id)
   }
+  const doesRuneExist = (id: number) => {
+    return runes.some((rune) => rune.id === id)
+  }
 
   return (
     <div className="container-dark-inner flex flex-col gap-3">
-      <h3 className="text-center min-w-48" onClick={() => { console.log(runesList) }}>Main Runes</h3>
+      <h3 className="text-center min-w-48">Main Runes</h3>
       <div className="flex flex-row gap-1 flex-wrap justify-center">
         {runesList.toSorted(sortById).map((rune, index) => {
-          if (rune.id === undefined) return null
+          if (rune.id === undefined || !doesRuneExist(rune.id)) return null
           const isEquippedBool = isEquipped(rune.id)
           return (
             <MainRuneBox add={addToList} remove={removeFromList} isEquipped={isEquippedBool} rune={rune} key={index} />

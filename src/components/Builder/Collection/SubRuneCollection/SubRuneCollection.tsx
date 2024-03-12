@@ -47,7 +47,7 @@ export const SubRuneCollection = () => {
   const dispatch = useDispatch();
   const runesList = useSelector((state: RootState) => state.collectionDisplay.subRuneList)
   const equippedRunes = useSelector((state: RootState) => state.equipmentDisplay.subRuneList)
-
+  const runes: ISubRune[] = getData('subRunes');
   const sortById = (a: ISelectedSubRune, b: ISelectedSubRune) => {
     if (!a.id || !b.id) return 0
     return a.id - b.id
@@ -76,13 +76,16 @@ export const SubRuneCollection = () => {
   const isEquipped = (id: number) => {
     return equippedRunes.some((rune) => rune.id === id)
   }
+  const doesRuneExist = (id: number) => {
+    return runes.some((rune) => rune.id === id)
+  }
 
   return (
     <div className="container-dark-inner flex flex-col gap-3">
       <h3 className="text-center min-w-48">Sub Runes</h3>
       <div className="flex flex-row gap-1 flex-wrap justify-center">
         {runesList.toSorted(sortById).map((rune, index) => {
-          if (rune.id === undefined) return null
+          if (rune.id === undefined || !doesRuneExist(rune.id)) return null
           const isEquippedBool = isEquipped(rune.id)
           return (
             <SubRuneBox add={addToList} remove={removeFromList} isEquipped={isEquippedBool} rune={rune} key={index} />
