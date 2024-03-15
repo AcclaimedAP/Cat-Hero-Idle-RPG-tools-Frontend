@@ -44,9 +44,9 @@ export const EquippedMana = () => {
     if (equipmentString === initialEquipmentString) {
       return;
     }
-    const collectionString = JSON.stringify(collection);
-    const shareString = btoa(collectionString + "|" + equipmentString);
-    const response: any = await getStuffMp(shareString);
+
+
+    const response: any = await getStuffMp(equipment);
     if (response.status === 200) {
       const data = response.data;
       setOverload(data.mp > data.maxMp);

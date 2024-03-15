@@ -49,15 +49,12 @@ export const BuilderTool = () => {
       alert('Failed to load build');
       return;
     }
-    const decodedCollectionString = atob(response.data.build)
-    const [collectionString, equipmentString] = decodedCollectionString.split('|')
-    const collectionData = JSON.parse(collectionString)
-    const equipmentData = JSON.parse(equipmentString)
+    const collectionData = response.data.collection;
+    const equipmentData = response.data.equipment;
     if (collectionData) {
       dispatch(setCollection(collectionData))
     }
     if (equipmentData) {
-      console.log(equipmentData)
       dispatch(setEquipment(equipmentData))
     }
     setActiveTab('equip')
@@ -107,12 +104,11 @@ export const BuilderTool = () => {
     localStorage.setItem('collection', JSON.stringify(collection))
     localStorage.setItem('equipment', JSON.stringify(equipment))
   }
+
   const exportString = async () => {
-    const collectionString = JSON.stringify(collection);
-    const equipmentString = JSON.stringify(equipment);
-    const shareString = btoa(collectionString + "|" + equipmentString);
+
     const currentUrl = window.location.href.split('?')[0];
-    const response: any = await saveBuild(shareString);
+    const response: any = await saveBuild({ collection, equipment });
     if (response.status === 201 || response.status === 200) {
       setShareUrl(currentUrl + '?build_id=' + response.data.build_id);
       setPopupModal(true);
