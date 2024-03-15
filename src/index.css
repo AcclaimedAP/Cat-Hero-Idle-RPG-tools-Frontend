@@ -208,6 +208,34 @@ h1, h2, h3, span {
   background-color: rgb(179 47 47);
 }
 
+.hover-box-enter {
+  animation: fade-in 0.2s 0.1s ease-in-out forwards;
+}
+
+.hover-box-exit {
+  animation: fade-out 0.2s ease-in-out forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 @keyframes slide-left-900-px {
   0% {
     transform: translateX(0);
