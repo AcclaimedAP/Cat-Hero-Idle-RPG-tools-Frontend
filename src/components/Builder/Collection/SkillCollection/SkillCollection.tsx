@@ -79,8 +79,8 @@ const SkillBox = ({ skill, add, remove, isEquipped, filterString }: { skill: ISe
         </div>
         <div className={`${brightness()} flex flex-col justify-center items-center w-14`} onClick={handleSelect} >
 
-      {selected && <span className="absolute z-10 right-0 -top-1 text-2xl">🗸</span>}
-      <SkillIcon skill={getSkill(skill.id)} level={skill.level} label={true} />
+          {selected && <span className="absolute z-10 right-0 -top-1 text-2xl">🗸</span>}
+          <SkillIcon skill={getSkill(skill.id)} level={skill.level} label={true} />
         </div>
       </div>
     </>
