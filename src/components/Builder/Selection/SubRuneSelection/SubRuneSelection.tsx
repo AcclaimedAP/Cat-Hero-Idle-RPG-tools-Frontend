@@ -7,6 +7,8 @@ import { setSubRuneList } from 'src/config/redux/slices/collectionDisplaySlice'
 import { setSubRuneList as setEquippedRunes } from "src/config/redux/slices/equipmentDisplaySlice"
 import { getData } from "src/utility/data/getData"
 import { FilterQuery } from "../../FilterQuery/FilterQuery";
+import { HoverBox, IHoverBox } from "src/components/HoverBox/subRuneHoverBox";
+import React from "react";
 
 const RuneBox = ({ rune, filterString }: { rune: ISubRune, filterString: string }) => {
   const dispatch = useDispatch();
@@ -14,7 +16,9 @@ const RuneBox = ({ rune, filterString }: { rune: ISubRune, filterString: string 
   const equippedRunes = useSelector((state: RootState) => state.equipmentDisplay.subRuneList)
   const isSelected = selectedRunes.some((obj) => obj.id === rune.id)
   const runeFromList = selectedRunes.find((obj) => obj.id === rune.id)
+  const ref = React.createRef<IHoverBox>();
   const [selected, setSelected] = useState(isSelected)
+
   const handleSelect = () => {
     setSelected(!selected)
   }
@@ -67,13 +71,27 @@ const RuneBox = ({ rune, filterString }: { rune: ISubRune, filterString: string 
     return "brightness-75"
   }
 
+  const handleMouseEnter = () => {
+    ref.current?.show()
+  }
+  const handleMouseLeave = () => {
+    ref.current?.hide()
+  }
 
   return (
+    <>
+
+      <div className="flex flex-col items-center" onTouchStart={handleMouseEnter} onTouchEnd={handleMouseLeave} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <div className="relative">
+          <HoverBox rune={rune} ref={ref} />
+        </div>
     <div className={`flex flex-col ${brightness()} justify-center items-center w-14`}>
       <div onClick={handleSelect}>
         <RuneIcon type="sub" rune={rune} label={true} />
       </div>
-    </div>
+        </div>
+      </div>
+    </>
   )
 }
 

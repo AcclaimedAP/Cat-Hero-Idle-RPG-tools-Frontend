@@ -7,12 +7,17 @@ import { setCompanionsList } from 'src/config/redux/slices/equipmentDisplaySlice
 import { getData } from "src/utility/data/getData";
 import { ICompanion } from "src/types/ICompanion";
 import { FilterQuery } from "../../FilterQuery/FilterQuery";
+import { HoverBox } from "src/components/HoverBox/CompanionHoverBox";
+import React from "react";
+import { IHoverBox } from "src/components/HoverBox/CompanionHoverBox";
 
 const CompanionBox = ({ companion, add, remove, isEquipped, filterString }: { companion: ISelectedCompanion, add: (companion: ISelectedCompanion) => void, remove: (companion: ISelectedCompanion) => void, isEquipped: boolean, filterString: string }) => {
 
   if (!companion.id) return null
   const companions: ICompanion[] = getData('companions');
-  const [selected, setSelected] = useState(isEquipped)
+  const [selected, setSelected] = useState(isEquipped);
+  const ref = React.createRef<IHoverBox>();
+
   const handleSelect = () => {
     setSelected(!selected)
   }
@@ -62,11 +67,30 @@ const CompanionBox = ({ companion, add, remove, isEquipped, filterString }: { co
     }
     return "brightness-75"
   }
+
+
+
+
+  const handleMouseEnter = () => {
+    ref.current?.show()
+  }
+  const handleMouseLeave = () => {
+    ref.current?.hide()
+  }
+
+
   return (
-    <div className={`${brightness()} flex flex-col justify-center items-center w-20 h-24`} key={companion.id} onClick={handleSelect}>
+    <>
+      <div className="flex flex-col items-center" onTouchStart={handleMouseEnter} onTouchEnd={handleMouseLeave} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <div className="relative">
+          <HoverBox companion={companionData} ref={ref} />
+        </div>
+        <div className={`${brightness()} flex flex-col justify-center items-center w-20 h-24`} key={companion.id} onClick={handleSelect}>
       {selected && <span className="absolute z-10 right-0 top-0 text-2xl">🗸</span>}
       <CompanionIcon companion={companionData} level={companion.level} label={true} />
-    </div>
+        </div>
+      </div>
+    </>
   )
 }
 
@@ -115,7 +139,7 @@ export const CompanionCollection = () => {
   return (
     <div className="container-dark-inner flex flex-col gap-3">
       <div className="flex flex-row justify-between items-center container-dark">
-        <h3 className="text-center min-w-32 text-lg">Companions</h3>
+        <h3 className="text-center min-w-28 text-lg">Companions</h3>
         <FilterQuery updateFilter={updateFilter} />
       </div>
       <div className="flex flex-row gap-2 flex-wrap justify-center">

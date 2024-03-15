@@ -8,7 +8,7 @@ export const Layout = () => {
 				<NavigationBar />
 			</header>
       <main className='py-6 md:p-12 flex flex-row justify-center w-full'>
-        <div className='max-w-[1090px] w-full'>
+        <div className='max-w-[1090px] w-full overflow-x-hidden md:overflow-x-visible'>
           <Outlet></Outlet>
         </div>
 			</main>

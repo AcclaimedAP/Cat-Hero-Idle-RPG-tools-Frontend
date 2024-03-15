@@ -7,12 +7,14 @@ import { setSkillList } from 'src/config/redux/slices/equipmentDisplaySlice'
 import { getData } from "src/utility/data/getData";
 import { ISkill } from "src/types/ISkill";
 import { FilterQuery } from "../../FilterQuery/FilterQuery";
+import { HoverBox, IHoverBox } from "src/components/HoverBox/SkillHoverBox";
+import React from "react";
 
 const SkillBox = ({ skill, add, remove, isEquipped, filterString }: { skill: ISelectedSkill, add: (skill: ISelectedSkill) => void, remove: (skill: ISelectedSkill) => void, isEquipped: boolean, filterString: string }) => {
   if (!skill.id) return null
   const skills: ISkill[] = getData('skills');
-  const [selected, setSelected] = useState(isEquipped)
-  const selectedClass = selected ? "brightness-125 selected-shadow" : ""
+  const [selected, setSelected] = useState(isEquipped);
+  const ref = React.createRef<IHoverBox>();
   const handleSelect = () => {
     setSelected(!selected)
   }
@@ -61,11 +63,27 @@ const SkillBox = ({ skill, add, remove, isEquipped, filterString }: { skill: ISe
     }
     return "brightness-75"
   }
+
+  const handleMouseEnter = () => {
+    ref.current?.show()
+  }
+  const handleMouseLeave = () => {
+    ref.current?.hide()
+  }
+
   return (
-    <div className={`flex flex-col ${brightness()} justify-center items-center w-14`} onClick={handleSelect}>
+    <>
+      <div className="flex flex-col items-center" onTouchStart={handleMouseEnter} onTouchEnd={handleMouseLeave} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <div className="relative">
+          <HoverBox skill={skillData} ref={ref} />
+        </div>
+        <div className={`${brightness()} flex flex-col justify-center items-center w-14`} onClick={handleSelect} >
+
       {selected && <span className="absolute z-10 right-0 -top-1 text-2xl">🗸</span>}
       <SkillIcon skill={getSkill(skill.id)} level={skill.level} label={true} />
-    </div>
+        </div>
+      </div>
+    </>
   )
 }
 

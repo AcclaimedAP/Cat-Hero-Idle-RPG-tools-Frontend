@@ -1,6 +1,8 @@
 import { getCompanionStars } from 'utility/imageHandling/getCompanionStars';
 import { ICompanion } from 'types/ICompanion';
 
+
+
 /**
  * Renders a companion icon with an optional label and level.
  * @param companion - The companion object containing information about the companion.
@@ -11,8 +13,9 @@ import { ICompanion } from 'types/ICompanion';
  * @returns The rendered CompanionIcon component.
  */
 
-export const CompanionIcon = ({ companion, label = true, level = 1, border = true, stars = true }: { companion: ICompanion | undefined, label?: boolean, level?: number, border?: boolean, stars?: boolean }) => {
+export const CompanionIcon = ({ companion, label = true, level = 1, border = true, stars = true, mp = true }: { companion: ICompanion | undefined, label?: boolean, level?: number, border?: boolean, stars?: boolean, mp?: boolean }) => {
   if (!companion) return null;
+
   const background = `game-assets/companions/${companion.rarity}/background.png`.toLowerCase();
   const companionname = companion.slug.replaceAll('-', '_');
   const companionImage = `game-assets/companions/${companion.rarity}/${companionname}.png`.toLowerCase();
@@ -36,20 +39,22 @@ export const CompanionIcon = ({ companion, label = true, level = 1, border = tru
 
 	return (
     <>
-      <div className={border ? 'container-light inline-block' : ''}>
-        <div className='relative w-14 h-16 z-0 inline-block'>
-          <div className='absolute z-20 left-0 top-0 w-[45%] h-[45%] -translate-x-1/3 -translate-y-1/3'>
 
+      <div className={border ? 'container-light' : ''}>
+
+        <div className='relative w-14 h-16 z-0 inline-block'>
+
+          {mp && <div className='absolute z-20 left-0 top-0 w-[45%] h-[45%] -translate-x-1/3 -translate-y-1/3'>
             <div className='relative left-0 top-0 h-6 w-6'>
-						<img
+              <img
                 src="game-assets/companions/shared/mana.png"
 							alt=''
                 className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
-						/>
+              />
               <span className='absolute left-1/2 top-1/2 text-[0.75rem] -translate-x-1/2 -translate-y-1/2'>{companion.base_mp}</span>
-					</div>
-				</div>
-				<div className='overflow-hidden absolute z-10 w-14 h-14 left-0 top-0 border-[2px] border-black'>
+            </div>
+          </div>}
+          <div className='overflow-hidden absolute z-10 w-14 h-14 left-0 top-0 '>
             {label && <span className='absolute z-20 text-[0.6rem] left-1/2 bottom-2 translate-x-[-50%] translate-y-[50%] w-full text-center'>Lv. {level}</span>}
 					<img
 						className={`${iconSize()} absolute z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2`}

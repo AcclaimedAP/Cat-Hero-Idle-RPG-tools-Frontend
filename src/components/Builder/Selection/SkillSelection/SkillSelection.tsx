@@ -7,6 +7,8 @@ import { setSkillList } from 'src/config/redux/slices/collectionDisplaySlice'
 import { setSkillList as setEquippedSkills } from "src/config/redux/slices/equipmentDisplaySlice"
 import { getData } from "src/utility/data/getData"
 import { FilterQuery } from "../../FilterQuery/FilterQuery";
+import { HoverBox, IHoverBox } from "src/components/HoverBox/SkillHoverBox";
+import React from "react";
 
 const SkillBox = ({ skill, filterString }: { skill: ISkill, filterString: string }) => {
   const dispatch = useDispatch();
@@ -14,6 +16,7 @@ const SkillBox = ({ skill, filterString }: { skill: ISkill, filterString: string
   const equippedSkills = useSelector((state: RootState) => state.equipmentDisplay.skillList)
   const isSelected = selectedSkills.some((obj) => obj.id === skill.id)
   const skillFromList = selectedSkills.find((obj) => obj.id === skill.id)
+  const ref = React.createRef<IHoverBox>();
 
   const [level, setLevel] = useState<number | string>(1)
   const [selected, setSelected] = useState(isSelected)
@@ -87,16 +90,30 @@ const SkillBox = ({ skill, filterString }: { skill: ISkill, filterString: string
     return "brightness-75"
   }
 
+  const handleMouseEnter = () => {
+    ref.current?.show()
+  }
+  const handleMouseLeave = () => {
+    ref.current?.hide()
+  }
 
   const skillLevel = typeof level === "number" ? level : 1;
 
   return (
+    <>
+      <div className="flex flex-col items-center" onTouchStart={handleMouseEnter} onTouchEnd={handleMouseLeave} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <div className="relative">
+          <HoverBox skill={skill} ref={ref} />
+        </div>
     <div className={`flex flex-col ${brightness()} justify-center items-center w-14`}>
+
       <div onClick={handleSelect}>
         <SkillIcon skill={skill} level={skillLevel} label={true} />
       </div>
       <input type="number" name="" id="" value={level} onChange={handleLevelChange} className="w-full z-10 -mt-3 bg-slate-800 text-white" />
-    </div>
+        </div>
+      </div>
+    </>
   )
 }
 
