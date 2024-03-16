@@ -140,6 +140,13 @@ export const BuilderTool = () => {
     setActiveTab(tab)
   }
 
+  const clearLocalStorage = () => {
+    const confirm = window.confirm('Are you sure you want to completely reset? This will clear your build, settings, and you will have to fetch all data again. Only this primarily when you are experiencing issues.');
+    if (!confirm) return;
+    localStorage.clear();
+    window.location.reload();
+  }
+
 
   return (
     <>
@@ -153,7 +160,8 @@ export const BuilderTool = () => {
       <div className="flex flex-col gap-2">
         <div className='w-full flex flex-row justify-end'>
           <label htmlFor="manualSave" className='text-sm m-1'>Automatic Save</label>
-          <input type="checkbox" name="manualSave" onChange={toggleAutomaticSave} checked={automaticSave} id="" className='m-1' />
+          <input type="checkbox" name="manualSave" onChange={toggleAutomaticSave} checked={automaticSave} id="" className='mx-1' />
+          <button className='btn btn-ghost btn-xs m-1 h-2 text-xs text-stone-400' onClick={clearLocalStorage}>Reset (!)</button>
         </div>
         <div>
           <div className='flex flex-col-reverse md:flex-row justify-between'>
