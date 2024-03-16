@@ -4,7 +4,7 @@ import { ReactNode, useEffect, useRef, useState } from 'react';
 export const HoverContainer = ({ children, type }: { children: ReactNode, type?: string }) => {
   const ref = useRef(null);
   const isVisible = useIsVisible({ ref });
-  const bottomOffset = type === 'skill' ? '-bottom-[4.5rem]' : type === "sub-rune" ? "-bottom-[4.5rem]" : '-bottom-[6.5rem]';
+  const bottomOffset = type === 'skill' ? '-bottom-[4.5rem]' : type === "sub-rune" ? "-bottom-[4.5rem]" : type === "main-rune" ? '' : '-bottom-[6.5rem]';
 
   const translateVerticalValue = isVisible[0] ? '-translate-y-full -top-4' : 'translate-y-full ' + bottomOffset;
   const translateHorizontal = isVisible[1] && isVisible[2] ? '-translate-x-1/2' : isVisible[1] ? '-translate-x-[85%]' : isVisible[2] ? '-translate-x-[15%]' : '-translate-x-1/2';

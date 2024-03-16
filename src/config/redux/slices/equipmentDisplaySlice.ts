@@ -7,11 +7,8 @@ const initialState: IEquipment = {
 	skillList: [{}, {}, {}, {}, {}, {}],
 	mainRuneList: [{}, {}, {}],
 	subRuneList: [{}, {}, {}, {}],
-	mp: 0,
-	baseMp: 30,
-	shoes: 0,
+	additionalMp: 0,
 	mpResearchLevel: 15,
-	maxMp: 30,
 };
 
 export const equipmentInitialState = initialState;
@@ -25,11 +22,8 @@ export const equipmentDisplaySlice = createSlice({
 			state.skillList = action.payload.skillList;
 			state.mainRuneList = action.payload.mainRuneList;
 			state.subRuneList = action.payload.subRuneList;
-			state.mp = action.payload.mp;
-			state.baseMp = action.payload.baseMp;
 			state.mpResearchLevel = action.payload.mpResearchLevel;
-			state.shoes = action.payload.shoes;
-			state.maxMp = action.payload.maxMp;
+			state.additionalMp = action.payload.additionalMp;
 		},
 		setCompanionsList: (state, action: PayloadAction<IEquipment['companionsList']>) => {
 			state.companionsList = action.payload;
@@ -43,33 +37,21 @@ export const equipmentDisplaySlice = createSlice({
 		setSubRuneList: (state, action: PayloadAction<IEquipment['subRuneList']>) => {
 			state.subRuneList = action.payload;
 		},
-		setMp: (state, action: PayloadAction<number>) => {
-			state.mp = action.payload;
-		},
-		setBaseMp: (state, action: PayloadAction<number>) => {
-			state.baseMp = action.payload;
-		},
 		setMpResearchLevel: (state, action: PayloadAction<number>) => {
 			state.mpResearchLevel = action.payload;
 		},
-		setShoes: (state, action: PayloadAction<number>) => {
-			state.shoes = action.payload;
-		},
-		setMaxMp: (state, action: PayloadAction<number>) => {
-			state.maxMp = action.payload;
+		setAdditionalMp: (state, action: PayloadAction<number>) => {
+			state.additionalMp = action.payload;
 		},
 		resetEquipment: (state) => {
 			state.companionsList = initialState.companionsList;
 			state.skillList = initialState.skillList;
 			state.mainRuneList = initialState.mainRuneList;
 			state.subRuneList = initialState.subRuneList;
-			state.mp = initialState.mp;
-			state.baseMp = initialState.baseMp;
-			state.shoes = initialState.shoes;
-			state.maxMp = initialState.maxMp;
+			state.additionalMp = initialState.additionalMp;
 		},
 	},
 });
 
-export const { setEquipment, setCompanionsList, setSkillList, setMainRuneList, setSubRuneList, setMp, setBaseMp, setShoes, setMaxMp, setMpResearchLevel, resetEquipment } = equipmentDisplaySlice.actions;
+export const { setEquipment, setCompanionsList, setSkillList, setMainRuneList, setSubRuneList, setAdditionalMp, setMpResearchLevel, resetEquipment } = equipmentDisplaySlice.actions;
 export default equipmentDisplaySlice.reducer;
