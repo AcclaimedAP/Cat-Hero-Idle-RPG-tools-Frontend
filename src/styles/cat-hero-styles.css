@@ -153,23 +153,27 @@
   
 }
 
-.hover-box-companion {
-  animation: grow-vertical-companion 0.4s ease-in-out;
+
+.hover-box-main-rune, .hover-box-sub-rune, .hover-box-skill, .hover-box-companion  {
+  animation: scale-increase 0.25s ease-out;
 }
 
-.hover-box-skill {
-  animation: grow-vertical-skill 0.4s ease-in-out;
-  overflow: hidden;
+.hover-box-top div {
+  transform-origin: bottom;
 }
 
-.hover-box-sub-rune {
-  animation: grow-vertical-sub-rune 0.4s ease-in-out;
-  overflow: hidden;
+.hover-box-bottom div {
+  transform-origin: top;
 }
 
-.hover-box-main-rune {
-  animation: grow-vertical-main-rune 0.4s ease-in-out;
-  overflow: hidden;
+@keyframes scale-increase {
+  0% {
+    transform: scale(0.4);
+  }
+
+  100% {
+    transform: scale(1.0);
+  }
 }
 
 @keyframes grow-vertical-main-rune {

@@ -209,11 +209,11 @@ h1, h2, h3, span {
 }
 
 .hover-box-enter {
-  animation: fade-in 0.2s 0.1s ease-in-out forwards;
+  animation: fade-in 0.15s 0.05s ease-in-out forwards;
 }
 
 .hover-box-exit {
-  animation: fade-out 0.2s ease-in-out forwards;
+  animation: fade-out 0.15s ease-in-out forwards;
 }
 
 @keyframes fade-in {

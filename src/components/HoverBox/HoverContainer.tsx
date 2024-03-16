@@ -6,7 +6,7 @@ export const HoverContainer = ({ children, type }: { children: ReactNode, type?:
   const isVisible = useIsVisible({ ref });
   const bottomOffset = type === 'skill' ? '-bottom-[4.5rem]' : type === "sub-rune" ? "-bottom-[4.5rem]" : type === "main-rune" ? '' : '-bottom-[6.5rem]';
 
-  const translateVerticalValue = isVisible[0] ? '-translate-y-full -top-4' : 'translate-y-full ' + bottomOffset;
+  const translateVerticalValue = isVisible[0] ? '-translate-y-full -top-4 hover-box-top' : 'translate-y-full hover-box-bottom ' + bottomOffset;
   const translateHorizontal = isVisible[1] && isVisible[2] ? '-translate-x-1/2' : isVisible[1] ? '-translate-x-[85%]' : isVisible[2] ? '-translate-x-[15%]' : '-translate-x-1/2';
 
   return (

@@ -12,11 +12,17 @@ export interface IHoverBox {
 
 export const HoverBox = forwardRef(({ companion }: { companion: ICompanion }, ref: Ref<IHoverBox>) => {
   const [isVisible, setIsVisible] = useState(false);
+  let hoverTimeout: any;
+
   useImperativeHandle(ref, () => ({
     show: () => {
-      setIsVisible(true);
+      hoverTimeout = setTimeout(() => {
+        setIsVisible(true);
+      }, 500);
+
     },
     hide: () => {
+      clearTimeout(hoverTimeout);
       setIsVisible(false);
     }
   }));
