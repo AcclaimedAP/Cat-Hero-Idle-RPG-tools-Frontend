@@ -49,8 +49,8 @@ export const BuilderTool = () => {
       alert('Failed to load build');
       return;
     }
-    const collectionData = response.data.collection;
-    const equipmentData = response.data.equipment;
+    const collectionData = response.data.build.collection;
+    const equipmentData = response.data.build.equipment;
     if (collectionData) {
       dispatch(setCollection(collectionData))
     }
