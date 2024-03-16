@@ -52,7 +52,11 @@ export const EquippedMana = () => {
     if (equipmentString === initialEquipmentString) {
       return;
     }
-    const equipmentData = equipment;
+    const equipmentData = {
+      ...equipment,
+
+    };
+
     if (!equipment.hasOwnProperty('additionalMp')) {
       dispatch(setAdditionalMp(0));
       equipmentData.additionalMp = 0;
@@ -61,7 +65,6 @@ export const EquippedMana = () => {
       dispatch(setMpResearchLevel(15));
       equipmentData.mpResearchLevel = 15;
     }
-
 
     const response: any = await getStuffMp(equipmentData);
     if (response.status === 200) {
