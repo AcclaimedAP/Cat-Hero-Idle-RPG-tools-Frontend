@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { api } from '../api';
+import { IEquipment } from 'src/types/ICollection';
 
 export const getStuff = async () => {
 	const stuffTimer = getTimeout();
@@ -34,11 +35,11 @@ export const getStuffByType = async (type: string, id: number) => {
 	}
 };
 
-export const getStuffMp = async (buildString: string) => {
+export const getStuffMp = async (equipment: IEquipment) => {
 	const url = api().stuff().mp();
 
 	try {
-		const response = await axios.post(url, { build_string: buildString });
+		const response = await axios.post(url, equipment);
 		return response;
 	} catch (error) {
 		return error;

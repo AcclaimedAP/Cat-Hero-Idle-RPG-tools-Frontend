@@ -49,15 +49,12 @@ export const BuilderTool = () => {
       alert('Failed to load build');
       return;
     }
-    const decodedCollectionString = atob(response.data.build)
-    const [collectionString, equipmentString] = decodedCollectionString.split('|')
-    const collectionData = JSON.parse(collectionString)
-    const equipmentData = JSON.parse(equipmentString)
+    const collectionData = response.data.build.collection;
+    const equipmentData = response.data.build.equipment;
     if (collectionData) {
       dispatch(setCollection(collectionData))
     }
     if (equipmentData) {
-      console.log(equipmentData)
       dispatch(setEquipment(equipmentData))
     }
     setActiveTab('equip')
@@ -107,12 +104,11 @@ export const BuilderTool = () => {
     localStorage.setItem('collection', JSON.stringify(collection))
     localStorage.setItem('equipment', JSON.stringify(equipment))
   }
+
   const exportString = async () => {
-    const collectionString = JSON.stringify(collection);
-    const equipmentString = JSON.stringify(equipment);
-    const shareString = btoa(collectionString + "|" + equipmentString);
+
     const currentUrl = window.location.href.split('?')[0];
-    const response: any = await saveBuild(shareString);
+    const response: any = await saveBuild({ collection, equipment });
     if (response.status === 201 || response.status === 200) {
       setShareUrl(currentUrl + '?build_id=' + response.data.build_id);
       setPopupModal(true);
@@ -144,6 +140,13 @@ export const BuilderTool = () => {
     setActiveTab(tab)
   }
 
+  const clearLocalStorage = () => {
+    const confirm = window.confirm('Are you sure you want to completely reset? This will clear your build, settings, and you will have to fetch all data again. Only this primarily when you are experiencing issues.');
+    if (!confirm) return;
+    localStorage.clear();
+    window.location.reload();
+  }
+
 
   return (
     <>
@@ -157,7 +160,8 @@ export const BuilderTool = () => {
       <div className="flex flex-col gap-2">
         <div className='w-full flex flex-row justify-end'>
           <label htmlFor="manualSave" className='text-sm m-1'>Automatic Save</label>
-          <input type="checkbox" name="manualSave" onChange={toggleAutomaticSave} checked={automaticSave} id="" className='m-1' />
+          <input type="checkbox" name="manualSave" onChange={toggleAutomaticSave} checked={automaticSave} id="" className='mx-1' />
+          <button className='btn btn-ghost btn-xs m-1 h-2 text-xs text-stone-400' onClick={clearLocalStorage}>Reset (!)</button>
         </div>
         <div>
           <div className='flex flex-col-reverse md:flex-row justify-between'>
@@ -188,7 +192,7 @@ export const BuilderTool = () => {
               </div>
             </div>
             :
-            <div className='flex justify-center items-center h-96 container-dark-inner' onClick={() => { console.log(stuff) }}>
+            <div className='flex justify-center items-center h-96 container-dark-inner'>
               <div className='animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-white'></div>
             </div>
           }

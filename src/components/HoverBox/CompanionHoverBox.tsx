@@ -12,11 +12,17 @@ export interface IHoverBox {
 
 export const HoverBox = forwardRef(({ companion }: { companion: ICompanion }, ref: Ref<IHoverBox>) => {
   const [isVisible, setIsVisible] = useState(false);
+  let hoverTimeout: any;
+
   useImperativeHandle(ref, () => ({
     show: () => {
-      setIsVisible(true);
+      hoverTimeout = setTimeout(() => {
+        setIsVisible(true);
+      }, 500);
+
     },
     hide: () => {
+      clearTimeout(hoverTimeout);
       setIsVisible(false);
     }
   }));
@@ -28,7 +34,7 @@ export const HoverBox = forwardRef(({ companion }: { companion: ICompanion }, re
   }
   return (
     <HoverContainer>
-      <div className='hover-box hover-box-companion flex justify-center items-center h-32 w-48'>
+      <div className='hover-box hover-box-companion flex justify-center items-center h-32 w-48' onMouseOver={() => { clearTimeout(hoverTimeout); setIsVisible(false); }}>
         <Ribbon width={"small"}>{companion.name}</Ribbon>
         <div className='flex flex-row justify-between items-start translate-y-6 gap-2 w-44'>
           <div>

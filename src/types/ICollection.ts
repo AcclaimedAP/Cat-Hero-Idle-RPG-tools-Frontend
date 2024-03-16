@@ -19,9 +19,6 @@ export interface ICollection {
 	subRuneList: ISelectedSubRune[];
 }
 export interface IEquipment extends ICollection {
-	mp: number;
-	baseMp: number;
-	shoes: number;
+	additionalMp: number;
 	mpResearchLevel: number;
-	maxMp: number;
 }
