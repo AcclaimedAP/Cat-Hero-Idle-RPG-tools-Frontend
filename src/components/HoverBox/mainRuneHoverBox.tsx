@@ -26,10 +26,10 @@ export const HoverBox = forwardRef(({ rune }: { rune: IMainRune }, ref: Ref<IHov
       </>)
   }
   return (
-    <HoverContainer type="sub-rune">
-      <div className='hover-box hover-box-sub-rune flex justify-center items-start h-36 w-56'>
+    <HoverContainer type="main-rune">
+      <div className='hover-box hover-box-main-rune flex justify-center items-start h-48 w-64'>
         <Ribbon width={"medium"}>{rune.name}</Ribbon>
-        <div className='flex flex-row justify-between items-start translate-y-12 mt-1 gap-2 w-48'>
+        <div className='flex flex-row justify-between items-start translate-y-12 mt-1 gap-2 w-56'>
           <div>
             <RuneIcon type="main" rune={rune} label={false} />
           </div>
