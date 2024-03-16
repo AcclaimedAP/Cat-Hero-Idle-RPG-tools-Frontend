@@ -33,7 +33,7 @@ export const HoverBox = forwardRef(({ rune }: { rune: ISubRune }, ref: Ref<IHove
   }
   return (
     <HoverContainer type="sub-rune">
-      <div className='hover-box hover-box-sub-rune flex justify-center items-start h-36 w-56'>
+      <div className='hover-box hover-box-sub-rune flex justify-center items-start h-36 w-56' onMouseOver={() => { clearTimeout(hoverTimeout); setIsVisible(false); }}>
         <Ribbon width={""}>{rune.name}</Ribbon>
         <div className='flex flex-row justify-between items-start translate-y-12 mt-1 gap-2 w-48'>
           <div>

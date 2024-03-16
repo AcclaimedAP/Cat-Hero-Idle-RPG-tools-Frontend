@@ -34,7 +34,7 @@ export const HoverBox = forwardRef(({ skill }: { skill: ISkill }, ref: Ref<IHove
   }
   return (
     <HoverContainer type="skill">
-      <div className='hover-box hover-box-skill flex justify-center items-start h-52 w-72'>
+      <div className='hover-box hover-box-skill flex justify-center items-start h-52 w-72' onMouseOver={() => { clearTimeout(hoverTimeout); setIsVisible(false); }}>
         <Ribbon width={"large"}>{skill.name}</Ribbon>
         <div className='flex flex-row justify-between items-start translate-y-12 mt-1 gap-2 w-64'>
           <div>
