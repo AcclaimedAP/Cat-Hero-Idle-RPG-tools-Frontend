@@ -8,6 +8,7 @@ import { ICompanion } from "src/types/ICompanion";
 import { HoverBox } from "src/components/HoverBox/CompanionHoverBox";
 import React from "react";
 import { IHoverBox } from "src/components/HoverBox/CompanionHoverBox";
+import { getDeviceType } from "src/utility/device/getDevice";
 
 
 
@@ -35,9 +36,14 @@ const CompanionBox = ({ companion }: { companion: ISelectedCompanion }) => {
   }
   const companionData = getCompanion(companion.id)
   if (!companionData) return null
+  const device = getDeviceType();
   return (
     <>
-      <div onClick={removeCompanionFromList} onTouchStart={handleMouseEnter} onTouchEnd={handleMouseLeave} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="scale-[.8] sm:scale-100 w-8 h-8 sm:w-12 sm:h-12 -translate-x-[0.4rem] -translate-y-[0.35rem] sm:-translate-x-0 sm:-translate-y-0 relative min-h-8 sm:min-h-14">
+      <div onClick={removeCompanionFromList} onTouchStart={() => {
+        if (device !== 'desktop') {
+          handleMouseEnter()
+        }
+      }} onTouchEnd={handleMouseLeave} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="scale-[.8] sm:scale-100 w-8 h-8 sm:w-12 sm:h-12 -translate-x-[0.4rem] -translate-y-[0.35rem] sm:-translate-x-0 sm:-translate-y-0 relative min-h-8 sm:min-h-14">
         <div className="relative">
           <HoverBox companion={companionData} ref={ref} />
         </div>

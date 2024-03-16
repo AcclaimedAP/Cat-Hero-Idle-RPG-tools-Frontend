@@ -9,6 +9,7 @@ import { ISkill } from "src/types/ISkill";
 import { FilterQuery } from "../../FilterQuery/FilterQuery";
 import { HoverBox, IHoverBox } from "src/components/HoverBox/SkillHoverBox";
 import React from "react";
+import { getDeviceType } from "src/utility/device/getDevice";
 
 const SkillBox = ({ skill, add, remove, isEquipped, filterString }: { skill: ISelectedSkill, add: (skill: ISelectedSkill) => void, remove: (skill: ISelectedSkill) => void, isEquipped: boolean, filterString: string }) => {
   if (!skill.id) return null
@@ -70,10 +71,14 @@ const SkillBox = ({ skill, add, remove, isEquipped, filterString }: { skill: ISe
   const handleMouseLeave = () => {
     ref.current?.hide()
   }
-
+  const device = getDeviceType();
   return (
     <>
-      <div className="flex flex-col items-center" onTouchStart={handleMouseEnter} onTouchEnd={handleMouseLeave} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <div className="flex flex-col items-center" onTouchStart={() => {
+        if (device !== 'desktop') {
+          handleMouseEnter()
+        }
+      }} onTouchEnd={handleMouseLeave} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <div className="relative">
           <HoverBox skill={skillData} ref={ref} />
         </div>

@@ -7,6 +7,7 @@ import { getData } from "src/utility/data/getData";
 import { ISkill } from "src/types/ISkill";
 import { HoverBox, IHoverBox } from "src/components/HoverBox/SkillHoverBox";
 import React from "react";
+import { getDeviceType } from "src/utility/device/getDevice";
 
 const SkillBox = ({ skill }: { skill: ISelectedSkill }) => {
   const skills: ISkill[] = getData('skills');
@@ -36,9 +37,14 @@ const SkillBox = ({ skill }: { skill: ISelectedSkill }) => {
   const skillData = getSkill(skill.id)
   if (!skillData) return null
 
+  const device = getDeviceType();
   return (
     <>
-      <div className="flex flex-col items-center" onTouchStart={handleMouseEnter} onTouchEnd={handleMouseLeave} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <div className="flex flex-col items-center" onTouchStart={() => {
+        if (device !== 'desktop') {
+          handleMouseEnter()
+        }
+      }} onTouchEnd={handleMouseLeave} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <div className="relative">
           <HoverBox skill={skillData} ref={ref} />
         </div>
