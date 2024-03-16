@@ -184,7 +184,7 @@ export const BuilderTool = () => {
               </div>
             </div>
             :
-            <div className='flex justify-center items-center h-96 container-dark-inner' onClick={() => { console.log(stuff) }}>
+            <div className='flex justify-center items-center h-96 container-dark-inner'>
               <div className='animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-white'></div>
             </div>
           }

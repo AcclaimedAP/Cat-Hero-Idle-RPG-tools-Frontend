@@ -7,7 +7,6 @@ import { getStuffMp } from "src/config/api/services/stuff";
 
 export const EquippedMana = () => {
   const dispatch = useDispatch();
-  const collection = useSelector((state: RootState) => state.collectionDisplay)
   const equipment = useSelector((state: RootState) => state.equipmentDisplay)
   const [mp, setMp] = useState(0);
   const [maxMp, setMaxMp] = useState(0);
@@ -15,11 +14,20 @@ export const EquippedMana = () => {
   const [mpResearchLevelInput, setMpResearchLevelInput] = useState(mpResearchLevel);
   const shoes = useSelector((state: RootState) => state.equipmentDisplay.additionalMp)
   const [overload, setOverload] = useState(false);
+
   const handleShoesToggle = (e: any) => {
     dispatch(setAdditionalMp(e.target.checked ? 2 : 0));
   }
+
+  const handleUnFocus = (e: any) => {
+    if (e.target.value === "") {
+      setMpResearchLevelInput(0);
+    }
+  }
+
   const handleMpResearchLevelChange = (e: any) => {
     setMpResearchLevelInput(e.target.value);
+
     if (e.target.value == "") {
       return;
     }
@@ -35,6 +43,7 @@ export const EquippedMana = () => {
     } else {
       dispatch(setMpResearchLevel(clampValue));
     }
+    setMpResearchLevelInput(clampValue);
   }
 
   const calculateMana = async () => {
@@ -43,7 +52,6 @@ export const EquippedMana = () => {
     if (equipmentString === initialEquipmentString) {
       return;
     }
-
 
     const response: any = await getStuffMp(equipment);
     if (response.status === 200) {
@@ -62,7 +70,7 @@ export const EquippedMana = () => {
     <>
       <div className="m-1 w-full">
         <div className="flex flex-row justify-between text-sm mb-2">
-          <label className="">Mp research level: <input className="w-12 bg-slate-800 text-white px-1" type="number" onChange={handleMpResearchLevelChange} value={mpResearchLevelInput} /></label>
+          <label className="">Mp research level: <input className="w-12 bg-slate-800 text-white px-1" type="number" onBlur={handleUnFocus} onChange={handleMpResearchLevelChange} value={mpResearchLevelInput} /></label>
           <label htmlFor="shoes-check">Shoes +3:<input onChange={handleShoesToggle} checked={shoes > 0 ? true : false} className="mx-1" type="checkbox" name="shoes-check" /></label>
         </div>
         <progress className={`mp-bar ${overload ? "mp-bar-overload" : ""}`} max={maxMp} value={mp}></progress>
