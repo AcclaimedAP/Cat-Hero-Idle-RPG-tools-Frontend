@@ -3,6 +3,7 @@ import { IMainRune } from "src/types/IRune";
 import { HoverContainer } from "./HoverContainer";
 import { Ribbon } from "./HoverRibbon";
 import { RuneIcon } from "../RuneIcon/RuneIcon";
+import { getDeviceType } from "src/utility/device/getDevice";
 export interface IHoverBox {
   show: () => void;
   hide: () => void;
@@ -11,12 +12,12 @@ export interface IHoverBox {
 export const HoverBox = forwardRef(({ rune }: { rune: IMainRune }, ref: Ref<IHoverBox>) => {
   const [isVisible, setIsVisible] = useState(false);
   let hoverTimeout: any;
-
+  const delayTimer = getDeviceType() === 'desktop' ? 500 : 0;
   useImperativeHandle(ref, () => ({
     show: () => {
       hoverTimeout = setTimeout(() => {
         setIsVisible(true);
-      }, 500);
+      }, delayTimer);
 
     },
     hide: () => {

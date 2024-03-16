@@ -9,6 +9,7 @@ import { ISubRune } from "src/types/IRune";
 import { FilterQuery } from "../../FilterQuery/FilterQuery";
 import { HoverBox, IHoverBox } from "src/components/HoverBox/subRuneHoverBox";
 import React from "react";
+import { getDeviceType } from "src/utility/device/getDevice";
 
 
 const SubRuneBox = ({ rune, add, remove, isEquipped, filterString }: { rune: ISelectedSubRune, add: (rune: ISelectedSubRune) => void, remove: (rune: ISelectedSubRune) => void, isEquipped: boolean, filterString: string }) => {
@@ -70,10 +71,14 @@ const SubRuneBox = ({ rune, add, remove, isEquipped, filterString }: { rune: ISe
     ref.current?.hide()
   }
 
-
+  const device = getDeviceType();
   return (
     <>
-      <div className="flex flex-col items-center" onTouchStart={handleMouseEnter} onTouchEnd={handleMouseLeave} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <div className="flex flex-col items-center" onTouchStart={() => {
+        if (device !== 'desktop') {
+          handleMouseEnter()
+        }
+      }} onTouchEnd={handleMouseLeave} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <div className="relative">
           <HoverBox rune={runeData} ref={ref} />
         </div>

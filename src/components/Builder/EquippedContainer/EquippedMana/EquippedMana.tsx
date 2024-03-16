@@ -9,7 +9,7 @@ export const EquippedMana = () => {
   const dispatch = useDispatch();
   const equipment = useSelector((state: RootState) => state.equipmentDisplay)
   const [mp, setMp] = useState(0);
-  const [maxMp, setMaxMp] = useState(0);
+  const [maxMp, setMaxMp] = useState(30);
   const mpResearchLevel = useSelector((state: RootState) => state.equipmentDisplay.mpResearchLevel) || 15;
   const [mpResearchLevelInput, setMpResearchLevelInput] = useState(mpResearchLevel);
   const shoes = useSelector((state: RootState) => state.equipmentDisplay.additionalMp)

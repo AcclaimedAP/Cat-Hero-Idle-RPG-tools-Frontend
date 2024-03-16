@@ -9,6 +9,7 @@ import { getData } from "src/utility/data/getData"
 import { FilterQuery } from "../../FilterQuery/FilterQuery";
 import { HoverBox, IHoverBox } from "src/components/HoverBox/mainRuneHoverBox";
 import React from "react";
+import { getDeviceType } from "src/utility/device/getDevice"
 
 const RuneBox = ({ rune, filterString }: { rune: IMainRune, filterString: string }) => {
   const dispatch = useDispatch();
@@ -76,11 +77,14 @@ const RuneBox = ({ rune, filterString }: { rune: IMainRune, filterString: string
   const handleMouseLeave = () => {
     ref.current?.hide()
   }
-
+  const device = getDeviceType();
   return (
     <>
-
-      <div className="flex flex-col items-center" onTouchStart={handleMouseEnter} onTouchEnd={handleMouseLeave} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <div className="flex flex-col items-center" onTouchStart={() => {
+        if (device !== 'desktop') {
+          handleMouseEnter()
+        }
+      }} onTouchEnd={handleMouseLeave} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <div className="relative">
           <HoverBox rune={rune} ref={ref} />
         </div>

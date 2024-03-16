@@ -4,7 +4,7 @@ import { HoverContainer } from "./HoverContainer";
 import { CompanionIcon } from "../CompanionIcon/CompanionIcon";
 import { Ribbon } from "./HoverRibbon";
 import { TypesList } from "./HoverTypes";
-
+import { getDeviceType } from "src/utility/device/getDevice";
 export interface IHoverBox {
   show: () => void;
   hide: () => void;
@@ -13,13 +13,12 @@ export interface IHoverBox {
 export const HoverBox = forwardRef(({ companion }: { companion: ICompanion }, ref: Ref<IHoverBox>) => {
   const [isVisible, setIsVisible] = useState(false);
   let hoverTimeout: any;
-
+  const delayTimer = getDeviceType() === 'desktop' ? 500 : 0;
   useImperativeHandle(ref, () => ({
     show: () => {
       hoverTimeout = setTimeout(() => {
         setIsVisible(true);
-      }, 500);
-
+      }, delayTimer);
     },
     hide: () => {
       clearTimeout(hoverTimeout);

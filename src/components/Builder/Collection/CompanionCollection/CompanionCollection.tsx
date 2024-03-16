@@ -10,6 +10,7 @@ import { FilterQuery } from "../../FilterQuery/FilterQuery";
 import { HoverBox } from "src/components/HoverBox/CompanionHoverBox";
 import React from "react";
 import { IHoverBox } from "src/components/HoverBox/CompanionHoverBox";
+import { getDeviceType } from "src/utility/device/getDevice";
 
 const CompanionBox = ({ companion, add, remove, isEquipped, filterString }: { companion: ISelectedCompanion, add: (companion: ISelectedCompanion) => void, remove: (companion: ISelectedCompanion) => void, isEquipped: boolean, filterString: string }) => {
 
@@ -79,9 +80,14 @@ const CompanionBox = ({ companion, add, remove, isEquipped, filterString }: { co
   }
 
 
+  const device = getDeviceType();
   return (
     <>
-      <div className="flex flex-col items-center" onTouchStart={handleMouseEnter} onTouchEnd={handleMouseLeave} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <div className="flex flex-col items-center" onTouchStart={() => {
+        if (device !== 'desktop') {
+          handleMouseEnter()
+        }
+      }} onTouchEnd={handleMouseLeave} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <div className="relative">
           <HoverBox companion={companionData} ref={ref} />
         </div>
