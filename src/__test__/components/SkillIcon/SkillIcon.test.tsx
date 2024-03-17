@@ -1,14 +1,17 @@
-import { describe, test, expect } from "vitest";
+import { describe, test, expect, beforeEach } from "vitest";
 import { render } from "@testing-library/react";
 import { SkillIcon } from "components/SkillIcon/SkillIcon";
-import { skills } from "src/data/skills/skills";
-
+import { getMockData } from "src/__test__/mockData/MockData";
+let skills: any;
 describe("SkillIcon", () => {
+  beforeEach(() => {
+    skills = getMockData("skills");
+  });
+
   test("Should render image based on skill", () => {
     const { getAllByRole } = render(<SkillIcon skill={skills[0]} />);
     const images = getAllByRole("img");
-    const skillname = skills[0].name.replace(/ /g, '_').replace(/-/g, '_').replace(/'/g, '').replace(/!/g, '').toLowerCase();
-    const skillImage = `game-assets/skills/${skills[0].rarity}/${skillname}.png`.toLowerCase();
+    const skillImage = `game-assets/skills/${skills[0].rarity}/${skills[0].slug.replace('-', '_')}.png`.toLowerCase();
     const image = images.find((image) => image.getAttribute("src") === skillImage);
     expect(image).not.toBeUndefined();
 

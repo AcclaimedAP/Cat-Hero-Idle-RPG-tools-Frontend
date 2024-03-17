@@ -1,4 +1,4 @@
-import { ContentRouter } from "components/CotentRouter/ContentRouter";
+import { ContentRouter } from "src/components/ContentRouter/ContentRouter";
 import { buildList } from "components/Builds/BuildsCollection/BuildsList";
 
 

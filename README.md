@@ -28,6 +28,7 @@ The project is built using Vite, with a React template, for a full list with ver
 
 You can generate documentation by writing `npm run docs` in the root folder.  
 This will generate all written documentations into a folder called "docs", and you can open the web file to browse through the documentation.
+You can open the generated docs by running `npm run open-docs` afterwards.
 
 
 ## Contributing, questions, contact

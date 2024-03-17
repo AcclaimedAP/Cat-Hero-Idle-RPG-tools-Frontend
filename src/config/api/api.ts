@@ -1,3 +1,19 @@
+/**
+ * API configuration
+ * @returns {Object} - Object with all the API endpoints
+ *
+ * @remarks
+ * This function returns an object with all the API endpoints. It is used to create API fetch functions by providing the base URL and the endpoint.
+ *
+ * @example
+ *
+ * const url = api().build().create();
+ * // returns 'https://api.example.com/builds/'
+ *
+ * const url = api().build().get("abc123");
+ * // returns 'https://api.example.com/builds/abc123/'
+ *
+ */
 export const api = () => {
 	const baseUrl = import.meta.env.VITE_API_URL;
 	const build = () => {

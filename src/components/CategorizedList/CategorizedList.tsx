@@ -3,6 +3,7 @@ import { IGenericContent } from "types/IGenericContent"
 
 /**
  * @name CategorizedList
+ * @deprecated Not used currently.
  * @description This component is used to display a list of content, categorized by a category. It is used in the ContentRouter component.
  * @param contentList An array of IGenericContent objects.
  * @returns A list of content, categorized by category.

@@ -1,9 +1,12 @@
 
 
-
+/**
+ * TypesList
+ * @param {string[]} types - The types of the skill or companion
+ * @returns {JSX.Element} - The types list component
+ * 
+ */
 export const TypesList = ({ types }: { types: string[] }) => {
-
-
 
   return (
     <>

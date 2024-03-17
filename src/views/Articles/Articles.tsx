@@ -1,4 +1,4 @@
-import { ContentRouter } from "src/components/CotentRouter/ContentRouter";
+import { ContentRouter } from "src/components/ContentRouter/ContentRouter";
 import { articleList } from "src/components/Articles/ArticlesCollection/ArticleList"
 
 export const Articles = () => {

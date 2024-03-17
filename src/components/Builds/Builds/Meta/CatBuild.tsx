@@ -1,7 +1,10 @@
 
+/**
+ * CatBuild
+ * @deprecated This component is not used in the project.
+ */
 
 export const CatBuild = () => {
-
 
   return (
     <div>

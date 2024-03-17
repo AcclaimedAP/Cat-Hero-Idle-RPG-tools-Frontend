@@ -1,6 +1,15 @@
 import { useEffect, useState } from "react"
 import copyIcon from './copy.svg'
 
+/**
+ * @name StringTextField
+ * @description This component is used to display a text field for a string.
+ * @param children The string to display in the text field.
+ * @returns {JSX.Element} The StringTextField component.
+ * @example
+ * <StringTextField>Some text</StringTextField>
+ * // returns a text field with the value "Some text"
+ */
 
 export const StringTextField = ({ children }: { children: string }) => {
   const [value, setValue] = useState(children);

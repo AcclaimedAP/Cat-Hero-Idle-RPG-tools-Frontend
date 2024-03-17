@@ -22,6 +22,12 @@ const NavigationLink = ({ link }: { link: ILinkRoute }) => {
 	);
 };
 
+/**
+ * The navigation bar component
+ * @returns {JSX.Element} The navigation bar component
+ * 
+ */
+
 export const NavigationBar = () => {
 	const links = navigationData.links.map((link) => (
 		<NavigationLink

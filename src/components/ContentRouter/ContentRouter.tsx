@@ -6,6 +6,7 @@ import { IGenericContent } from "types/IGenericContent";
 
 /**
  * @name ContentRouter
+ * @deprecated Not used currently.
  * @description This component is used to display a list of content, and to display a single piece of content.
  * @param contentList An array of IGenericContent objects.
  * @returns A list of content, categorized by category, and a single piece of content.

@@ -10,6 +10,11 @@ export interface IHoverBox {
   hide: () => void;
 }
 
+/**
+ * Hover box for the sub rune
+ * @param {ISubRune} rune - The sub rune object
+ */
+
 export const HoverBox = forwardRef(({ rune }: { rune: ISubRune }, ref: Ref<IHoverBox>) => {
   const [isVisible, setIsVisible] = useState(false);
   let hoverTimeout: any;

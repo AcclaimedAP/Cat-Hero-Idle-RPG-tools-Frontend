@@ -13,7 +13,26 @@ import { PopupModal } from 'src/components/PopupModal/PopupModal';
 import { saveBuild, getBuild } from 'src/config/api/services/buildUrl';
 import { getStuff } from 'src/config/api/services/stuff';
 
-
+/**
+ * The builder tool
+ * @name BuilderTool
+ * @returns The builder tool main component.
+ * @description This component is used to display the builder tool for the application.
+ * @remarks
+ * This component consists of many sub components and functionalities.
+ * It's the main logic component for the builder tool, and includes:
+ * Importing/exporting builds
+ * Automatic saving
+ * Tab switching
+ * Clearing the build
+ * 
+ * It renders the SelectionContainer and CollectionContainer components.
+ * SelectionContainer is used to show ALL of the stuff that can be added to the build, while CollectionContainer is used to show the stuff that has been added to the build.
+ * 
+ * @example
+ * <BuilderTool></BuilderTool>
+ * // returns the builder tool
+ */
 
 export const BuilderTool = () => {
   const dispatch = useDispatch();

@@ -8,6 +8,10 @@ export interface IHoverBox {
   show: () => void;
   hide: () => void;
 }
+/**
+ * Hover box for the main rune
+ * @param {IMainRune} rune - The main rune object
+ */
 
 export const HoverBox = forwardRef(({ rune }: { rune: IMainRune }, ref: Ref<IHoverBox>) => {
   const [isVisible, setIsVisible] = useState(false);

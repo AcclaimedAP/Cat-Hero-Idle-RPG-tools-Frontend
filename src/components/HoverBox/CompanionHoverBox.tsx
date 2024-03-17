@@ -9,6 +9,10 @@ export interface IHoverBox {
   show: () => void;
   hide: () => void;
 }
+/**
+ * Hover box for the companion
+ * @param {ICompanion} companion - The companion object
+ */
 
 export const HoverBox = forwardRef(({ companion }: { companion: ICompanion }, ref: Ref<IHoverBox>) => {
   const [isVisible, setIsVisible] = useState(false);

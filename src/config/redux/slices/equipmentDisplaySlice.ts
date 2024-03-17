@@ -2,6 +2,13 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { IEquipment } from 'src/types/ICollection';
 
+/**
+ * The initial state of the equipment display
+ * @const initialState
+ * @type {IEquipment}
+ * @description The initial state of the equipment display
+ * 
+ */
 const initialState: IEquipment = {
 	companionsList: [{}, {}, {}, {}, {}, {}],
 	skillList: [{}, {}, {}, {}, {}, {}],
@@ -11,7 +18,37 @@ const initialState: IEquipment = {
 	mpResearchLevel: 15,
 };
 
+/**
+ * The equipment display slice for redux
+ * @const equipmentInitialState
+ * @type {IEquipment}
+ * @description The equipment initial state, which is exported to be used in the project as a reference for the initial state.
+ * 
+ */
 export const equipmentInitialState = initialState;
+
+/**
+ * The equipment display slice for redux
+ * @const equipmentDisplaySlice
+ * @type {any}
+ * @description The equipment display slice for redux, which contains the reducers and the current state of the slice.
+ * 
+ * @example
+ * // You can access the state of the equipment display slice by using the useSelector hook from react-redux
+ * const equipmentDisplay = useSelector((state: RootState) => state.equipmentDisplay);
+ * 
+ * // You can dispatch the actions of the equipment display slice by using the useDispatch hook from react-redux in various ways.
+ * const dispatch = useDispatch(); // Declare the dispatch hook
+ * dispatch(setEquipment({companionsList: [], skillList: [], mainRuneList: [], subRuneList: [], additionalMp: 0, mpResearchLevel: 0})); // Dispatch to update the whole state
+ * dispatch(setCompanionsList([])); // Dispatch to update the companions list
+ * dispatch(setSkillList([])); // Dispatch to update the skill list
+ * dispatch(setMainRuneList([])); // Dispatch to update the main rune list
+ * dispatch(setSubRuneList([])); // Dispatch to update the sub rune list
+ * dispatch(setAdditionalMp(0)); // Dispatch to update the additional mp
+ * dispatch(setMpResearchLevel(0)); // Dispatch to update the mp research level
+ * dispatch(resetEquipment()); // Dispatch to reset the equipment state
+ * 
+ */
 
 export const equipmentDisplaySlice = createSlice({
 	name: 'equipmentDisplay',
