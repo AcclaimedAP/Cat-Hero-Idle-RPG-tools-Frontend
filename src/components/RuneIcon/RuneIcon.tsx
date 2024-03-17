@@ -2,11 +2,12 @@ import { ISubRune, IMainRune } from "types/IRune";
 
 /**
  * Renders a rune icon component.
+ * @param type - The type of rune to display.
  * @param rune - The rune object to display.
- * @param label - Whether to display the rune label or not. Defaults to true.
+ * @param label - Not used currently.
  * @returns The rendered RuneIcon component.
  */
-export const RuneIcon = ({ type = "main", rune, label = true }: { type: string, rune: ISubRune | IMainRune | undefined, label?: boolean }) => {
+export const RuneIcon = ({ type = "main", rune, label = true }: { type?: string, rune: ISubRune | IMainRune | undefined, label?: boolean }) => {
   if (!rune) return null;
 
   const runename = rune.slug.replaceAll('-', '_');

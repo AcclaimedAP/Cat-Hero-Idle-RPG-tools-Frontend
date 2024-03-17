@@ -1,13 +1,17 @@
-import { describe, test, expect } from "vitest";
+import { describe, test, expect, beforeEach } from "vitest";
 import { render } from "@testing-library/react";
 import { CompanionIcon } from "components/CompanionIcon/CompanionIcon";
-import { companions } from "src/data/companions/companions";
+import { getMockData } from "src/__test__/mockData/MockData";
 
+let companions: any;
 describe("companionIcon", () => {
+  beforeEach(() => {
+    companions = getMockData("companions");
+  });
   test("Should render image based on companion", () => {
     const { getAllByRole } = render(<CompanionIcon companion={companions[0]} />);
     const images = getAllByRole("img");
-    const image = images.find((image) => image.getAttribute("src") === `game-assets/companions/${companions[0].rarity}/${companions[0].name.replace(/ /g, '_').replace(/-/g, '_').replace(/'/g, '').replace(/!/g, '').toLowerCase()}.png`.toLowerCase());
+    const image = images.find((image) => image.getAttribute("src") === `game-assets/companions/${companions[0].rarity}/${companions[0].slug.replace('-', '_')}.png`.toLowerCase());
     expect(image).not.toBeUndefined();
 
   });
@@ -23,7 +27,7 @@ describe("companionIcon", () => {
   });
   test("Should have mana cost label that equals the mana cost of the companion", () => {
     const { getByText } = render(<CompanionIcon companion={companions[0]} label={false} />);
-    const label = getByText(companions[0].manaCost.toString());
-    expect(label).toHaveTextContent(companions[0].manaCost.toString());
+    const label = getByText(companions[0].base_mp.toString());
+    expect(label).toHaveTextContent(companions[0].base_mp.toString());
   });
 });
