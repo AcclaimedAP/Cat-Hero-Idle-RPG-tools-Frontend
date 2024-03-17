@@ -1,5 +1,10 @@
 
-
+/**
+ * @name GettingStarted
+ * @description This component is used to display the Getting Started article.
+ * @deprecated This component will be obsolete after moving the articles to the backend.
+ * @returns The Getting Started article.
+ */
 
 export const GettingStarted = () => {
   return (

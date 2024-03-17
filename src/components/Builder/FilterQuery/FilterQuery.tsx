@@ -1,6 +1,15 @@
 import { useState } from "react"
 
-
+/**
+ * @name FilterQuery
+ * @description This component is used to display a filter input for the application.
+ * @param updateFilter A function to update the filter query.
+ * @returns A filter input for the application.
+ * @example
+ * <FilterQuery updateFilter={updateFilter}></FilterQuery>
+ * // returns a filter input for the application.
+ * 
+ */
 export const FilterQuery = ({ updateFilter }: { updateFilter: (query: string) => void }) => {
   const [filter, setFilter] = useState('')
 

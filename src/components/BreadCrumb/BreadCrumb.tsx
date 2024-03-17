@@ -1,6 +1,13 @@
 import { Link, useLocation, useParams } from "react-router-dom"
 
-
+/**
+ * @name BreadCrumb
+ * @description This component is used to display a breadcrumb navigation for the application.
+ * @returns A breadcrumb navigation for the application.
+ * @example
+ * <BreadCrumb></BreadCrumb>
+ * // returns a breadcrumb navigation for the application.
+ */
 export const BreadCrumb = () => {
   const { category, content } = useParams()
   const location = useLocation();

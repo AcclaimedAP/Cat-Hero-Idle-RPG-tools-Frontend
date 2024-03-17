@@ -1,5 +1,13 @@
 
 
+
+/**
+ * Ribbon component for hover box
+ * @param {string} children - The children of the ribbon
+ * @param {string} width - The width of the ribbon
+ * @returns {JSX.Element} - The ribbon component
+ * 
+ */
 export const Ribbon = ({ children, width }: { children: string, width?: string }) => {
   const widthClass = width === 'small' ? "w-[15.5rem]" : width === 'large' ? "w-[23rem]" : width === "medium" ? "w-[20.5rem]" : "w-[18rem]"
   return (

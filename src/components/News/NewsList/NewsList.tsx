@@ -1,5 +1,6 @@
 import { INews, INewsData } from "src/types/INews"
 import { Link } from "react-router-dom";
+
 const NewsContainer = (news: INews) => {
   const isUpdated = news.updated_at !== news.created_at;
   const formatDate = (date: string) => {
@@ -37,6 +38,12 @@ const NewsContainer = (news: INews) => {
 
 }
 
+/**
+ * The news list component
+ * @param {INewsData} newsData - The news data
+ * @returns {JSX.Element} The news list component
+ * 
+ */
 
 export const NewsList = (newsData: INewsData) => {
 

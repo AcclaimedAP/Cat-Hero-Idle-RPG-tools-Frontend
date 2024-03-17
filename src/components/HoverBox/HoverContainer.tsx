@@ -1,5 +1,11 @@
 import { ReactNode, useEffect, useRef, useState } from 'react';
 
+/**
+ * The hover container component
+ * @param {ReactNode} children - The children of the hover container
+ * @param {string} type - The type of the hover container
+ * @returns {JSX.Element} The hover container component
+ */
 
 export const HoverContainer = ({ children, type }: { children: ReactNode, type?: string }) => {
   const ref = useRef(null);

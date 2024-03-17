@@ -9,6 +9,10 @@ export interface IHoverBox {
   show: () => void;
   hide: () => void;
 }
+/**
+ * Hover box for the skill
+ * @param {ISkill} skill - The skill object
+ */
 
 export const HoverBox = forwardRef(({ skill }: { skill: ISkill }, ref: Ref<IHoverBox>) => {
   const [isVisible, setIsVisible] = useState(false);

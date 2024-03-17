@@ -1,8 +1,15 @@
 import { INews } from "src/types/INews";
 import Markdown from 'react-markdown'
 
+/**
+ * The news container component
+ * @param {INews} news - The news
+ * @returns {JSX.Element} The news container component
+ * 
+ */
 export const NewsContainer = (news: INews) => {
   const isUpdated = news.updated_at !== news.created_at;
+
   const formatDate = (date: string) => {
     const d = new Date(date);
     const day = d.getDate();
@@ -12,7 +19,6 @@ export const NewsContainer = (news: INews) => {
     const minutes = d.getMinutes();
     return `${day}/${month}/${year} ${hours}:${minutes}`;
   }
-
 
   return (
     <>
@@ -33,8 +39,5 @@ export const NewsContainer = (news: INews) => {
         </div>
       </div>
     </>
-
   );
-
-
 }

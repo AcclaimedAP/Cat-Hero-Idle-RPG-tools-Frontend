@@ -24,6 +24,11 @@ const NavigationLink = ({ link }: { link: ILinkRoute }) => {
 	);
 };
 
+/**
+ * The sub navigation bar component
+ * @deprecated Not used currently.
+ */
+
 export const SubNavigationBar = ({ navigationData }: { navigationData: INavigationRoute }) => {
 	const links =
 		navigationData &&
