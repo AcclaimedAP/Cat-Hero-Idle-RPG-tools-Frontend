@@ -2,10 +2,6 @@ import { createBrowserRouter, createHashRouter } from 'react-router-dom';
 import { Layout } from 'views/layouts/mainLayout';
 import { NotFound } from 'views/NotFound/NotFound';
 import { Builder } from 'src/views/Builder/Builder';
-import { GameData } from 'views/GameData/GameData';
-import { SkillsOverview } from 'views/GameData/Skills/SkillsOverview';
-import { CompanionsOverview } from 'views/GameData/Companions/CompanionsOverview';
-import { RunesOverview } from 'views/GameData/Runes/RunesOverview';
 import { Builds } from 'views/Builds/Builds';
 import { Articles } from 'src/views/Articles/Articles';
 import { Contact } from 'src/views/Contact/Contact';
@@ -44,31 +40,6 @@ const routes = [
         path: '/builder',
         element: <Builder></Builder>,
         children: []
-      },
-			{
-				path: 'game-data',
-				element: <GameData></GameData>,
-        children: []
-			},
-			{
-				path: 'game-data',
-				children: [
-					{
-						path: 'skills',
-						element: <SkillsOverview></SkillsOverview>,
-						children: [],
-					},
-					{
-						path: 'companions',
-						element: <CompanionsOverview></CompanionsOverview>,
-						children: [],
-          },
-          {
-            path: 'runes',
-            element: <RunesOverview></RunesOverview>,
-            children: [],
-          }
-				],
       },
       {
         path: 'builds',
