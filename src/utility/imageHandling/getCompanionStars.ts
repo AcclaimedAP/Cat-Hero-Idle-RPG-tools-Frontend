@@ -16,6 +16,10 @@ import BlueStar3 from 'assets/sprites/companions/stars/Star13.png';
  * 
  * @param level 
  * @returns The image for the companion stars based on the level
+ * 
+ * @remarks
+ * This returns stars based on the level input for companions. It is promarily used in CompanionIcon component.
+ * 
  * @example
  * const stars = getCompanionStars(1);
  * // returns YellowStar1 <- 'assets/sprites/companions/stars/Star1.png'

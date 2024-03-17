@@ -8,7 +8,28 @@ import { Contact } from 'src/views/Contact/Contact';
 import { News } from 'src/views/News/News';
 import { NewsView } from 'src/views/News/NewsView';
 
-
+/**
+ * The routes for the application
+ * @const routes
+ * @type {object[]}
+ * @description The routes for the application
+ * @example
+ * const routes = [ // Array of routes
+ * {
+ *  path: '/',                            // The path of the root route
+ *  element: <Layout></Layout>,           // The layout of the route
+ *  errorElement: <NotFound></NotFound>,  // The error element of the route
+ *  children: [                           // The children of the route               
+ *    {
+ *      path: '/news',                    // The path of the child route             
+ *      element: <News></News>,           // The element of the child route, which is rendered inside of the parent element.
+ *      index: true,                      // The index of the child route, specifies if the route is the index route, omitting this will make the route not the index route.
+ *    },
+ *    {
+ *      ...
+ *    }
+ *  ]
+ */
 
 const routes = [
 	{
