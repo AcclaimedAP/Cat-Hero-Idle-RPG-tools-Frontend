@@ -216,6 +216,16 @@ h1, h2, h3, span {
   animation: fade-out 0.15s ease-in-out forwards;
 }
 
+@media(width >= 768px) {
+  .hover-box-enter {
+    animation: fade-in 0.15s 0.8s ease-in-out forwards;
+  }
+  
+  .hover-box-exit {
+    animation: fade-out 0.15s ease-in-out forwards;
+  }
+}
+
 @keyframes fade-in {
   0% {
     opacity: 0;
