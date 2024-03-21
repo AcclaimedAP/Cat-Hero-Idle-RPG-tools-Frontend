@@ -53,3 +53,27 @@ export interface IEquipment extends ICollection {
 	additionalMp: number;
 	mpResearchLevel: number;
 }
+
+interface IStuffBoxProps {
+	add: (skill: ISelectedSkill) => void;
+	remove: (skill: ISelectedSkill) => void;
+	isEquipped: boolean;
+	filterString: string;
+}
+
+export interface ISkillBoxProps extends IStuffBoxProps {
+	skill: ISelectedSkill;
+}
+
+export interface ICompanionBoxProps extends IStuffBoxProps {
+	companion: ISelectedCompanion;
+}
+
+export interface IMainRuneBoxProps extends IStuffBoxProps {
+	rune: ISelectedMainRune;
+}
+
+export interface ISubRuneBoxProps extends IStuffBoxProps {
+	rune: ISelectedSubRune;
+}
+

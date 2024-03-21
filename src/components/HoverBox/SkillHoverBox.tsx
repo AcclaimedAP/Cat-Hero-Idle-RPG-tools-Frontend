@@ -5,10 +5,7 @@ import { Ribbon } from "./HoverRibbon";
 import { TypesList } from "./HoverTypes";
 import { SkillIcon } from "../SkillIcon/SkillIcon";
 import { getDeviceType } from "src/utility/device/getDevice";
-export interface IHoverBox {
-  show: () => void;
-  hide: () => void;
-}
+import { IHoverBox } from "src/types/IHoverBox";
 /**
  * Hover box for the skill
  * @param {ISkill} skill - The skill object

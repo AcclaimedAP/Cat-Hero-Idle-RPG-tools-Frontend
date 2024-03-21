@@ -7,12 +7,13 @@ import { setMainRuneList } from 'src/config/redux/slices/equipmentDisplaySlice'
 import { getData } from "src/utility/data/getData";
 import { IMainRune } from "src/types/IRune";
 import { FilterQuery } from "../../FilterQuery/FilterQuery";
-import { HoverBox, IHoverBox } from "src/components/HoverBox/mainRuneHoverBox";
+import { HoverBox } from "src/components/HoverBox/mainRuneHoverBox";
+import { IHoverBox } from "src/types/IHoverBox";
 import React from "react";
 import { getDeviceType } from "src/utility/device/getDevice";
+import { IMainRuneBoxProps } from "types/ICollection";
 
-
-const MainRuneBox = ({ rune, add, remove, isEquipped, filterString }: { rune: ISelectedMainRune, add: (rune: ISelectedMainRune) => void, remove: (rune: ISelectedMainRune) => void, isEquipped: boolean, filterString: string }) => {
+const MainRuneBox = ({ rune, add, remove, isEquipped, filterString }: IMainRuneBoxProps) => {
   const runes: IMainRune[] = getData('mainRunes');
   const ref = React.createRef<IHoverBox>();
   const [selected, setSelected] = useState(isEquipped)

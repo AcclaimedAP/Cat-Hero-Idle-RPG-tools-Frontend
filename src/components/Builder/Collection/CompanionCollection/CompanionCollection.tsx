@@ -9,10 +9,11 @@ import { ICompanion } from "src/types/ICompanion";
 import { FilterQuery } from "../../FilterQuery/FilterQuery";
 import { HoverBox } from "src/components/HoverBox/CompanionHoverBox";
 import React from "react";
-import { IHoverBox } from "src/components/HoverBox/CompanionHoverBox";
+import { IHoverBox } from "src/types/IHoverBox";
 import { getDeviceType } from "src/utility/device/getDevice";
+import { ICompanionBoxProps } from "types/ICollection";
 
-const CompanionBox = ({ companion, add, remove, isEquipped, filterString }: { companion: ISelectedCompanion, add: (companion: ISelectedCompanion) => void, remove: (companion: ISelectedCompanion) => void, isEquipped: boolean, filterString: string }) => {
+const CompanionBox = ({ companion, add, remove, isEquipped, filterString }: ICompanionBoxProps) => {
 
   if (!companion.id) return null
   const companions: ICompanion[] = getData('companions');

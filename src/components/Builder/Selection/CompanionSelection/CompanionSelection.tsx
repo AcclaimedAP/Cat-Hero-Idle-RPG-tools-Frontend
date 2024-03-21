@@ -9,7 +9,7 @@ import { getData } from "src/utility/data/getData"
 import { FilterQuery } from "../../FilterQuery/FilterQuery";
 import { HoverBox } from "src/components/HoverBox/CompanionHoverBox";
 import React from "react";
-import { IHoverBox } from "src/components/HoverBox/CompanionHoverBox";
+import { IHoverBox } from "src/types/IHoverBox";
 import { getDeviceType } from "src/utility/device/getDevice"
 
 const CompanionBox = ({ companion, filterString }: { companion: ICompanion, filterString: string }) => {
