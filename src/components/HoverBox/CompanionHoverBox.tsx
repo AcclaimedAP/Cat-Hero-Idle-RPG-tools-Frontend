@@ -5,10 +5,7 @@ import { CompanionIcon } from "../CompanionIcon/CompanionIcon";
 import { Ribbon } from "./HoverRibbon";
 import { TypesList } from "./HoverTypes";
 import { getDeviceType } from "src/utility/device/getDevice";
-export interface IHoverBox {
-  show: () => void;
-  hide: () => void;
-}
+import { IHoverBox } from "src/types/IHoverBox";
 /**
  * Hover box for the companion
  * @param {ICompanion} companion - The companion object

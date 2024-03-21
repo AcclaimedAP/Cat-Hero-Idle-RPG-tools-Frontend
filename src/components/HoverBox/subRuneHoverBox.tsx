@@ -4,11 +4,7 @@ import { HoverContainer } from "./HoverContainer";
 import { Ribbon } from "./HoverRibbon";
 import { RuneIcon } from "../RuneIcon/RuneIcon";
 import { getDeviceType } from "src/utility/device/getDevice";
-
-export interface IHoverBox {
-  show: () => void;
-  hide: () => void;
-}
+import { IHoverBox } from "src/types/IHoverBox";
 
 /**
  * Hover box for the sub rune

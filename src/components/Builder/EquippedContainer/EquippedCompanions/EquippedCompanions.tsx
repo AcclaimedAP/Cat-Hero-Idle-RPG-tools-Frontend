@@ -7,7 +7,7 @@ import { getData } from "src/utility/data/getData";
 import { ICompanion } from "src/types/ICompanion";
 import { HoverBox } from "src/components/HoverBox/CompanionHoverBox";
 import React from "react";
-import { IHoverBox } from "src/components/HoverBox/CompanionHoverBox";
+import { IHoverBox } from "src/types/IHoverBox";
 import { getDeviceType } from "src/utility/device/getDevice";
 
 
