@@ -11,8 +11,9 @@ import { HoverBox } from "src/components/HoverBox/SkillHoverBox";
 import { IHoverBox } from "src/types/IHoverBox";
 import React from "react";
 import { getDeviceType } from "src/utility/device/getDevice";
+import { ISkillBoxProps } from "types/ICollection";
 
-const SkillBox = ({ skill, add, remove, isEquipped, filterString }: { skill: ISelectedSkill, add: (skill: ISelectedSkill) => void, remove: (skill: ISelectedSkill) => void, isEquipped: boolean, filterString: string }) => {
+const SkillBox = ({ skill, add, remove, isEquipped, filterString }: ISkillBoxProps) => {
   if (!skill.id) return null
   const skills: ISkill[] = getData('skills');
   const [selected, setSelected] = useState(isEquipped);
