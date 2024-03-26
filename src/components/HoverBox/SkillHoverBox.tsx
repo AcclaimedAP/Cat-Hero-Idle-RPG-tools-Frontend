@@ -42,6 +42,7 @@ export const HoverBox = forwardRef(({ skill }: { skill: ISkill }, ref: Ref<IHove
         <div className='flex flex-row justify-between items-start translate-y-12 mt-1 gap-2 w-64'>
           <div>
             <SkillIcon skill={skill} label={false} />
+            <span className="bg-gray-500 p-1 text-[0.6rem] whitespace-nowrap">{skill.cooldown} seconds</span>
           </div>
           <div className="flex flex-col">
             <TypesList types={skill.types} />
