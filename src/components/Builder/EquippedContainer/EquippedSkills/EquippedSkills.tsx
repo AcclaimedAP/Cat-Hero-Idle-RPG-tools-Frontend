@@ -5,7 +5,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { setSkillList } from 'src/config/redux/slices/equipmentDisplaySlice'
 import { getData } from "src/utility/data/getData";
 import { ISkill } from "src/types/ISkill";
-import { HoverBox, IHoverBox } from "src/components/HoverBox/SkillHoverBox";
+import { HoverBox } from "src/components/HoverBox/SkillHoverBox";
+import { IHoverBox } from "src/types/IHoverBox";
 import React from "react";
 import { getDeviceType } from "src/utility/device/getDevice";
 
