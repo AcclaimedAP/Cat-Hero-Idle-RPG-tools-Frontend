@@ -74,7 +74,8 @@ export const EquippedMainRunes = () => {
   const equipped = useSelector((state: RootState) => state.equipmentDisplay.mainRuneList)
   return (
     <>
-      <div className="flex flex-wrap justify-around gap-1 [&>*:first-child]:w-full ">
+      {/* <div className="flex flex-wrap justify-around gap-1 [&>*:first-child]:w-full "> */}
+      <div className="grid grid-cols-2 grid-rows-3 gap-2">
         {equipped.map((rune, index) => {
           if (!rune.id) return <EmptySlot key={index} />
           return (

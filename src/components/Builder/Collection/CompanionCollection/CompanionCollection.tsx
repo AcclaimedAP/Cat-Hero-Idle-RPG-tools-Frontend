@@ -113,7 +113,6 @@ export const CompanionCollection = () => {
   const companions: ICompanion[] = getData('companions');
   const rarityOrder = ['common', 'uncommon', 'rare', 'epic', 'legendary', 'mythic']
   const sortByRarity = (a: ISelectedCompanion, b: ISelectedCompanion) => {
-    // Find companion in companionsList
     const companionA = companions.find((companion) => companion.id === a.id)
     const companionB = companions.find((companion) => companion.id === b.id)
     if (!companionA || !companionB) return 0

@@ -7,13 +7,13 @@ import { IEquipment } from 'src/types/ICollection';
  * @const initialState
  * @type {IEquipment}
  * @description The initial state of the equipment display
- * 
+ *
  */
 const initialState: IEquipment = {
 	companionsList: [{}, {}, {}, {}, {}, {}],
 	skillList: [{}, {}, {}, {}, {}, {}],
-	mainRuneList: [{}, {}, {}],
-	subRuneList: [{}, {}, {}, {}],
+	mainRuneList: [{}, {}, {}, {}],
+	subRuneList: [{}, {}, {}, {}, {}, {}],
 	additionalMp: 0,
 	mpResearchLevel: 15,
 };
@@ -23,7 +23,7 @@ const initialState: IEquipment = {
  * @const equipmentInitialState
  * @type {IEquipment}
  * @description The equipment initial state, which is exported to be used in the project as a reference for the initial state.
- * 
+ *
  */
 export const equipmentInitialState = initialState;
 
@@ -32,11 +32,11 @@ export const equipmentInitialState = initialState;
  * @const equipmentDisplaySlice
  * @type {any}
  * @description The equipment display slice for redux, which contains the reducers and the current state of the slice.
- * 
+ *
  * @example
  * // You can access the state of the equipment display slice by using the useSelector hook from react-redux
  * const equipmentDisplay = useSelector((state: RootState) => state.equipmentDisplay);
- * 
+ *
  * // You can dispatch the actions of the equipment display slice by using the useDispatch hook from react-redux in various ways.
  * const dispatch = useDispatch(); // Declare the dispatch hook
  * dispatch(setEquipment({companionsList: [], skillList: [], mainRuneList: [], subRuneList: [], additionalMp: 0, mpResearchLevel: 0})); // Dispatch to update the whole state
@@ -47,7 +47,7 @@ export const equipmentInitialState = initialState;
  * dispatch(setAdditionalMp(0)); // Dispatch to update the additional mp
  * dispatch(setMpResearchLevel(0)); // Dispatch to update the mp research level
  * dispatch(resetEquipment()); // Dispatch to reset the equipment state
- * 
+ *
  */
 
 export const equipmentDisplaySlice = createSlice({

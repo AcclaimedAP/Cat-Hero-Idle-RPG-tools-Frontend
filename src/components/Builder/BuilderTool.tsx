@@ -12,7 +12,7 @@ import { useSearchParams } from 'react-router-dom';
 import { PopupModal } from 'src/components/PopupModal/PopupModal';
 import { saveBuild, getBuild } from 'src/config/api/services/buildUrl';
 import { getStuff } from 'src/config/api/services/stuff';
-
+import { updateBuilder, updateBuild } from 'src/utility/data/updateBuilder';
 /**
  * The builder tool
  * @name BuilderTool
@@ -69,11 +69,12 @@ export const BuilderTool = () => {
       return;
     }
     const collectionData = response.data.build.collection;
-    const equipmentData = response.data.build.equipment;
+    let equipmentData = response.data.build.equipment;
     if (collectionData) {
       dispatch(setCollection(collectionData))
     }
     if (equipmentData) {
+      equipmentData = updateBuild(equipmentData);
       dispatch(setEquipment(equipmentData))
     }
     setActiveTab('equip')
@@ -107,8 +108,9 @@ export const BuilderTool = () => {
       }
     }
     if (equipment) {
-      const equipmentData = JSON.parse(equipment)
+      let equipmentData = JSON.parse(equipment)
       if (equipmentData) {
+        equipmentData = updateBuild(equipmentData);
         dispatch(setEquipment(equipmentData))
         if (equipmentData !== equipmentInitialState) {
           setActiveTab('equip')
@@ -191,14 +193,14 @@ export const BuilderTool = () => {
             <div className='flex gap-4 flex-row'>
               <div className='flex flex-row flex-nowrap gap-1'>
                 <button className='container-light hover:brightness-110' onClick={exportString}>Export</button>
-            </div>
+              </div>
               <div className='flex flex-row flex-nowrap gap-1'>
 
                 {!automaticSave && <>
                   <button className='container-light hover:brightness-110' onClick={getFromLocalStorage}>Load</button>
                   <button className='container-light hover:brightness-110' onClick={saveToLocalStorage}>Save</button>
                 </>}
-              <button className='container-light hover:brightness-110' onClick={reset}>Clear</button>
+                <button className='container-light hover:brightness-110' onClick={reset}>Clear</button>
               </div>
             </div>
           </div>{stuff ?

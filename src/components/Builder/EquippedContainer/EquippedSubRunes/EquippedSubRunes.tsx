@@ -50,7 +50,7 @@ const RuneBox = ({ rune }: { rune: ISelectedSubRune }) => {
         <div className="relative">
           <HoverBox rune={runeData} ref={ref} />
         </div>
-      <div className="justify-center flex" onClick={removeRuneFromList}>
+        <div className="justify-center flex" onClick={removeRuneFromList}>
           <RuneIcon type="sub" rune={runeData} />
         </div>
       </div>
@@ -74,7 +74,7 @@ export const EquippedSubRunes = () => {
   const equipped = useSelector((state: RootState) => state.equipmentDisplay.subRuneList)
   return (
     <>
-      <div className="grid grid-cols-2 grid-rows-2 gap-4 [&>*:first-child]:w-full ">
+      <div className="grid grid-cols-3 grid-rows-3 gap-4 ">
         {equipped.map((rune, index) => {
           if (!rune.id) return <EmptySlot key={index} />
           return (
