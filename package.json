@@ -48,7 +48,7 @@
 		"typedoc": "^0.25.7",
 		"typescript": "^5.3.3",
 		"vite": "^5.0.12",
-		"vitest": "^1.2.1"
+		"vitest": "^1.6.0"
 	},
 	"optionalDependencies": {
 		"@rollup/rollup-linux-x64-gnu": "4.6.1"
