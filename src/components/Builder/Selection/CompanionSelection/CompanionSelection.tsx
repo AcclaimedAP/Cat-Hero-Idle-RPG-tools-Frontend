@@ -115,11 +115,11 @@ const CompanionBox = ({ companion, filterString }: { companion: ICompanion, filt
         <div className="relative">
           <HoverBox companion={companion} ref={ref} />
         </div>
-    <div className={`flex flex-col ${brightness()} justify-center items-center w-20 h-28 mb-2`}>
+        <div className={`flex flex-col ${brightness()} justify-center items-center w-20 h-28 mb-2`}>
           <div onClick={handleSelect}>
-        <CompanionIcon companion={companion} level={companionLevel} label={true} />
-      </div>
-      <input type="number" name="" id="" value={level} onChange={handleLevelChange} className="w-20 z-10 -mt-3 bg-slate-800 text-white" />
+            <CompanionIcon companion={companion} level={companionLevel} label={true} />
+          </div>
+          <input type="number" name="" id="" value={level} onChange={handleLevelChange} className="w-20 z-10 -mt-3 bg-slate-800 text-white" />
         </div>
       </div >
     </>
@@ -130,11 +130,17 @@ const CompanionBox = ({ companion, filterString }: { companion: ICompanion, filt
 export const CompanionSelection = () => {
   const companions: any[] = getData("companions");
   const [filter, setFilter] = useState('')
-  const companionBoxes = companions.map((companion) => {
+  const rarityOrder = ['common', 'uncommon', 'rare', 'epic', 'legendary', 'mythic']
+  const sortByRarity = (a: ICompanion, b: ICompanion) => {
+    return rarityOrder.indexOf(a.rarity) - rarityOrder.indexOf(b.rarity)
+  }
+
+  const companionBoxes = companions.toSorted(sortByRarity).map((companion) => {
     return (
       <CompanionBox filterString={filter} companion={companion} key={companion.id} />
     )
   })
+
   const updateFilter = (query: string) => {
     setFilter(query)
   }

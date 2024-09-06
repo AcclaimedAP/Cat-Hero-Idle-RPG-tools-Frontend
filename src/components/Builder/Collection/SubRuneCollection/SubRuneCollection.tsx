@@ -83,13 +83,13 @@ const SubRuneBox = ({ rune, add, remove, isEquipped, filterString }: ISubRuneBox
         <div className="relative">
           <HoverBox rune={runeData} ref={ref} />
         </div>
-    <div className={`flex flex-col ${brightness()} justify-center items-center w-14`} onClick={handleSelect}>
-      {selected && <>
-        <span className="absolute z-10 right-0 -top-1 text-2xl">🗸</span>
-        <div className=" rounded-[50%] selected-shadow-circle border-2 border-red-400 w-14 h-14 top-1 absolute"></div>
-      </>
-      }
-      <RuneIcon type="sub" rune={getRune(rune.id)} label={true} />
+        <div className={`flex flex-col ${brightness()} justify-center items-center w-14`} onClick={handleSelect}>
+          {selected && <>
+            <span className="absolute z-10 right-0 -top-1 text-2xl">🗸</span>
+            <div className=" rounded-[50%] selected-shadow-circle border-2 border-red-400 w-14 h-14 top-1 absolute"></div>
+          </>
+          }
+          <RuneIcon type="sub" rune={getRune(rune.id)} label={true} />
         </div>
       </div>
     </>
@@ -102,14 +102,20 @@ export const SubRuneCollection = () => {
   const dispatch = useDispatch();
   const runesList = useSelector((state: RootState) => state.collectionDisplay.subRuneList)
   const equippedRunes = useSelector((state: RootState) => state.equipmentDisplay.subRuneList)
-  const runes: ISubRune[] = getData('subRunes');
   const [filter, setFilter] = useState('')
   const sortById = (a: ISelectedSubRune, b: ISelectedSubRune) => {
     if (!a.id || !b.id) return 0
     return a.id - b.id
   }
 
-
+  const runes: ISubRune[] = getData('subRunes');
+  const rarityOrder = ['common', 'uncommon', 'rare', 'epic', 'legendary', 'mythic']
+  const sortByRarity = (a: ISelectedSubRune, b: ISelectedSubRune) => {
+    const runeA = runes.find((rune) => rune.id === a.id)
+    const runeB = runes.find((rune) => rune.id === b.id)
+    if (!runeA || !runeB) return 0
+    return rarityOrder.indexOf(runeA.rarity) - rarityOrder.indexOf(runeB.rarity)
+  }
   const addToList = (rune: ISelectedSubRune) => {
     if (equippedRunes.some((obj) => obj.id === rune.id)) return
     const equippedRuneList = [...equippedRunes]
@@ -145,7 +151,7 @@ export const SubRuneCollection = () => {
         <FilterQuery updateFilter={updateFilter} />
       </div>
       <div className="flex flex-row gap-1 flex-wrap justify-center">
-        {runesList.toSorted(sortById).map((rune, index) => {
+        {runesList.toSorted(sortByRarity).map((rune, index) => {
           if (rune.id === undefined || !doesRuneExist(rune.id)) return null
           const isEquippedBool = isEquipped(rune.id)
           return (

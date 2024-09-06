@@ -112,12 +112,12 @@ const SkillBox = ({ skill, filterString }: { skill: ISkill, filterString: string
         <div className="relative">
           <HoverBox skill={skill} ref={ref} />
         </div>
-    <div className={`flex flex-col ${brightness()} justify-center items-center w-14`}>
+        <div className={`flex flex-col ${brightness()} justify-center items-center w-14`}>
 
-      <div onClick={handleSelect}>
-        <SkillIcon skill={skill} level={skillLevel} label={true} />
-      </div>
-      <input type="number" name="" id="" value={level} onChange={handleLevelChange} className="w-full z-10 -mt-3 bg-slate-800 text-white" />
+          <div onClick={handleSelect}>
+            <SkillIcon skill={skill} level={skillLevel} label={true} />
+          </div>
+          <input type="number" name="" id="" value={level} onChange={handleLevelChange} className="w-full z-10 -mt-3 bg-slate-800 text-white" />
         </div>
       </div>
     </>
@@ -128,8 +128,11 @@ const SkillBox = ({ skill, filterString }: { skill: ISkill, filterString: string
 export const SkillSelection = () => {
   const skills: ISkill[] = getData("skills");
   const [filter, setFilter] = useState('')
-
-  const skillBoxes = skills.map((skill) => {
+  const rarityOrder = ['common', 'uncommon', 'rare', 'epic', 'legendary', 'mythic']
+  const sortByRarity = (a: ISkill, b: ISkill) => {
+    return rarityOrder.indexOf(a.rarity) - rarityOrder.indexOf(b.rarity)
+  }
+  const skillBoxes = skills.toSorted(sortByRarity).map((skill) => {
     return (
       <SkillBox filterString={filter} skill={skill} key={skill.id} />
     )

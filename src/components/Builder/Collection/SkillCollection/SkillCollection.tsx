@@ -103,6 +103,14 @@ export const SkillCollection = () => {
     if (!a.id || !b.id) return 0
     return a.id - b.id
   }
+  const skills: ISkill[] = getData('skills');
+  const rarityOrder = ['common', 'uncommon', 'rare', 'epic', 'legendary', 'mythic']
+  const sortByRarity = (a: ISelectedSkill, b: ISelectedSkill) => {
+    const skillA = skills.find((skill) => skill.id === a.id)
+    const skillB = skills.find((skill) => skill.id === b.id)
+    if (!skillA || !skillB) return 0
+    return rarityOrder.indexOf(skillA.rarity) - rarityOrder.indexOf(skillB.rarity)
+  }
 
   const addToList = (skill: ISelectedSkill) => {
     if (equippedSkills.some((obj) => obj.id === skill.id)) return
@@ -140,7 +148,7 @@ export const SkillCollection = () => {
         <FilterQuery updateFilter={updateFilter} />
       </div>
       <div className="flex flex-row gap-2 flex-wrap justify-center">
-        {skillsList.toSorted(sortById).map((skill, index) => {
+        {skillsList.toSorted(sortByRarity).map((skill, index) => {
           if (!skill.id) return null
           const isEquippedBool = isEquipped(skill.id)
           return (

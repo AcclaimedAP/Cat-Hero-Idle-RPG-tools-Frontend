@@ -89,10 +89,10 @@ const RuneBox = ({ rune, filterString }: { rune: IMainRune, filterString: string
         <div className="relative">
           <HoverBox rune={rune} ref={ref} />
         </div>
-    <div className={`flex flex-col ${brightness()} justify-center items-center w-14`}>
-      <div onClick={handleSelect}>
-        <RuneIcon type={"main"} rune={rune} label={false} />
-      </div>
+        <div className={`flex flex-col ${brightness()} justify-center items-center w-14`}>
+          <div onClick={handleSelect}>
+            <RuneIcon type={"main"} rune={rune} label={false} />
+          </div>
         </div>
       </div>
     </>
@@ -103,7 +103,11 @@ const RuneBox = ({ rune, filterString }: { rune: IMainRune, filterString: string
 export const MainRuneSelection = () => {
   const runes: IMainRune[] = getData('mainRunes');
   const [filter, setFilter] = useState('')
-  const runeBoxes = runes.map((rune) => {
+  const rarityOrder = ['common', 'uncommon', 'rare', 'epic', 'legendary', 'mythic']
+  const sortByRarity = (a: IMainRune, b: IMainRune) => {
+    return rarityOrder.indexOf(a.rarity) - rarityOrder.indexOf(b.rarity)
+  }
+  const runeBoxes = runes.toSorted(sortByRarity).map((rune) => {
     return (
       <RuneBox filterString={filter} rune={rune} key={rune.id} />
     )
