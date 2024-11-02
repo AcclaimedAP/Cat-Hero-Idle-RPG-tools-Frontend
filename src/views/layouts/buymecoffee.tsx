@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-
 export default function Buymeacoffee() {
   useEffect(() => {
     const script = document.createElement("script");
@@ -23,5 +22,5 @@ export default function Buymeacoffee() {
     div?.appendChild(script);
   }, []);
 
-  return <div id="supportByBMC"></div>;
+  return <div id="supportByBMC hidden"></div>;
 }
