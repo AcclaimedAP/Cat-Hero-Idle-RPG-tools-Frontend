@@ -3,21 +3,18 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: pantonextrabold;
-  src: local(pantonextrabold), url('./assets/fonts/panton-extrabold-webfont.woff2') format('woff2'),
-       url('./assets/fonts/panton-extrabold-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-
+	font-family: pantonextrabold;
+	src: local(pantonextrabold), url('./assets/fonts/panton-extrabold-webfont.woff2') format('woff2'), url('./assets/fonts/panton-extrabold-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
 }
 
 :root {
-  font-family: pantonextrabold, sans-serif;
+	font-family: pantonextrabold, sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
-
 	color-scheme: light dark;
-  color: #000;
+	color: #000;
 	background-color: #242424;
 
 	font-synthesis: none;
@@ -26,244 +23,228 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, span {
-  color: rgb(255 255 255 / 87%);
-  text-shadow:
-  1px 1px 0 #000,
-  -1px 1px 0 #000,  
-  -1px -1px 0 #000,
-  1px 1px 0 #000,
-  1px 0 0 #000,
-  0 1px 0 #000,
-  -1px 0 0 #000,
-  0 -1px 0 #000;
+h1,
+h2,
+h3,
+span {
+	color: rgb(255 255 255 / 87%);
+	text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, -1px -1px 0 #000, 1px 1px 0 #000, 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000;
 }
 
-.markdown h1, .markdown h2, .markdown h3, .markdown span{
-  color: #000;
-  text-shadow: none;
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown span {
+	color: #000;
+	text-shadow: none;
 }
 
 .markdown h1 {
-  font-size: 1.5rem;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-  font-weight: 700;
-  color: #000;
-  text-shadow: none;
+	font-size: 1.5rem;
+	line-height: 1.2;
+	margin-bottom: 1rem;
+	font-weight: 700;
+	color: #000;
+	text-shadow: none;
 }
 
 .markdown h2 {
-  font-size: 1.2rem;
-  line-height: 1.2;
-  margin-bottom: 0.8rem;
-  font-weight: 700;
-  color: #000;
-  text-shadow: none;
+	font-size: 1.2rem;
+	line-height: 1.2;
+	margin-bottom: 0.8rem;
+	font-weight: 700;
+	color: #000;
+	text-shadow: none;
 }
 
 .markdown h3 {
-  font-size: 1.1rem;
-  line-height: 1.2;
-  margin-bottom: 0.8rem;
-  font-weight: 700;
-  color: #000;
-  text-shadow: none;
+	font-size: 1.1rem;
+	line-height: 1.2;
+	margin-bottom: 0.8rem;
+	font-weight: 700;
+	color: #000;
+	text-shadow: none;
 }
 
 .markdown p {
-  font-size: 1rem;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-  font-weight: 400;
-  color: #000;
-  text-shadow: none;
+	font-size: 1rem;
+	line-height: 1.2;
+	margin-bottom: 1rem;
+	font-weight: 400;
+	color: #000;
+	text-shadow: none;
 }
 
 .markdown ul li {
-  font-size: 1rem;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-  margin-left: 1rem;
-  font-weight: 400;
-  color: #000;
-  text-shadow: none;
-  list-style-type: disc;
+	font-size: 1rem;
+	line-height: 1.2;
+	margin-bottom: 1rem;
+	margin-left: 1rem;
+	font-weight: 400;
+	color: #000;
+	text-shadow: none;
+	list-style-type: disc;
 }
 
 .markdown ul li ul li {
-  font-size: 1rem;
-  line-height: 1.2;
-  margin-bottom: 0.3rem;
-  margin-left: 0.5rem;
-  font-weight: 400;
-  color: #000;
-  text-shadow: none;
-  list-style-type: circle;
+	font-size: 1rem;
+	line-height: 1.2;
+	margin-bottom: 0.3rem;
+	margin-left: 0.5rem;
+	font-weight: 400;
+	color: #000;
+	text-shadow: none;
+	list-style-type: circle;
 }
 
-
-
-
 .text-outline {
-  color: rgb(255 255 255 / 87%);
-  text-shadow:
-  1px 1px 0 #000,
-  -1px 1px 0 #000,  
-  -1px -1px 0 #000,
-  1px 1px 0 #000,
-  1px 0 0 #000,
-  0 1px 0 #000,
-  -1px 0 0 #000,
-  0 -1px 0 #000;
+	color: rgb(255 255 255 / 87%);
+	text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, -1px -1px 0 #000, 1px 1px 0 #000, 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000;
 }
 
 .selected-shadow {
-  box-shadow: 0 0 5px 2px rgb(236 234 120 / 70%);
+	box-shadow: 0 0 5px 2px rgb(236 234 120 / 70%);
 }
 
 .selected-shadow-circle {
-  box-shadow: 0 0 5px 2px rgb(236 234 120 / 70%);
+	box-shadow: 0 0 5px 2px rgb(236 234 120 / 70%);
 }
 
 .background-image {
-  background-image: url("./assets/sprites/background/GV_Dungeon3_background.png");
-  background-size: cover;
-  left: 0;
-  top: 0;
-  background-position: 100% 20%;
-  height: 100vh;
-  background-repeat: no-repeat;
-  
-  position: fixed;
-  width: 100vw;
-  z-index: -1;
+	background-image: url('./assets/sprites/background/GV_Dungeon3_background.png');
+	background-size: cover;
+	left: 0;
+	top: 0;
+	background-position: 100% 20%;
+	height: 100vh;
+	background-repeat: no-repeat;
+
+	position: fixed;
+	width: 100vw;
+	z-index: -1;
 }
 
-
 .background-image-front {
-  background-image: url("./assets/sprites/background/GV_Dungeon3_b.png");
-  background-size: 900px;
-  aspect-ratio: 5 / 2;
-  background-repeat: repeat-x;
-  background-position: center bottom;
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  bottom: 40px;
-  width: calc(100vw + 900px);
-  z-index: 1;
-  animation: slide-left-900-px 150s linear infinite;
+	background-image: url('./assets/sprites/background/GV_Dungeon3_b.png');
+	background-size: 900px;
+	aspect-ratio: 5 / 2;
+	background-repeat: repeat-x;
+	background-position: center bottom;
+	height: 100vh;
+	position: fixed;
+	left: 0;
+	bottom: 40px;
+	width: calc(100vw + 900px);
+	z-index: 1;
+	animation: slide-left-900-px 150s linear infinite;
 }
 
 .background-image-front-two {
-  border-image-source: url("./assets/sprites/background/GV_Dungeon3_a.png");
-  background-size: 700px;
-  aspect-ratio: 5 / 2;
-  background-repeat: repeat-x;
-  background-position: center bottom;
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: calc(100vw + 800px);
-  z-index: 2;
-  animation: slide-left-700-px 110s linear infinite;
+	border-image-source: url('./assets/sprites/background/GV_Dungeon3_a.png');
+	background-size: 700px;
+	aspect-ratio: 5 / 2;
+	background-repeat: repeat-x;
+	background-position: center bottom;
+	height: 100vh;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: calc(100vw + 800px);
+	z-index: 2;
+	animation: slide-left-700-px 110s linear infinite;
 }
 
 .navigation-background {
-  border-top: 20px solid transparent;
-  border-image: url("./assets/sprites/ui/GV_ui_main16.png");
-  border-image-outset: -20px;
-  border-image-slice: 30;
-  border-image-repeat: round;
-  width: 100%;
-  background-color: #81684f;
+	border-top: 20px solid transparent;
+	border-image: url('./assets/sprites/ui/GV_ui_main16.png');
+	border-image-outset: -20px;
+	border-image-slice: 30;
+	border-image-repeat: round;
+	width: 100%;
+	background-color: #81684f;
 }
 
 .mp-bar {
-  border: 2px solid #000;
-  height: 16px;
-  width: 100%;
-  background-color: #81684f;
+	border: 2px solid #000;
+	height: 16px;
+	width: 100%;
+	background-color: #81684f;
 }
 
 .mp-bar::-moz-progress-bar {
-  background-color: #376fd8;
+	background-color: #376fd8;
 }
 
 .mp-bar::-webkit-progress-bar {
-  background-color: #81684f;
+	background-color: #81684f;
 }
 
 .mp-bar::-webkit-progress-value {
-  background-color: #376fd8;
+	background-color: #376fd8;
 }
 
 .mp-bar-overload::-moz-progress-bar {
-  background-color: rgb(179 47 47);
+	background-color: rgb(179 47 47);
 }
 
 .mp-bar-overload::-webkit-progress-value {
-  background-color: rgb(179 47 47);
+	background-color: rgb(179 47 47);
 }
 
 .hover-box-enter {
-  animation: fade-in 0.15s 0.05s ease-in-out forwards;
+	animation: fade-in 0.15s 0.05s ease-in-out forwards;
 }
 
 .hover-box-exit {
-  animation: fade-out 0.15s ease-in-out forwards;
+	animation: fade-out 0.15s ease-in-out forwards;
 }
 
-@media(width >= 768px) {
-  .hover-box-enter {
-    animation: fade-in 0.15s 0.8s ease-in-out forwards;
-  }
-  
-  .hover-box-exit {
-    animation: fade-out 0.15s ease-in-out forwards;
-  }
+@media (width >= 768px) {
+	.hover-box-enter {
+		animation: fade-in 0.15s 0.8s ease-in-out forwards;
+	}
+
+	.hover-box-exit {
+		animation: fade-out 0.15s ease-in-out forwards;
+	}
 }
 
 @keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
+	0% {
+		opacity: 0;
+	}
 
-  100% {
-    opacity: 1;
-  }
+	100% {
+		opacity: 1;
+	}
 }
 
 @keyframes fade-out {
-  0% {
-    opacity: 1;
-  }
+	0% {
+		opacity: 1;
+	}
 
-  100% {
-    opacity: 0;
-  }
+	100% {
+		opacity: 0;
+	}
 }
 
 @keyframes slide-left-900-px {
-  0% {
-    transform: translateX(0);
-  }
+	0% {
+		transform: translateX(0);
+	}
 
-  100% {
-    transform: translateX(-900px);
-  }
-  
+	100% {
+		transform: translateX(-900px);
+	}
 }
 
 @keyframes slide-left-700-px {
-  0% {
-    transform: translateX(0);
-  }
+	0% {
+		transform: translateX(0);
+	}
 
-  100% {
-    transform: translateX(-700px);
-  }
-  
+	100% {
+		transform: translateX(-700px);
+	}
 }
