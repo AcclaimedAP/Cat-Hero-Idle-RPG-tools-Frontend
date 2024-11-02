@@ -1,7 +1,7 @@
 import { BuilderTool } from "components/Builder/BuilderTool";
 export const Builder = () => {
 
-
+  document.title = 'CHIRPG Tools | Builder';
 
   return (
     <>

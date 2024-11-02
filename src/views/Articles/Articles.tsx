@@ -3,6 +3,7 @@ import { articleList } from "src/components/Articles/ArticlesCollection/ArticleL
 
 export const Articles = () => {
 
+  document.title = 'CHIRPG Tools | Articles';
   return (
     <>
       <div className='container-dark'>

@@ -4,6 +4,8 @@ import { buildList } from "components/Builds/BuildsCollection/BuildsList";
 
 export const Builds = () => {
 
+  document.title = 'CHIRPG Tools | Builds';
+
   return (
     <>
       <div className='container-dark'>
@@ -12,8 +14,8 @@ export const Builds = () => {
             <h1 className='text-3xl font-bold'>Builds</h1>
           </div>
         </div>
-          <ContentRouter contentList={buildList} />
-        </div>
+        <ContentRouter contentList={buildList} />
+      </div>
 
 
     </>

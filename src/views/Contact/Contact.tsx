@@ -1,4 +1,6 @@
 export const Contact = () => {
+
+  document.title = 'CHIRPG Tools | Contact';
   return (
     <div>
       <div className='container-dark'>
