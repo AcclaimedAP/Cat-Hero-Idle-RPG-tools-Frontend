@@ -1,22 +1,20 @@
-import { ISelectedCompanion } from "types/ICollection";
 import { CompanionIcon } from "src/components/CompanionIcon/CompanionIcon";
 import { useEffect, useState } from "react";
 import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setCompanionsList } from 'src/config/redux/slices/equipmentDisplaySlice'
 import { getData } from "src/utility/data/getData";
-import { ICompanion } from "src/types/ICompanion";
 import { FilterQuery } from "../../FilterQuery/FilterQuery";
 import { HoverBox } from "src/components/HoverBox/CompanionHoverBox";
 import React from "react";
 import { IHoverBox } from "src/types/IHoverBox";
 import { getDeviceType } from "src/utility/device/getDevice";
-import { ICompanionBoxProps } from "types/ICollection";
+import Game from "types/game";
 
-const CompanionBox = ({ companion, add, remove, isEquipped, filterString }: ICompanionBoxProps) => {
+const CompanionBox = ({ companion, add, remove, isEquipped, filterString }: Game.Collection.Props.Companion) => {
 
   if (!companion.id) return null
-  const companions: ICompanion[] = getData('companions');
+  const companions: Game.Companion[] = getData('companions');
   const [selected, setSelected] = useState(isEquipped);
   const ref = React.createRef<IHoverBox>();
 
@@ -41,7 +39,7 @@ const CompanionBox = ({ companion, add, remove, isEquipped, filterString }: ICom
   }, [isEquipped])
   const companionData = getCompanion(companion.id)
   if (!companionData) return null
-  const filterItem = (companion: ICompanion) => {
+  const filterItem = (companion: Game.Companion) => {
     const filterWords = filterString.split(' ')
     const types = companion.types.join(' ')
     const nameAndTypes = companion.name + ' ' + types + companion.rarity
@@ -106,22 +104,20 @@ export const CompanionCollection = () => {
   const dispatch = useDispatch();
   const equippedCompanions = useSelector((state: RootState) => state.equipmentDisplay.companionsList)
   const [filter, setFilter] = useState('')
-  const sortById = (a: ISelectedCompanion, b: ISelectedCompanion) => {
+  const sortById = (a: Game.Collection.Companion, b: Game.Collection.Companion) => {
     if (!a.id || !b.id) return 0
     return a.id - b.id
   }
-  const companions: ICompanion[] = getData('companions');
-  const rarityOrder = ['common', 'uncommon', 'rare', 'epic', 'legendary', 'mythic']
-  const sortByRarity = (a: ISelectedCompanion, b: ISelectedCompanion) => {
+  const companions: Game.Companion[] = getData('companions');
+  const rarityOrder = ['common', 'uncommon', 'rare', 'epic', 'legendary', 'mythic', 'supreme']
+  const sortByRarity = (a: Game.Collection.Companion, b: Game.Collection.Companion) => {
     const companionA = companions.find((companion) => companion.id === a.id)
     const companionB = companions.find((companion) => companion.id === b.id)
     if (!companionA || !companionB) return 0
     return rarityOrder.indexOf(companionA.rarity) - rarityOrder.indexOf(companionB.rarity)
   }
 
-
-
-  const addToList = (companion: ISelectedCompanion) => {
+  const addToList = (companion: Game.Collection.Companion) => {
     if (equippedCompanions.some((obj) => obj.id === companion.id)) return
     const equippedCompanionList = [...equippedCompanions]
     const indexOfEmpty = equippedCompanionList.findIndex((obj) => !obj.id)
@@ -135,7 +131,7 @@ export const CompanionCollection = () => {
     dispatch(setCompanionsList(equippedCompanionList));
   }
 
-  const removeFromList = (companion: ISelectedCompanion) => {
+  const removeFromList = (companion: Game.Collection.Companion) => {
     const equippedCompanionList = [...equippedCompanions]
     const index = equippedCompanionList.findIndex((obj) => obj.id === companion.id)
     if (index === -1) return

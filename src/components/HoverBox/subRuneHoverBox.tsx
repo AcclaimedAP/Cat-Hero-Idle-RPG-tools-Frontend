@@ -1,17 +1,17 @@
 import { forwardRef, useImperativeHandle, Ref, useState } from "react";
-import { ISubRune } from "src/types/IRune";
 import { HoverContainer } from "./HoverContainer";
 import { Ribbon } from "./HoverRibbon";
 import { RuneIcon } from "../RuneIcon/RuneIcon";
 import { getDeviceType } from "src/utility/device/getDevice";
 import { IHoverBox } from "src/types/IHoverBox";
+import Game from "types/game";
 
 /**
  * Hover box for the sub rune
  * @param {ISubRune} rune - The sub rune object
  */
 
-export const HoverBox = forwardRef(({ rune }: { rune: ISubRune }, ref: Ref<IHoverBox>) => {
+export const HoverBox = forwardRef(({ rune }: { rune: Game.Rune.SubRune }, ref: Ref<IHoverBox>) => {
   const [isVisible, setIsVisible] = useState(false);
   let hoverTimeout: any;
   const delayTimer = getDeviceType() === 'desktop' ? 0 : 0;

@@ -1,17 +1,16 @@
-import { ISelectedSubRune } from "types/ICollection";
 import { RuneIcon } from "components/RuneIcon/RuneIcon";
 import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setSubRuneList } from 'src/config/redux/slices/equipmentDisplaySlice'
 import { getData } from "src/utility/data/getData";
-import { ISubRune } from "src/types/IRune";
 import { HoverBox } from "src/components/HoverBox/subRuneHoverBox";
 import { IHoverBox } from "src/types/IHoverBox";
 import React from "react";
 import { getDeviceType } from "src/utility/device/getDevice";
+import Game from "types/game";
 
-const RuneBox = ({ rune }: { rune: ISelectedSubRune }) => {
-  const runes: ISubRune[] = getData('subRunes');
+const RuneBox = ({ rune }: { rune: Game.Collection.SubRune }) => {
+  const runes: Game.Rune.SubRune[] = getData('subRunes');
   const ref = React.createRef<IHoverBox>();
 
   const dispatch = useDispatch();

@@ -1,21 +1,19 @@
-import { ISelectedSkill } from "types/ICollection";
 import { SkillIcon } from "src/components/SkillIcon/SkillIcon";
 import { useEffect, useState } from "react";
 import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setSkillList } from 'src/config/redux/slices/equipmentDisplaySlice'
 import { getData } from "src/utility/data/getData";
-import { ISkill } from "src/types/ISkill";
 import { FilterQuery } from "../../FilterQuery/FilterQuery";
 import { HoverBox } from "src/components/HoverBox/SkillHoverBox";
 import { IHoverBox } from "src/types/IHoverBox";
 import React from "react";
 import { getDeviceType } from "src/utility/device/getDevice";
-import { ISkillBoxProps } from "types/ICollection";
+import Game from "types/game";
 
-const SkillBox = ({ skill, add, remove, isEquipped, filterString }: ISkillBoxProps) => {
+const SkillBox = ({ skill, add, remove, isEquipped, filterString }: Game.Collection.Props.Skill) => {
   if (!skill.id) return null
-  const skills: ISkill[] = getData('skills');
+  const skills: Game.Skill[] = getData('skills');
   const [selected, setSelected] = useState(isEquipped);
   const ref = React.createRef<IHoverBox>();
   const handleSelect = () => {
@@ -38,7 +36,7 @@ const SkillBox = ({ skill, add, remove, isEquipped, filterString }: ISkillBoxPro
   const skillData = getSkill(skill.id)
   if (!skillData) return null
 
-  const filterItem = (skill: ISkill) => {
+  const filterItem = (skill: Game.Skill) => {
     const filterWords = filterString.split(' ')
     const types = skill.types.join(' ')
     const nameAndTypes = skill.name + ' ' + types + skill.rarity
@@ -99,20 +97,20 @@ export const SkillCollection = () => {
   const skillsList = useSelector((state: RootState) => state.collectionDisplay.skillList)
   const equippedSkills = useSelector((state: RootState) => state.equipmentDisplay.skillList)
   const [filter, setFilter] = useState('')
-  const sortById = (a: ISelectedSkill, b: ISelectedSkill) => {
+  const sortById = (a: Game.Collection.Skill, b: Game.Collection.Skill) => {
     if (!a.id || !b.id) return 0
     return a.id - b.id
   }
-  const skills: ISkill[] = getData('skills');
-  const rarityOrder = ['common', 'uncommon', 'rare', 'epic', 'legendary', 'mythic']
-  const sortByRarity = (a: ISelectedSkill, b: ISelectedSkill) => {
+  const skills: Game.Skill[] = getData('skills');
+  const rarityOrder = ['common', 'uncommon', 'rare', 'epic', 'legendary', 'mythic', 'supreme']
+  const sortByRarity = (a: Game.Collection.Skill, b: Game.Collection.Skill) => {
     const skillA = skills.find((skill) => skill.id === a.id)
     const skillB = skills.find((skill) => skill.id === b.id)
     if (!skillA || !skillB) return 0
     return rarityOrder.indexOf(skillA.rarity) - rarityOrder.indexOf(skillB.rarity)
   }
 
-  const addToList = (skill: ISelectedSkill) => {
+  const addToList = (skill: Game.Collection.Skill) => {
     if (equippedSkills.some((obj) => obj.id === skill.id)) return
     const equippedSkillList = [...equippedSkills]
     const indexOfEmpty = equippedSkillList.findIndex((obj) => !obj.id)
@@ -125,7 +123,7 @@ export const SkillCollection = () => {
     dispatch(setSkillList(equippedSkillList));
   }
 
-  const removeFromList = (skill: ISelectedSkill) => {
+  const removeFromList = (skill: Game.Collection.Skill) => {
     const equippedSkillList = [...equippedSkills]
     const index = equippedSkillList.findIndex((obj) => obj.id === skill.id)
     if (index === -1) return

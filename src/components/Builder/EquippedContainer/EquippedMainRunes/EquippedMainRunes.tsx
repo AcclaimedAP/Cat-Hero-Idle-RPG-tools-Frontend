@@ -1,17 +1,16 @@
-import { ISelectedMainRune } from "types/ICollection";
+import Game from "types/game";
 import { RuneIcon } from "components/RuneIcon/RuneIcon";
 import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setMainRuneList } from 'src/config/redux/slices/equipmentDisplaySlice'
 import { getData } from "src/utility/data/getData";
-import { IMainRune } from "src/types/IRune";
 import { HoverBox } from "src/components/HoverBox/mainRuneHoverBox";
 import { IHoverBox } from "src/types/IHoverBox";
 import React from "react";
 import { getDeviceType } from "src/utility/device/getDevice";
 
-const RuneBox = ({ rune }: { rune: ISelectedMainRune }) => {
-  const runes: IMainRune[] = getData('mainRunes');
+const RuneBox = ({ rune }: { rune: Game.Collection.MainRune }) => {
+  const runes: Game.Rune.MainRune[] = getData('mainRunes');
   const ref = React.createRef<IHoverBox>();
   const dispatch = useDispatch();
   const equippedRunes = useSelector((state: RootState) => state.equipmentDisplay.mainRuneList)

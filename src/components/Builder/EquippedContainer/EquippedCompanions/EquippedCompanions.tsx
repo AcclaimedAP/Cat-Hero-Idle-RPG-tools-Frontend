@@ -1,10 +1,9 @@
-import { ISelectedCompanion } from "types/ICollection";
+import Game from "types/game";
 import { CompanionIcon } from "components/CompanionIcon/CompanionIcon";
 import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setCompanionsList } from "src/config/redux/slices/equipmentDisplaySlice";
 import { getData } from "src/utility/data/getData";
-import { ICompanion } from "src/types/ICompanion";
 import { HoverBox } from "src/components/HoverBox/CompanionHoverBox";
 import React from "react";
 import { IHoverBox } from "src/types/IHoverBox";
@@ -12,8 +11,8 @@ import { getDeviceType } from "src/utility/device/getDevice";
 
 
 
-const CompanionBox = ({ companion }: { companion: ISelectedCompanion }) => {
-  const companions: ICompanion[] = getData('companions');
+const CompanionBox = ({ companion }: { companion: Game.Collection.Companion }) => {
+  const companions: Game.Companion[] = getData('companions');
   const dispatch = useDispatch();
   const equippedCompanions = useSelector((state: RootState) => state.equipmentDisplay.companionsList)
   const ref = React.createRef<IHoverBox>();

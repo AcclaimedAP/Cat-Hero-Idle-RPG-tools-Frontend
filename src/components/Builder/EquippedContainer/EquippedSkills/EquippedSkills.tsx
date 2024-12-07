@@ -1,17 +1,16 @@
 import { SkillIcon } from "src/components/SkillIcon/SkillIcon";
-import { ISelectedSkill } from "types/ICollection";
 import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setSkillList } from 'src/config/redux/slices/equipmentDisplaySlice'
 import { getData } from "src/utility/data/getData";
-import { ISkill } from "src/types/ISkill";
 import { HoverBox } from "src/components/HoverBox/SkillHoverBox";
 import { IHoverBox } from "src/types/IHoverBox";
 import React from "react";
 import { getDeviceType } from "src/utility/device/getDevice";
+import Game from "types/game";
 
-const SkillBox = ({ skill }: { skill: ISelectedSkill }) => {
-  const skills: ISkill[] = getData('skills');
+const SkillBox = ({ skill }: { skill: Game.Collection.Skill }) => {
+  const skills: Game.Skill[] = getData('skills');
   const ref = React.createRef<IHoverBox>();
 
   const dispatch = useDispatch();
@@ -49,8 +48,8 @@ const SkillBox = ({ skill }: { skill: ISelectedSkill }) => {
         <div className="relative">
           <HoverBox skill={skillData} ref={ref} />
         </div>
-      <div onClick={removeSkillFromList} className="scale-[.8] w-8 h-8 sm:w-12 sm:h-12 sm:scale-100 -translate-x-[0.4rem] -translate-y-[0.4rem] sm:-translate-x-0 sm:-translate-y-0 relative min-h-8 sm:min-h-14">
-        <div className="absolute">
+        <div onClick={removeSkillFromList} className="scale-[.8] w-8 h-8 sm:w-12 sm:h-12 sm:scale-100 -translate-x-[0.4rem] -translate-y-[0.4rem] sm:-translate-x-0 sm:-translate-y-0 relative min-h-8 sm:min-h-14">
+          <div className="absolute">
             <SkillIcon skill={skillData} level={skill.level} />
           </div>
         </div>

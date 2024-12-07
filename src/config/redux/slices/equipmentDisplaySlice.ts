@@ -1,15 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { IEquipment } from 'src/types/ICollection';
+import Game from 'src/types/game';
 
 /**
  * The initial state of the equipment display
  * @const initialState
- * @type {IEquipment}
+ * @type {Game.Collection.Equipment}
  * @description The initial state of the equipment display
  *
  */
-const initialState: IEquipment = {
+const initialState: Game.Collection.Equipment = {
 	companionsList: [{}, {}, {}, {}, {}, {}],
 	skillList: [{}, {}, {}, {}, {}, {}],
 	mainRuneList: [{}, {}, {}, {}],
@@ -21,7 +21,7 @@ const initialState: IEquipment = {
 /**
  * The equipment display slice for redux
  * @const equipmentInitialState
- * @type {IEquipment}
+ * @type {Game.Collection.Equipment}
  * @description The equipment initial state, which is exported to be used in the project as a reference for the initial state.
  *
  */
@@ -54,7 +54,7 @@ export const equipmentDisplaySlice = createSlice({
 	name: 'equipmentDisplay',
 	initialState,
 	reducers: {
-		setEquipment: (state, action: PayloadAction<IEquipment>) => {
+		setEquipment: (state, action: PayloadAction<Game.Collection.Equipment>) => {
 			state.companionsList = action.payload.companionsList;
 			state.skillList = action.payload.skillList;
 			state.mainRuneList = action.payload.mainRuneList;
@@ -62,16 +62,16 @@ export const equipmentDisplaySlice = createSlice({
 			state.mpResearchLevel = action.payload.mpResearchLevel;
 			state.additionalMp = action.payload.additionalMp;
 		},
-		setCompanionsList: (state, action: PayloadAction<IEquipment['companionsList']>) => {
+		setCompanionsList: (state, action: PayloadAction<Game.Collection.Equipment['companionsList']>) => {
 			state.companionsList = action.payload;
 		},
-		setSkillList: (state, action: PayloadAction<IEquipment['skillList']>) => {
+		setSkillList: (state, action: PayloadAction<Game.Collection.Equipment['skillList']>) => {
 			state.skillList = action.payload;
 		},
-		setMainRuneList: (state, action: PayloadAction<IEquipment['mainRuneList']>) => {
+		setMainRuneList: (state, action: PayloadAction<Game.Collection.Equipment['mainRuneList']>) => {
 			state.mainRuneList = action.payload;
 		},
-		setSubRuneList: (state, action: PayloadAction<IEquipment['subRuneList']>) => {
+		setSubRuneList: (state, action: PayloadAction<Game.Collection.Equipment['subRuneList']>) => {
 			state.subRuneList = action.payload;
 		},
 		setMpResearchLevel: (state, action: PayloadAction<number>) => {
