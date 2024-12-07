@@ -1,17 +1,17 @@
 import { forwardRef, useImperativeHandle, Ref, useState } from "react";
-import { ICompanion } from "src/types/ICompanion";
 import { HoverContainer } from "./HoverContainer";
 import { CompanionIcon } from "../CompanionIcon/CompanionIcon";
 import { Ribbon } from "./HoverRibbon";
 import { TypesList } from "./HoverTypes";
 import { getDeviceType } from "src/utility/device/getDevice";
 import { IHoverBox } from "src/types/IHoverBox";
+import Game from "types/game";
 /**
  * Hover box for the companion
  * @param {ICompanion} companion - The companion object
  */
 
-export const HoverBox = forwardRef(({ companion }: { companion: ICompanion }, ref: Ref<IHoverBox>) => {
+export const HoverBox = forwardRef(({ companion }: { companion: Game.Companion }, ref: Ref<IHoverBox>) => {
   const [isVisible, setIsVisible] = useState(false);
   let hoverTimeout: any;
   const delayTimer = getDeviceType() === 'desktop' ? 0 : 0;

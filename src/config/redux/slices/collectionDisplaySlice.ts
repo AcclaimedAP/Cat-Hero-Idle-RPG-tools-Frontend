@@ -1,15 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { ICollection } from 'src/types/ICollection';
+import Game from 'src/types/game';
 
 /**
  * The initial state of the collection display
  * @const initialState
- * @type {ICollection}
+ * @type {Game.Collection.Full}
  * @description The initial state of the collection display
  * 
  */
-const initialState: ICollection = {
+const initialState: Game.Collection.Full = {
 	companionsList: [],
 	skillList: [],
 	mainRuneList: [],
@@ -19,7 +19,7 @@ const initialState: ICollection = {
 /**
  * The collection display slice for redux
  * @const collectionInitialState
- * @type {ICollection}
+ * @type {Game.Collection.Full}
  * @description The collection initial state, which is exported to be used in the project as a reference for the initial state.
  * 
  */
@@ -50,22 +50,22 @@ export const collectionDisplaySlice = createSlice({
 	name: 'collectionDisplay',
 	initialState,
 	reducers: {
-		setCollection: (state, action: PayloadAction<ICollection>) => {
+		setCollection: (state, action: PayloadAction<Game.Collection.Full>) => {
 			state.companionsList = action.payload.companionsList;
 			state.skillList = action.payload.skillList;
 			state.mainRuneList = action.payload.mainRuneList;
 			state.subRuneList = action.payload.subRuneList;
 		},
-		setCompanionsList: (state, action: PayloadAction<ICollection['companionsList']>) => {
+		setCompanionsList: (state, action: PayloadAction<Game.Collection.Full['companionsList']>) => {
 			state.companionsList = action.payload;
 		},
-		setSkillList: (state, action: PayloadAction<ICollection['skillList']>) => {
+		setSkillList: (state, action: PayloadAction<Game.Collection.Full['skillList']>) => {
 			state.skillList = action.payload;
 		},
-		setMainRuneList: (state, action: PayloadAction<ICollection['mainRuneList']>) => {
+		setMainRuneList: (state, action: PayloadAction<Game.Collection.Full['mainRuneList']>) => {
 			state.mainRuneList = action.payload;
 		},
-		setSubRuneList: (state, action: PayloadAction<ICollection['subRuneList']>) => {
+		setSubRuneList: (state, action: PayloadAction<Game.Collection.Full['subRuneList']>) => {
 			state.subRuneList = action.payload;
     },
     resetCollection: (state) => {

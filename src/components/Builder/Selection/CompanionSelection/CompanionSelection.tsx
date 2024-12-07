@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { CompanionIcon } from "src/components/CompanionIcon/CompanionIcon"
-import { ICompanion } from "src/types/ICompanion"
 import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setCompanionsList } from 'src/config/redux/slices/collectionDisplaySlice'
@@ -11,8 +10,9 @@ import { HoverBox } from "src/components/HoverBox/CompanionHoverBox";
 import React from "react";
 import { IHoverBox } from "src/types/IHoverBox";
 import { getDeviceType } from "src/utility/device/getDevice"
+import Game from "types/game";
 
-const CompanionBox = ({ companion, filterString }: { companion: ICompanion, filterString: string }) => {
+const CompanionBox = ({ companion, filterString }: { companion: Game.Companion, filterString: string }) => {
   const dispatch = useDispatch();
   const selectedCompanions = useSelector((state: RootState) => state.collectionDisplay.companionsList)
   const equippedCompanions = useSelector((state: RootState) => state.equipmentDisplay.companionsList)
@@ -64,7 +64,7 @@ const CompanionBox = ({ companion, filterString }: { companion: ICompanion, filt
   }, [isSelected, companionFromList])
 
 
-  const filterItem = (companion: ICompanion) => {
+  const filterItem = (companion: Game.Companion) => {
     const filterWords = filterString.split(' ')
     const types = companion.types.join(' ')
     const nameAndTypes = companion.name + ' ' + types + companion.rarity
@@ -130,8 +130,8 @@ const CompanionBox = ({ companion, filterString }: { companion: ICompanion, filt
 export const CompanionSelection = () => {
   const companions: any[] = getData("companions");
   const [filter, setFilter] = useState('')
-  const rarityOrder = ['common', 'uncommon', 'rare', 'epic', 'legendary', 'mythic']
-  const sortByRarity = (a: ICompanion, b: ICompanion) => {
+  const rarityOrder = ['common', 'uncommon', 'rare', 'epic', 'legendary', 'mythic', 'supreme']
+  const sortByRarity = (a: Game.Companion, b: Game.Companion) => {
     return rarityOrder.indexOf(a.rarity) - rarityOrder.indexOf(b.rarity)
   }
 

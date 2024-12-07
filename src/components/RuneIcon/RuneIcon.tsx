@@ -1,4 +1,4 @@
-import { ISubRune, IMainRune } from "types/IRune";
+import Game from "types/game";
 
 /**
  * Renders a rune icon component.
@@ -7,7 +7,7 @@ import { ISubRune, IMainRune } from "types/IRune";
  * @param label - Not used currently.
  * @returns The rendered RuneIcon component.
  */
-export const RuneIcon = ({ type = "main", rune, label = true }: { type?: string, rune: ISubRune | IMainRune | undefined, label?: boolean }) => {
+export const RuneIcon = ({ type = "main", rune, label = true }: { type?: string, rune: Game.Rune.SubRune | Game.Rune.MainRune | undefined, label?: boolean }) => {
   if (!rune) return null;
 
   const runename = rune.slug.replaceAll('-', '_');

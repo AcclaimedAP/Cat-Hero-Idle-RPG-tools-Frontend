@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { RuneIcon } from "src/components/RuneIcon/RuneIcon"
-import { IMainRune } from "src/types/IRune"
 import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setMainRuneList } from 'src/config/redux/slices/collectionDisplaySlice'
@@ -11,8 +10,9 @@ import { HoverBox } from "src/components/HoverBox/mainRuneHoverBox";
 import { IHoverBox } from "src/types/IHoverBox";
 import React from "react";
 import { getDeviceType } from "src/utility/device/getDevice"
+import Game from "types/game";
 
-const RuneBox = ({ rune, filterString }: { rune: IMainRune, filterString: string }) => {
+const RuneBox = ({ rune, filterString }: { rune: Game.Rune.MainRune, filterString: string }) => {
   const dispatch = useDispatch();
   const selectedRunes = useSelector((state: RootState) => state.collectionDisplay.mainRuneList)
   const equippedRunes = useSelector((state: RootState) => state.equipmentDisplay.mainRuneList)
@@ -41,7 +41,7 @@ const RuneBox = ({ rune, filterString }: { rune: IMainRune, filterString: string
     setSelected(isSelected)
   }, [isSelected])
 
-  const filterItem = (rune: IMainRune) => {
+  const filterItem = (rune: Game.Rune.MainRune) => {
     const filterWords = filterString.split(' ')
     const nameAndTypes = rune.name + ' ' + rune.type + rune.rarity
 
@@ -101,10 +101,10 @@ const RuneBox = ({ rune, filterString }: { rune: IMainRune, filterString: string
 
 
 export const MainRuneSelection = () => {
-  const runes: IMainRune[] = getData('mainRunes');
+  const runes: Game.Rune.MainRune[] = getData('mainRunes');
   const [filter, setFilter] = useState('')
-  const rarityOrder = ['common', 'uncommon', 'rare', 'epic', 'legendary', 'mythic']
-  const sortByRarity = (a: IMainRune, b: IMainRune) => {
+  const rarityOrder = ['common', 'uncommon', 'rare', 'epic', 'legendary', 'mythic', 'supreme']
+  const sortByRarity = (a: Game.Rune.MainRune, b: Game.Rune.MainRune) => {
     return rarityOrder.indexOf(a.rarity) - rarityOrder.indexOf(b.rarity)
   }
   const runeBoxes = runes.toSorted(sortByRarity).map((rune) => {

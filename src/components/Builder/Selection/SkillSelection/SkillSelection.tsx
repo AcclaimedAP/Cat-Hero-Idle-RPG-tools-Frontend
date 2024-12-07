@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { SkillIcon } from "src/components/SkillIcon/SkillIcon"
-import { ISkill } from "src/types/ISkill"
 import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setSkillList } from 'src/config/redux/slices/collectionDisplaySlice'
@@ -11,8 +10,9 @@ import { HoverBox } from "src/components/HoverBox/SkillHoverBox";
 import { IHoverBox } from "src/types/IHoverBox";
 import React from "react";
 import { getDeviceType } from "src/utility/device/getDevice"
+import Game from "types/game";
 
-const SkillBox = ({ skill, filterString }: { skill: ISkill, filterString: string }) => {
+const SkillBox = ({ skill, filterString }: { skill: Game.Skill, filterString: string }) => {
   const dispatch = useDispatch();
   const selectedSkills = useSelector((state: RootState) => state.collectionDisplay.skillList)
   const equippedSkills = useSelector((state: RootState) => state.equipmentDisplay.skillList)
@@ -60,7 +60,7 @@ const SkillBox = ({ skill, filterString }: { skill: ISkill, filterString: string
   }, [isSelected, skillFromList])
 
 
-  const filterItem = (skill: ISkill) => {
+  const filterItem = (skill: Game.Skill) => {
     const filterWords = filterString.split(' ')
     const types = skill.types.join(' ')
     const nameAndTypes = skill.name + ' ' + types + skill.rarity
@@ -126,10 +126,10 @@ const SkillBox = ({ skill, filterString }: { skill: ISkill, filterString: string
 
 
 export const SkillSelection = () => {
-  const skills: ISkill[] = getData("skills");
+  const skills: Game.Skill[] = getData("skills");
   const [filter, setFilter] = useState('')
-  const rarityOrder = ['common', 'uncommon', 'rare', 'epic', 'legendary', 'mythic']
-  const sortByRarity = (a: ISkill, b: ISkill) => {
+  const rarityOrder = ['common', 'uncommon', 'rare', 'epic', 'legendary', 'mythic', 'supreme']
+  const sortByRarity = (a: Game.Skill, b: Game.Skill) => {
     return rarityOrder.indexOf(a.rarity) - rarityOrder.indexOf(b.rarity)
   }
   const skillBoxes = skills.toSorted(sortByRarity).map((skill) => {

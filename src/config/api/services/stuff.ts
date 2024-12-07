@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { api } from '../api';
-import { IEquipment } from 'src/types/ICollection';
+import Game from 'src/types/game';
 
 /**
  * Get stuff
@@ -54,7 +54,7 @@ export const getStuffByType = async (type: string, id: number) => {
  * 
  */
 
-export const getStuffMp = async (equipment: IEquipment) => {
+export const getStuffMp = async (equipment: Game.Collection.Equipment) => {
 	const url = api().stuff().mp();
 
 	try {

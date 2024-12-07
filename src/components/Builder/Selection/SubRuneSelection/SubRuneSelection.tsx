@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { RuneIcon } from "src/components/RuneIcon/RuneIcon"
-import { ISubRune } from "src/types/IRune"
 import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setSubRuneList } from 'src/config/redux/slices/collectionDisplaySlice'
@@ -11,8 +10,9 @@ import { HoverBox } from "src/components/HoverBox/subRuneHoverBox";
 import { IHoverBox } from "src/types/IHoverBox";
 import React from "react";
 import { getDeviceType } from "src/utility/device/getDevice"
+import Game from "types/game";
 
-const RuneBox = ({ rune, filterString }: { rune: ISubRune, filterString: string }) => {
+const RuneBox = ({ rune, filterString }: { rune: Game.Rune.SubRune, filterString: string }) => {
   const dispatch = useDispatch();
   const selectedRunes = useSelector((state: RootState) => state.collectionDisplay.subRuneList)
   const equippedRunes = useSelector((state: RootState) => state.equipmentDisplay.subRuneList)
@@ -42,7 +42,7 @@ const RuneBox = ({ rune, filterString }: { rune: ISubRune, filterString: string 
   }, [isSelected])
 
 
-  const filterItem = (rune: ISubRune) => {
+  const filterItem = (rune: Game.Rune.SubRune) => {
     const filterWords = filterString.split(' ')
     const nameAndTypes = rune.name + ' ' + rune.type + rune.rarity
 
@@ -102,10 +102,10 @@ const RuneBox = ({ rune, filterString }: { rune: ISubRune, filterString: string 
 
 
 export const SubRuneSelection = () => {
-  const runes: ISubRune[] = getData('subRunes')
+  const runes: Game.Rune.SubRune[] = getData('subRunes')
   const [filter, setFilter] = useState('')
-  const rarityOrder = ['common', 'uncommon', 'rare', 'epic', 'legendary', 'mythic']
-  const sortByRarity = (a: ISubRune, b: ISubRune) => {
+  const rarityOrder = ['common', 'uncommon', 'rare', 'epic', 'legendary', 'mythic', 'supreme']
+  const sortByRarity = (a: Game.Rune.SubRune, b: Game.Rune.SubRune) => {
     return rarityOrder.indexOf(a.rarity) - rarityOrder.indexOf(b.rarity)
   }
   const runeBoxes = runes.toSorted(sortByRarity).map((rune) => {

@@ -1,20 +1,18 @@
-import { ISelectedSubRune } from "types/ICollection";
+import Game from "types/game";
 import { RuneIcon } from "components/RuneIcon/RuneIcon";
 import { useEffect, useState } from "react";
 import type { RootState } from 'src/config/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setSubRuneList } from 'src/config/redux/slices/equipmentDisplaySlice'
 import { getData } from "src/utility/data/getData";
-import { ISubRune } from "src/types/IRune";
 import { FilterQuery } from "../../FilterQuery/FilterQuery";
 import { HoverBox } from "src/components/HoverBox/subRuneHoverBox";
 import { IHoverBox } from "src/types/IHoverBox";
 import React from "react";
 import { getDeviceType } from "src/utility/device/getDevice";
-import { ISubRuneBoxProps } from "types/ICollection";
 
-const SubRuneBox = ({ rune, add, remove, isEquipped, filterString }: ISubRuneBoxProps) => {
-  const runes: ISubRune[] = getData('subRunes');
+const SubRuneBox = ({ rune, add, remove, isEquipped, filterString }: Game.Collection.Props.SubRune) => {
+  const runes: Game.Rune.SubRune[] = getData('subRunes');
   const ref = React.createRef<IHoverBox>();
   const [selected, setSelected] = useState(isEquipped)
   const handleSelect = () => {
@@ -37,7 +35,7 @@ const SubRuneBox = ({ rune, add, remove, isEquipped, filterString }: ISubRuneBox
 
   const runeData = getRune(rune.id)
   if (!runeData) return null
-  const filterItem = (rune: ISubRune) => {
+  const filterItem = (rune: Game.Rune.SubRune) => {
     const filterWords = filterString.split(' ')
     const nameAndTypes = rune.name + ' ' + rune.type + rune.rarity
     for (let i = 0; i < filterWords.length; i++) {
@@ -103,20 +101,20 @@ export const SubRuneCollection = () => {
   const runesList = useSelector((state: RootState) => state.collectionDisplay.subRuneList)
   const equippedRunes = useSelector((state: RootState) => state.equipmentDisplay.subRuneList)
   const [filter, setFilter] = useState('')
-  const sortById = (a: ISelectedSubRune, b: ISelectedSubRune) => {
+  const sortById = (a: Game.Collection.SubRune, b: Game.Collection.SubRune) => {
     if (!a.id || !b.id) return 0
     return a.id - b.id
   }
 
-  const runes: ISubRune[] = getData('subRunes');
-  const rarityOrder = ['common', 'uncommon', 'rare', 'epic', 'legendary', 'mythic']
-  const sortByRarity = (a: ISelectedSubRune, b: ISelectedSubRune) => {
+  const runes: Game.Rune.SubRune[] = getData('subRunes');
+  const rarityOrder = ['common', 'uncommon', 'rare', 'epic', 'legendary', 'mythic', 'supreme']
+  const sortByRarity = (a: Game.Collection.SubRune, b: Game.Collection.SubRune) => {
     const runeA = runes.find((rune) => rune.id === a.id)
     const runeB = runes.find((rune) => rune.id === b.id)
     if (!runeA || !runeB) return 0
     return rarityOrder.indexOf(runeA.rarity) - rarityOrder.indexOf(runeB.rarity)
   }
-  const addToList = (rune: ISelectedSubRune) => {
+  const addToList = (rune: Game.Collection.SubRune) => {
     if (equippedRunes.some((obj) => obj.id === rune.id)) return
     const equippedRuneList = [...equippedRunes]
     const indexOfEmpty = equippedRuneList.findIndex((obj) => !obj.id)
@@ -128,7 +126,7 @@ export const SubRuneCollection = () => {
     }
     dispatch(setSubRuneList(equippedRuneList));
   }
-  const removeFromList = (rune: ISelectedSubRune) => {
+  const removeFromList = (rune: Game.Collection.SubRune) => {
     const equippedRuneList = [...equippedRunes]
     const index = equippedRuneList.findIndex((obj) => obj.id === rune.id)
     if (index === -1) return

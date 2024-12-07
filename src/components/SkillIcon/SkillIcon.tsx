@@ -1,5 +1,4 @@
-import { ISkill } from 'types/ISkill';
-
+import Game from "types/game";
 /**
  * Renders a skill icon with an optional label and level.
  * @param skill - The skill object containing information about the skill.
@@ -8,7 +7,7 @@ import { ISkill } from 'types/ISkill';
  * @returns The rendered SkillIcon component.
  */
 
-export const SkillIcon = ({ skill, label = true, level = 1 }: { skill: ISkill | undefined, label?: boolean, level?: number }): JSX.Element | null => {
+export const SkillIcon = ({ skill, label = true, level = 1 }: { skill: Game.Skill | undefined, label?: boolean, level?: number }): JSX.Element | null => {
   if (!skill) return null;
   const background = `game-assets/skills/${skill.rarity}/background.png`.toLowerCase();
   const skillname = skill.slug.replaceAll('-', '_')

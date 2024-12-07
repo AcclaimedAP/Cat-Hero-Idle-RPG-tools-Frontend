@@ -1,17 +1,17 @@
 import { forwardRef, useImperativeHandle, Ref, useState } from "react";
-import { ISkill } from "src/types/ISkill";
 import { HoverContainer } from "./HoverContainer";
 import { Ribbon } from "./HoverRibbon";
 import { TypesList } from "./HoverTypes";
 import { SkillIcon } from "../SkillIcon/SkillIcon";
 import { getDeviceType } from "src/utility/device/getDevice";
 import { IHoverBox } from "src/types/IHoverBox";
+import Game from "types/game";
 /**
  * Hover box for the skill
  * @param {ISkill} skill - The skill object
  */
 
-export const HoverBox = forwardRef(({ skill }: { skill: ISkill }, ref: Ref<IHoverBox>) => {
+export const HoverBox = forwardRef(({ skill }: { skill: Game.Skill }, ref: Ref<IHoverBox>) => {
   const [isVisible, setIsVisible] = useState(false);
   let hoverTimeout: any;
   const delayTimer = getDeviceType() === 'desktop' ? 0 : 0;
