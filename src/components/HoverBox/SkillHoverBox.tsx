@@ -33,11 +33,13 @@ export const HoverBox = forwardRef(({ skill }: { skill: Game.Skill }, ref: Ref<I
   const heightClass = function (height: number) {
     if (height < 140) {
       return "h-40";
-    } else if (height < 210) {
+    } else if (height < 180) {
       return "h-48";
-    } else if (height < 280) {
+    } else if (height < 210) {
       return "h-52";
-    } else if (height < 350) {
+    } else if (height < 250) {
+      return "h-56";
+    } else if (height < 300) {
       return "h-64";
     } else if (height < 380) {
       return "h-72";
@@ -59,15 +61,15 @@ export const HoverBox = forwardRef(({ skill }: { skill: Game.Skill }, ref: Ref<I
   return (
     <HoverContainer type="skill">
       <div className={`hover-box hover-box-skill flex justify-center items-start ${heightClass(heightValue)} w-72`} onMouseOver={() => { clearTimeout(hoverTimeout); setIsVisible(false); }}>
-        <Ribbon width={"large"}>{skill.name}</Ribbon>
-        <div className='flex flex-row justify-between items-start translate-y-12 mt-1 gap-2 w-64'>
+        <Ribbon width={"large"}>{skill.name + " " + heightValue}</Ribbon>
+        <div className='flex flex-row justify-between items-start translate-y-12 mt-1 gap-2 w-64 h-[calc(100%-4rem)]'>
           <div>
             <SkillIcon skill={skill} label={false} />
             <span className="bg-gray-500 p-1 text-[0.6rem] whitespace-nowrap">{skill.cooldown} seconds</span>
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col h-full">
             <TypesList types={skill.types} />
-            <div className="text-[0.6rem] p-2 m-1 mb-2 rounded-md hover-type">
+            <div className="text-[0.6rem] p-2 m-1 mb-2 rounded-md hover-type h-full">
               <span><DescriptionText description={skill.description} /></span>
             </div>
           </div>
