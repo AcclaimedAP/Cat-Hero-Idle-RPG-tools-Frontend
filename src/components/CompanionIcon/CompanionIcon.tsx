@@ -48,7 +48,7 @@ export const CompanionIcon = ({ companion, label = true, level = 1, border = tru
             <div className='relative left-0 top-0 h-6 w-6'>
               <img
                 src="game-assets/companions/shared/mana.png"
-                alt=''
+                alt={`${companion.name} mana icon`}
                 className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
               />
               <span className='absolute left-1/2 top-1/2 text-[0.75rem] -translate-x-1/2 -translate-y-1/2'>{companion.base_mp}</span>
@@ -59,19 +59,19 @@ export const CompanionIcon = ({ companion, label = true, level = 1, border = tru
             <img
               className={`${iconSize()} absolute z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2`}
               src={companionImage}
-              alt=''
+              alt={`${companion.name} icon`}
             />
 
             <img
               className='absolute left-0 top-0 z-1 h-full w-full'
               src={background}
-              alt=''
+              alt={`${companion.name} background`}
             />
           </div>
           <div className='absolute left-0 -bottom-3 z-10 h-4 w-full flex justify-center'>
             {stars && <img
               className='h-4'
-              src={starsImage} alt="" />}
+              src={starsImage} alt={`${companion.name} stars icon`} />}
           </div>
         </div>
       </div>
