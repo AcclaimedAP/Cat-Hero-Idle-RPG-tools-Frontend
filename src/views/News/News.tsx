@@ -76,7 +76,6 @@ export const News = () => {
     }
     setSelectedType('all');
   }, []);
-
   return (
     <div>
       <div className='container-dark'>
@@ -89,7 +88,7 @@ export const News = () => {
             {radioBackground}
           </div>
         </div>
-        {newsData && newsData.data.length > 0 ? <NewsList {...newsData} /> : fetched ? <h1>No news found</h1> : <h1>Loading...</h1>}
+        {newsData && newsData.data?.length > 0 ? <NewsList {...newsData} /> : fetched ? <h1>No news found</h1> : <h1>Loading...</h1>}
       </div>
     </div>
   );
