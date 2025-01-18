@@ -27,7 +27,7 @@ export const HoverContainer = ({ children, type }: { children: ReactNode, type?:
 }
 
 
-export function useIsVisible({ ref }: { ref: React.RefObject<HTMLDivElement> }) {
+export function useIsVisible({ ref }: { ref: React.RefObject<HTMLDivElement | null> }) {
   const [isIntersectingVertical, setIntersectingVertical] = useState(false);
   const [isIntersectingLeft, setIntersectingLeft] = useState(false);
   const [isIntersectingRight, setIntersectingRight] = useState(false);

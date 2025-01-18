@@ -1,4 +1,5 @@
 import Game from "types/game";
+import { JSX } from "react";
 /**
  * Renders a skill icon with an optional label and level.
  * @param skill - The skill object containing information about the skill.
@@ -19,12 +20,12 @@ export const SkillIcon = ({ skill, label = true, level = 1 }: { skill: Game.Skil
         <img
           className='absolute z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-[40%] min-h-[40%] max-w-[60%] max-h-[60%]'
           src={skillImage}
-          alt=''
+          alt={`${skill.name} icon`}
         />
         <img
           className='absolute left-0 top-0 z-1'
           src={background}
-          alt=''
+          alt={`${skill.name} background`}
         />
       </div>
     </>

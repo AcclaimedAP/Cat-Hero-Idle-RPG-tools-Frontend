@@ -1,5 +1,6 @@
 
 import { GettingStarted } from "components/Articles/Articles/General/GettingStarted"
+import { JSX } from "react";
 
 /**
  * @name ITipsTricksArticle

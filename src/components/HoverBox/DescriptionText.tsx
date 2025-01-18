@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { JSX, useMemo } from 'react';
 
 interface StyleMapping {
   [key: string]: string;

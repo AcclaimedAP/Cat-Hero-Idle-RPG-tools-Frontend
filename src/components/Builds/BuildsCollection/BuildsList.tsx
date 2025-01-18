@@ -1,4 +1,5 @@
 import { CatBuild } from "components/Builds/Builds/Meta/CatBuild";
+import { JSX } from "react";
 
 /**
  * @name IBuildGuide
