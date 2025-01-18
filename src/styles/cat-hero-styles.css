@@ -158,11 +158,11 @@
   animation: scale-increase 0.25s ease-out;
 }
 
-.hover-box-top {
+.hover-box-top div {
   transform-origin: bottom;
 }
 
-.hover-box-bottom {
+.hover-box-bottom div {
   transform-origin: top;
 }
 
