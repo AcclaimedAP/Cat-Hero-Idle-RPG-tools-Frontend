@@ -38,19 +38,17 @@ export const HoverBox = forwardRef(({ skill }: { skill: Game.Skill }, ref: Ref<I
     } else if (height < 280) {
       return "h-52";
     } else if (height < 350) {
-      return "h-60";
-    } else if (height < 420) {
       return "h-64";
-    } else if (height < 490) {
+    } else if (height < 380) {
       return "h-72";
-    } else if (height < 560) {
+    } else if (height < 440) {
       return "h-80";
-    } else if (height < 630) {
+    } else if (height < 530) {
       return "h-88";
-    } else if (height < 700) {
+    } else if (height < 600) {
       return "h-96";
     } else {
-      return "h-104";
+      return "h-[25rem]";
     }
   }
   if (!isVisible) {
