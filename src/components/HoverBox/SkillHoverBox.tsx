@@ -61,7 +61,7 @@ export const HoverBox = forwardRef(({ skill }: { skill: Game.Skill }, ref: Ref<I
   return (
     <HoverContainer type="skill">
       <div className={`hover-box hover-box-skill flex justify-center items-start ${heightClass(heightValue)} w-72`} onMouseOver={() => { clearTimeout(hoverTimeout); setIsVisible(false); }}>
-        <Ribbon width={"large"}>{skill.name + " " + heightValue}</Ribbon>
+        <Ribbon width={"large"}>{skill.name}</Ribbon>
         <div className='flex flex-row justify-between items-start translate-y-12 mt-1 gap-2 w-64'>
           <div>
             <SkillIcon skill={skill} label={false} />
