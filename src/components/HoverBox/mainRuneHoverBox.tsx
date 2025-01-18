@@ -50,7 +50,7 @@ export const HoverBox = forwardRef(({ rune }: { rune: Game.Rune.MainRune }, ref:
   return (
     <HoverContainer type="main-rune">
       <div className={`hover-box hover-box-main-rune flex justify-center items-start ${heightClass(heightValue)} w-64`} onMouseOver={() => { clearTimeout(hoverTimeout); setIsVisible(false); }}>
-        <Ribbon width={"medium"}>{rune.name + " " + heightValue}</Ribbon>
+        <Ribbon width={"medium"}>{rune.name}</Ribbon>
         <div className='flex flex-row justify-between items-start translate-y-12 mt-1 gap-2 w-56'>
           <div>
             <RuneIcon type="main" rune={rune} label={false} />
