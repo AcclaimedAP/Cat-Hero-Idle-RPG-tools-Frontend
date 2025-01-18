@@ -5,7 +5,7 @@ import { RuneIcon } from "../RuneIcon/RuneIcon";
 import { getDeviceType } from "src/utility/device/getDevice";
 import { IHoverBox } from "src/types/IHoverBox";
 import Game from "types/game";
-
+import { DescriptionText } from "./DescriptionText";
 /**
  * Hover box for the sub rune
  * @param {ISubRune} rune - The sub rune object
@@ -42,7 +42,7 @@ export const HoverBox = forwardRef(({ rune }: { rune: Game.Rune.SubRune }, ref: 
           </div>
           <div className="flex flex-col">
             <div className="text-[0.6rem] p-2 m-1 mb-2 rounded-md hover-type">
-              <span>{rune.description}</span>
+              <span><DescriptionText description={rune.description} /></span>
             </div>
           </div>
         </div>
