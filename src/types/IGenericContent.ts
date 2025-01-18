@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 /**
  * Interface for generic content
  * @interface IGenericContent
@@ -10,7 +12,7 @@
  *
  */
 export interface IGenericContent {
-	category: string;
-	title: string;
-	content: () => JSX.Element;
+  category: string;
+  title: string;
+  content: () => JSX.Element;
 }

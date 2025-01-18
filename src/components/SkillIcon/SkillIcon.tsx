@@ -1,4 +1,5 @@
 import Game from "types/game";
+import { JSX } from "react";
 /**
  * Renders a skill icon with an optional label and level.
  * @param skill - The skill object containing information about the skill.
