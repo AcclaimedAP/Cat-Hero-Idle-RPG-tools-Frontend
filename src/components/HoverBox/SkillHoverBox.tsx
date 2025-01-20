@@ -29,9 +29,9 @@ export const HoverBox = forwardRef(({ skill }: { skill: Game.Skill }, ref: Ref<I
   }));
   // remove the $[]] and [/] from the description
   const cleanDescription = skill.description ? skill.description.replace(/\$\[([^\]]+)\](.*?)\[\/\]/g, '') : '';
-  const heightValue = cleanDescription.length + ((cleanDescription.split('\n').length - 1) * 30);
+  const heightValue = cleanDescription.length + ((cleanDescription.split('\n').length - 1) * 35);
   const heightClass = function (height: number) {
-    if (height < 140) {
+    if (height < 125) {
       return "h-40";
     } else if (height < 180) {
       return "h-48";
@@ -45,7 +45,7 @@ export const HoverBox = forwardRef(({ skill }: { skill: Game.Skill }, ref: Ref<I
       return "h-72";
     } else if (height < 440) {
       return "h-80";
-    } else if (height < 530) {
+    } else if (height < 515) {
       return "h-88";
     } else if (height < 600) {
       return "h-96";
