@@ -29,7 +29,7 @@ export const HoverBox = forwardRef(({ skill }: { skill: Game.Skill }, ref: Ref<I
   }));
   // remove the $[]] and [/] from the description
   const cleanDescription = skill.description ? skill.description.replace(/\$\[([^\]]+)\](.*?)\[\/\]/g, '') : '';
-  const heightValue = cleanDescription.length + ((cleanDescription.split('\n').length - 1) * 35);
+  const heightValue = cleanDescription.length + ((cleanDescription.split('\n').length - 1) * 30);
   const heightClass = function (height: number) {
     if (height < 125) {
       return "h-40";
@@ -46,7 +46,7 @@ export const HoverBox = forwardRef(({ skill }: { skill: Game.Skill }, ref: Ref<I
     } else if (height < 440) {
       return "h-80";
     } else if (height < 515) {
-      return "h-88";
+      return "h-[22rem]";
     } else if (height < 600) {
       return "h-96";
     } else {
@@ -61,7 +61,7 @@ export const HoverBox = forwardRef(({ skill }: { skill: Game.Skill }, ref: Ref<I
   return (
     <HoverContainer type="skill">
       <div className={`hover-box hover-box-skill flex justify-center items-start ${heightClass(heightValue)} w-72`} onMouseOver={() => { clearTimeout(hoverTimeout); setIsVisible(false); }}>
-        <Ribbon width={"large"}>{skill.name + " " + heightValue}</Ribbon>
+        <Ribbon width={"large"}>{skill.name}</Ribbon>
         <div className='flex flex-row justify-between items-start translate-y-12 mt-1 gap-2 w-64 h-[calc(100%-4rem)]'>
           <div>
             <SkillIcon skill={skill} label={false} />
