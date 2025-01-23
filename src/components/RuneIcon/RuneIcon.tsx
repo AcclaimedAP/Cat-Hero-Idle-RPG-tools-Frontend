@@ -19,6 +19,7 @@ export const RuneIcon = ({ type = "main", rune, label = true }: { type?: string,
         {label && <span className='absolute z-10 text-[0.7rem] left-1/2 bottom-0 -translate-x-1/2 translate-y-1/2'></span>}
         <div className="z-10 relative h-full w-full">
           <img
+            className='text-sm'
             src={runeImage}
             alt={`${rune.name} icon`}
             onError={(e) => {

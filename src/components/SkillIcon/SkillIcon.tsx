@@ -18,17 +18,17 @@ export const SkillIcon = ({ skill, label = true, level = 1 }: { skill: Game.Skil
       <div className='relative w-14 h-14 inline-block'>
         {label && <span className='absolute z-20 text-[0.6rem] left-[4px] top-[2px]'>Lv. {level}</span>}
         <img
-          className='absolute z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-[40%] min-h-[40%] max-w-[60%] max-h-[60%]'
+          className='absolute text-sm z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-[40%] min-h-[40%] max-w-[60%] max-h-[60%]'
           src={skillImage}
           alt={`${skill.name} icon`}
+          onError={(e) => {
+            e.currentTarget.src = 'favicon-32x32.png';
+          }}
         />
         <img
           className='absolute left-0 top-0 z-1'
           src={background}
           alt={`${skill.name} background`}
-          onError={(e) => {
-            e.currentTarget.src = 'favicon-32x32.png';
-          }}
         />
       </div>
     </>
