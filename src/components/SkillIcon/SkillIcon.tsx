@@ -26,6 +26,9 @@ export const SkillIcon = ({ skill, label = true, level = 1 }: { skill: Game.Skil
           className='absolute left-0 top-0 z-1'
           src={background}
           alt={`${skill.name} background`}
+          onError={(e) => {
+            e.currentTarget.src = 'favicon-32x32.png';
+          }}
         />
       </div>
     </>
