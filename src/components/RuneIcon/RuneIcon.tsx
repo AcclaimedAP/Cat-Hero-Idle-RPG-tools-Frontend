@@ -24,6 +24,7 @@ export const RuneIcon = ({ type = "main", rune, label = true }: { type?: string,
             alt={`${rune.name} icon`}
             onError={(e) => {
               e.currentTarget.src = 'favicon-32x32.png';
+              e.currentTarget.className = 'absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2';
             }}
           />
         </div>

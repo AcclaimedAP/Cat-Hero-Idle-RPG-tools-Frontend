@@ -61,7 +61,7 @@ export const CompanionIcon = ({ companion, label = true, level = 1, border = tru
               src={companionImage}
               alt={`${companion.name} icon`}
               onError={(e) => {
-                e.currentTarget.src = 'favicon-32x32.png';
+                e.currentTarget.src = 'apple-touch-icon.png';
               }}
             />
 
