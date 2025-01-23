@@ -60,6 +60,9 @@ export const CompanionIcon = ({ companion, label = true, level = 1, border = tru
               className={`${iconSize()} absolute z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2`}
               src={companionImage}
               alt={`${companion.name} icon`}
+              onError={(e) => {
+                e.currentTarget.src = 'favicon-32x32.png';
+              }}
             />
 
             <img

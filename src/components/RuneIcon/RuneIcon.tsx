@@ -17,7 +17,15 @@ export const RuneIcon = ({ type = "main", rune, label = true }: { type?: string,
     <>
       <div className='relative w-14 h-14 inline-block'>
         {label && <span className='absolute z-10 text-[0.7rem] left-1/2 bottom-0 -translate-x-1/2 translate-y-1/2'></span>}
-        <div className="z-10 relative h-full w-full"><img src={runeImage} alt={`${rune.name} icon`} /></div>
+        <div className="z-10 relative h-full w-full">
+          <img
+            src={runeImage}
+            alt={`${rune.name} icon`}
+            onError={(e) => {
+              e.currentTarget.src = 'favicon-32x32.png';
+            }}
+          />
+        </div>
         <img
           className='absolute left-0 top-0 z-1'
           src={background}
