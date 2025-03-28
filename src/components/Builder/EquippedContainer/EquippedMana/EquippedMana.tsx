@@ -37,9 +37,9 @@ export const EquippedMana = () => {
       clampValue = 0;
       dispatch(setMpResearchLevel(0));
 
-    } else if (value > 17) {
-      clampValue = 15;
-      dispatch(setMpResearchLevel(15));
+    } else if (value > 22) {
+      clampValue = 22;
+      dispatch(setMpResearchLevel(22));
     } else {
       dispatch(setMpResearchLevel(clampValue));
     }
