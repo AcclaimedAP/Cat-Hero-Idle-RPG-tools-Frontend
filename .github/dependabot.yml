@@ -5,6 +5,15 @@ updates:
   schedule:
     interval: weekly
   open-pull-requests-limit: 20
+  groups:
+    tests:
+      patterns:
+        - "vitest*"
+        - "@vitest*"
+    eslint:
+      patterns:
+        - "eslint*"
+        - "@eslint*"
 - package-ecosystem: github-actions
   directory: "/"
   schedule:
