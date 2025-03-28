@@ -18,7 +18,7 @@
 	},
 	"dependencies": {
 		"@reduxjs/toolkit": "^2.5.0",
-		"axios": "^1.7.9",
+		"axios": "^1.8.4",
 		"js-cookie": "^3.0.5",
 		"open-cli": "^8.0.0",
 		"react": "^19.0.0",
