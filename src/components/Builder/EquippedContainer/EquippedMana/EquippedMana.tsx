@@ -15,8 +15,8 @@ export const EquippedMana = () => {
   const shoes = useSelector((state: RootState) => state.equipmentDisplay.additionalMp)
   const [overload, setOverload] = useState(false);
 
-  const handleShoesToggle = (e: any) => {
-    dispatch(setAdditionalMp(e.target.checked ? 2 : 0));
+  const handleShoesChange = (e: any) => {
+    dispatch(setAdditionalMp(e.target.value));
   }
 
   const handleUnFocus = (e: any) => {
@@ -37,7 +37,7 @@ export const EquippedMana = () => {
       clampValue = 0;
       dispatch(setMpResearchLevel(0));
 
-    } else if (value > 15) {
+    } else if (value > 17) {
       clampValue = 15;
       dispatch(setMpResearchLevel(15));
     } else {
@@ -84,7 +84,14 @@ export const EquippedMana = () => {
       <div className="m-1 w-full">
         <div className="flex flex-row justify-between text-sm mb-2">
           <label className="">Mp research level: <input className="w-12 bg-slate-800 text-white px-1" type="number" onBlur={handleUnFocus} onChange={handleMpResearchLevelChange} value={mpResearchLevelInput} /></label>
-          <label htmlFor="shoes-check">Shoes +3:<input onChange={handleShoesToggle} checked={shoes > 0 ? true : false} className="mx-1" type="checkbox" name="shoes-check" /></label>
+          <label htmlFor="shoes-check">Shoes:
+            <select className="w-12 bg-slate-800 text-white px-1" onChange={handleShoesChange} value={shoes}>
+              <option value="0">0</option>
+              <option value="2">+2</option>
+              <option value="4">+4</option>
+              <option value="6">+6</option>
+            </select>
+          </label>
         </div>
         <progress className={`mp-bar ${overload ? "mp-bar-overload" : ""}`} max={maxMp} value={mp}></progress>
 
