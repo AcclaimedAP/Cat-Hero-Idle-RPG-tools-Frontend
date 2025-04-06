@@ -16,7 +16,8 @@ export const EquippedMana = () => {
   const [overload, setOverload] = useState(false);
 
   const handleShoesChange = (e: any) => {
-    dispatch(setAdditionalMp(e.target.value));
+    const value = parseInt(e.target.value);
+    dispatch(setAdditionalMp(value));
   }
 
   const handleUnFocus = (e: any) => {
