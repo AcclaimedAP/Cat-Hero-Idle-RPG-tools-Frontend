@@ -19,7 +19,7 @@ permissions:
 concurrency:
   group: 'pages'
   cancel-in-progress: true
-    
+
 jobs:
   # Single deploy job since we're just deploying
   deploy:
@@ -41,6 +41,8 @@ jobs:
         run: npm run build
         env:
           VITE_API_URL: https://api.cathero.tools
+          VITE_PUBLIC_POSTHOG_KEY: phc_JeQx2nhPLZPHmTigWQWQquk3c9v00Qljo38nIBFGy1q
+          VITE_PUBLIC_POSTHOG_HOST: https://eu.i.posthog.com
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
