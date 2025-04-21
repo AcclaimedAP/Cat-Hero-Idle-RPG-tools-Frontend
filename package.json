@@ -19,13 +19,10 @@
 	"dependencies": {
 		"@reduxjs/toolkit": "^2.7.0",
 		"axios": "^1.8.4",
-		"js-cookie": "^3.0.5",
 		"open-cli": "^8.0.0",
 		"posthog-js": "^1.236.3",
 		"react": "^19.1.0",
-		"react-cookie-consent": "^9.0.0",
 		"react-dom": "^19.1.0",
-		"react-ga4": "^2.1.0",
 		"react-markdown": "^10.1.0",
 		"react-redux": "^9.2.0",
 		"react-router-dom": "^7.5.1"
