@@ -17,7 +17,7 @@
 		"open-docs": "open-cli ./docs/index.html"
 	},
 	"dependencies": {
-		"@reduxjs/toolkit": "^2.6.1",
+		"@reduxjs/toolkit": "^2.7.0",
 		"axios": "^1.8.4",
 		"js-cookie": "^3.0.5",
 		"open-cli": "^8.0.0",
