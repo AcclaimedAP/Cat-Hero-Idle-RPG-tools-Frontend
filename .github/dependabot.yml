@@ -6,14 +6,20 @@ updates:
     interval: weekly
   open-pull-requests-limit: 20
   groups:
+    react:
+      patterns:
+        - "react"
+        - "react-dom"
     tests:
       patterns:
         - "vitest*"
         - "@vitest*"
+        - "@testing-library/*"
     eslint:
       patterns:
         - "eslint*"
         - "@eslint*"
+        - "styleint*"
 - package-ecosystem: github-actions
   directory: "/"
   schedule:
