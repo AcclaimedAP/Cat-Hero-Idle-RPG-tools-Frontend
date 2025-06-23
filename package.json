@@ -20,7 +20,7 @@
 		"@reduxjs/toolkit": "^2.8.2",
 		"axios": "^1.10.0",
 		"open-cli": "^8.0.0",
-		"posthog-js": "^1.254.0",
+		"posthog-js": "^1.255.1",
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
 		"react-markdown": "^10.1.0",
