@@ -17,7 +17,7 @@
 		"open-docs": "open-cli ./docs/index.html"
 	},
 	"dependencies": {
-		"@reduxjs/toolkit": "^2.10.1",
+		"@reduxjs/toolkit": "^2.11.0",
 		"axios": "^1.12.2",
 		"open-cli": "^8.0.0",
 		"posthog-js": "^1.285.2",
