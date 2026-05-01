@@ -44,7 +44,7 @@ jobs:
           VITE_PUBLIC_POSTHOG_KEY: phc_JeQx2nhPLZPHmTigWQWQquk3c9v00Qljo38nIBFGy1q
           VITE_PUBLIC_POSTHOG_HOST: https://eu.i.posthog.com
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
